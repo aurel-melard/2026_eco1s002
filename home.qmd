@@ -29,38 +29,38 @@ This website will walk you through the tutorials for the *Topics in Economics* (
 
 ## Class outline
 
--   [Tutorial 1](https://mateomoglia.github.io/2025_eco1s002/tutorial1.html#/title-slide) *(February 12, computer session)*
+-   [Tutorial 1](https://aurel-melard.github.io/2025_eco1s002/tutorial1.html#/title-slide) *(February 12, computer session)*
     -   Presentation of the class objectives
     -   First hands on R
     -   First hands on LaTeX
--   [Tutorial 2](https://mateomoglia.github.io/2025_eco1s002/tutorial2.html) *(February 19)*
+-   [Tutorial 2](https://aurel-melard.github.io/2025_eco1s002/tutorial2.html) *(February 19)*
     -   Baseline Solow model derivations
     -   Solow model extensions
--   [Tutorial 3](https://mateomoglia.github.io/2025_eco1s002/tutorial3.html) *(March 5, computer session)*
+-   [Tutorial 3](https://aurel-melard.github.io/2025_eco1s002/tutorial3.html) *(March 5, computer session)*
     -   Replication of Mankiw et al. (1997)
     -   First hands on the OLS estimator
     -   Estimating the baseline and augmented Solow models
--   [Tutorial 4](https://mateomoglia.github.io/2025_eco1s002/tutorial4.html) *(March 12, computer session)*
+-   [Tutorial 4](https://aurel-melard.github.io/2025_eco1s002/tutorial4.html) *(March 12, computer session)*
     -   OLS bias and Instrumental Variables
     -   Replication of Acemoglu et al. (2010)
     -   Export the results
 -   Tutorial 5 *(March 19)*
     -   Discussion on the group project
     -   Q&A
--   [Tutorial 6](https://mateomoglia.github.io/2025_eco1s002/tutorial6.html) *(March 26, computer session)*
+-   [Tutorial 6](https://aurel-melard.github.io/2025_eco1s002/tutorial6.html) *(March 26, computer session)*
     -   Autonomous replication of an IV paper (handed in)
 -   Tutorial 7 *(April 2, computer session)*
     -   Treatment effect
     -   Solution of Tutorial 6
--   [Tutorial 8](https://mateomoglia.github.io/2025_eco1s002/tutorial8.html) *(April 9)*
+-   [Tutorial 8](https://aurel-melard.github.io/2025_eco1s002/tutorial8.html) *(April 9)*
     -   Refresher on utility maximization program
     -   Intertemporal maximization problem
--   [Tutorial 9](https://mateomoglia.github.io/2025_eco1s002/tutorial9.html) *(April 16, computer session)*
+-   [Tutorial 9](https://aurel-melard.github.io/2025_eco1s002/tutorial9.html) *(April 16, computer session)*
     -   Work-leisure trade-off
     -   Women labour force participation
--   [Tutorial 10](https://mateomoglia.github.io/2025_eco1s002/tutorial10.html) *(April 30, computer session)*
+-   [Tutorial 10](https://aurel-melard.github.io/2025_eco1s002/tutorial10.html) *(April 30, computer session)*
     -   How to write the research project
--   [Tutorial 11](https://mateomoglia.github.io/2025_eco1s002/tutorial11.html) *(April 30, computer session)*
+-   [Tutorial 11](https://aurel-melard.github.io/2025_eco1s002/tutorial11.html) *(April 30, computer session)*
     -   Difference-in-differences estimation
     -   Marriage output matrices
     -   Measures of assortative mating
@@ -74,7 +74,7 @@ This website will walk you through the tutorials for the *Topics in Economics* (
 
 ## About this site and my inspirations
 
-I created this site for teaching purpose. It is of course perfectible and any constructive comment is more than welcome ([write me an email!](mailto:mateo.moglia@gmail.com)). I took inspiration from these sources:
+I created this site for teaching purpose. It is of course perfectible and any constructive comment is more than welcome ([write me an email!](mailto:aurel.melard@ensae.fr)). I took inspiration from these sources:
 
 -   The great [Florian Oswald](https://floswald.github.io) teaching material at Sciences Po. Do not hesitate to check his teaching material (in English)
 

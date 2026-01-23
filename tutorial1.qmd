@@ -13,10 +13,10 @@ visual: true
 toc-title: ""
 toc-location: right
 author:
-  - name: Matéo Moglia
-    email: mateo.moglia@gmail.com
+  - name: Aurel Mélard
+    email: aurel.melard@polytechnique.fr
     affiliations: CREST - Institut Polytechnique de Paris
-    url: https://mateomoglia.github.io
+    url: https://sites.google.com/view/aurel-melard
 date: last-modified
 execute:
   cache: true
