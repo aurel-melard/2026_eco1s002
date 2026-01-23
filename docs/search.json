@@ -1,0 +1,172 @@
+[
+  {
+    "objectID": "tutorial1.html#roadmap",
+    "href": "tutorial1.html#roadmap",
+    "title": "Tutorial 1",
+    "section": "Roadmap",
+    "text": "Roadmap\nFor this first tutorial, we are going to\n\nDownload R and Rstudio\nDiscover the software\nMake our first data visualisation\nLearn how to export them and input them in a .tex file.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#what-is-r-set-up-and-launch",
+    "href": "tutorial1.html#what-is-r-set-up-and-launch",
+    "title": "Tutorial 1",
+    "section": "What is R? Set-up and launch",
+    "text": "What is R? Set-up and launch\nR is a free and open-source software used in many contexts: data cleaning, data visualisation, econometrics, machine and deep learning, among others.\nIt is supported by a lively and active user community. R is an object-based language, meaning that we are going to manipulate objects through a series of commands.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#general-best-practices",
+    "href": "tutorial1.html#general-best-practices",
+    "title": "Tutorial 1",
+    "section": "General best practices",
+    "text": "General best practices\nBefore jumping to coding per se, let me recall you some best practices when performing computer-based tasks.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio",
+    "href": "tutorial1.html#first-step-in-rrstudio",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nSome useful terms\n\nSo far, we talked about script.\nWe are going to manipulate object using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc. Some functions are already in R but some are not. Hence, we need to load them thanks to packages.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-1",
+    "href": "tutorial1.html#first-step-in-rrstudio-1",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nOpen a script\n\nWe are going to create our first script (the extension is .R).\nThis script contains all commands you want to run. R has built-in functions but most useful functions should be called using library().\nThese libraries should be first downloaded then loaded into your project.\nFirst, open RStudio and opens a new script.\nYou should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use # to comment code.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-2",
+    "href": "tutorial1.html#first-step-in-rrstudio-2",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nScript\n\n#-------------------------------------------------------------------------------\n# This script opens a dataset and proceeds\n# to data visualization.\n#\n# Author: Matéo Moglia\n# Date: 12/02/2025\n#-------------------------------------------------------------------------------\n\n# Set your working directory\nsetwd(\"C:/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site\")\npath &lt;- \"/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site\"\n\nHere, I set the working directory using setwd(). Notice that we created our first object, named path using the assignment operator &lt;- (I personally prefer to use = which works exactly the same).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of path? Hint: use the function class()",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-3",
+    "href": "tutorial1.html#first-step-in-rrstudio-3",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nOur first data manipulation\nWe can load a very famous built-in data set, the iris dataset, into an object called data.\n\ndata = iris # Attribute to data the data set iris\nclass(data) # Check its class\n\n[1] \"data.frame\"\n\nhead(data) # Preview the first lines of data\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nNotice that the two objects we created so far can be seen in the Environment pane.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-4",
+    "href": "tutorial1.html#first-step-in-rrstudio-4",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environement panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[,2]. What should you write to print the 10th element of the 3rd column?",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-5",
+    "href": "tutorial1.html#first-step-in-rrstudio-5",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nOur first graph!\nWe can also use a very popular library for dataviz, ggplot2. First, we install it, then we load it, and we are going to be able to use it.\n\ninstall.packages(\"ggplot2\",repos = \"http://cran.us.r-project.org\")\nlibrary(ggplot2)\n\n\n\n\n\n\n\nNote\n\n\nAll packages have to be downloaded and loaded this way. Note that once you’ve downloaded a package on your computer, you do not need to install it but you still need to load it through the library function.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-rrstudio-6",
+    "href": "tutorial1.html#first-step-in-rrstudio-6",
+    "title": "Tutorial 1",
+    "section": "First step in R/Rstudio",
+    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this -short- introduction to R, I introduce a new package, probably the most popular one in R: dplyr. As before, we install then load the library.\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex",
+    "href": "tutorial1.html#first-step-in-latex",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nWhat is LaTeX\nLaTeX is very popular software to produce scientic writings. It is relatively easy to use. From now on, it is mandatory to produce output you would hand using LaTeX. You have three options to use LaTeX:\n\nUse any text editor and compile the file using the console\nUse an IDE, like TexStudio or TexLive\nUse an online IDE like Overleaf\n\n\nThere are plenty of tutorials over the web (or ChatGPT) to know how to use LaTeX, so I am going to be quick.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex-1",
+    "href": "tutorial1.html#first-step-in-latex-1",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nOverleaf\nOpen a blank project in Overleaf. It should look like that:\n\\documentclass{article}\n\n%% PREAMBULE ------------------\n\n\\usepackage{graphicx} % Required for inserting images\n\n%% METADATA -------------------\n\n\\title{Tutorial one}\n\\author{Matéo Moglia}\n\\date{February 2024}\n\n%% DOCUMENT START ------------\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\n\\end{document}",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex-2",
+    "href": "tutorial1.html#first-step-in-latex-2",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nMath mode\nMost interesting is the math mode. You can write in line using $ x = y$ or in an equation environment:\n\\begin{equation}\n  \\mu_k = \\int_0^{+\\infty} x^k f(x) dx = \\int_0^{+\\infty} t^{-\\frac{k}{\\alpha}} \\exp ^{-t} dt\n\\end{equation}\n\n\n\n\n\n\nTip\n\n\nAn environment starts with \\begin{name} and ends with \\end{name}. The environment can be an equation, to center a large chunk of text, a figure, a table, etc.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex-3",
+    "href": "tutorial1.html#first-step-in-latex-3",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nInclude our results (fig)\n\\begin{figure}\n  \\centering # To center the graph\n  \\includegraphics[width=8,height=10]{graph/graph_iris.png}\n  \\caption{Iris Sepals Length and Width}\n\\end{figure}\nWe work within the figure environment, center the graphic, include it with some options and add a caption. The graph should be uploaded in the project first! Here, I stored it in the folder graph.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex-4",
+    "href": "tutorial1.html#first-step-in-latex-4",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nInclude our results (table)\nTo input the table, we can use \\input{}:\n\\input{table/sepal_large.tex}\nNo need to specify the environment as it was directly created by the xtable function earlier on!",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#first-step-in-latex-5",
+    "href": "tutorial1.html#first-step-in-latex-5",
+    "title": "Tutorial 1",
+    "section": "First step in LaTeX",
+    "text": "First step in LaTeX\nCompile the file\n\nLaTeX is not a “What You See Is What You Get” software, like Word or Canvas.\n\n\nYou need to compile the code to obtain the results (usually a .pdf), that you can further download.",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html#quick-exercise",
+    "href": "tutorial1.html#quick-exercise",
+    "title": "Tutorial 1",
+    "section": "Quick exercise",
+    "text": "Quick exercise\n\nOpen a new script, add the relevant information (path, date, packages) and load the swiss dataset\nCreate a grouping variable if Catholic is below median or under median\nUsing the dplyr syntax, compute the number of observations, the mean, median, and inter-quartile range of Fertility, Agriculture, and Education by group. Save as a .tex table.\nPlot the relation between Education and Infant.Mortality (ggplot2 syntax) for each group\n\nWith a scatter plot and lines that connects all points\nAdd a title and a subtitle (centered and in bold)\nPut the legend at the bottom of the slide\nExport as a .pdf\n\nExport everything in a TeX file",
+    "crumbs": [
+      "Tutorial 1"
+    ]
+  }
+]
