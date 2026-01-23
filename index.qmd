@@ -1,0 +1,6 @@
+---
+title: Home
+---
+
+```{include}
+home.qmd
