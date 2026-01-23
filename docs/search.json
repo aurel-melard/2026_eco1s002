@@ -194,7 +194,7 @@
     "href": "home.html#about-this-site",
     "title": "Welcome to this class!",
     "section": "About this site",
-    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years.\nIt is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
+    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
     "crumbs": [
       "Home"
     ]

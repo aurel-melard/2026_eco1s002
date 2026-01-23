@@ -71,9 +71,7 @@ The course has 3 main objectives:
 
 ## About this site
 
-This site is for teaching purpose. The majority of its material was built by [Matéo Moglia](https://mateomoglia.github.io/), who taught this class in previous years.
-
-It is inspired by the following sources:
+This site is for teaching purpose. The majority of its material was built by [Matéo Moglia](https://mateomoglia.github.io/), who taught this class in previous years. It is inspired by the following sources:
 
 -   [Florian Oswald](https://floswald.github.io) teaching material at Sciences Po
 
