@@ -68,22 +68,22 @@ Before jumping to coding *per se*, let me recall you some best practices when pe
 Computers are organized around folder. We are going to work in a working directory (`wd`), but we need to identify it. My folder tree looks like it:
 
 ``` plaintext
-/Users/mmoglia/Dropbox/
-├── Documents/
-│   ├── perso/
-│   │   ├── banque/
-│   │   ├── admin/
-│   │   └── festival/
-├── Downloads/
-├── Music/
-├── Pictures/
-│   ├── famille/
-│   ├── vacances/
-└── courses/
-│   ├── polytechnique/
-|   |   ├── 2024_eco102/
-|   |   ├── 2025_eco1s002/
-├── research/
+/Users/aurelmelard/Dropbox
+├── Admin
+│   └── candidature
+├── IPP
+│   ├── AA
+│   ├── Echange
+│   ├── EvaluationCEE
+│   ├── MaPrimeRenov
+│   └── Pension_RG
+├── Perso
+├── cours
+│   ├── 2026_eco1s002
+│   │   ├── data
+│   │   └── output
+│   └── PublicEcon_cours
+└── projet_Aurel
 ```
 
 Here we are going to work in `~/courses/2025_eco1s002/`. This folder may (and should!) contains subfolders, for instance: `/code`, `/output`, `/raw_data`, etc.
