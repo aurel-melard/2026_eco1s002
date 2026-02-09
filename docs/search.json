@@ -1,0 +1,39 @@
+[
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Welcome to this class!",
+    "section": "",
+    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#class-outline",
+    "href": "home.html#class-outline",
+    "title": "Welcome to this class!",
+    "section": "Class outline",
+    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02)\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nReplication of Mankiw et al. (1997)\nFirst hands on the OLS estimator\nEstimating the baseline and augmented Solow models\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#about-this-site",
+    "href": "home.html#about-this-site",
+    "title": "Welcome to this class!",
+    "section": "About this site",
+    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "home.qmd"
+  }
+]
