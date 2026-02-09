@@ -2,4 +2,4 @@
 
 Prepared by Aurel Mélard for Bachelor students at Ecole Polytechnique (academic year 2025-2026). Any comments are more than welcomed. 
 
-> I do not intend to own anything. This is a patchwork from many great resources around the internet
+> I do not own this class's content. This is a patchwork of many resources around the internet
