@@ -46,11 +46,13 @@ For this first tutorial, we are going to
 
 R is a free and open-source software used in many contexts: data cleaning, data visualisation, econometrics, machine and deep learning, among others.
 
-It is supported by a lively and active user community. R is an **object-based** language, meaning that we are going to manipulate objects through a series of commands.
+It is supported by a lively and active user community. 
+
+R is an **object-based** language, meaning that we are going to manipulate objects through a series of commands.
 
 ------------------------------------------------------------------------
 
-R can be used directly from a command terminal, but we prefer to use RStudio, an IDE, to make our lifes easier. An IDE is an interface that eases the use of a software. The most popular one is `RStudio`. To use it, we need to:
+R can be used directly from a command terminal, but also and preferably through RStudio, an IDE. An IDE (*integrated development environment*) is an interface that eases the use of a software. The most popular one is `RStudio`. To use it, we need to:
 
 1.  Download R
 2.  Then, download RStudio
@@ -59,7 +61,7 @@ R can be used directly from a command terminal, but we prefer to use RStudio, an
 
 ## General best practices
 
-Before jumping to coding *per se*, let me recall you some best practices when performing computer-based tasks.
+Before jumping to coding *per se*, let's recall some best practices when performing computer-based tasks.
 
 ------------------------------------------------------------------------
 
@@ -92,11 +94,9 @@ Here we are going to work in `~/cours/2025_eco1s002/`. This folder may (and shou
 
 ### Naming convention
 
-A typical tip is to choose simple and short titles for the files and the scripts. For instance, this file for this class is named `tutorial1.qmd`. Your code can be named `code_tutorial1.R`. It should be self-explanatory.
+A typical tip is to choose simple and short titles for the files and the scripts. For instance, this file for this class is named `tutorial1.qmd`. Your code can be named `tutorial1.R`. It should be self-explanatory.
 
-::: callout-tip
-Avoid at all cost to use spaces or special characters in your file names. Prefer instead an underscore or a score.
-:::
+
 
 ------------------------------------------------------------------------
 
@@ -111,41 +111,40 @@ Avoid at all cost to use spaces or special characters in your file names. Prefer
 -   Moreover, especially for large project, you want to have different scripts. Always keep scripts short and with clear names. For instance `1_clean_data.R`, `2_import_wages.R`, `3_merge_datasets.R`, and `4_data_analysis.R`.
 
 ## First step in R/Rstudio
-### Some useful terms
+### Opening a script (and useful terms)
 
--   So far, we talked about `scripts`. 
+-   We are going to create our first `script` (the extension is `.R`). 
+    -   First, open RStudio and open a new script.
+    -   You should have an empty page. First write some some description of what the code does. 
+    -   This script will then contain the commands you want to run. 
+    -   Save it as `code_tutorial1.R` in the appropriate folder.
 
--   We are going to manipulate `object` using `functions`. 
+::: callout-tip
+Along the way, you can use `#` to comment code and `----` to decompose your code into parts with titles.
+:::
+
+-   In this script, we are going to manipulate `objects` using `functions`. 
 
 -   Objects can be of different `classes`: matrix, vector, character, numeric, data.frame, etc.
 
--   Some functions are already in `R` but some are not. Hence, we need to load them thanks to `packages`.
-
-## First step in R/Rstudio
-### Open a script
-
--   We are going to create our first script (the extension is `.R`). 
--   This script contains all commands you want to run. R has built-in functions but most useful functions should be called using `library()`. 
--   These libraries should be first downloaded then loaded into your project.
-
--   First, open RStudio and opens a new script. 
--   You should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use `#` to comment code and `----` to create .
+-   Some functions are built in `R` but some are not. In this case, we need to load their related `packages`.
 
 ## First step in R/Rstudio
 ### Script
 
 ```{r}
 #| echo: true
-################################################
-# This script opens a dataset and proceeds
-# to data visualization.
+#######################################################
+# Tutorial 1:
+# This script opens the iris dataset and 
+# performs data visualization taks on it
 #
-# Author: Aurel Mélard
+# Author: Aurel Mélard (aurel.melard@polytechnique.fr)
 # Date: 11/02/2026
-################################################
+######################################################
 
 ## 1. Set input and output paths ----
-output_path <- "/Users/aurelmelard/Dropbox/cours/2026_eco1s002/output"
+output_path <- "/Users/aurelmelard/Dropbox/cours/Topics/2026_eco1s002/output"
 ```
 
 Notice that we created our first object, named `output_path` using the assignment operator `<-` (or `=`, which is equivalent).
@@ -157,7 +156,7 @@ What is the class of `input`? **Hint: use the function `class()`**
 ## First step in R/Rstudio
 ### Our first data manipulation
 
-We can load a very famous built-in data set, the `iris` dataset, into an object called `data`.
+We can load a famous built-in data set, the `iris` dataset, into an object called `data`.
 
 ```{r}
 #| echo: true
@@ -191,7 +190,8 @@ table(data$Species) # To make a frequency table
 summary(data$Sepal.Length) # To provide summary statistics
 ```
 
-------------------------------------------------------------------------
+## First step in R/Rstudio
+### Our first graph!
 
 Now, I want to visualize the data. To do so, we can use base R function `plot`:
 
@@ -200,8 +200,7 @@ Now, I want to visualize the data. To do so, we can use base R function `plot`:
 plot(iris$Sepal.Length,iris$Sepal.Width)
 ```
 
-## First step in R/Rstudio
-### Our first graph!
+------------------------------------------------------------------------
 
 We can also use a very popular library for dataviz, `ggplot2`. First, we install it, then we load it, and we are going to be able to use it.
 
@@ -252,7 +251,7 @@ The function `paste0` is useful to concatenate text. Here, instead of writing th
 ## First step in R/Rstudio
 ### Data: base vs. dplyr
 
-To finish this -short- introduction to R, I introduce a new package, probably the most popular one in R: `dplyr`. As before, we install then load the library.
+To finish this short introduction to R, let's introduce a new package, probably the most popular one in R: `dplyr`. As before, we install then load the library.
 
 ```{r,echo=T,eval=F}
 #| echo: true
@@ -378,8 +377,8 @@ Our results can be, of course represented visually:
 ```{r}
 #| echo: true
 ggplot(dplyr_grouped, aes(x = Species, y = count_sepal_large, fill = Species)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Histogram of Sepal Count by Species",
+  geom_col() +
+  labs(title = "Observations of large sepals by species",
        x = "Species", y = "Count of large sepals") +
   theme_minimal()
 ```
@@ -428,7 +427,7 @@ Open a blank project in Overleaf. It should look like that:
 %% METADATA -------------------
 
 \title{Tutorial one}
-\author{Aurel mélard}
+\author{Aurel Mélard}
 \date{February 2026}
 
 %% DOCUMENT START ------------
@@ -490,9 +489,9 @@ An advantage of the equation environment over the `$$` operator is that you can 
 
 ```         
 \begin{figure}
-  \centering # To center the graph
-  \includegraphics[width=8,height=10]{graph/graph_iris.png}
-  \caption{Iris Sepals Length and Width}
+  \centering
+  \includegraphics[width=0.8\linewidth]{graph/graph_iris.png}
+  \caption{Iris sepals length and width}
 \end{figure}
 ```
 

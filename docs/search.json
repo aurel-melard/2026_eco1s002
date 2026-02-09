@@ -14,7 +14,7 @@
     "href": "tutorial1.html#what-is-r-set-up-and-launch",
     "title": "Tutorial 1",
     "section": "What is R? Set-up and launch",
-    "text": "What is R? Set-up and launch\nR is a free and open-source software used in many contexts: data cleaning, data visualisation, econometrics, machine and deep learning, among others.\nIt is supported by a lively and active user community. R is an object-based language, meaning that we are going to manipulate objects through a series of commands.",
+    "text": "What is R? Set-up and launch\nR is a free and open-source software used in many contexts: data cleaning, data visualisation, econometrics, machine and deep learning, among others.\nIt is supported by a lively and active user community.\nR is an object-based language, meaning that we are going to manipulate objects through a series of commands.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -24,7 +24,7 @@
     "href": "tutorial1.html#general-best-practices",
     "title": "Tutorial 1",
     "section": "General best practices",
-    "text": "General best practices\nBefore jumping to coding per se, let me recall you some best practices when performing computer-based tasks.",
+    "text": "General best practices\nBefore jumping to coding per se, let’s recall some best practices when performing computer-based tasks.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -34,7 +34,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nSome useful terms\n\nSo far, we talked about scripts.\nWe are going to manipulate object using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc.\nSome functions are already in R but some are not. Hence, we need to load them thanks to packages.",
+    "text": "First step in R/Rstudio\nOpening a script (and useful terms)\n\nWe are going to create our first script (the extension is .R).\n\nFirst, open RStudio and open a new script.\nYou should have an empty page. First write some some description of what the code does.\nThis script will then contain the commands you want to run.\nSave it as code_tutorial1.R in the appropriate folder.\n\n\n\n\n\n\n\n\nTip\n\n\nAlong the way, you can use # to comment code and ---- to decompose your code into parts with titles.\n\n\n\n\nIn this script, we are going to manipulate objects using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc.\nSome functions are built in R but some are not. In this case, we need to load their related packages.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -44,7 +44,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-1",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOpen a script\n\nWe are going to create our first script (the extension is .R).\nThis script contains all commands you want to run. R has built-in functions but most useful functions should be called using library().\nThese libraries should be first downloaded then loaded into your project.\nFirst, open RStudio and opens a new script.\nYou should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use # to comment code and ---- to create .",
+    "text": "First step in R/Rstudio\nScript\n\n#######################################################\n# Tutorial 1:\n# This script opens the iris dataset and \n# performs data visualization taks on it\n#\n# Author: Aurel Mélard (aurel.melard@polytechnique.fr)\n# Date: 11/02/2026\n######################################################\n\n## 1. Set input and output paths ----\noutput_path &lt;- \"/Users/aurelmelard/Dropbox/cours/Topics/2026_eco1s002/output\"\n\nNotice that we created our first object, named output_path using the assignment operator &lt;- (or =, which is equivalent).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of input? Hint: use the function class()",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -54,7 +54,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-2",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nScript\n\n################################################\n# This script opens a dataset and proceeds\n# to data visualization.\n#\n# Author: Aurel Mélard\n# Date: 11/02/2026\n################################################\n\n## 1. Set input and output paths ----\noutput_path &lt;- \"/Users/aurelmelard/Dropbox/cours/2026_eco1s002/output\"\n\nNotice that we created our first object, named output_path using the assignment operator &lt;- (or =, which is equivalent).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of input? Hint: use the function class()",
+    "text": "First step in R/Rstudio\nOur first data manipulation\nWe can load a famous built-in data set, the iris dataset, into an object called data.\n\ndata = iris # Attribute to data the data set iris\nclass(data) # Check its class\n\n[1] \"data.frame\"\n\nhead(data) # Preview the first lines of data\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNotice that the two objects we created so far can be seen in the Environment.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -64,7 +64,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-3",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOur first data manipulation\nWe can load a very famous built-in data set, the iris dataset, into an object called data.\n\ndata = iris # Attribute to data the data set iris\nclass(data) # Check its class\n\n[1] \"data.frame\"\n\nhead(data) # Preview the first lines of data\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNotice that the two objects we created so far can be seen in the Environment.",
+    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environment panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[2,]. What should you write to print the 10th element of the 3rd column?",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -74,7 +74,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-4",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environment panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[2,]. What should you write to print the 10th element of the 3rd column?",
+    "text": "First step in R/Rstudio\nOur first graph!\nNow, I want to visualize the data. To do so, we can use base R function plot:\n\nplot(iris$Sepal.Length,iris$Sepal.Width)",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -84,7 +84,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-5",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOur first graph!\nWe can also use a very popular library for dataviz, ggplot2. First, we install it, then we load it, and we are going to be able to use it.\n\ninstall.packages(\"ggplot2\",repos = \"http://cran.us.r-project.org\")\nlibrary(ggplot2)\n\n\n\n\n\n\n\nNote\n\n\nA more efficient alternative is to use the p_load function of the pacman package. It installs only uninstalled packages and immediatly loads them: pacman::p_load(ggplot2)",
+    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this short introduction to R, let’s introduce a new package, probably the most popular one in R: dplyr. As before, we install then load the library.\n\npacman::p_load(tidyverse)\n\nTo be specific, the tidyverse is a collection of packages built for data science, including:\n\nggplot2 that we already installed separately\ndplyr that introduces a unified syntax for data manipulation\n7 other main packages for data analysis (see the list here)\nOther specific packages that are not directly loaded by tidyverse",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -114,7 +114,7 @@
     "href": "tutorial1.html#first-step-in-latex-1",
     "title": "Tutorial 1",
     "section": "First step in LaTeX",
-    "text": "First step in LaTeX\nOverleaf\nOpen a blank project in Overleaf. It should look like that:\n\\documentclass{article}\n\n%% PREAMBULE ------------------\n\n\\usepackage{graphicx} % Required for inserting images\n\n%% METADATA -------------------\n\n\\title{Tutorial one}\n\\author{Aurel mélard}\n\\date{February 2026}\n\n%% DOCUMENT START ------------\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\n\\end{document}",
+    "text": "First step in LaTeX\nOverleaf\nOpen a blank project in Overleaf. It should look like that:\n\\documentclass{article}\n\n%% PREAMBULE ------------------\n\n\\usepackage{graphicx} % Required for inserting images\n\n%% METADATA -------------------\n\n\\title{Tutorial one}\n\\author{Aurel Mélard}\n\\date{February 2026}\n\n%% DOCUMENT START ------------\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\n\\end{document}",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -134,7 +134,7 @@
     "href": "tutorial1.html#first-step-in-latex-3",
     "title": "Tutorial 1",
     "section": "First step in LaTeX",
-    "text": "First step in LaTeX\nInclude our results (fig)\n\\begin{figure}\n  \\centering # To center the graph\n  \\includegraphics[width=8,height=10]{graph/graph_iris.png}\n  \\caption{Iris Sepals Length and Width}\n\\end{figure}\nWe work within the figure environment, center the graphic, include it with some options and add a caption. The graph should be uploaded in the project first! Here, I stored it in the folder graph.",
+    "text": "First step in LaTeX\nInclude our results (fig)\n\\begin{figure}\n  \\centering\n  \\includegraphics[width=0.8\\linewidth]{graph/graph_iris.png}\n  \\caption{Iris sepals length and width}\n\\end{figure}\nWe work within the figure environment, center the graphic, include it with some options and add a caption. The graph should be uploaded in the project first! Here, I stored it in the folder graph.",
     "crumbs": [
       "Tutorial 1"
     ]
