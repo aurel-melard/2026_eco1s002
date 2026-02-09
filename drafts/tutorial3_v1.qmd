@@ -1,0 +1,245 @@
+---
+title: "Tutorial 3: OLS and first repliction"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+---
+
+```{r, echo=F,eval=T,message=F,warning=F}
+packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable")
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+We learnt how to manage simple datasets using R and dug into the key derivations of the Solow model. We are going replicate our very first paper! You should read the paper beforehand *(find it on Moodle)* and know the main predictions of the Solow model.
+
+## Mankiw, Romer, Weil (1992)
+
+This paper is one of the most important empirical contribution to the macroeconomics literature. It shows two things:
+
+1.  The Solow model predictions (in terms of direction) are verified in the data
+2.  But only an augmented version of the model predicts well the magnitude in the data
+
+### Main objectives
+
+1.  Open the dataset
+2.  Inspect and clean the dataset
+3.  Run the main regressions
+4.  Make a graph
+5.  Export the results on LaTeX
+
+### Data source
+
+Download the data from Moodle.
+
+### Folder organization
+
+We are going to work in `tutorial2`. You may want to create additional subfolders like `raw_data`, `code`, `output` to store the raw data, the code, and the output we create.
+
+``` plaintext
+/Users/mmoglia/Dropbox/
+└── courses/
+    └── 2025_eco1s002
+      └── tutorial2
+```
+
+```{r}
+path <- "/Users/mmoglia/Dropbox/courses/polytechnique/2025_eco1s002/tutorial2"
+```
+
+## Ordinary Least Squares
+
+The Ordinary Least Squares (OLS) estimator is a method used in linear regression to estimate the parameters of a linear model. The objective of OLS is to minimize the sum of squared residuals.
+
+### Linear Model
+
+The linear model can be expressed as:
+
+$$
+y = x\beta + \epsilon
+$$
+
+-   $y$: Dependent variable
+
+-   $X$: Matrix of independent, explanatory, variables
+
+-   $\beta$: Coefficients to be estimated.
+
+-   $\epsilon$: Error term (assumed to be normally distributed with mean 0 and constant variance)
+
+### OLS Estimator Formula
+
+The OLS estimator for $\beta$ is given by: $$
+\hat\beta =(X^TX)^{−1}X^Ty
+$$ This equation minimizes the sum of squared residuals (RSS): $$
+\sum_{i=1}^n (y_i - \hat{y}_i)^2
+$$ \### Assumptions of OLS
+
+1.  **Linearity**: The relationship between the dependent and independent variables is linear
+
+2.  **Independence**: Observations are independent of each other.
+
+3.  **Homoscedasticity**: The variance of the error term is constant across observations.
+
+4.  **No Multicollinearity**: Independent variables are not perfectly collinear.
+
+5.  **Normality**: The error term is normally distributed
+
+### Interpretation
+
+The coefficients $\hat\beta$ represent the estimated relationship between the independent and dependent variables. The intercept is the expected value of $y$ when all predictors are zero. The slope(s) indicate the change in $y$ for a one-unit change in the corresponding predictor. If the $y$ and $x$ are in $\log$, we can interpret $\beta$ as percentages (eg, if $x$ increases by 1%, $y$ increases by $\hat\beta$ percent).
+
+## The Solow model
+
+The Solow growth model (SGM) seeks to explain economic growth taking the rates of saving $s$, population growth $n$ and technological progress $g$ as exogenous (given outside the model). We assume a Cobb-Douglas production function, so output $Y$ at time $t$ is given by:
+
+$$
+Y_t = K_t^{\alpha} (A_t L_t)^{1-\alpha}, \text{ for } \alpha \in (0,1)
+$$
+
+The notation is standard: $Y$ is output, $K$ capital, $L$ labor, and $A$ the level of technology. In this production function, technological change is labor augmenting which is known as "Harrod-neutral". $L$ and $A$ are assumed to grow exogenously at rates $n$ and $g$.
+
+The model assumes that a constant fraction of output, $s$ , is invested. The remaining output is consumed. We define $k$ as the stock of capital per effective unit of labor,
+
+$$
+\begin{align*}
+k_t \equiv \frac{K_t}{A_t L_t} 
+\end{align*}
+$$ and $y$ as the level of output per effective unit of labor,
+
+$$
+\begin{align*}
+y_t &= \frac{Y_t }{A_t L_t} \\
+&= K_t^{\alpha} ( A_t L_t )^{- \alpha} \\
+&= \left(  \frac{ K_t } {A_t L_t} \right)^{\alpha} \\
+&= k_t^{\alpha}
+\end{align*} 
+$$ The evolution of $k$ is governed by:
+
+$$
+\begin{align}
+\dot{k}_t & = s y_t - (n+ g + \delta) k_t \\
+& = s k_t^{\alpha} - (n+ g + \delta) k_t \nonumber
+\end{align} 
+$$ where $\delta \in (0,1)$ is the rate of capital depreciation. The steady state is defined to be the level of capital $k^{ss}$ at which $\dot{k}_t = 0$, plugging this into equation the last equation we have: $$
+\begin{align*}
+0 = s (k^{ss})^{\alpha} - (n+ g + \delta) (k^{ss})
+\end{align*}
+$$ which implies $$
+\begin{align}
+k^{ss} = \left(  \frac{s}{ n + g + \delta } \right)^{ \frac{1}{1-\alpha} }
+\end{align}
+$$ Assuming that $A_t = A_0 \exp(gt)$ (growth rate of $A$): $$
+\begin{align}
+y^{ss} &= (k^{ss})^{\alpha} \nonumber \\
+\frac{ Y_t }{ A_t L_t } &= \left(  \frac{s}{ n + g + \delta } \right)^{ \frac{\alpha}{1-\alpha} } \nonumber \\
+\frac{ Y_t }{ L_t } &= A_0 e^{gt} \left(  \frac{s}{ n + g + \delta } \right)^{ \frac{\alpha}{1-\alpha} } \nonumber \\
+\log\left( \frac{ Y_t }{ L_t } \right)&= \log(A_0 ) + gt  + \left(  \frac{\alpha}{1-\alpha} \right) \log(s)  -  \left(  \frac{\alpha}{1-\alpha} \right) \log(n + g + \delta)
+\end{align} 
+$$ This last equation gives us an expression for steady-state income per-capita. Since capital's share in income $\alpha$ is roughly one third, the model implies elasticity of income per capita with respect to saving rate $\varepsilon_{ \frac{Y}{L}  , s} = \frac{d \log( \frac{Y}{L}  )}{ d \log(s) } = \frac{\alpha}{1 - \alpha} \approx  \frac{ \frac{1}{3} }{ \frac{2}{3} } = \frac{1}{2}$, and an elasticity with respect to $(n+g+\delta)$ $\varepsilon_{ \frac{Y}{L}  , s} = \frac{d \log( \frac{Y}{L}  )}{ d \log(n+g+\delta) } = - \frac{\alpha}{1 - \alpha} \approx - \frac{ \frac{1}{3} }{ \frac{2}{3} } = - \frac{1}{2}$.
+
+## Specification
+
+The Solow model predicts that real income is higher in countries with higher savings rates and lower in countries with higher values of $(n+g+\delta)$. We want to see *if the data support this prediction*.
+
+### Econometrics model
+
+We assume that the growth rate of technology $g$ and the rate of capital depreciation $\delta$ are constant across countries. In contrast the term $A_0$ reflects not only the level of technology, but also resource endowments, climate, institutions and so on. It may differ across countries, so we assume that $$
+\begin{align*}
+\log(A_0 ) = a + \varepsilon
+\end{align*} 
+$$ where $a$ is a constant and $\varepsilon$ is a country specific shock. Thus log income per capita (at time $0$) is: $$
+\begin{align}
+ \log\left( \frac{ Y }{ L } \right)&= a  + \left(  \frac{\alpha}{1-\alpha} \right) \log(s)  -  \left(  \frac{\alpha}{1-\alpha} \right) \log(n + g + \delta) + \varepsilon
+\end{align} 
+$$
+
+This last equation is our basic empirical specification in this section. We assume that $s$ and $n$ are independent of $\varepsilon$, so our regressors are exogenous. This implies we can estimate this equation with Ordinary Least Squares (OLS).
+
+### Data
+
+The data are from the Real National Accounts constructed by Summers and Heston (1988). It includes real income, government and private consumption, investment, and population for almost all of the world except the centrally planned economies. The data are annual and cover 1960-1985.
+
+-   The population growth rate $n$ is measured as the average rate of growth of the working age population, where working age is defined as 15-64.
+-   The savings rate $s$ is measured as the average real investment (including government investment) in real GDP, and $Y/L$ as real GDP in 1985 divided by the working age population in that year.
+
+Mankiw, Romer and Weil consider three samples:
+
+-   The **most comprehensive** consists of all countries for which data are available other than those for which oil production is the dominant industry. This sample consists of 98 countries. MRW exclude the oil producers because the bulk of recorded GDP for these countries represents the extraction of existing resources, not value added; one should not expect standard growth models to account for measured GDP in these countries.
+
+-   The **second sample** excludes countries whose population in 1960 was less than 1 million, or whose real income figures were based on extremely little primary data; measurement error is likely to be a greater problem for these countries. This sample consists of 75 countries.
+
+-   The **third sample** consists of the 22 OECD countries with population greater than 1 million. This sample has high quality data and the variation in omitted country specific factors is small. A disadvantage is that this sample is small in size.
+
+We estimate equation (3.1) with and without imposing the constraints that the coefficients on $\log(s)$ and $\log(n+g+\delta)$ are equal in magnitude and opposite in sign. We assume $g+\delta = 0.05$ because in the US $\delta \approx 0.03$ and $g \approx 0.02$.
+
+## Exercise
+
+We are going to use the following libraries.
+
+|   Library   | Description            |
+|:-----------:|:-----------------------|
+| `tidyverse` | For data manipulation  |
+|  `ggplot2`  | For data visualization |
+|   `Hmisc`   | To describe dataset    |
+
+### Describe the data
+
+1.  Load the data `MRW_QJE1992.xlsx` into R. Use a path here.
+
+2.  Describe the data using function `describe` from `Hmisc` library. Is there anything wrong? Keep only relevant observations.
+
+3.  What are the groups of country defined by Mankiw et al.? Create a categorical variable that takes 0 if the country is in group N, 1 if in group I, and 2 if in group O.
+
+4.  Use the function `summary` to print a table with summary statistics for all three groups.
+
+5.  Generate a scatter plot of growth rate in GDP per capita against $ln(GDP)$ per worker in 1960, similar to Figure 1A in the paper (you need to create one of the two variables). Make it beautiful!!
+
+::: {.callout-tip collapse="true"}
+## To make a graph
+
+You want to use `ggplot()` function. It takes two main arguments within the parentheses. One is `data = ...` and the other one is `mapping = aes(...)`.
+
+Then, you can add the elements you want to draw after a `+`. Here, we want to plot points. Hence, you code should look like that:
+
+```{r,echo=T,eval=F}
+ggplot(data = ..., mapping = aes(x = ..., y = ...)) +
+  geom_point() +
+  theme_bw() # This one is pure aesthetic
+ggsave(path = paste0(your_path,"/output/graph1.pdf"))
+```
+:::
+
+### Estimate the baseline model
+
+We now turn to the estimation of the main model :
+
+1.  Run the baseline model on the full sample.
+    1.  Store the results in an object called `reg_full`.
+    2.  Interpret.
+2.  Run the regression separately for each sub-sample (based on country type). To filter the data, take advantage of the pipe command and the `filter()` function.
+    1.  Store the results in well-named objects
+    2.  Interpret.
+3.  \[Bonus\] Can you use a loop to go quicker?
+4.  Do these results validate the Solow model predictions?
+
+### Estimate the augmented model
+
+According to Mankiw, Romer and Weil, we have an omitted variable bias in this first model because we are not accounting for human capital.
+
+1.  In your opinion, in which direction is our estimate of the effect of savings rate on $\ln$(GDP) biased?
+
+2.  Regress $\ln(I/Y)$ on $\ln(School)$. The coefficient we get tells us how correlated the two variables are. Are they positively or negatively correlated? Is the correlation significant?
+
+3.  Now estimate the “full” model from Table 2 of the paper. I.e., estimate by OLS the baseline model augmented with $\ln(School)$. As before run the regression for the whole sample first and then by group of countries.
+
+    1.  \[Bonus\] Use the `lapply` function instead of a loop
+
+4.  Assuming this second model is true, were we over- or underestimating the coefficient of savings rate in the baseline model?

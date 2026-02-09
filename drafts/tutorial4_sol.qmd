@@ -1,0 +1,292 @@
+---
+title: "Tutorial 4: Econometrics with R (Solution)"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+execute:
+  cache: true
+---
+
+```{r, echo=F,eval=T,message=F,warning=F}
+pacman::p_load(ggplot2, readxl, dplyr, tidyr,xtable,ivreg)
+
+
+#packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable","ivreg")
+# Install packages not yet installed
+#installed_packages <- packages %in% rownames(installed.packages())
+#if (any(installed_packages == FALSE)) {
+#  install.packages(packages[!installed_packages])
+#}
+# Packages loading
+#invisible(lapply(packages, library, character.only = TRUE))
+```
+
+## Recap
+
+Last week, we discovered the OLS estimator and what it does. It allows to assess, under certain conditions, the linear relation between an explained variable $y$ and explanatory variables $X$, using $n$ individual observations.
+
+Recall that OLS estimator is biased. If the estimator is biased $E(\epsilon|X) \neq 0$. Bias may arise in three main cases:
+
+1.  Measurement error. If the observed value $\tilde{X}$ of the real variable $X$ is biased, then it writes $\tilde{X} = X + \mu$. Then the exogeneity assumption does not hold.
+2.  Omitted variable bias. The true model is $y_i = \alpha + \beta_1 x_i + \beta_2 z_i + \epsilon_i$. If we estimate $y_i = \alpha + \beta_1 x_i + \epsilon_i$, we may under- or over-estimate the effect of $x$ and $y$.
+3.  Reverse causality (or simultaneity). The true model is $$
+    \begin{align*}
+    y_i &= \alpha_0 + \alpha_1 x_i + \alpha_2 z_i + u_i \\
+    x_i &= \beta_0 + \beta_1 y_i + \beta_2 z_i + v_i
+    \end{align*}
+    $$
+
+Rearranging yields a reduced-form model $y_i = \pi_0 + \pi_1 z_i + \pi_2 x_i + e_i$, but $e_i$ contains both $u_i$ and $z_i$ and the exogeneity assumption might be violated.
+
+## Exercise 1: Solow model and OVB
+
+Dataset `MRW_QJE1992.xlsx` can be downloaded on Moodle.
+
+### Baseline Solow model
+
+Before, we load the necessary libraries and create an object `path` to store the path for further use.
+
+```{r}
+#path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3"
+path = "/Users/aurelmelard/Dropbox/cours/2026_eco1s002"
+
+library(dplyr)
+library(ggplot2)
+library(readxl)
+```
+
+1.  Open the dataset with the function `read_xlsx` from the package `readxl`
+
+```{r}
+dat = read_xlsx(paste0(path,"/data/MRW_QJE1992.xlsx"))
+```
+
+2.  Describe the dataset
+
+```{r}
+summary(dat)
+head(dat)
+```
+
+3.  Using `ggplot2` package, make a graph to plot on the $x$ axis the GDP growth and on the $y$ axis the log GDP in 1965. Export in `pdf`.
+
+```{r}
+ggplot(dat, aes(x = gdpgrowth, y = log(rgdpw60))) +
+  geom_point() +
+  theme_bw() +
+  xlab("GDP growth rate") + ylab("GDP per capita in 1960 (log)")
+ggsave(paste0(path,"/output/graph_solow.pdf"))
+```
+
+4.  In the paper, different country groups are defined. Create the grouping variable, depending on country types. Hint: use `ifelse(test,value if true, value if false)`. Notice that countries $o$ are a subset of countries $i$ which are a subset of countries $n$.
+
+```{r}
+dat = dat %>%
+  mutate(group = ifelse(n == 1, "n", NA)) %>%
+  mutate(group = ifelse(i == 1, "i", group)) %>%
+  mutate(group = ifelse(o == 1, "o", group)) %>%
+  filter(!is.na(group)) # Some countries are not part of a group, we remove them
+```
+
+5.  Estimate this model and store in an object called `reg0` $$
+    \log (Y_i/L_i) = \beta_0 + \beta_1 \log s_i + \beta_2 \log(n + g + \delta) + \epsilon_i
+    $$
+
+We define $g + \delta = 0.05$.
+
+```{r}
+# Generate the variables for the regression ------------------------------------
+
+dat = dat %>%
+  mutate(constant = 0.05)
+
+# Unconditional and conditional regressions ------------------------------------
+
+reg0 = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat)
+summary(reg0)
+```
+
+6.  Estimate the same model but for each country subgroup.
+
+```{r}
+reg0_i = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %>% filter(group == "i"))
+reg0_n = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %>% filter(group == "n"))
+reg0_o = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %>% filter(group == "o"))
+```
+
+7.  Bonus: do the latter with a loop
+
+```{r}
+for(x in c("i","o","n")){
+  reg = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %>%
+             filter(group == x))
+  assign(paste0("reg0_",x),reg)
+}
+```
+
+8.  This is the result we find. Interpret it (notice the log-log specification)
+
+```{r}
+summary(reg0)
+```
+
+The R2 is around 62%, it means that the model we specified explains 62% of the total variance of the log GDP in 1985 in our sample. It also highlights that 38% of the variance is left unexplained by the model.
+
+Thanks to the log-log specification, the coefficients we found on investment and on the constant terms $(n+g+\delta)$ can directly be interpreted as elasticities (if $x$ increases by 1%, $y$ increases by $\widehat\beta$%). Here, one percent increase in investment increases GDP per capita in 1985 by 1.4%.
+
+Notice that the coefficients we found are stastistically significant at a very high level. The p-value is way below the standard treshold of 1%.
+
+9.  Previous work estimated that the elasticity of production with respect to investment is 1/3. Is this verified here?
+
+The $\beta$ we estimate is in the Solow model the $\alpha/(1-\alpha)$. Hence, if $\beta = 1.4$, then $\alpha \sim 0.6$, which is almost two times the value of previous estimation.
+
+### Adding school as omitted variable
+
+In the extension of the Solow model, we saw that human capital has a role in explaining GDP per capita.
+
+9.  Run the model again but adding the `school` variable. Interpret.
+
+```{r}
+# Add the school variable ------------------------------------------------------
+
+reg1 = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant) + log(school), data = dat)
+summary(reg1)
+
+for(x in c("i","o","n")){
+  reg = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant) + log(school), data = dat %>%
+             filter(group == x))
+  assign(paste0("reg1_",x),reg)
+}
+```
+
+All coefficients remain significant. The R2 increases. Addind school increases the overall explanatory power of the model (note however that the R2 increases mechanically with the number of variables). It suggests that the coefficient was a missing a value. The coefficient on school is positive and significant. Increases education increases GDP.
+
+10. Bonus: Using `linearHypothesis` test if $\beta_1$ and $\beta_2$ are equal.
+
+```{r}
+hypothesis.matrix = matrix(c(0, 1, 1) , nrow=1 , ncol =3)
+print(car::linearHypothesis(reg0, hypothesis.matrix, rhs=0))
+```
+
+The test p-value is lower than the usual threshold of 1%, we can confidently reject the hypothesis that the two coefficients are equal.
+
+## Exercise 2: Acemoglu, Johnson, Robinson and instrumental variable
+
+### Recap
+
+In this very influential paper, AJR estimates the effects of institution on GDP growth. They in particular test whether good institutions, hat protect entrepreneurs, enhance the GDP per capita growth in the African context.
+
+However, there is a clear endogeneity issue. Can you see it? *Richer countries can afford having better institution because they can invest in better schools/universities or better voters are more in favor of better institutions to protect their wealth*
+
+### Part 1
+
+```{r}
+#-------------------------------------------------------------------------------
+#
+#   Solution for tutorial 4
+#
+#-------------------------------------------------------------------------------
+
+rm(list=ls())
+
+library(dplyr)
+library(ggplot2)
+library(ivreg)
+library(haven)
+library(stargazer)
+
+#path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial4"
+path = "/Users/aurelmelard/Dropbox/cours/2026_eco1s002"
+
+
+dat = read_dta(paste0(path,"/data/ajrcomment.dta"))
+```
+
+1.  Download the dataset `ajrcomment.dta` and describe the data
+
+```{r}
+summary(dat)
+head(dat)
+```
+
+2.  Create a scatter plot of mortality rate against GDP per capita in 1995, and a second scatter plot with the log mortality rate and log GDP per capita in 1995. Notice the difference.
+
+```{r}
+# Scatter plot -----------------------------------------------------------------
+
+ggplot(data = dat, aes(x = mort, y = loggdp)) +
+  geom_point(color = "indianred") +
+  theme_bw()
+
+ggplot(data = dat, aes(x = logmort0, y = loggdp)) +
+  geom_point(color = "indianred") +
+  theme_bw()
+```
+
+Table 2 of Acemoglu et al. (2001) presents the results of an OLS regression of log GDP per capita in 1995 on average protection against expropriation, and a some covariates:
+
+$$
+    \log y_i = \mu + \alpha R_i + \mathbf{X}_i'\gamma + \epsilon_i
+$$
+
+3.  Identify the covariates in the results table.
+
+*The covariates are latitude, a variable that takes one if the country is in Asia (also called a dummy variable), a dummy if the country is in Africa, an "other continent" dummy.*
+
+4.  Reproduce the results for the columns (2), (5), and (6). Export them to your answer sheet. Interpret the results clearly.
+
+```{r}
+reg0_nocov  = lm(loggdp ~ risk, data = dat)
+reg0_lat    = lm(loggdp ~ risk + latitude, data = dat)
+reg0_allcov = lm(loggdp ~ risk + latitude + asia + africa + other, data = dat)
+
+stargazer(reg0_nocov,reg0_lat, reg0_allcov,type = "text", out = paste0(path,"/output/reg0.tex"), keep.stat = c("n", "rsq"))
+```
+
+5.  What is the effect of an increase of 1 on the risk scale on the GDP?
+
+1 unit increase in risk increases by 39 percent the country GDP. The result is significant at the 1% level. Notice that the effect of risk on GDP is robust to the add of other variables. It suggests a strong relationship between both.
+
+### Part 2
+
+So far, we used OLS to estimate the effect of risk on GDP. However, the relationship is likely to be endogenous. Hence, we can \textbf{instrument} risk with mortality to aleviate this endogeneity concern. We run two different methods:
+
+6.  Run the regression of risk on log mortality (using only latitude as a covariate).
+
+```{r}
+fs = lm(risk ~ logmort0 + latitude, data = dat)
+summary(fs)
+```
+
+7.  Run the regression of predicted risk on GDP (using only latitude as a covariate). To do so, you need to estimate the predicted risk based on the previous regression result using the `predict` function.
+
+```{r}
+
+risk_hat = predict(fs)
+
+dat$risk_hat = risk_hat
+
+ggplot(dat,aes(x=risk_hat,risk)) +
+    geom_point() +
+    theme_bw()
+
+summary(lm(loggdp ~ risk_hat + latitude,data=dat))
+```
+
+`predict` computes $\widehat x_i = \widehat\beta_0 \widehat \beta_1 z_i + \widehat u_i$. Here, $\widehat x$ is the predicted risk. Then, I add the object `risk_hat` as a new column in the `dat` dataset.
+
+A good instrument has to check two assumptions. The first one is the **relevance**, meaning that the instrument must be correlated with the instrumented variable. The second one is **exogeneity**, meaning that $z$ must not cause $y$. This cannot be directly tested for.
+
+8.  Does the instrument seem valid? Comment the results.
+
+Instrument is relevant as the coefficient in `fs` is positive and significant. Instrument seems to be exogenous. Lagged mortality (over a century ago) seems not to have an effect on contemporeneous outcome through another way than through institutional context. Check David Albouy critique for a critical assessment of the AJR strategy.
+
+9.  Discover the function `ivreg` and do the IV regression again. Do the results differ?
+
+```{r}
+summary(ivreg(loggdp ~ risk + latitude | logmort0 + latitude, data = dat))
+```
+
+Results are the same, which is expected!

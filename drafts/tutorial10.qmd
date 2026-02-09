@@ -1,0 +1,109 @@
+---
+title: "Tutorial 10: Write a report"
+format: 
+  revealjs:
+    theme: theme_mm.scss
+    menu:
+      side: left
+    slide-number: c
+    date-format: long
+    embed-resources: true
+toc: false
+visual: true
+toc-title: ""
+toc-location: right
+author:
+  - name: Matéo Moglia
+    email: mateo.moglia@gmail.com
+    affiliations: CREST - Institut Polytechnique de Paris
+    url: https://mateomoglia.github.io
+date: last-modified
+execute:
+  cache: true
+---
+
+```{r, echo=F,eval=T,message=F,warning=F}
+packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable")
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+## Roadmap
+Review the main steps to write a research paper, with some examples:
+
+1.  Introduction
+2.  Descriptive evidence
+3.  Reduced form evidence
+
+## What you will handle
+
+1.  A 8 to 10 page report (including tables and figures, not include bibliography or appendix). It must be written in `.tex`. 
+2.  A slide deck (that you will present on May the 28th)
+3.  The code to go from the raw data to the output (+ a link to the raw data). I need to be able to replicate all your results using R and only R!
+
+::: callout-tip
+For the code, you can use several R files to split the tasks. For instance, you can have three scripts: `1_clean_data.R`, `2_descriptive_evidence.R` and `3_reduced_form.R`.
+:::
+
+## Report introduction
+### 2/3 pages
+
+The introduction should include the following elements:
+
+1.  A **motivation** (2/3 paragraphs) 
+State why the question you tackle is important, why is it a subject that is relevant for the policy leaders. 
+
+2.  A **research question** (1 paragraph)
+Precisely state what is the research question. 
+
+3.  A **brief summary of the paper** (3 paragraphs)
+Precise: the data you use, the context, the method you used, the key results. 
+
+4.  A **literature review** (2 paragraphs)
+Cite some papers that are close to what you do and state how you compare to them in terms of results and methods.
+
+::: callout-tip
+A reader who wants to know the main message of your paper, the context, and the punchline results needs to read only the introduction.
+:::
+
+## Descriptive evidence
+### 3 pages
+
+1.  **Data description**: Data sources (with the appropriate references), the time span, the geographical level of analysis, the countries/contexts. Say some words about the context you are working on (developing/developed countries, political contexts, etc.)
+
+2.  **Summary statistics**: Make a table with the summary statistics (min,Q1,mean,median,Q3,max,nb.observations) of the key variables in your analysis
+
+3.  **Descriptive evidence**: You should make non-causal graphs (scatter or line) and/or maps to support your intuition (for instance the Graph 1 in Nunn (2014))
+
+## Causal evidence
+### 2/3 pages
+
+1.  **OLS**: You should build an econometric model with a regression of $y$ on $x$ and other variables. State precisely what the variables are. You should also precise if you should suspect endogeneity, OVB, or measurement error. Export the results with coefficient tables with the relevant information (standard errors, N, R2, proper labelling, etc.)
+
+2.  **Extensions**: If you think you can implement an IV or another strategy, you should write that here. If you *actually* implement it, please import the results as well.
+
+::: callout-tip
+Check the papers that we saw in class to know how to format the figures and tables. The presentation is standard and you should mimic it.
+:::
+
+## Conclusion
+
+The conclusion is short and quikly summarizes the results.
+
+## Dissemination
+
+You will need to make slides (7 to 8' presentation) to present your key results. The structure should be the following
+
+1.  Motivation
+2.  Research question + contribution to the literature
+3.  Data description
+4.  Descriptive evidence
+5.  Causal evidence
+6.  Conclusion
+
+You will also need to provide the raw data + the code to replicate **all the results**.

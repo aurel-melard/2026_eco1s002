@@ -1,0 +1,78 @@
+---
+title: "Tutorial 9: (Women) labour force participation"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+---
+
+```{=html}
+<style>
+.math {
+  font-size: small;
+}
+</style>
+```
+
+
+In this exercise, we are going to learn:
+
+1.  How households decide on their labour supply
+2.  How the family size affect the latter
+3.  Estimate the effects of having children on women labour participation
+
+## Theoretical approach of labour supply
+
+Consider an individual who derives her utility from consuming a good $c$ and leisure $l$. The good comes at price $p=1$, it is the *numéraire*. Utility function is:
+
+$$
+U(c,l) = c^\alpha \times l^{1-\alpha}
+$$
+
+The individual earns a labour wage $w$. The number of hours worked is denoted $h$, hence the labour income is $wh$. She also obtains a lump-sum benefit from the governement $y$. Hence, her total income is $wh + y$. There is a fixed number of hours $T$ in each day, such that $T = l+h$.
+
+1.  What are the two constraints? Can you express the budget constraint as a function of leisure $l$, consumption, and total amount of time $T$ only?
+2.  Write down the maximization problem and the associated lagrangean.
+3.  Solve the maximization program to find $c^\star$ and $h^\star$. 
+
+We are now going to proceed to some comparative statics, i.e. we are going to twist some parameters to understand the partial equilibrium effects.
+
+4.  How does evolve $h^\star$ with wage? with the lump-sum benefit?
+
+Now, we are going to assume that the individual has a positive number of children $n>0 \in \mathbb{N}$. Then, she must allocate a fixed number of hours to take care of their children. Each child requires $K$ hours of childcare, hence the total number of hours is $nK$. In practice, it reduces the number of hours available to leisure and work.
+
+5.  How does it affect labour supply? Is there a threshold upon which the mother stops providing labour?
+
+## Empirical approach
+
+The theoretical prediction is that mothers might drop out the labour force because they have children. We are going to estimate this effect. 
+
+1.  Open the dataset `lfs_women.csv`.
+
+| Variable | Description |
+|---------|------|
+| `idmen` | Household ID  |
+| `obs`   | Household member position in the HH  |
+| `mne1`   | Number of children |
+| `nag`   | Age |
+| `nsexe`   | 1 if male |
+| `same_sexe` | 1 if first two children have the same gender |
+| `hh_twin_after` |  1 if second born are twins |
+| `ndiplo` | Scale from 1 to 9, high skilled from 5 to 9 |
+| `ntravail` | 1 if the individual is working | 
+| `ntpp` | 2 if the individual is working full time |
+
+For the sake of time, the dataset has been already cleaned. We can directly move to the estimation. 
+
+2.  Write a model with the labour force participation on the left hand side. This variable is explained by: being a mother, having a large family (more than 2 children), and the interaction between both.
+3.  Create the relevant variables.
+4.  Run this model. Intepret.
+5.  Is there OVB? Which variables can you include to tackle it?
+6.  Add household fixed effects. Why should we add these FE?
+7.  Is there any endogeneity bias? 
+8.  A good instrument is to use the number of twins. Why? 
+9.  Run the IV regression with the number of twins as instrument for having a large family. Interpret.
+10. An alternative instrument is to have children the same gender. Why?
+11. Run the IV regression with an indicator that takes 1 if the children are of the same gender. Intepret.
+
