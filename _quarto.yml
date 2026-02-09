@@ -14,22 +14,6 @@ website:
         href: tutorial1.qmd
       - text: "Tutorial 2"
         href: tutorial2.qmd
-      - text: "Tutorial 3"
-        href: tutorial3.qmd
-      - text: "Tutorial 4"
-        href: tutorial4.qmd
-      - text: "Tutorial 5"
-      - text: "Tutorial 6"
-        href: tutorial6.qmd
-      - text: "Tutorial 7"
-      - text: "Tutorial 8"
-        href: tutorial8.qmd
-      - text: "Tutorial 9"
-        href: tutorial9.qmd
-      - text: "Tutorial 10"
-        href: tutorial10.qmd
-      - text: "Tutorial 11"
-        href: tutorial11.qmd
   page-footer:
     right: "Built with [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2025, Mateo Moglia"
