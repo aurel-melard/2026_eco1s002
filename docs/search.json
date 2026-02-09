@@ -1,35 +1,5 @@
 [
   {
-    "objectID": "tutorial2.html",
-    "href": "tutorial2.html",
-    "title": "Tutorial 2: the Solow model",
-    "section": "",
-    "text": "We are going to dig into into the workhorse model in macroeconomics: the Solow model.",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#quick-model-summary",
-    "href": "tutorial2.html#quick-model-summary",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Quick model summary",
-    "text": "Quick model summary\n\nProduction Function: The economy produces output using a production function of the form: \\[ Y_t = F(K_t, L_t) \\] where \\(Y\\) is output, \\(K\\) is capital, and \\(L\\) is labor. Often, a Cobb-Douglas production function is assumed: \\[ Y_t = K_t^\\alpha L_t^{1-\\alpha} \\] where \\(0 &lt; \\alpha &lt; 1\\). Capital comes at price \\(r\\) and labor comes at price \\(w\\).\nConstant Returns to Scale: Doubling the inputs (capital and labor) doubles the output.\nDiminishing Returns: Increasing one input, holding the other constant, leads to smaller and smaller increases in output.\nExogenous Saving Rate: A fixed fraction \\(s\\) of output is saved and invested.\nCapital Depreciation: A constant fraction \\(\\delta\\) of capital depreciates each period.\nPopulation Growth: The labor force grows at a constant rate \\(n\\).\nTechnological Progress: Technology improves at an exogenous rate \\(g\\), increasing productivity over time.\nSteady State: In the long run, the economy reaches a steady state where capital per worker (\\(k\\)) and output per worker (\\(y\\)) are constant.",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#exercises",
-    "href": "tutorial2.html#exercises",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Exercises",
-    "text": "Exercises\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\sqrt{x} + \\log(y)\\)\n\n\n\n2. Solve the maximization problem\nConsider the function above (\\(Y_t = K_t^{\\alpha} L_t^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program\nSolve the program\n\n\n\n3. Per worker term\nDenote \\(y=Y/L\\), the per-worker production, and \\(k=K/L\\) the per-worker capital.\n\nShow that \\(y=Ak^\\alpha\\)\n\n\n\n4. Capital accumulation\nCapital accumulation is given by \\(\\dot K=sY-\\delta K\\). Note also that the growth rate of population \\(n\\) can be expressed as \\(n = \\dot L / L\\).\n\nInterpret this equation\nShow that \\(\\frac{\\dot K}{K} = s\\frac{y}{k}-\\delta\\)\nShow that \\(\\dot k = sAk^\\alpha - (\\delta - n)k\\)\nWhat happen if \\(sAk^\\alpha &gt; (\\delta - n)k\\)? Interpret\n\n\n\n5. Steady state\nA steady-state is a capital stock per capita \\(k^\\star\\) where, when reached, \\(\\dot k = 0\\).\n\nWhat is the steady-state level of output per capita \\(y^\\star\\) ?\nInterpret\n\n\n\n6. Comparative statics\nComparative statics exercises are thought experiment in which we change the value of a parameter and compare the past and new equilibrium. Consider a new saving rate \\(s'&gt;s\\).\n\nHow does capital accumulation change?\nHow does change the steady-state level of capital per capita?\nHow does change the steady-state level of output per capita?\n\n\n\n7. Balanced growth path [Bonus]\nThe balanced growth path is a situation during which capital per worker and output per worker grow at a constant (but potentially different) rates. The steady state is a BGP with zero growth rate. Denote \\(g_y\\) and \\(g_k\\) the capital and output per worker growth rates .\n\nShow that \\(g_y \\propto g_k\\)\n\n\n\n8. Introducing technological progress [Bonus]\nLet assume now that \\(A\\) grows at rate \\(\\dot A / A = g &gt; 0\\).\n\nWhat is the new law of capital accumulation?\nWhat is the steady-state level of output per capita \\(\\tilde{y}^\\star\\)?",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
     "objectID": "tutorial1.html#roadmap",
     "href": "tutorial1.html#roadmap",
     "title": "Tutorial 1",
@@ -187,6 +157,73 @@
     "text": "Quick exercise\n\nOpen a new script, add the relevant information (path, date, packages) and load the swiss dataset\nCreate a grouping variable if Catholic is below median or under median\nUsing the dplyr syntax, compute the number of observations, the mean, median, and inter-quartile range of Fertility, Agriculture, and Education by group. Save as a .tex table.\nPlot the relation between Education and Infant.Mortality (ggplot2 syntax) for each group\n\nWith a scatter plot and lines that connects all points\nAdd a title and a subtitle (centered and in bold)\nPut the legend at the bottom of the slide\nExport as a .pdf\n\nExport everything in a TeX file",
     "crumbs": [
       "Tutorial 1"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "home.qmd"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Welcome to this class!",
+    "section": "",
+    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#class-outline",
+    "href": "home.html#class-outline",
+    "title": "Welcome to this class!",
+    "section": "Class outline",
+    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02)\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nReplication of Mankiw et al. (1997)\nFirst hands on the OLS estimator\nEstimating the baseline and augmented Solow models\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#about-this-site",
+    "href": "home.html#about-this-site",
+    "title": "Welcome to this class!",
+    "section": "About this site",
+    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html",
+    "href": "tutorial2.html",
+    "title": "Tutorial 2: the Solow model",
+    "section": "",
+    "text": "We are going to dig into into the workhorse model in macroeconomics: the Solow model.",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#quick-model-summary",
+    "href": "tutorial2.html#quick-model-summary",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Quick model summary",
+    "text": "Quick model summary\n\nProduction Function: The economy produces output using a production function of the form: \\[ Y_t = F(K_t, L_t) \\] where \\(Y\\) is output, \\(K\\) is capital, and \\(L\\) is labor. Often, a Cobb-Douglas production function is assumed: \\[ Y_t = K_t^\\alpha L_t^{1-\\alpha} \\] where \\(0 &lt; \\alpha &lt; 1\\). Capital comes at price \\(r\\) and labor comes at price \\(w\\).\nConstant Returns to Scale: Doubling the inputs (capital and labor) doubles the output.\nDiminishing Returns: Increasing one input, holding the other constant, leads to smaller and smaller increases in output.\nExogenous Saving Rate: A fixed fraction \\(s\\) of output is saved and invested.\nCapital Depreciation: A constant fraction \\(\\delta\\) of capital depreciates each period.\nPopulation Growth: The labor force grows at a constant rate \\(n\\).\nTechnological Progress: Technology improves at an exogenous rate \\(g\\), increasing productivity over time.\nSteady State: In the long run, the economy reaches a steady state where capital per worker (\\(k\\)) and output per worker (\\(y\\)) are constant.",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#exercises",
+    "href": "tutorial2.html#exercises",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Exercises",
+    "text": "Exercises\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\sqrt{x} + \\log(y)\\)\n\n\n\n2. Solve the maximization problem\nConsider the function above (\\(Y_t = K_t^{\\alpha} L_t^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program\nSolve the program\n\n\n\n3. Per worker term\nDenote \\(y=Y/L\\), the per-worker production, and \\(k=K/L\\) the per-worker capital.\n\nShow that \\(y=Ak^\\alpha\\)\n\n\n\n4. Capital accumulation\nCapital accumulation is given by \\(\\dot K=sY-\\delta K\\). Note also that the growth rate of population \\(n\\) can be expressed as \\(n = \\dot L / L\\).\n\nInterpret this equation\nShow that \\(\\frac{\\dot K}{K} = s\\frac{y}{k}-\\delta\\)\nShow that \\(\\dot k = sAk^\\alpha - (\\delta - n)k\\)\nWhat happen if \\(sAk^\\alpha &gt; (\\delta - n)k\\)? Interpret\n\n\n\n5. Steady state\nA steady-state is a capital stock per capita \\(k^\\star\\) where, when reached, \\(\\dot k = 0\\).\n\nWhat is the steady-state level of output per capita \\(y^\\star\\) ?\nInterpret\n\n\n\n6. Comparative statics\nComparative statics exercises are thought experiment in which we change the value of a parameter and compare the past and new equilibrium. Consider a new saving rate \\(s'&gt;s\\).\n\nHow does capital accumulation change?\nHow does change the steady-state level of capital per capita?\nHow does change the steady-state level of output per capita?\n\n\n\n7. Balanced growth path [Bonus]\nThe balanced growth path is a situation during which capital per worker and output per worker grow at a constant (but potentially different) rates. The steady state is a BGP with zero growth rate. Denote \\(g_y\\) and \\(g_k\\) the capital and output per worker growth rates .\n\nShow that \\(g_y \\propto g_k\\)\n\n\n\n8. Introducing technological progress [Bonus]\nLet assume now that \\(A\\) grows at rate \\(\\dot A / A = g &gt; 0\\).\n\nWhat is the new law of capital accumulation?\nWhat is the steady-state level of output per capita \\(\\tilde{y}^\\star\\)?",
+    "crumbs": [
+      "Tutorial 2"
     ]
   }
 ]
