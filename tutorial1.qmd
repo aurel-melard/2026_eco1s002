@@ -72,20 +72,25 @@ Computers are organized around folder. We are going to work in a working directo
 ``` plaintext
 /Users/aurelmelard/Dropbox
 ├── Admin
-│   └── candidature
 ├── IPP
-│   ├── AA
-│   ├── Echange
-│   ├── EvaluationCEE
-│   ├── MaPrimeRenov
-│   └── Pension_RG
+│   ├── AA
+│   ├── Echange
+│   ├── EvaluationCEE
+│   ├── MaPrimeRenov
+│   └── Pension_RG
 ├── Perso
 ├── cours
-│   ├── 2026_eco1s002
-│   │   ├── data
-│   │   └── output
-│   └── PublicEcon_cours
-└── projet_Aurel
+│   ├── PublicEcon_cours
+│   └── Topics
+│       ├── 2026_eco1s002
+│       │   ├── README_files
+│       │   ├── data
+│       │   ├── docs
+│       │   ├── img
+│       │   ├── output
+│       ├── extra_material
+│       └── tuto_solutions
+└── projet_ZFE
 ```
 
 Here we are going to work in `~/cours/2025_eco1s002/`. This folder may (and should!) contains subfolders, for instance: `/code`, `/output`, `/raw_data`, etc.
