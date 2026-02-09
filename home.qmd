@@ -10,7 +10,7 @@ The course has 3 main objectives:
 
 1.  Know the basics of R
 
-2.  Manipulate the standard statistical and empirical tools
+2.  Manipulate standard statistical and empirical tools of economic analysis
 
 3.  Write an original research output.
 
@@ -33,31 +33,31 @@ The course has 3 main objectives:
 -   [**Tutorial 2**](https://aurel-melard.github.io/2026_eco1s002/tutorial2.html) **(18/02)**
     -   Baseline Solow model derivations
     -   Solow model extensions
--   [**Tutorial 3**](https://aurel-melard.github.io/2026_eco1s002/tutorial3.html) **(25/02 - computer session)**
+-   **Tutorial 3** **(25/02 - computer session)**
     -   Replication of Mankiw et al. (1997)
     -   First hands on the OLS estimator
     -   Estimating the baseline and augmented Solow models
--   [**Tutorial 4**](https://aurel-melard.github.io/2026_eco1s002/tutorial4.html) **(11/03 - computer session)**
+-   **Tutorial 4** **(11/03 - computer session)**
     -   OLS bias and Instrumental Variables
     -   Replication of Acemoglu et al. (2010)
     -   Export the results
 -   **Tutorial 5 (18/03)**
     -   Discussion on the group project
     -   Q&A
--   [**Tutorial 6**](https://aurel-melard.github.io/2026_eco1s002/tutorial6.html) **(01/04 - computer session)**
+-   **Tutorial 6** **(01/04 - computer session)**
     -   Autonomous replication of an IV paper (handed in)
 -   **Tutorial 7 (08/04 - computer session)**
     -   Treatment effect
     -   Solution of Tutorial 6
--   [**Tutorial 8**](https://aurel-melard.github.io/2026_eco1s002/tutorial8.html) **(15/04)**
+-   **Tutorial 8** **(15/04)**
     -   Refresher on utility maximization program
     -   Intertemporal maximization problem
--   [**Tutorial 9**](https://aurel-melard.github.io/2026_eco1s002/tutorial9.html) **(22/04 - computer session)**
+-   **Tutorial 9** **(22/04 - computer session)**
     -   Work-leisure trade-off
     -   Women labour force participation
--   [**Tutorial 10**](https://aurel-melard.github.io/2026_eco1s002/tutorial10.html) **(06/05 - computer session)**
+-   **Tutorial 10** **(06/05 - computer session)**
     -   How to write the research project
--   [**Tutorial 11**](https://aurel-melard.github.io/2026_eco1s002/tutorial11.html) **(13/05 - computer session)**
+-   **Tutorial 11** **(13/05 - computer session)**
     -   Difference-in-differences estimation
     -   Marriage output matrices
     -   Measures of assortative mating

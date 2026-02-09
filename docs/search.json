@@ -34,7 +34,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nSome useful terms\n\nSo far, we talked about script.\nWe are going to manipulate object using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc. Some functions are already in R but some are not. Hence, we need to load them thanks to packages.",
+    "text": "First step in R/Rstudio\nSome useful terms\n\nSo far, we talked about scripts.\nWe are going to manipulate object using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc.\nSome functions are already in R but some are not. Hence, we need to load them thanks to packages.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -44,7 +44,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-1",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOpen a script\n\nWe are going to create our first script (the extension is .R).\nThis script contains all commands you want to run. R has built-in functions but most useful functions should be called using library().\nThese libraries should be first downloaded then loaded into your project.\nFirst, open RStudio and opens a new script.\nYou should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use # to comment code.",
+    "text": "First step in R/Rstudio\nOpen a script\n\nWe are going to create our first script (the extension is .R).\nThis script contains all commands you want to run. R has built-in functions but most useful functions should be called using library().\nThese libraries should be first downloaded then loaded into your project.\nFirst, open RStudio and opens a new script.\nYou should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use # to comment code and ---- to create .",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -54,7 +54,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-2",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nScript\n\n#-------------------------------------------------------------------------------\n# This script opens a dataset and proceeds\n# to data visualization.\n#\n# Author: Matéo Moglia\n# Date: 12/02/2025\n#-------------------------------------------------------------------------------\n\n# Set your working directory\nsetwd(\"C:/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site\")\npath &lt;- \"/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site\"\n\nHere, I set the working directory using setwd(). Notice that we created our first object, named path using the assignment operator &lt;- (I personally prefer to use = which works exactly the same).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of path? Hint: use the function class()",
+    "text": "First step in R/Rstudio\nScript\n\n################################################\n# This script opens a dataset and proceeds\n# to data visualization.\n#\n# Author: Aurel Mélard\n# Date: 11/02/2026\n################################################\n\n## 1. Set input and output paths ----\noutput_path &lt;- \"/Users/aurelmelard/Dropbox/cours/2026_eco1s002/output\"\n\nNotice that we created our first object, named output_path using the assignment operator &lt;- (or =, which is equivalent).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of input? Hint: use the function class()",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -64,7 +64,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-3",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOur first data manipulation\nWe can load a very famous built-in data set, the iris dataset, into an object called data.\n\ndata = iris # Attribute to data the data set iris\nclass(data) # Check its class\n\n[1] \"data.frame\"\n\nhead(data) # Preview the first lines of data\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nNotice that the two objects we created so far can be seen in the Environment pane.",
+    "text": "First step in R/Rstudio\nOur first data manipulation\nWe can load a very famous built-in data set, the iris dataset, into an object called data.\n\ndata = iris # Attribute to data the data set iris\nclass(data) # Check its class\n\n[1] \"data.frame\"\n\nhead(data) # Preview the first lines of data\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNotice that the two objects we created so far can be seen in the Environment.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -74,7 +74,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-4",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environement panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[,2]. What should you write to print the 10th element of the 3rd column?",
+    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environment panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[2,]. What should you write to print the 10th element of the 3rd column?",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -84,7 +84,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-5",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOur first graph!\nWe can also use a very popular library for dataviz, ggplot2. First, we install it, then we load it, and we are going to be able to use it.\n\ninstall.packages(\"ggplot2\",repos = \"http://cran.us.r-project.org\")\nlibrary(ggplot2)\n\n\n\n\n\n\n\nNote\n\n\nAll packages have to be downloaded and loaded this way. Note that once you’ve downloaded a package on your computer, you do not need to install it but you still need to load it through the library function.",
+    "text": "First step in R/Rstudio\nOur first graph!\nWe can also use a very popular library for dataviz, ggplot2. First, we install it, then we load it, and we are going to be able to use it.\n\ninstall.packages(\"ggplot2\",repos = \"http://cran.us.r-project.org\")\nlibrary(ggplot2)\n\n\n\n\n\n\n\nNote\n\n\nA more efficient alternative is to use the p_load function of the pacman package. It installs only uninstalled packages and immediatly loads them: pacman::p_load(ggplot2)",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -94,7 +94,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-6",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this -short- introduction to R, I introduce a new package, probably the most popular one in R: dplyr. As before, we install then load the library.\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)",
+    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this -short- introduction to R, I introduce a new package, probably the most popular one in R: dplyr. As before, we install then load the library.\n\npacman::p_load(tidyverse)\n\nTo be specific, the tidyverse is a collection of packages built for data science, including:\n\nggplot2 that we already installed separately\ndplyr that introduces a unified syntax for data manipulation\n7 other main packages for data analysis (see the list here)\nOther specific packages that are not directly loaded by tidyverse",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -104,7 +104,7 @@
     "href": "tutorial1.html#first-step-in-latex",
     "title": "Tutorial 1",
     "section": "First step in LaTeX",
-    "text": "First step in LaTeX\nWhat is LaTeX\nLaTeX is very popular software to produce scientic writings. It is relatively easy to use. From now on, it is mandatory to produce output you would hand using LaTeX. You have three options to use LaTeX:\n\nUse any text editor and compile the file using the console\nUse an IDE, like TexStudio or TexLive\nUse an online IDE like Overleaf\n\n\nThere are plenty of tutorials over the web (or ChatGPT) to know how to use LaTeX, so I am going to be quick.",
+    "text": "First step in LaTeX\nWhat is LaTeX\nLaTeX is very popular software to produce scientic writings. It is relatively easy to use. In these tutorial lessons, it will be required of you to hand out your outputs using LaTeX. You have three options to use LaTeX:\n\nUse any text editor and compile the file using the console\nUse an IDE, like TexStudio or TexLive\nUse an online IDE like Overleaf (allowing for collaboration)\n\n\n\n\n\n\n\nTip\n\n\nThere are plenty of tutorials to learn how to use LaTex, for example on Overleaf Overleaf also delivers a bank of open source templates for different kinds of document classes",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -114,7 +114,7 @@
     "href": "tutorial1.html#first-step-in-latex-1",
     "title": "Tutorial 1",
     "section": "First step in LaTeX",
-    "text": "First step in LaTeX\nOverleaf\nOpen a blank project in Overleaf. It should look like that:\n\\documentclass{article}\n\n%% PREAMBULE ------------------\n\n\\usepackage{graphicx} % Required for inserting images\n\n%% METADATA -------------------\n\n\\title{Tutorial one}\n\\author{Matéo Moglia}\n\\date{February 2024}\n\n%% DOCUMENT START ------------\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\n\\end{document}",
+    "text": "First step in LaTeX\nOverleaf\nOpen a blank project in Overleaf. It should look like that:\n\\documentclass{article}\n\n%% PREAMBULE ------------------\n\n\\usepackage{graphicx} % Required for inserting images\n\n%% METADATA -------------------\n\n\\title{Tutorial one}\n\\author{Aurel mélard}\n\\date{February 2026}\n\n%% DOCUMENT START ------------\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\n\\end{document}",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -124,7 +124,7 @@
     "href": "tutorial1.html#first-step-in-latex-2",
     "title": "Tutorial 1",
     "section": "First step in LaTeX",
-    "text": "First step in LaTeX\nMath mode\nMost interesting is the math mode. You can write in line using $ x = y$ or in an equation environment:\n\\begin{equation}\n  \\mu_k = \\int_0^{+\\infty} x^k f(x) dx = \\int_0^{+\\infty} t^{-\\frac{k}{\\alpha}} \\exp ^{-t} dt\n\\end{equation}\n\n\n\n\n\n\nTip\n\n\nAn environment starts with \\begin{name} and ends with \\end{name}. The environment can be an equation, to center a large chunk of text, a figure, a table, etc.",
+    "text": "First step in LaTeX\nMath mode\nYou can write equations in Latex using the math mode, in line using $x = y$:\nMy first equation is $  \\mu_k = \\int_0^{+\\infty} x^k f(x) dx = \\int_0^{+\\infty} t^{-\\frac{k}{\\alpha}} \\exp ^{-t} dt $\nAs line separate from text using $$x = y$$:\n $$\\mu_k = \\int_0^{+\\infty} x^k f(x) dx = \\int_0^{+\\infty} t^{-\\frac{k}{\\alpha}} \\exp ^{-t} dt $$\nOr in equation mode:\n\\begin{equation}\n  \\mu_k = \\int_0^{+\\infty} x^k f(x) dx = \\int_0^{+\\infty} t^{-\\frac{k}{\\alpha}} \\exp ^{-t} dt\n\\end{equation}\n\n\n\n\n\n\nTip\n\n\nAn environment starts with \\begin{name} and ends with \\end{name}. The environment can be an equation, a figure, a table, etc. An advantage of the equation environment over the $$ operator is that you can name it, give it a number and refer to it",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -197,6 +197,384 @@
     "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
     "crumbs": [
       "Home"
+    ]
+  },
+  {
+    "objectID": "tutorial4_sol.html",
+    "href": "tutorial4_sol.html",
+    "title": "Tutorial 4: Econometrics with R (Solution)",
+    "section": "",
+    "text": "Last week, we discovered the OLS estimator and what it does. It allows to assess, under certain conditions, the linear relation between an explained variable \\(y\\) and explanatory variables \\(X\\), using \\(n\\) individual observations.\nRecall that OLS estimator is biased. If the estimator is biased \\(E(\\epsilon|X) \\neq 0\\). Bias may arise in three main cases:\n\nMeasurement error. If the observed value \\(\\tilde{X}\\) of the real variable \\(X\\) is biased, then it writes \\(\\tilde{X} = X + \\mu\\). Then the exogeneity assumption does not hold.\nOmitted variable bias. The true model is \\(y_i = \\alpha + \\beta_1 x_i + \\beta_2 z_i + \\epsilon_i\\). If we estimate \\(y_i = \\alpha + \\beta_1 x_i + \\epsilon_i\\), we may under- or over-estimate the effect of \\(x\\) and \\(y\\).\nReverse causality (or simultaneity). The true model is \\[\n\\begin{align*}\ny_i &= \\alpha_0 + \\alpha_1 x_i + \\alpha_2 z_i + u_i \\\\\nx_i &= \\beta_0 + \\beta_1 y_i + \\beta_2 z_i + v_i\n\\end{align*}\n\\]\n\nRearranging yields a reduced-form model \\(y_i = \\pi_0 + \\pi_1 z_i + \\pi_2 x_i + e_i\\), but \\(e_i\\) contains both \\(u_i\\) and \\(z_i\\) and the exogeneity assumption might be violated."
+  },
+  {
+    "objectID": "tutorial4_sol.html#recap",
+    "href": "tutorial4_sol.html#recap",
+    "title": "Tutorial 4: Econometrics with R (Solution)",
+    "section": "",
+    "text": "Last week, we discovered the OLS estimator and what it does. It allows to assess, under certain conditions, the linear relation between an explained variable \\(y\\) and explanatory variables \\(X\\), using \\(n\\) individual observations.\nRecall that OLS estimator is biased. If the estimator is biased \\(E(\\epsilon|X) \\neq 0\\). Bias may arise in three main cases:\n\nMeasurement error. If the observed value \\(\\tilde{X}\\) of the real variable \\(X\\) is biased, then it writes \\(\\tilde{X} = X + \\mu\\). Then the exogeneity assumption does not hold.\nOmitted variable bias. The true model is \\(y_i = \\alpha + \\beta_1 x_i + \\beta_2 z_i + \\epsilon_i\\). If we estimate \\(y_i = \\alpha + \\beta_1 x_i + \\epsilon_i\\), we may under- or over-estimate the effect of \\(x\\) and \\(y\\).\nReverse causality (or simultaneity). The true model is \\[\n\\begin{align*}\ny_i &= \\alpha_0 + \\alpha_1 x_i + \\alpha_2 z_i + u_i \\\\\nx_i &= \\beta_0 + \\beta_1 y_i + \\beta_2 z_i + v_i\n\\end{align*}\n\\]\n\nRearranging yields a reduced-form model \\(y_i = \\pi_0 + \\pi_1 z_i + \\pi_2 x_i + e_i\\), but \\(e_i\\) contains both \\(u_i\\) and \\(z_i\\) and the exogeneity assumption might be violated."
+  },
+  {
+    "objectID": "tutorial4_sol.html#exercise-1-solow-model-and-ovb",
+    "href": "tutorial4_sol.html#exercise-1-solow-model-and-ovb",
+    "title": "Tutorial 4: Econometrics with R (Solution)",
+    "section": "Exercise 1: Solow model and OVB",
+    "text": "Exercise 1: Solow model and OVB\nDataset MRW_QJE1992.xlsx can be downloaded on Moodle.\n\nBaseline Solow model\nBefore, we load the necessary libraries and create an object path to store the path for further use.\n\n#path = \"C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3\"\npath = \"/Users/aurelmelard/Dropbox/cours/2026_eco1s002\"\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(readxl)\n\n\nOpen the dataset with the function read_xlsx from the package readxl\n\n\ndat = read_xlsx(paste0(path,\"/data/MRW_QJE1992.xlsx\"))\n\n\nDescribe the dataset\n\n\nsummary(dat)\n\n     number         country                n                i         \n Min.   :  0.00   Length:128         Min.   :0.0000   Min.   :0.0000  \n 1st Qu.: 25.75   Class :character   1st Qu.:1.0000   1st Qu.:0.0000  \n Median : 57.50   Mode  :character   Median :1.0000   Median :1.0000  \n Mean   : 57.66                      Mean   :0.8099   Mean   :0.6198  \n 3rd Qu.: 89.25                      3rd Qu.:1.0000   3rd Qu.:1.0000  \n Max.   :121.00                      Max.   :1.0000   Max.   :1.0000  \n                                     NA's   :7        NA's   :7       \n       o             rgdpw60           rgdpw85        gdpgrowth     \n Min.   :0.0000   Min.   :  383.0   Min.   :  412   Min.   :-0.900  \n 1st Qu.:0.0000   1st Qu.:  973.2   1st Qu.: 1209   1st Qu.: 2.800  \n Median :0.0000   Median : 1962.0   Median : 3484   Median : 3.900  \n Mean   :0.1818   Mean   : 3681.8   Mean   : 5683   Mean   : 4.094  \n 3rd Qu.:0.0000   3rd Qu.: 4274.5   3rd Qu.: 7719   3rd Qu.: 5.300  \n Max.   :1.0000   Max.   :77881.0   Max.   :25635   Max.   : 9.200  \n NA's   :7        NA's   :12        NA's   :20      NA's   :11      \n   popgrowth          i_y            school       countrycode       \n Min.   :0.300   Min.   : 4.10   Min.   : 0.400   Length:128        \n 1st Qu.:1.700   1st Qu.:12.00   1st Qu.: 2.400   Class :character  \n Median :2.400   Median :17.70   Median : 4.950   Mode  :character  \n Mean   :2.279   Mean   :18.16   Mean   : 5.526                     \n 3rd Qu.:2.900   3rd Qu.:24.10   3rd Qu.: 8.175                     \n Max.   :6.800   Max.   :36.90   Max.   :12.100                     \n NA's   :21      NA's   :7       NA's   :10                         \n\nhead(dat)\n\n# A tibble: 6 × 12\n  number country         n     i     o rgdpw60 rgdpw85 gdpgrowth popgrowth   i_y\n   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;\n1      1 Algeria         1     1     0    2485    4371       4.8       2.6  24.1\n2      2 Angola          1     0     0    1588    1171       0.8       2.1   5.8\n3      3 Benin           1     0     0    1116    1071       2.2       2.4  10.8\n4      4 Botswana        1     1     0     959    3671       8.6       3.2  28.3\n5      5 Burkina Fa…     1     0     0     529     857       2.9       0.9  12.7\n6      6 Burundi         1     0     0     755     663       1.2       1.7   5.1\n# ℹ 2 more variables: school &lt;dbl&gt;, countrycode &lt;chr&gt;\n\n\n\nUsing ggplot2 package, make a graph to plot on the \\(x\\) axis the GDP growth and on the \\(y\\) axis the log GDP in 1965. Export in pdf.\n\n\nggplot(dat, aes(x = gdpgrowth, y = log(rgdpw60))) +\n  geom_point() +\n  theme_bw() +\n  xlab(\"GDP growth rate\") + ylab(\"GDP per capita in 1960 (log)\")\n\nWarning: Removed 12 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nggsave(paste0(path,\"/output/graph_solow.pdf\"))\n\nSaving 7 x 5 in image\n\n\nWarning: Removed 12 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\nIn the paper, different country groups are defined. Create the grouping variable, depending on country types. Hint: use ifelse(test,value if true, value if false). Notice that countries \\(o\\) are a subset of countries \\(i\\) which are a subset of countries \\(n\\).\n\n\ndat = dat %&gt;%\n  mutate(group = ifelse(n == 1, \"n\", NA)) %&gt;%\n  mutate(group = ifelse(i == 1, \"i\", group)) %&gt;%\n  mutate(group = ifelse(o == 1, \"o\", group)) %&gt;%\n  filter(!is.na(group)) # Some countries are not part of a group, we remove them\n\n\nEstimate this model and store in an object called reg0 \\[\n\\log (Y_i/L_i) = \\beta_0 + \\beta_1 \\log s_i + \\beta_2 \\log(n + g + \\delta) + \\epsilon_i\n\\]\n\nWe define \\(g + \\delta = 0.05\\).\n\n# Generate the variables for the regression ------------------------------------\n\ndat = dat %&gt;%\n  mutate(constant = 0.05)\n\n# Unconditional and conditional regressions ------------------------------------\n\nreg0 = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat)\nsummary(reg0)\n\n\nCall:\nlm(formula = log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), \n    data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.74635 -0.42958  0.04203  0.44671  1.50149 \n\nCoefficients:\n                          Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                 4.5890     0.4322  10.618  &lt; 2e-16 ***\nlog(i_y)                    1.3881     0.1416   9.804 4.33e-16 ***\nlog(popgrowth + constant)  -0.5301     0.1298  -4.085 9.19e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6759 on 95 degrees of freedom\nMultiple R-squared:  0.6159,    Adjusted R-squared:  0.6078 \nF-statistic: 76.17 on 2 and 95 DF,  p-value: &lt; 2.2e-16\n\n\n\nEstimate the same model but for each country subgroup.\n\n\nreg0_i = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %&gt;% filter(group == \"i\"))\nreg0_n = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %&gt;% filter(group == \"n\"))\nreg0_o = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %&gt;% filter(group == \"o\"))\n\n\nBonus: do the latter with a loop\n\n\nfor(x in c(\"i\",\"o\",\"n\")){\n  reg = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), data = dat %&gt;%\n             filter(group == x))\n  assign(paste0(\"reg0_\",x),reg)\n}\n\n\nThis is the result we find. Interpret it (notice the log-log specification)\n\n\nsummary(reg0)\n\n\nCall:\nlm(formula = log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), \n    data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.74635 -0.42958  0.04203  0.44671  1.50149 \n\nCoefficients:\n                          Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                 4.5890     0.4322  10.618  &lt; 2e-16 ***\nlog(i_y)                    1.3881     0.1416   9.804 4.33e-16 ***\nlog(popgrowth + constant)  -0.5301     0.1298  -4.085 9.19e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6759 on 95 degrees of freedom\nMultiple R-squared:  0.6159,    Adjusted R-squared:  0.6078 \nF-statistic: 76.17 on 2 and 95 DF,  p-value: &lt; 2.2e-16\n\n\nThe R2 is around 62%, it means that the model we specified explains 62% of the total variance of the log GDP in 1985 in our sample. It also highlights that 38% of the variance is left unexplained by the model.\nThanks to the log-log specification, the coefficients we found on investment and on the constant terms \\((n+g+\\delta)\\) can directly be interpreted as elasticities (if \\(x\\) increases by 1%, \\(y\\) increases by \\(\\widehat\\beta\\)%). Here, one percent increase in investment increases GDP per capita in 1985 by 1.4%.\nNotice that the coefficients we found are stastistically significant at a very high level. The p-value is way below the standard treshold of 1%.\n\nPrevious work estimated that the elasticity of production with respect to investment is 1/3. Is this verified here?\n\nThe \\(\\beta\\) we estimate is in the Solow model the \\(\\alpha/(1-\\alpha)\\). Hence, if \\(\\beta = 1.4\\), then \\(\\alpha \\sim 0.6\\), which is almost two times the value of previous estimation.\n\n\nAdding school as omitted variable\nIn the extension of the Solow model, we saw that human capital has a role in explaining GDP per capita.\n\nRun the model again but adding the school variable. Interpret.\n\n\n# Add the school variable ------------------------------------------------------\n\nreg1 = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant) + log(school), data = dat)\nsummary(reg1)\n\n\nCall:\nlm(formula = log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant) + \n    log(school), data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.27082 -0.33776  0.06629  0.32580  1.09789 \n\nCoefficients:\n                          Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                5.59342    0.33733  16.581  &lt; 2e-16 ***\nlog(i_y)                   0.68265    0.13045   5.233 1.01e-06 ***\nlog(popgrowth + constant) -0.45041    0.09599  -4.692 9.16e-06 ***\nlog(school)                0.64347    0.07146   9.004 2.41e-14 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4979 on 94 degrees of freedom\nMultiple R-squared:  0.7938,    Adjusted R-squared:  0.7872 \nF-statistic: 120.6 on 3 and 94 DF,  p-value: &lt; 2.2e-16\n\nfor(x in c(\"i\",\"o\",\"n\")){\n  reg = lm(log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant) + log(school), data = dat %&gt;%\n             filter(group == x))\n  assign(paste0(\"reg1_\",x),reg)\n}\n\nAll coefficients remain significant. The R2 increases. Addind school increases the overall explanatory power of the model (note however that the R2 increases mechanically with the number of variables). It suggests that the coefficient was a missing a value. The coefficient on school is positive and significant. Increases education increases GDP.\n\nBonus: Using linearHypothesis test if \\(\\beta_1\\) and \\(\\beta_2\\) are equal.\n\n\nhypothesis.matrix = matrix(c(0, 1, 1) , nrow=1 , ncol =3)\nprint(car::linearHypothesis(reg0, hypothesis.matrix, rhs=0))\n\n\nLinear hypothesis test:\n\n\nModel 1: restricted model\nModel 2: log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant)\n\n  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    \n1     96 50.372                                  \n2     95 43.405  1    6.9661 15.246 0.0001765 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nThe test p-value is lower than the usual threshold of 1%, we can confidently reject the hypothesis that the two coefficients are equal."
+  },
+  {
+    "objectID": "tutorial4_sol.html#exercise-2-acemoglu-johnson-robinson-and-instrumental-variable",
+    "href": "tutorial4_sol.html#exercise-2-acemoglu-johnson-robinson-and-instrumental-variable",
+    "title": "Tutorial 4: Econometrics with R (Solution)",
+    "section": "Exercise 2: Acemoglu, Johnson, Robinson and instrumental variable",
+    "text": "Exercise 2: Acemoglu, Johnson, Robinson and instrumental variable\n\nRecap\nIn this very influential paper, AJR estimates the effects of institution on GDP growth. They in particular test whether good institutions, hat protect entrepreneurs, enhance the GDP per capita growth in the African context.\nHowever, there is a clear endogeneity issue. Can you see it? Richer countries can afford having better institution because they can invest in better schools/universities or better voters are more in favor of better institutions to protect their wealth\n\n\nPart 1\n\n#-------------------------------------------------------------------------------\n#\n#   Solution for tutorial 4\n#\n#-------------------------------------------------------------------------------\n\nrm(list=ls())\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ivreg)\nlibrary(haven)\nlibrary(stargazer)\n\n#path = \"C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial4\"\npath = \"/Users/aurelmelard/Dropbox/cours/2026_eco1s002\"\n\n\ndat = read_dta(paste0(path,\"/data/ajrcomment.dta\"))\n\n\nDownload the dataset ajrcomment.dta and describe the data\n\n\nsummary(dat)\n\n   longname           shortnam              step            mort        \n Length:64          Length:64          Min.   :1.000   Min.   :   8.55  \n Class :character   Class :character   1st Qu.:1.000   1st Qu.:  68.90  \n Mode  :character   Mode  :character   Median :3.000   Median :  78.15  \n                                       Mean   :2.562   Mean   : 245.91  \n                                       3rd Qu.:4.000   3rd Qu.: 240.00  \n                                       Max.   :4.000   Max.   :2940.00  \n                                                                        \n    logmort0          risk            loggdp          campaign     \n Min.   :2.146   Min.   : 3.500   Min.   : 6.110   Min.   :0.0000  \n 1st Qu.:4.233   1st Qu.: 5.617   1st Qu.: 7.303   1st Qu.:0.0000  \n Median :4.359   Median : 6.475   Median : 7.940   Median :1.0000  \n Mean   :4.647   Mean   : 6.516   Mean   : 8.051   Mean   :0.6562  \n 3rd Qu.:5.481   3rd Qu.: 7.353   3rd Qu.: 8.852   3rd Qu.:1.0000  \n Max.   :7.986   Max.   :10.000   Max.   :10.220   Max.   :1.0000  \n                                                                   \n     slave           source0          latitude         neoeuro      \n Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  \n 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0889   1st Qu.:0.0000  \n Median :0.0000   Median :0.0000   Median :0.1528   Median :0.0000  \n Mean   :0.0625   Mean   :0.4375   Mean   :0.1811   Mean   :0.0625  \n 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:0.2584   3rd Qu.:0.0000  \n Max.   :1.0000   Max.   :1.0000   Max.   :0.6667   Max.   :1.0000  \n                                                                    \n      asia            africa           other            edes1975     \n Min.   :0.0000   Min.   :0.0000   Min.   :0.00000   Min.   :  0.00  \n 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:  0.00  \n Median :0.0000   Median :0.0000   Median :0.00000   Median :  0.00  \n Mean   :0.1406   Mean   :0.4219   Mean   :0.04688   Mean   : 18.07  \n 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.: 21.25  \n Max.   :1.0000   Max.   :1.0000   Max.   :1.00000   Max.   :100.00  \n                                                                     \n    malaria           other2            cons90         lado1995    \n Min.   :0.0000   Min.   :0.00000   Min.   :1.000   Min.   :1.000  \n 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:2.000   1st Qu.:3.000  \n Median :0.1757   Median :0.00000   Median :3.000   Median :4.000  \n Mean   :0.4099   Mean   :0.07812   Mean   :3.967   Mean   :3.714  \n 3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:7.000   3rd Qu.:4.000  \n Max.   :1.0000   Max.   :1.00000   Max.   :7.000   Max.   :6.000  \n NA's   :2                          NA's   :4       NA's   :1      \n    ajr_rnd2     \n Min.   :0.0000  \n 1st Qu.:0.0000  \n Median :0.0000  \n Mean   :0.4688  \n 3rd Qu.:1.0000  \n Max.   :1.0000  \n                 \n\nhead(dat)\n\n# A tibble: 6 × 21\n  longname    shortnam  step   mort logmort0  risk loggdp campaign slave source0\n  &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1 Angola      AGO          3 280        5.63  5.36   7.77        1     0       0\n2 Argentina   ARG          4  68.9      4.23  6.39   9.13        1     0       0\n3 Australia   AUS          4   8.55     2.15  9.32   9.90        0     0       0\n4 Burkina Fa… BFA          2 280        5.63  4.45   6.85        1     0       0\n5 Bangladesh  BGD          1  71.4      4.27  5.14   6.88        1     0       1\n6 Bahamas     BHS          4  85        4.44  7.5    9.29        0     0       0\n# ℹ 11 more variables: latitude &lt;dbl&gt;, neoeuro &lt;dbl&gt;, asia &lt;dbl&gt;, africa &lt;dbl&gt;,\n#   other &lt;dbl&gt;, edes1975 &lt;dbl&gt;, malaria &lt;dbl&gt;, other2 &lt;dbl&gt;, cons90 &lt;dbl&gt;,\n#   lado1995 &lt;dbl&gt;, ajr_rnd2 &lt;dbl&gt;\n\n\n\nCreate a scatter plot of mortality rate against GDP per capita in 1995, and a second scatter plot with the log mortality rate and log GDP per capita in 1995. Notice the difference.\n\n\n# Scatter plot -----------------------------------------------------------------\n\nggplot(data = dat, aes(x = mort, y = loggdp)) +\n  geom_point(color = \"indianred\") +\n  theme_bw()\n\n\n\n\n\n\n\nggplot(data = dat, aes(x = logmort0, y = loggdp)) +\n  geom_point(color = \"indianred\") +\n  theme_bw()\n\n\n\n\n\n\n\n\nTable 2 of Acemoglu et al. (2001) presents the results of an OLS regression of log GDP per capita in 1995 on average protection against expropriation, and a some covariates:\n\\[\n    \\log y_i = \\mu + \\alpha R_i + \\mathbf{X}_i'\\gamma + \\epsilon_i\n\\]\n\nIdentify the covariates in the results table.\n\nThe covariates are latitude, a variable that takes one if the country is in Asia (also called a dummy variable), a dummy if the country is in Africa, an “other continent” dummy.\n\nReproduce the results for the columns (2), (5), and (6). Export them to your answer sheet. Interpret the results clearly.\n\n\nreg0_nocov  = lm(loggdp ~ risk, data = dat)\nreg0_lat    = lm(loggdp ~ risk + latitude, data = dat)\nreg0_allcov = lm(loggdp ~ risk + latitude + asia + africa + other, data = dat)\n\nstargazer(reg0_nocov,reg0_lat, reg0_allcov,type = \"text\", out = paste0(path,\"/output/reg0.tex\"), keep.stat = c(\"n\", \"rsq\"))\n\n\n==========================================\n                  Dependent variable:     \n             -----------------------------\n                        loggdp            \n                (1)       (2)       (3)   \n------------------------------------------\nrisk         0.516***  0.457***  0.396*** \n              (0.063)   (0.065)   (0.060) \n                                          \nlatitude                1.710**    0.978  \n                        (0.722)   (0.641) \n                                          \nasia                             -0.651***\n                                  (0.236) \n                                          \nafrica                           -0.879***\n                                  (0.173) \n                                          \nother                              0.103  \n                                  (0.390) \n                                          \nConstant     4.687***  4.761***  5.754*** \n              (0.417)   (0.404)   (0.406) \n                                          \n------------------------------------------\nObservations    64        64        64    \nR2             0.524     0.564     0.705  \n==========================================\nNote:          *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01\n\n\n\nWhat is the effect of an increase of 1 on the risk scale on the GDP?\n\n1 unit increase in risk increases by 39 percent the country GDP. The result is significant at the 1% level. Notice that the effect of risk on GDP is robust to the add of other variables. It suggests a strong relationship between both.\n\n\nPart 2\nSo far, we used OLS to estimate the effect of risk on GDP. However, the relationship is likely to be endogenous. Hence, we can risk with mortality to aleviate this endogeneity concern. We run two different methods:\n\nRun the regression of risk on log mortality (using only latitude as a covariate).\n\n\nfs = lm(risk ~ logmort0 + latitude, data = dat)\nsummary(fs)\n\n\nCall:\nlm(formula = risk ~ logmort0 + latitude, data = dat)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.7321 -0.9389  0.0495  0.8417  3.1898 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   8.5558     0.8083  10.585 1.94e-15 ***\nlogmort0     -0.5172     0.1409  -3.672 0.000509 ***\nlatitude      2.0075     1.3299   1.510 0.136331    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.249 on 61 degrees of freedom\nMultiple R-squared:  0.2997,    Adjusted R-squared:  0.2767 \nF-statistic: 13.05 on 2 and 61 DF,  p-value: 1.913e-05\n\n\n\nRun the regression of predicted risk on GDP (using only latitude as a covariate). To do so, you need to estimate the predicted risk based on the previous regression result using the predict function.\n\n\nrisk_hat = predict(fs)\n\ndat$risk_hat = risk_hat\n\nggplot(dat,aes(x=risk_hat,risk)) +\n    geom_point() +\n    theme_bw()\n\n\n\n\n\n\n\nsummary(lm(loggdp ~ risk_hat + latitude,data=dat))\n\n\nCall:\nlm(formula = loggdp ~ risk_hat + latitude, data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.49222 -0.46453  0.08935  0.47819  1.59812 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   1.8578     0.9638   1.928   0.0586 .  \nrisk_hat      0.9620     0.1652   5.824  2.3e-07 ***\nlatitude     -0.4169     1.0011  -0.416   0.6786    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7576 on 61 degrees of freedom\nMultiple R-squared:  0.4937,    Adjusted R-squared:  0.4771 \nF-statistic: 29.74 on 2 and 61 DF,  p-value: 9.65e-10\n\n\npredict computes \\(\\widehat x_i = \\widehat\\beta_0 \\widehat \\beta_1 z_i + \\widehat u_i\\). Here, \\(\\widehat x\\) is the predicted risk. Then, I add the object risk_hat as a new column in the dat dataset.\nA good instrument has to check two assumptions. The first one is the relevance, meaning that the instrument must be correlated with the instrumented variable. The second one is exogeneity, meaning that \\(z\\) must not cause \\(y\\). This cannot be directly tested for.\n\nDoes the instrument seem valid? Comment the results.\n\nInstrument is relevant as the coefficient in fs is positive and significant. Instrument seems to be exogenous. Lagged mortality (over a century ago) seems not to have an effect on contemporeneous outcome through another way than through institutional context. Check David Albouy critique for a critical assessment of the AJR strategy.\n\nDiscover the function ivreg and do the IV regression again. Do the results differ?\n\n\nsummary(ivreg(loggdp ~ risk + latitude | logmort0 + latitude, data = dat))\n\n\nCall:\nivreg(formula = loggdp ~ risk + latitude | logmort0 + latitude, \n    data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.48221 -0.61459  0.09125  0.73670  1.79187 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   1.8578     1.2592   1.475    0.145    \nrisk          0.9620     0.2158   4.458 3.61e-05 ***\nlatitude     -0.4169     1.3079  -0.319    0.751    \n\nDiagnostic tests:\n                 df1 df2 statistic  p-value    \nWeak instruments   1  61     13.48 0.000509 ***\nWu-Hausman         1  60     16.61 0.000137 ***\nSargan             0  NA        NA       NA    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.9898 on 61 degrees of freedom\nMultiple R-Squared: 0.1358, Adjusted R-squared: 0.1075 \nWald test: 17.42 on 2 and 61 DF,  p-value: 1.033e-06 \n\n\nResults are the same, which is expected!"
+  },
+  {
+    "objectID": "tutorial2.html",
+    "href": "tutorial2.html",
+    "title": "Tutorial 2: the Solow model",
+    "section": "",
+    "text": "We are going to dig into into the workhorse model in macroeconomics: the Solow model.",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#quick-model-summary",
+    "href": "tutorial2.html#quick-model-summary",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Quick model summary",
+    "text": "Quick model summary\n\nProduction Function: The economy produces output using a production function of the form: \\[ Y_t = F(K_t, L_t) \\] where \\(Y\\) is output, \\(K\\) is capital, and \\(L\\) is labor. Often, a Cobb-Douglas production function is assumed: \\[ Y_t = K_t^\\alpha L_t^{1-\\alpha} \\] where \\(0 &lt; \\alpha &lt; 1\\). Capital comes at price \\(r\\) and labor comes at price \\(w\\).\nConstant Returns to Scale: Doubling the inputs (capital and labor) doubles the output.\nDiminishing Returns: Increasing one input, holding the other constant, leads to smaller and smaller increases in output.\nExogenous Saving Rate: A fixed fraction \\(s\\) of output is saved and invested.\nCapital Depreciation: A constant fraction \\(\\delta\\) of capital depreciates each period.\nPopulation Growth: The labor force grows at a constant rate \\(n\\).\nTechnological Progress: Technology improves at an exogenous rate \\(g\\), increasing productivity over time.\nSteady State: In the long run, the economy reaches a steady state where capital per worker (\\(k\\)) and output per worker (\\(y\\)) are constant.",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#exercises",
+    "href": "tutorial2.html#exercises",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Exercises",
+    "text": "Exercises\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\sqrt{x} + \\log(y)\\)\n\n\n\n2. Solve the maximization problem\nConsider the function above (\\(Y_t = K_t^{\\alpha} L_t^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program\nSolve the program\n\n\n\n3. Per worker term\nDenote \\(y=Y/L\\), the per-worker production, and \\(k=K/L\\) the per-worker capital.\n\nShow that \\(y=Ak^\\alpha\\)\n\n\n\n4. Capital accumulation\nCapital accumulation is given by \\(\\dot K=sY-\\delta K\\). Note also that the growth rate of population \\(n\\) can be expressed as \\(n = \\dot L / L\\).\n\nInterpret this equation\nShow that \\(\\frac{\\dot K}{K} = s\\frac{y}{k}-\\delta\\)\nShow that \\(\\dot k = sAk^\\alpha - (\\delta - n)k\\)\nWhat happen if \\(sAk^\\alpha &gt; (\\delta - n)k\\)? Interpret\n\n\n\n5. Steady state\nA steady-state is a capital stock per capita \\(k^\\star\\) where, when reached, \\(\\dot k = 0\\).\n\nWhat is the steady-state level of output per capita \\(y^\\star\\) ?\nInterpret\n\n\n\n6. Comparative statics\nComparative statics exercises are thought experiment in which we change the value of a parameter and compare the past and new equilibrium. Consider a new saving rate \\(s'&gt;s\\).\n\nHow does capital accumulation change?\nHow does change the steady-state level of capital per capita?\nHow does change the steady-state level of output per capita?\n\n\n\n7. Balanced growth path [Bonus]\nThe balanced growth path is a situation during which capital per worker and output per worker grow at a constant (but potentially different) rates. The steady state is a BGP with zero growth rate. Denote \\(g_y\\) and \\(g_k\\) the capital and output per worker growth rates .\n\nShow that \\(g_y \\propto g_k\\)\n\n\n\n8. Introducing technological progress [Bonus]\nLet assume now that \\(A\\) grows at rate \\(\\dot A / A = g &gt; 0\\).\n\nWhat is the new law of capital accumulation?\nWhat is the steady-state level of output per capita \\(\\tilde{y}^\\star\\)?",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html",
+    "href": "tutorial6.html",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Air pollution is an important subject and leads to various deseases. Most estimates from the literature are from developed countries, leading to low external validity. In this paper, the authors propose a novel estimation of the effect of air pollution on infant mortality, in a developing context, Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "href": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Air pollution is an important subject and leads to various deseases. Most estimates from the literature are from developed countries, leading to low external validity. In this paper, the authors propose a novel estimation of the effect of air pollution on infant mortality, in a developing context, Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-1-intuition",
+    "href": "tutorial6.html#exercise-1-intuition",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 1: Intuition",
+    "text": "Exercise 1: Intuition\nMost answers are in the introduction of the paper.\n\nWhy a simple OLS regression of child mortality on pollution would lead to a biased estimation?\nA common IV strategy for pollution is to use regulation, why would it lead to a weak first stage?\nThe authors argue that the external validity of the results found in developed countries is low. Why? Would we over- or under-estimate the real effect if we were to use the coefficients find in developed/less polluted countries?\nInstead of running a simple OLS regression, the authors suggest to add month and month-area fixed effect. Why does it improve the quality of the estimation?\nThe authors suggest using thermal inversion as an instrument for air pollution. Discuss the exogeneity and the relevance conditions of this instrument.",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "href": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 2: Data cleaning and visual representation",
+    "text": "Exercise 2: Data cleaning and visual representation\n\nOpen the raw data\nControl variables include w_tmp_mean, w_precip, w_cloud, w_evap, w_invterm. Keep only observations for which those controls are not missing.\nRemove if w_tmp_impute is 1 (ie, if the temperature is imputed).\nCompute the monthly average of termal inversion (w_invterm) and the monthly average temperature (w_tmp_mean).\nReplicate Figure 3 using ggplot. The mortality variables are rw_infant_1y and grw_infant_1y. Export to your .tex file.",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-3-empirical-analysis",
+    "href": "tutorial6.html#exercise-3-empirical-analysis",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 3: Empirical analysis",
+    "text": "Exercise 3: Empirical analysis\nPay close attention to the footnote of the tables you want to replicate. Notice that the authors drop the bottom 99 and top 1 percentile observations (to account for outliers). They also weight the regressions by the number of births. Pollution variables are pm10_max24hr, co_max8hr, so2_mean, o3_mean.\nNotice you will need to create some variables (the polynomials and the fixed effects). The explained variables are scaled by 1000 in the paper.\n\nReplicate Table 2. Predict the value of pollution. Export. Interpret. Does the IV seem valid?\nReplicate Table 3 (Columns 1 to 4 only). Export. Interpret. Are you confident with these results?\n[Bonus] Rerun the analysis without dropping the outliers. Interpret.\n[Bonus] Plot the main point estimates and the confidence intervals. Which pollutant is the worst?",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html",
+    "href": "tutorial4.html",
+    "title": "Tutorial 4: Econometrics with R",
+    "section": "",
+    "text": "Last week, we discovered the OLS estimator and what it does. It allows to assess, under certain conditions, the linear relation between an explained variable \\(y\\) and explanatory variables \\(X\\), using \\(n\\) individual observations.\nRecall that OLS estimator is biased. If the estimator is biased \\(E(\\epsilon|X) \\neq 0\\). Bias may arise in three main cases:\n\nMeasurement error. If the observed value \\(\\tilde{X}\\) of the real variable \\(X\\) is biased, then it writes \\(\\tilde{X} = X + \\mu\\). Then the exogeneity assumption does not hold.\nOmitted variable bias. The true model is \\(y_i = \\alpha + \\beta_1 x_i + \\beta_2 z_i + \\epsilon_i\\). If we estimate \\(y_i = \\alpha + \\beta_1 x_i + \\epsilon_i\\), we may under- or over-estimate the effect of \\(x\\) and \\(y\\).\nReverse causality (or simultaneity). The true model is \\[\n\\begin{align*}\ny_i &= \\alpha_0 + \\alpha_1 x_i + \\alpha_2 z_i + u_i \\\\\nx_i &= \\beta_0 + \\beta_1 y_i + \\beta_2 z_i + v_i\n\\end{align*}\n\\]\n\nRearranging yields a reduced-form model \\(y_i = \\pi_0 + \\pi_1 z_i + \\pi_2 x_i + e_i\\), but \\(e_i\\) contains both \\(u_i\\) and \\(z_i\\) and the exogeneity assumption might be violated.",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#recap",
+    "href": "tutorial4.html#recap",
+    "title": "Tutorial 4: Econometrics with R",
+    "section": "",
+    "text": "Last week, we discovered the OLS estimator and what it does. It allows to assess, under certain conditions, the linear relation between an explained variable \\(y\\) and explanatory variables \\(X\\), using \\(n\\) individual observations.\nRecall that OLS estimator is biased. If the estimator is biased \\(E(\\epsilon|X) \\neq 0\\). Bias may arise in three main cases:\n\nMeasurement error. If the observed value \\(\\tilde{X}\\) of the real variable \\(X\\) is biased, then it writes \\(\\tilde{X} = X + \\mu\\). Then the exogeneity assumption does not hold.\nOmitted variable bias. The true model is \\(y_i = \\alpha + \\beta_1 x_i + \\beta_2 z_i + \\epsilon_i\\). If we estimate \\(y_i = \\alpha + \\beta_1 x_i + \\epsilon_i\\), we may under- or over-estimate the effect of \\(x\\) and \\(y\\).\nReverse causality (or simultaneity). The true model is \\[\n\\begin{align*}\ny_i &= \\alpha_0 + \\alpha_1 x_i + \\alpha_2 z_i + u_i \\\\\nx_i &= \\beta_0 + \\beta_1 y_i + \\beta_2 z_i + v_i\n\\end{align*}\n\\]\n\nRearranging yields a reduced-form model \\(y_i = \\pi_0 + \\pi_1 z_i + \\pi_2 x_i + e_i\\), but \\(e_i\\) contains both \\(u_i\\) and \\(z_i\\) and the exogeneity assumption might be violated.",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#exercise-1-solow-model-and-ovb",
+    "href": "tutorial4.html#exercise-1-solow-model-and-ovb",
+    "title": "Tutorial 4: Econometrics with R",
+    "section": "Exercise 1: Solow model and OVB",
+    "text": "Exercise 1: Solow model and OVB\nDataset MRW_QJE1992.xlsx can be downloaded on Moodle.\n\nBaseline Solow model\n\nOpen the dataset with the function read_xlsx from the package readxl\nDescribe the dataset\nUsing ggplot2 package, make a graph to plot on the \\(x\\) axis the GDP growth and on the \\(y\\) axis the log GDP in 1965. Export in pdf.\nIn the paper, different country groups are defined. Create the grouping variable, depending on country types. Hint: use ifelse(test,value if true, value if false). Notice that countries \\(o\\) are a subset of countries \\(i\\) which are a subset of countries \\(n\\).\nEstimate this model and store in an object called reg0 \\[\n\\log (Y_i/L_i) = \\beta_0 + \\beta_1 \\log s_i + \\beta_2 \\log(n + g + \\delta) + \\epsilon_i\n\\]\n\nWe define \\(g + \\delta = 0.05\\).\n\nEstimate the same model but for each country subgroup.\nBonus: do the latter with a loop\nThis is the result we find. Interpret it (notice the log-log specification)\n\n\nsummary(reg0)\n\n\nCall:\nlm(formula = log(rgdpw85) ~ 1 + log(i_y) + log(popgrowth + constant), \n    data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.89396 -0.49251 -0.03161  0.52177  3.12361 \n\nCoefficients:\n                          Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                 4.4330     0.4929   8.993 1.19e-14 ***\nlog(i_y)                    1.4083     0.1617   8.711 5.01e-14 ***\nlog(popgrowth + constant)  -0.2991     0.1431  -2.090   0.0391 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7799 on 104 degrees of freedom\n  (14 observations effacées parce que manquantes)\nMultiple R-squared:  0.4949,    Adjusted R-squared:  0.4851 \nF-statistic: 50.94 on 2 and 104 DF,  p-value: 3.782e-16\n\n\n\nPrevious work estimated that the elasticity of production with respect to investment is 1/3. Is this verified here?\n\n\n\nAdding school as omitted variable\nIn the extension of the Solow model, we saw that human capital has a role in explaining GDP per capita.\n\nRun the model again but adding the school variable. Interpret.\nBonus: Using linearHypothesis test if \\(\\beta_1\\) and \\(\\beta_2\\) are equal.",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#exercise-2-acemoglu-johnson-robinson-and-instrumental-variable",
+    "href": "tutorial4.html#exercise-2-acemoglu-johnson-robinson-and-instrumental-variable",
+    "title": "Tutorial 4: Econometrics with R",
+    "section": "Exercise 2: Acemoglu, Johnson, Robinson and instrumental variable",
+    "text": "Exercise 2: Acemoglu, Johnson, Robinson and instrumental variable\n\nRecap\nIn this very influential paper, AJR estimates the effects of institution on GDP growth. They in particular test whether good institutions, hat protect entrepreneurs, enhance the GDP per capita growth in the African context.\nHowever, there is a clear endogeneity issue. Can you see it?\n\n\nPart 1\n\nDownload the dataset and describe the data\nCreate a scatter plot of mortality rate against GDP per capita in 1995, and a second scatter plot with the log mortality rate and log GDP per capita in 1995. Notice the difference.\n\nTable 2 of Acemoglu et al. (2001) presents the results of an OLS regression of log GDP per capita in 1995 on average protection against expropriation, and a some covariates: \\[\n    \\log y_i = \\mu + \\alpha R_i + \\mathbf{X}_i'\\gamma + \\epsilon_i\n\\]\n\nIdentify the covariates in the results table.\nReproduce the results for the columns (2), (5), and (6). Export them to your answer sheet. Interpret the results clearly.\nWhat is the effect of an increase of 1 on the risk scale on the GDP?\n\n\n\nPart 2\nSo far, we used OLS to estimate the effect of risk on GDP. However, the relationship is likely to be endogenous. Hence, we can risk with mortality to aleviate this endogeneity concern. We run two different methods:\n\nRun the regression of risk on log mortality (using only latitude as a covariate).\nRun the regression of predicted risk on GDP (using only latitude as a covariate). To do so, you need to estimate the predicted risk based on the previous regression result using the predict function.\n\nA good instrument has to check two assumptions. The first one is the relevance, meaning that the instrument must be correlated with the instrumented variable. The second one is exogeneity, meaning that \\(z\\) must not cause \\(y\\). This cannot be directly tested for.\n\nDoes the instrument seem valid? Comment the results.\nDiscover the function ivreg and do the IV regression again. Do the results differ?\n\nSolutions are here.",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html",
+    "href": "tutorial3.html",
+    "title": "Tutorial 3",
+    "section": "",
+    "text": "For this third tutorial, we are going to\n\nRecap on the OLS estimation\nLearn how to go from a model to an empirical prediction\nReplicate the key results from Mankiw, Romer, Weil (1994)\n\n\n\n\n\n\n\nNote\n\n\n\nBig disclaimer: the recap on OLS is hugely inspired from Florian Oswald’s and Sciences Po’s introduction to Econometrics with R. The interested student can check this fantastical material here: scpoecon.github.io.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#roadmap",
+    "href": "tutorial3.html#roadmap",
+    "title": "Tutorial 3",
+    "section": "",
+    "text": "For this third tutorial, we are going to\n\nRecap on the OLS estimation\nLearn how to go from a model to an empirical prediction\nReplicate the key results from Mankiw, Romer, Weil (1994)\n\n\n\n\n\n\n\nNote\n\n\n\nBig disclaimer: the recap on OLS is hugely inspired from Florian Oswald’s and Sciences Po’s introduction to Econometrics with R. The interested student can check this fantastical material here: scpoecon.github.io.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression",
+    "href": "tutorial3.html#linear-regression",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nWhy? When?\n\nAn empirical tool to assess the statistical relationship between variables\nIn the toolbox of the social scientist, with many other tools\nCorrelation is not causation\n\nTopic of today: Ordinary Least Square estimator (which is a widely used estimator)\n\n\n\n\n\n\nTip\n\n\n\nKeep in mind the difference between an estimator \\(\\hat \\beta\\) and the observed value \\(\\beta\\). We cannot observe the true parameter, so we estimate it (with error).",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-1",
+    "href": "tutorial3.html#linear-regression-1",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nVisual intuition\nWe use the cars dataset, in base R, and we are going to relate how speed and stopping distance are related.\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-2",
+    "href": "tutorial3.html#linear-regression-2",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nVisual intuition\nIt seems that a line could be helpful to “summarize” the relation between both variables!\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  geom_abline(intercept=10,slope=2.5,color=\"blue\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-3",
+    "href": "tutorial3.html#linear-regression-3",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nBringing some maths\n\nWe want to minimize the distance between the line and the points\nIn practice, the sum of distances can go to 0. Solution?\n\n\nggplot(cars, aes(x = speed, y = dist)) +\n  geom_point(color = \"black\") +\n  geom_abline(intercept = 5, slope = 2.5, color = \"blue\") +\n  geom_segment(aes(x = speed, \n                   y = dist, \n                   xend = speed, \n                   yend = 5 + 2.5 * speed), \n               arrow = arrow(length = unit(0.1, \"inches\")), \n               color = \"red\") +\n  xlab(\"Speed\") + \n  ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-4",
+    "href": "tutorial3.html#linear-regression-4",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nBringing some maths\n\nWe compute the sum of square distances (\\(\\sim\\) error), so the name “ordinary least square”\nAn affine function is defined as \\(y = \\beta_0 + \\beta_1 x\\) which in matrix form gives \\(Y = X\\beta\\).\nDimension of \\(X\\)?\nThe error for each observation is \\(e_i = y_i - \\beta_0 - \\beta_1 x_i\\)\nHence, we look for \\(\\beta\\) such that: \\[\n\\beta^\\star = \\min_\\beta (Y - X\\beta)'(Y - X\\beta) = \\min_\\beta e'e\n\\]\nFirst order condition: derivative wrt \\(\\beta\\) should be equal to 0",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-5",
+    "href": "tutorial3.html#linear-regression-5",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nDefining the OLS estimator\n\nThe OLS estimator is then: \\[\n\\hat{\\beta} = (X'X)^{-1}X'y\n\\]\nWho wants to try to derive it?\nUnder some conditions, this estimator is the Best Linear Unbiased Estimator (BLUE)\nThose conditions will be super helpful later",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-6",
+    "href": "tutorial3.html#linear-regression-6",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nGauss-Markov theorem\n\nLinearity\n\nThe relationship has to be linear\nSee Anscombe quartet\nSolutions: \\(\\log\\), squared\n\n\\(X\\) is full rank\n\nEnsure that variables are not perfectly colinear\nThere are more observations than variables (\\(n &gt; k\\))\n\nZero conditional mean\n\nErrors are not correlated with \\(X\\) (exogeneity)\n\nHomoskedasticity\n\nErrors are not correlated between observations\nSolutions: robust estimation",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-7",
+    "href": "tutorial3.html#linear-regression-7",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nGauss-Markov theorem violation\nMajor threat is 3 (= endogeneity). Usually it arises from 2 sources:\n\nReverse causality. Any exemple?\nOmitted Variable Bias. Any exemple?\n\nThen, the OLS estimator is biased and \\(E(\\widehat\\beta)\\neq \\beta\\). Proof in appendix.\nIt also means that \\(Cov(Y,\\epsilon)\\neq 0\\). In other words, that \\(y\\) and \\(\\epsilon\\) somehow move jointly due to some unobserved factors and not due only to variation due to \\(X\\).\nWe will see many ways to tackle this issue.\n\nToday: Omitted Variable Bias\nNext week: Endogeneity.\n\n\n\n\n\n\n\nTip\n\n\n\nExtensive presentation of the derivations and the Gauss-Markov theorem here.\n\n\n\nA third case leads to an unbiased estimator with higher standard errors (not the best estimator anymore): measurement error. The intuition behind measurement error is more straightforward:\nIf \\(x = x^\\star + \\delta\\) where \\(\\delta\\) is a measurement error with mean 0, then the estimator is still unbiased but the variance is higher and the estimation is leess precise.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-8",
+    "href": "tutorial3.html#linear-regression-8",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nR2 and prediction quality\n\nR2 is the coefficient of determination, assessing the share of total variance explained by the model\n\n\\[\\small\nR^2 = \\frac{\\texttt{Variance explained}}{\\texttt{Total variance}} = \\frac{\\text{Sum of explained square}}{\\text{Total sum of square}} = 1 - \\frac{\\text{Sum of square residuals}}{\\text{Total sum of square}}\n\\]\n\nR2 is between 0 and 1\nThe higher the R2, the larger the share of variance explained by the model\nA low R2 is not necessarily bad: it is just that the model explains a low share of variance",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-9",
+    "href": "tutorial3.html#linear-regression-9",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nInterpretation\n\nOnce the model set, we can estimate it using R functions\nMain function is lm. For linear model, the syntax is lm(y ~ x)\n\n\nsummary(lm(cars$dist ~ cars$speed))\n\n\nCall:\nlm(formula = cars$dist ~ cars$speed)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-29.069  -9.525  -2.272   9.215  43.201 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -17.5791     6.7584  -2.601   0.0123 *  \ncars$speed    3.9324     0.4155   9.464 1.49e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 15.38 on 48 degrees of freedom\nMultiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 \nF-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12\n\n\n\nResults are significant (low p-value), R2 is relatively large",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-10",
+    "href": "tutorial3.html#linear-regression-10",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nP-value\nThe Pr(&gt;|t|) value is also called the p-value. Let’s assume that we want to have a significance level \\(\\alpha\\) of 5%. The underlying statistical test is the following:\n\\[\n\\begin{align*}\nH_0 : \\beta = 0 \\\\\nH_1 : \\beta \\neq 0\n\\end{align*}\n\\]\nwhere \\(\\beta\\) is the true coefficient.\nWe want to know if, conditional on the fact that \\(H_0\\) is true (the true parameter value is 0), \\(\\widehat \\beta = 3.93\\) is due to pure chance (then we keep \\(H_0\\)) or if it cannot be due to chance (and we reject \\(H_0\\)).\nIf the p-value falls below the threshold \\(\\alpha\\), then we can confidently assume that the coefficient is significantly different from 0. In other words, we reject the hypothesis that the speed has no influence on the stopping distance at the 5% level.\nFor more details, you can check this quick note.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression-11",
+    "href": "tutorial3.html#linear-regression-11",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nInterpretation\n\n\n\n\n\n\nNote\n\n\n\nEverything should be intepreted everything else equal!\n\n\n\nLevel-level regression: marginal effect. If \\(x\\) increases by 1, \\(y\\) increases by \\(\\beta\\)\nLog-log regression: elasticity. If \\(x\\) increases by 1%, \\(y\\) increases by \\(\\beta\\)%\nLog-level regression: percentage change. If \\(x\\) increases by 1, \\(y\\) increases by \\(100\\beta\\)\nLevel-log regression: level change. If \\(x\\) increases by 1%, \\(y\\) increases by \\(\\beta/100\\)",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#from-the-model-to-the-data",
+    "href": "tutorial3.html#from-the-model-to-the-data",
+    "title": "Tutorial 3",
+    "section": "From the model to the data",
+    "text": "From the model to the data\n\nSolow model\n\nUsing Harrod-neutral technological progress, the GDP per capita equation is: \\[\\small\n\\frac{Y(t)}{L(t)} = K(t)^\\alpha (A(t) L(t))^{1-\\alpha} \\quad \\alpha \\in \\ (0,1)\n\\]\nWe assume an exogenous growth rate of \\(A\\) and \\(L\\) such that: \\(A(t) = A(0)e^{gt}\\) and \\(L(t) = L(0) e^{nt}\\).\nAt the steady-state level:\n\n\\[\\small\n\\frac{Y}{L} = A(0)e^{gt}\\left(\\frac{s}{n + g + \\delta}\\right)^{\\alpha/(1-\\alpha)}\n\\]\n\nSuper convenient: we can measure everything\n\n\\(Y/L\\), GDP divided by working age population\n\\(s\\), saving measured as the real investment\n\\(n\\), population growth rate\n\\(\\delta\\) and \\(g\\), capital depreciation and growth rate of technology (assumed constant)",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#from-the-model-to-the-data-1",
+    "href": "tutorial3.html#from-the-model-to-the-data-1",
+    "title": "Tutorial 3",
+    "section": "From the model to the data",
+    "text": "From the model to the data\n\nIs this relationship linear?\nNo. Solution?\n\nLog-linearize it (at time 0)\n\\[\n\\log (Y/L) = \\log(A(0)) + \\left(\\frac{\\alpha}{1-\\alpha}\\right)\\log s - \\left(\\frac{\\alpha}{1-\\alpha}\\right) \\log(n + g + \\delta)\n\\]",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#from-the-model-to-the-data-2",
+    "href": "tutorial3.html#from-the-model-to-the-data-2",
+    "title": "Tutorial 3",
+    "section": "From the model to the data",
+    "text": "From the model to the data\n\nEmpirical model\nBecause we do not observe all data, we can only estimate the parameters. Hence, the empirical model we estimate is:\n\\[\n\\log (Y_i/L_i) = \\beta_0 + \\beta_1 \\log s_i + \\beta_2 \\log(n + g + \\delta) + \\epsilon_i\n\\]\nwhere \\(\\beta_0 + \\epsilon_i = \\log A(0)\\), and \\(\\epsilon_i\\) is an error term capturing everything not captured in the model.\n\n\n\n\n\n\nNote\n\n\n\nWe can, or not, assume that \\(\\beta_1 = -\\beta_2\\). This is an empirical prediction we might want to test.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#exercise",
+    "href": "tutorial3.html#exercise",
+    "title": "Tutorial 3",
+    "section": "Exercise",
+    "text": "Exercise\n\nData cleaning and descriptive statistics\n\nLoad the data and the packages (dplyr and ggplot2)\nWhat are the three groups of countries in the data?\nCompute summary statistics based on country group\nPlot the growth rate of GDP per capita vs. the log of GDP per capita",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#exercise-1",
+    "href": "tutorial3.html#exercise-1",
+    "title": "Tutorial 3",
+    "section": "Exercise",
+    "text": "Exercise\n\nBaseline estimation\nAssume \\(g+\\delta=0.05\\).\n\nGenerate the variables you need in the regression\nRun the model on the full sample and on each sub-group. Store the results in appropriate objects.\n\n[Bonus] Use a loop to do it\n\nInterpret the results in the light of the Solow model predictions. What is the share of cross-country income per capita variation is explained by the model?\n[Bonus] We assumed that \\(\\beta_1 \\neq -\\beta_2\\). Using linearHypothesis() from the package car, you can set an hypothesis testing to check if the sum of the coefficient is equal to 0.\nIn previous work, the share of capital in production was thought to be roughly 1/3, is this prediction supported by the data?",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#exercise-2",
+    "href": "tutorial3.html#exercise-2",
+    "title": "Tutorial 3",
+    "section": "Exercise",
+    "text": "Exercise\n\nAdding the human capital\n\nDoes the previous model violate the exogeneity assumption? Why?\nA proposed solution is to add a new variable to capture the level of human capital: school.\nRun again the model on the full and sub- samples.\nInterpret.\nExport the tables and the graph in LaTeX",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#appendix",
+    "href": "tutorial3.html#appendix",
+    "title": "Tutorial 3",
+    "section": "Appendix",
+    "text": "Appendix\n\nAnscombe quartet\n\ng1 = ggplot(datasets::anscombe,aes(x=x1,y=y1)) +\n  geom_point(color=\"black\") +\n  geom_smooth(method = \"lm\",se=F) +\n  theme_bw() +\n  xlab(\"X\") + ylab(\"Y\") + ggtitle(\"Q1\")\ng2 = ggplot(datasets::anscombe,aes(x=x2,y=y2)) +\n  geom_point(color=\"black\") +\n  geom_smooth(method = \"lm\",se=F) +\n  theme_bw() +\n  xlab(\"X\") + ylab(\"Y\") + ggtitle(\"Q2\")\ng3 = ggplot(datasets::anscombe,aes(x=x3,y=y3)) +\n  geom_point(color=\"black\") +\n  geom_smooth(method = \"lm\",se=F) +\n  theme_bw() +\n  xlab(\"X\") + ylab(\"Y\") + ggtitle(\"Q3\")\ng4 = ggplot(datasets::anscombe,aes(x=x4,y=y4)) +\n  geom_point(color=\"black\") +\n  geom_smooth(method = \"lm\",se=F) +\n  theme_bw() +\n  xlab(\"X\") + ylab(\"Y\") + ggtitle(\"Q4\")\n\n(g1 | g2) /\n(g3 | g4)\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#appendix-1",
+    "href": "tutorial3.html#appendix-1",
+    "title": "Tutorial 3",
+    "section": "Appendix",
+    "text": "Appendix\n\nOmitted variable bias proof\nOmitted Variable Bias (OVB) occurs when a relevant variable is left out of a regression model, leading to biased and inconsistent estimators. Here, we formally prove the presence of bias in the Ordinary Least Squares (OLS) estimator due to an omitted variable.\nConsider the true model: \\(Y = \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\epsilon\\) where \\(Y\\) is the dependent variable, \\(X_1\\) and \\(X_2\\) are explanatory variables, \\(\\epsilon\\) is the error term with \\(E[\\epsilon | X_1, X_2] = 0\\).\nNow, suppose \\(X_2\\) is omitted from the regression. The estimated model is: \\[\nY = \\alpha_0 + \\alpha_1 X_1 + u\n\\]\nwhere the new error term \\(u\\) is: \\(u = \\beta_2 X_2 + \\epsilon\\). Since \\(X_2\\) is omitted, we express it in terms of \\(X_1\\) using the linear projection:\n\\[\nX_2 = \\gamma_0 + \\gamma_1 X_1 + v\n\\]\nwhere \\(v\\) is the residual such that \\(E[v | X_1] = 0\\).\n\nSubstituting this into the omitted equation:\n\\[\nu = \\beta_2 (\\gamma_0 + \\gamma_1 X_1 + v) + \\epsilon\n\\]\n\\[\nu = \\beta_2 \\gamma_0 + \\beta_2 \\gamma_1 X_1 + \\beta_2 v + \\epsilon\n\\]\nSince \\(u\\) is correlated with \\(X_1\\), the OLS estimator for \\(\\alpha_1\\) (which is another way to write an estimator) is:\n\\[\n\\hat{\\alpha}_1 = \\frac{Cov(Y, X_1)}{Var(X_1)}\n\\]\nSubstituting \\(Y\\) from the true model:\n\\[\n\\hat{\\alpha}_1 = \\frac{Cov(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\epsilon, X_1)}{Var(X_1)}\n\\]\nExpanding covariance terms:\n\\[\n\\hat{\\alpha}_1 = \\beta_1 + \\beta_2 \\frac{Cov(X_2, X_1)}{Var(X_1)}\n\\]\n\nUsing the projection equation:\n\\[\n\\hat{\\alpha}_1 = \\beta_1 + \\beta_2 \\gamma_1\n\\]\nSince \\(\\gamma_1 \\neq 0\\) if \\(X_1\\) and \\(X_2\\) are correlated, and \\(\\beta_2 \\neq 0\\) if \\(X_2\\) is relevant, it follows that:\n\\[\nE[\\hat{\\alpha}_1] \\neq \\beta_1\n\\]\nThus, the OLS estimator is biased due to the omission of \\(X_2\\). Another way of seeing it on these slides.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial1.html",
+    "href": "tutorial1.html",
+    "title": "Tutorial 1",
+    "section": "",
+    "text": "For this first tutorial, we are going to\n\nDownload R and Rstudio\nDiscover the software\nMake our first data visualisation\nLearn how to export them and input them in a .tex file.",
+    "crumbs": [
+      "Tutorial 1"
     ]
   }
 ]

@@ -3,6 +3,7 @@ title: "Tutorial 1"
 format: 
   revealjs:
     theme: theme_mm.scss
+    footer: "[Home](https://aurel-melard.github.io/2026_eco1s002/home.html)"
     menu:
       side: left
     slide-number: c
@@ -15,7 +16,7 @@ toc-location: right
 author:
   - name: Aurel Mélard
     email: aurel.melard@polytechnique.fr
-    affiliations: CREST - Institut Polytechnique de Paris
+    affiliations: CREST - Institut Polytechnique de Paris - IPP
     url: https://sites.google.com/view/aurel-melard
 date: last-modified
 execute:
@@ -23,14 +24,13 @@ execute:
 ---
 
 ```{r, echo=F,eval=T,message=F,warning=F}
-packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable")
-# Install packages not yet installed
-installed_packages <- packages %in% rownames(installed.packages())
-if (any(installed_packages == FALSE)) {
-  install.packages(packages[!installed_packages])
-}
-# Packages loading
-invisible(lapply(packages, library, character.only = TRUE))
+# Install packages not yet installed and load them
+pacman::p_load(ggplot2, readxl, dplyr, tidyr,xtable,data.table)
+ 
+# Alternative: install.packages() and library()
+#packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable","data.table")
+#install.packages(setdiff(packages, rownames(installed.packages())))
+#invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 ## Roadmap
@@ -86,13 +86,13 @@ Computers are organized around folder. We are going to work in a working directo
 └── projet_Aurel
 ```
 
-Here we are going to work in `~/courses/2025_eco1s002/`. This folder may (and should!) contains subfolders, for instance: `/code`, `/output`, `/raw_data`, etc.
+Here we are going to work in `~/cours/2025_eco1s002/`. This folder may (and should!) contains subfolders, for instance: `/code`, `/output`, `/raw_data`, etc.
 
 ------------------------------------------------------------------------
 
 ### Naming convention
 
-A typical tip is to choose simple and short titles for the files and the scripts. For instance, this file is named `tutorial1.qmd`. Your code can be named `code_tutorial1.R`. It should be self-explanatory.
+A typical tip is to choose simple and short titles for the files and the scripts. For instance, this file for this class is named `tutorial1.qmd`. Your code can be named `code_tutorial1.R`. It should be self-explanatory.
 
 ::: callout-tip
 Avoid at all cost to use spaces or special characters in your file names. Prefer instead an underscore or a score.
@@ -113,11 +113,13 @@ Avoid at all cost to use spaces or special characters in your file names. Prefer
 ## First step in R/Rstudio
 ### Some useful terms
 
--   So far, we talked about `script`. 
+-   So far, we talked about `scripts`. 
 
 -   We are going to manipulate `object` using `functions`. 
 
--   Objects can be of different `classes`: matrix, vector, character, numeric, data.frame, etc. Some functions are already in `R` but some are not. Hence, we need to load them thanks to `packages`.
+-   Objects can be of different `classes`: matrix, vector, character, numeric, data.frame, etc.
+
+-   Some functions are already in `R` but some are not. Hence, we need to load them thanks to `packages`.
 
 ## First step in R/Rstudio
 ### Open a script
@@ -127,30 +129,29 @@ Avoid at all cost to use spaces or special characters in your file names. Prefer
 -   These libraries should be first downloaded then loaded into your project.
 
 -   First, open RStudio and opens a new script. 
--   You should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use `#` to comment code.
+-   You should have an empty page. You may want to write some words at the top of it to have an idea of what this code does. You can use `#` to comment code and `----` to create .
 
 ## First step in R/Rstudio
 ### Script
 
 ```{r}
 #| echo: true
-#-------------------------------------------------------------------------------
+################################################
 # This script opens a dataset and proceeds
 # to data visualization.
 #
-# Author: Matéo Moglia
-# Date: 12/02/2025
-#-------------------------------------------------------------------------------
+# Author: Aurel Mélard
+# Date: 11/02/2026
+################################################
 
-# Set your working directory
-setwd("C:/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site")
-path <- "/Users/mateomoglia/Dropbox/courses/polytechnique/2025_eco1s002/site"
+## 1. Set input and output paths ----
+output_path <- "/Users/aurelmelard/Dropbox/cours/2026_eco1s002/output"
 ```
 
-Here, I set the working directory using `setwd()`. Notice that we created our first object, named `path` using the assignment operator `<-` (I personally prefer to use `=` which works exactly the same).
+Notice that we created our first object, named `output_path` using the assignment operator `<-` (or `=`, which is equivalent).
 
 ::: callout-tip
-What is the class of `path`? **Hint: use the function `class()`**
+What is the class of `input`? **Hint: use the function `class()`**
 :::
 
 ## First step in R/Rstudio
@@ -165,17 +166,19 @@ class(data) # Check its class
 head(data) # Preview the first lines of data
 ```
 
-Notice that the two objects we created so far can be seen in the Environment pane.
+![](img/iris_setosa.png){width=40% fig-align="center"}
+
+Notice that the two objects we created so far can be seen in the `Environment`.
 
 ## First step in R/Rstudio
 ### Data description
 
-By clicking on the object in the `Environement` panel, you can visualize it, but you can also write some code to describe it. As we just check, `data` is a `data.frame` object. It is made of several columns and rows.
+By clicking on the object in the `Environment` panel, you can visualize it, but you can also write some code to describe it. As we just check, `data` is a `data.frame` object. It is made of several columns and rows.
 
 To call a specific column in a dataframe, we use the `$` operator. To know all the column names in `data`, we can use the function `names()`. To know the "size" of the dataframe, the right function is `dim()`: the first element is the number of rows and the second the number of columns.
 
 ::: callout-tip
-You can also call a column by its position in the dataframe. For instance, to call the second column you can type `data[,2]`. For the second row: `data[,2]`. What should you write to print the 10th element of the 3rd column?
+You can also call a column by its position in the dataframe. For instance, to call the second column you can type `data[,2]`. For the second row: `data[2,]`. What should you write to print the 10th element of the 3rd column?
 :::
 
 ------------------------------------------------------------------------
@@ -208,7 +211,7 @@ library(ggplot2)
 ```
 
 ::: callout-note
-All packages have to be downloaded and loaded this way. Note that once you've downloaded a package on your computer, you do not need to install it *but* you still need to load it through the `library` function.
+A more efficient alternative is to use the `p_load` function of the `pacman` package. It installs only uninstalled packages and immediatly loads them: pacman::p_load(ggplot2)
 :::
 
 ------------------------------------------------------------------------
@@ -225,22 +228,25 @@ This looks better! To produce this graph we used different information:
 
 -   The `ggplot` command takes `data` and `mapping` as input.
     -   `data` should be the dataset you want to visualize, here we named it `data`
-    -   `mapping` takes `aes` (for aesthetics)
-        -   Here, the aesthetics are the `x` and `y` axis, and the `color` one, to distinguish between the species.
+    -   `mapping` takes `aes` (for aesthetics): Here, the aesthetics are the `x` and `y` axis and `color`, to distinguish between the species.
     -   `geom_point` allows to plot... points
     -   `theme_minimal` makes the graph tidy, with a white background, etc.
 
 ------------------------------------------------------------------------
 
-Now, we can save it:
+::: callout-tip
+R Packages come with documentation of their functions and syntax (sometimes even cheatsheets), typically online [online](https://ggplot2.tidyverse.org/index.html). For a given function, you can also use the help() function within R. 
+:::
+
+Now, we want to save our graph:
 
 ```{r}
 #| echo: true
-ggsave(filename = paste0(path,"/output/graph_iris.png"),plot = g1)
+ggsave(filename = paste0(output_path,"/graph_iris.png"),plot = g1)
 ```
 
 ::: callout-tip
-The function `paste0` is useful to concatenate text. Here, instead of writing the full path, we concatenate the object `path` (which happens to be our path) and the end of the path, including the name of the output.
+The function `paste0` is useful to concatenate text. Here, instead of writing the full path, we concatenate `output_path` and the end of the path, namely the desired file name.
 :::
 
 ## First step in R/Rstudio
@@ -250,15 +256,21 @@ To finish this -short- introduction to R, I introduce a new package, probably th
 
 ```{r,echo=T,eval=F}
 #| echo: true
-install.packages("tidyverse")
-library(tidyverse)
+pacman::p_load(tidyverse)
 ```
+
+To be specific, the `tidyverse` is a collection of packages built for data science, including: 
+
+-   `ggplot2` that we already installed separately
+-   `dplyr` that introduces a unified syntax for data manipulation
+-   7 other main packages for data analysis (see the list [here](https://tidyverse.org/packages/))
+-   Other specific packages that are not directly loaded by `tidyverse`
 
 ------------------------------------------------------------------------
 
-Let's imagine we want to filter the dataset to keep only the `setosa`. In base R, we need to extract the lines of `iris` for which `Species=="setosa"`. Because R is object based, we can multiple objects, here: `base_setosa`.
+Let's imagine we want to filter the dataset to keep only the `setosa`. In base R, we need to extract the lines of `iris` for which `Species=="setosa"`. We store it into another object, here: `base_setosa`.
 
-> The data frame `iris` is close to a matrix, hence, we can extract using notations close to the matrix ones. Hence `data[1,1]` would give us the first line of the first column (in this order) of `data`. Here, we filt the lines using a condition: `data$Species=="setosa"`. Do not forget the `,`.
+> The data frame `iris` is close to a matrix, hence, we can extract parts of it using notations close to the matrix ones. Hence `data[1,1]` would give us the first line of the first column (in this order) of `data`. Here, we filter the lines using a condition: `data$Species=="setosa"`. Do not forget the `,`.
 
 ```{r}
 #| echo: true
@@ -269,15 +281,23 @@ head(base_setosa)
 
 ------------------------------------------------------------------------
 
-Using `dplyr` and the `pipe` operator `%>%`, we apply the function `filter` on `Species`.
+`dplyr` introduces data manipulation functions, and the `pipe` operator `%>%`. We apply the function `filter` on variable `Species`.
 
 ```{r}
 #| echo: true
 # dplyr: Filter rows where Species is "setosa"
-dplyr_setosa <- iris %>% 
+dplyr_setosa <- as_tibble(iris) %>% 
   filter(Species == "setosa")
 head(dplyr_setosa)
 ```
+
+Main `dplyr` functions are the following (check for their syntax [here](https://dplyr.tidyverse.org/)): 
+
+-   `mutate()` adds new variables that are functions of existing variables
+-   `select()` selects variables based on their names
+-   `filter()` selects observations based on some conditions
+-   `summarise()` reduces multiple values down to a single summary
+-   `arrange()` changes the ordering of the rows
 
 ------------------------------------------------------------------------
 
@@ -290,12 +310,18 @@ base_columns <- iris[, c("Sepal.Length", "Sepal.Width")]
 head(base_columns)
 
 # dplyr: Select only Sepal.Length and Sepal.Width columns
-dplyr_columns <- iris %>% 
+dplyr_columns <- as_tibble(iris) %>% 
   select(Sepal.Length, Sepal.Width)
 head(dplyr_columns)
 ```
 
+::: callout-tip
+Best practice in the tidyverse is to use `tibbles`: it is a type of data frame with a more "tidy" behavior. Notes that on top of each variable of a tibble, `head()` indicates variable [types](https://tibble.tidyverse.org/articles/types.html)
+:::
+
 ------------------------------------------------------------------------
+
+Or create new variables
 
 ```{r}
 #| echo: true
@@ -304,18 +330,18 @@ iris$Sepal.Area <- iris$Sepal.Length * iris$Sepal.Width
 head(iris)
 
 # dplyr: Create a new column with Sepal.Area (Sepal.Length * Sepal.Width)
-dplyr_iris <- iris %>% 
+dplyr_iris <- as_tibble(iris) %>% 
   mutate(Sepal.Area = Sepal.Length * Sepal.Width)
 head(dplyr_iris)
 ```
 
 ------------------------------------------------------------------------
 
-The advantage of `dplyr` is to allow for many computations:
+`dplyr` allows to combine such data manipulations in a clear and efficient way:
 
 ```{r}
 #| echo: true
-dplyr_grouped <- iris %>%
+dplyr_grouped <- as_tibble(iris) %>%
   mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>%
   mutate(is.Sepal.Large = ifelse(Sepal.Area > median(Sepal.Area),1,0)) %>% 
   group_by(Species) %>%
@@ -326,7 +352,28 @@ print(dplyr_grouped)
 
 ------------------------------------------------------------------------
 
-This dataset can be, of course represented visually:
+Another package allows for even clearer and more efficient computations: [data_table](https://www.datacamp.com/cheat-sheet/the-datatable-r-package-cheat-sheet). Its basic logic is to enrich the base data frame operator `[` from `data[i,j]` into `data[i,j,by]`.
+
+```{r}
+#| echo: true
+pacman::p_load(data.table)
+dt_grouped <- setDT(iris)[,`:=`(Sepal.Area = Sepal.Length * Sepal.Width,
+                                is.Sepal.Large = ifelse(Sepal.Area > median(Sepal.Area),1,0))][, 
+                                  list(mean_sepal_length = mean(Sepal.Length),
+                                       count_sepal_large = sum(is.Sepal.Large)), 
+                                  by = list(Species)]
+print(dt_grouped)
+```
+
+For involved computations, data table usually performs better and can yield a leaner code.
+
+::: callout-tip
+Most dplyr functions have their data table equivalent. My recommendation is to experiment with both, select one then stick to it.
+:::
+
+------------------------------------------------------------------------
+
+Our results can be, of course represented visually:
 
 ```{r}
 #| echo: true
@@ -342,26 +389,29 @@ ggplot(dplyr_grouped, aes(x = Species, y = count_sepal_large, fill = Species)) +
 But we can also export it to `LaTeX`:
 
 ```{r,echo=T,eval=F}
-install.packages("xtable")
-library(xtable)
+pacman::p_load(xtable)
 ```
 
 ```{r}
 #| echo: true
 colnames(dplyr_grouped) <- c("Species", "Mean_Sepal_Length", "Count_Sepal_Large")
-print(xtable(dplyr_grouped), type = "latex", file = paste0(path,"/output/sepal_large.tex"))
+print(xtable(dplyr_grouped), type = "latex", file = paste0(output_path,"/sepal_large.tex"))
 ```
 
 ## First step in LaTeX
 ### What is LaTeX
 
-LaTeX is very popular software to produce scientic writings. It is relatively easy to use. From now on, it is mandatory to produce output you would hand using LaTeX. You have three options to use LaTeX:
+LaTeX is very popular software to produce scientic writings. It is relatively easy to use. 
+In these tutorial lessons, it will be required of you to hand out your outputs using LaTeX. You have three options to use LaTeX:
 
 1.  Use any text editor and compile the file using the console
 2.  Use an IDE, like TexStudio or TexLive
-3.  Use an online IDE like Overleaf
+3.  Use an online IDE like Overleaf (allowing for collaboration)
 
-> There are plenty of tutorials over the web (or ChatGPT) to know how to use LaTeX, so I am going to be quick.
+::: callout-tip
+There are plenty of tutorials to learn how to use LaTex, for example on [Overleaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
+Overleaf also delivers a bank of [open source templates](https://www.overleaf.com/latex/templates/tagged/academic-journal) for different kinds of document classes
+:::
 
 ## First step in LaTeX
 ### Overleaf
@@ -378,8 +428,8 @@ Open a blank project in Overleaf. It should look like that:
 %% METADATA -------------------
 
 \title{Tutorial one}
-\author{Matéo Moglia}
-\date{February 2024}
+\author{Aurel mélard}
+\date{February 2026}
 
 %% DOCUMENT START ------------
 
@@ -408,7 +458,19 @@ You can then directly write any text you like after `\begin{document}`.
 ## First step in LaTeX
 ### Math mode
 
-Most interesting is the math mode. You can write in line using `$ x = y$` or in an equation environment:
+You can write equations in Latex using the math mode, in line using `$x = y$`:
+
+```         
+My first equation is $  \mu_k = \int_0^{+\infty} x^k f(x) dx = \int_0^{+\infty} t^{-\frac{k}{\alpha}} \exp ^{-t} dt $
+```
+
+As line separate from text using `$$x = y$$`:
+
+```         
+ $$\mu_k = \int_0^{+\infty} x^k f(x) dx = \int_0^{+\infty} t^{-\frac{k}{\alpha}} \exp ^{-t} dt $$
+```
+
+Or in equation mode:
 
 ```         
 \begin{equation}
@@ -417,7 +479,8 @@ Most interesting is the math mode. You can write in line using `$ x = y$` or in 
 ```
 
 ::: callout-tip
-An environment starts with `\begin{name}` and ends with `\end{name}`. The environment can be an equation, to center a large chunk of text, a figure, a table, etc.
+An environment starts with `\begin{name}` and ends with `\end{name}`. The environment can be an equation, a figure, a table, etc.
+An advantage of the equation environment over the `$$` operator is that you can name it, give it a number and refer to it
 :::
 
 ------------------------------------------------------------------------

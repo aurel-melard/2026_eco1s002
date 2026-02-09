@@ -10,14 +10,17 @@ execute:
 ---
 
 ```{r, echo=F,eval=T,message=F,warning=F}
-packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable","ivreg")
+pacman::p_load(ggplot2, readxl, dplyr, tidyr,xtable,ivreg)
+
+
+#packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable","ivreg")
 # Install packages not yet installed
-installed_packages <- packages %in% rownames(installed.packages())
-if (any(installed_packages == FALSE)) {
-  install.packages(packages[!installed_packages])
-}
+#installed_packages <- packages %in% rownames(installed.packages())
+#if (any(installed_packages == FALSE)) {
+#  install.packages(packages[!installed_packages])
+#}
 # Packages loading
-invisible(lapply(packages, library, character.only = TRUE))
+#invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 ## Recap
@@ -46,7 +49,8 @@ Dataset `MRW_QJE1992.xlsx` can be downloaded on Moodle.
 Before, we load the necessary libraries and create an object `path` to store the path for further use.
 
 ```{r}
-path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3"
+#path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3"
+path = "/Users/aurelmelard/Dropbox/cours/2026_eco1s002"
 
 library(dplyr)
 library(ggplot2)
@@ -86,10 +90,9 @@ dat = dat %>%
   filter(!is.na(group)) # Some countries are not part of a group, we remove them
 ```
 
-5.  Estimate this model and store in an object called `reg0`
-$$
+5.  Estimate this model and store in an object called `reg0` $$
     \log (Y_i/L_i) = \beta_0 + \beta_1 \log s_i + \beta_2 \log(n + g + \delta) + \epsilon_i
-$$
+    $$
 
 We define $g + \delta = 0.05$.
 
@@ -131,14 +134,13 @@ summary(reg0)
 
 The R2 is around 62%, it means that the model we specified explains 62% of the total variance of the log GDP in 1985 in our sample. It also highlights that 38% of the variance is left unexplained by the model.
 
-Thanks to the log-log specification, the coefficients we found on investment and on the constant terms $(n+g+\delta)$ can directly be interpreted as elasticities (if $x$ increases by 1%, $y$ increases by $\widehat\beta$%).
-Here, one percent increase in investment increases GDP per capita in 1985 by 1.4%. 
+Thanks to the log-log specification, the coefficients we found on investment and on the constant terms $(n+g+\delta)$ can directly be interpreted as elasticities (if $x$ increases by 1%, $y$ increases by $\widehat\beta$%). Here, one percent increase in investment increases GDP per capita in 1985 by 1.4%.
 
 Notice that the coefficients we found are stastistically significant at a very high level. The p-value is way below the standard treshold of 1%.
 
 9.  Previous work estimated that the elasticity of production with respect to investment is 1/3. Is this verified here?
 
-The $\beta$ we estimate is in the Solow model the $\alpha/(1-\alpha)$. Hence, if $\beta = 1.4$, then $\alpha \sim 0.6$, which is almost two times the value of previous estimation. 
+The $\beta$ we estimate is in the Solow model the $\alpha/(1-\alpha)$. Hence, if $\beta = 1.4$, then $\alpha \sim 0.6$, which is almost two times the value of previous estimation.
 
 ### Adding school as omitted variable
 
@@ -159,7 +161,7 @@ for(x in c("i","o","n")){
 }
 ```
 
-All coefficients remain significant. The R2 increases. Addind school increases the overall explanatory power of the model (note however that the R2 increases mechanically with the number of variables). It suggests that the coefficient was a missing a value. The coefficient on school is positive and significant. Increases education increases GDP. 
+All coefficients remain significant. The R2 increases. Addind school increases the overall explanatory power of the model (note however that the R2 increases mechanically with the number of variables). It suggests that the coefficient was a missing a value. The coefficient on school is positive and significant. Increases education increases GDP.
 
 10. Bonus: Using `linearHypothesis` test if $\beta_1$ and $\beta_2$ are equal.
 
@@ -176,7 +178,7 @@ The test p-value is lower than the usual threshold of 1%, we can confidently rej
 
 In this very influential paper, AJR estimates the effects of institution on GDP growth. They in particular test whether good institutions, hat protect entrepreneurs, enhance the GDP per capita growth in the African context.
 
-However, there is a clear endogeneity issue. Can you see it? *Richer countries can afford having better institution because they can invest in better schools/universities or better voters are more in favor of better institutions to protect their wealth* 
+However, there is a clear endogeneity issue. Can you see it? *Richer countries can afford having better institution because they can invest in better schools/universities or better voters are more in favor of better institutions to protect their wealth*
 
 ### Part 1
 
@@ -195,7 +197,9 @@ library(ivreg)
 library(haven)
 library(stargazer)
 
-path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial4"
+#path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial4"
+path = "/Users/aurelmelard/Dropbox/cours/2026_eco1s002"
+
 
 dat = read_dta(paste0(path,"/data/ajrcomment.dta"))
 ```
@@ -221,7 +225,7 @@ ggplot(data = dat, aes(x = logmort0, y = loggdp)) +
   theme_bw()
 ```
 
-Table 2 of Acemoglu et al. (2001) presents the results of an OLS regression of log GDP per capita in 1995 on average protection against expropriation, and a some covariates: 
+Table 2 of Acemoglu et al. (2001) presents the results of an OLS regression of log GDP per capita in 1995 on average protection against expropriation, and a some covariates:
 
 $$
     \log y_i = \mu + \alpha R_i + \mathbf{X}_i'\gamma + \epsilon_i
@@ -283,8 +287,6 @@ Instrument is relevant as the coefficient in `fs` is positive and significant. I
 
 ```{r}
 summary(ivreg(loggdp ~ risk + latitude | logmort0 + latitude, data = dat))
-``` 
+```
 
 Results are the same, which is expected!
-
-Solution are [here](tutorial4_sol).

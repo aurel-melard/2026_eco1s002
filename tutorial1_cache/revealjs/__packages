@@ -3,3 +3,4 @@ readxl
 dplyr
 tidyr
 xtable
+data.table

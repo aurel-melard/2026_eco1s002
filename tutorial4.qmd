@@ -17,7 +17,8 @@ if (any(installed_packages == FALSE)) {
 # Packages loading
 invisible(lapply(packages, library, character.only = TRUE))
 
-path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3"
+# path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial3"
+path = "/Users/aurelmelard/Dropbox/cours/2026_eco1s002"
 # Import the data --------------------------------------------------------------
 dat = readxl::read_excel(paste0(path,"/data/MRW_QJE1992.xlsx"))
 dat = dat %>%
