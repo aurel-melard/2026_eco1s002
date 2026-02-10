@@ -44,7 +44,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-1",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nScript\n\n#######################################################\n# Tutorial 1:\n# This script opens the iris dataset and \n# performs data visualization taks on it\n#\n# Author: Aurel Mélard (aurel.melard@polytechnique.fr)\n# Date: 11/02/2026\n######################################################\n\n## 1. Set input and output paths ----\noutput_path &lt;- \"/Users/aurelmelard/Dropbox/cours/Topics/2026_eco1s002/output\"\n\nNotice that we created our first object, named output_path using the assignment operator &lt;- (or =, which is equivalent).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of input? Hint: use the function class()",
+    "text": "First step in R/Rstudio\nScript\n\n#######################################################\n# Tutorial 1:\n# This script opens the iris dataset and \n# performs data visualization taks on it\n#\n# Author: Aurel Mélard (aurel.melard@polytechnique.edu)\n# Date: 11/02/2026\n######################################################\n\n## 1. Set input and output paths ----\noutput_path &lt;- \"/Users/aurelmelard/Dropbox/cours/Topics/2026_eco1s002/output\"\n\nNotice that we created our first object, named output_path using the assignment operator &lt;- (or =, which is equivalent).\n\n\n\n\n\n\nTip\n\n\nWhat is the class of input? Hint: use the function class()",
     "crumbs": [
       "Tutorial 1"
     ]

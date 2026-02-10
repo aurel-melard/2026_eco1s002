@@ -15,7 +15,7 @@ toc-title: ""
 toc-location: right
 author:
   - name: Aurel Mélard
-    email: aurel.melard@polytechnique.fr
+    email: aurel.melard@polytechnique.edu
     affiliations: CREST - Institut Polytechnique de Paris - IPP
     url: https://sites.google.com/view/aurel-melard
 date: last-modified
@@ -144,7 +144,7 @@ Along the way, you can use `#` to comment code and `----` to decompose your code
 # This script opens the iris dataset and 
 # performs data visualization taks on it
 #
-# Author: Aurel Mélard (aurel.melard@polytechnique.fr)
+# Author: Aurel Mélard (aurel.melard@polytechnique.edu)
 # Date: 11/02/2026
 ######################################################
 
