@@ -107,11 +107,11 @@ A typical tip is to choose simple and short titles for the files and the scripts
 
 ### When writing code
 
--   **Always** comment your code, make it readable for your future self but also for others. You may use your code in a week, a month, a year, and should be able to directly understands it!
+-   **Always** comment your code, make it readable for your future self but also for others. You/they may use your code in a week, a month, a year, and should be able to directly understand it.
 
--   When creating objects, functions, or whatever, give it simple but understandable names.
+-   When creating/saving objects (data, functions, parameters) give them simple but understandable names.
 
--   For instance, if you create a data frame containing wages for individuals aged between 25 and 30, you way call it `wage_25_30` and not `w2530` (too short) or `wage_individuals_aged_25_30` (too long).
+-   For instance, if you create a data frame containing wages for individuals aged between 25 and 30, you may call it `wage_25_30`, not `w2530` (too short), nor `wage_individuals_aged_25_30` (too long).
 
 -   Moreover, especially for large project, you want to have different scripts. Always keep scripts short and with clear names. For instance `1_clean_data.R`, `2_import_wages.R`, `3_merge_datasets.R`, and `4_data_analysis.R`.
 
@@ -122,7 +122,7 @@ A typical tip is to choose simple and short titles for the files and the scripts
     -   First, open RStudio and open a new script.
     -   You should have an empty page. First write some some description of what the code does. 
     -   This script will then contain the commands you want to run. 
-    -   Save it as `code_tutorial1.R` in the appropriate folder.
+    -   Save it as `tutorial1.R` in the appropriate folder.
 
 ::: callout-tip
 Along the way, you can use `#` to comment code and `----` to decompose your code into parts with titles.
@@ -177,7 +177,7 @@ Notice that the two objects we created so far can be seen in the `Environment`.
 ## First step in R/Rstudio
 ### Data description
 
-By clicking on the object in the `Environment` panel, you can visualize it, but you can also write some code to describe it. As we just check, `data` is a `data.frame` object. It is made of several columns and rows.
+By clicking on the object in the `Environment` panel, you can visualize it, but you can also write some code to describe it. As we just checked, `data` is a `data.frame` object. It is made of several columns and rows.
 
 To call a specific column in a dataframe, we use the `$` operator. To know all the column names in `data`, we can use the function `names()`. To know the "size" of the dataframe, the right function is `dim()`: the first element is the number of rows and the second the number of columns.
 
@@ -198,7 +198,7 @@ summary(data$Sepal.Length) # To provide summary statistics
 ## First step in R/Rstudio
 ### Our first graph!
 
-Now, I want to visualize the data. To do so, we can use base R function `plot`:
+Now, we want to visualize the data. To do so, we can use base R function `plot`:
 
 ```{r}
 #| echo: true
@@ -207,7 +207,7 @@ plot(iris$Sepal.Length,iris$Sepal.Width)
 
 ------------------------------------------------------------------------
 
-We can also use a very popular library for dataviz, `ggplot2`. First, we install it, then we load it, and we are going to be able to use it.
+We can also use a very popular library for data visualization, `ggplot2`. First, we install it, then we load it, to be able to use it.
 
 ```{r,echo=T,eval=F}
 install.packages("ggplot2",repos = "http://cran.us.r-project.org")
@@ -239,7 +239,7 @@ This looks better! To produce this graph we used different information:
 ------------------------------------------------------------------------
 
 ::: callout-tip
-R Packages come with documentation of their functions and syntax (sometimes even cheatsheets), typically online [online](https://ggplot2.tidyverse.org/index.html). For a given function, you can also use the help() function within R. 
+R Packages come with documentation of their functions and syntax (sometimes even cheatsheets), typically [online](https://ggplot2.tidyverse.org/index.html). For a given function, you can also use the help() function within R. 
 :::
 
 Now, we want to save our graph:
@@ -256,7 +256,7 @@ The function `paste0` is useful to concatenate text. Here, instead of writing th
 ## First step in R/Rstudio
 ### Data: base vs. dplyr
 
-To finish this short introduction to R, let's introduce a new package, probably the most popular one in R: `dplyr`. As before, we install then load the library.
+To finish this short introduction to R, let's introduce a new package, one of the most popular in R: `dplyr`. As before, we install then load the library.
 
 ```{r,echo=T,eval=F}
 #| echo: true
@@ -448,7 +448,7 @@ Open a blank project in Overleaf. It should look like that:
 
 ------------------------------------------------------------------------
 
-Three elements are mandatory here: the `\documentclass{}` call, the `\begin{document}` and the `\end{docoment}` parts. All texts should be these last two commands. The preambule is of high importance: it allows you to load packages to perform specific tasks. Here, `graphicx` is useful to input images. Other popular packages include:
+Three elements are mandatory here: the `\documentclass{}` call, the `\begin{document}` and the `\end{document}` parts. The preambule is of high importance: it allows you to load packages to perform specific tasks. Here, `graphicx` is useful to input images. Other popular packages include:
 
 -   `geometry` allows you to change the margins of the pages,
 -   `booktab` to build nice-looking tables

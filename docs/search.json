@@ -34,7 +34,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOpening a script (and useful terms)\n\nWe are going to create our first script (the extension is .R).\n\nFirst, open RStudio and open a new script.\nYou should have an empty page. First write some some description of what the code does.\nThis script will then contain the commands you want to run.\nSave it as code_tutorial1.R in the appropriate folder.\n\n\n\n\n\n\n\n\nTip\n\n\nAlong the way, you can use # to comment code and ---- to decompose your code into parts with titles.\n\n\n\n\nIn this script, we are going to manipulate objects using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc.\nSome functions are built in R but some are not. In this case, we need to load their related packages.",
+    "text": "First step in R/Rstudio\nOpening a script (and useful terms)\n\nWe are going to create our first script (the extension is .R).\n\nFirst, open RStudio and open a new script.\nYou should have an empty page. First write some some description of what the code does.\nThis script will then contain the commands you want to run.\nSave it as tutorial1.R in the appropriate folder.\n\n\n\n\n\n\n\n\nTip\n\n\nAlong the way, you can use # to comment code and ---- to decompose your code into parts with titles.\n\n\n\n\nIn this script, we are going to manipulate objects using functions.\nObjects can be of different classes: matrix, vector, character, numeric, data.frame, etc.\nSome functions are built in R but some are not. In this case, we need to load their related packages.",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -64,7 +64,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-3",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environment panel, you can visualize it, but you can also write some code to describe it. As we just check, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[2,]. What should you write to print the 10th element of the 3rd column?",
+    "text": "First step in R/Rstudio\nData description\nBy clicking on the object in the Environment panel, you can visualize it, but you can also write some code to describe it. As we just checked, data is a data.frame object. It is made of several columns and rows.\nTo call a specific column in a dataframe, we use the $ operator. To know all the column names in data, we can use the function names(). To know the “size” of the dataframe, the right function is dim(): the first element is the number of rows and the second the number of columns.\n\n\n\n\n\n\nTip\n\n\nYou can also call a column by its position in the dataframe. For instance, to call the second column you can type data[,2]. For the second row: data[2,]. What should you write to print the 10th element of the 3rd column?",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -74,7 +74,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-4",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nOur first graph!\nNow, I want to visualize the data. To do so, we can use base R function plot:\n\nplot(iris$Sepal.Length,iris$Sepal.Width)",
+    "text": "First step in R/Rstudio\nOur first graph!\nNow, we want to visualize the data. To do so, we can use base R function plot:\n\nplot(iris$Sepal.Length,iris$Sepal.Width)",
     "crumbs": [
       "Tutorial 1"
     ]
@@ -84,7 +84,7 @@
     "href": "tutorial1.html#first-step-in-rrstudio-5",
     "title": "Tutorial 1",
     "section": "First step in R/Rstudio",
-    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this short introduction to R, let’s introduce a new package, probably the most popular one in R: dplyr. As before, we install then load the library.\n\npacman::p_load(tidyverse)\n\nTo be specific, the tidyverse is a collection of packages built for data science, including:\n\nggplot2 that we already installed separately\ndplyr that introduces a unified syntax for data manipulation\n7 other main packages for data analysis (see the list here)\nOther specific packages that are not directly loaded by tidyverse",
+    "text": "First step in R/Rstudio\nData: base vs. dplyr\nTo finish this short introduction to R, let’s introduce a new package, one of the most popular in R: dplyr. As before, we install then load the library.\n\npacman::p_load(tidyverse)\n\nTo be specific, the tidyverse is a collection of packages built for data science, including:\n\nggplot2 that we already installed separately\ndplyr that introduces a unified syntax for data manipulation\n7 other main packages for data analysis (see the list here)\nOther specific packages that are not directly loaded by tidyverse",
     "crumbs": [
       "Tutorial 1"
     ]
