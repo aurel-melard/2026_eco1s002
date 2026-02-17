@@ -18,27 +18,34 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-We are going to dig into into the workhorse model in macroeconomics: the Solow model.
+We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.
 
 ## Quick model summary
 
-1.  **Production Function**: The economy produces output using a production function of the form: $$ Y_t = F(K_t, L_t) $$ where $Y$ is output, $K$ is capital, and $L$ is labor. Often, a Cobb-Douglas production function is assumed: $$ Y_t = K_t^\alpha L_t^{1-\alpha} $$ where $0 < \alpha < 1$. Capital comes at price $r$ and labor comes at price $w$.
+1.  **Structure of the economy**: firms and consumers (no state). Firms use (and pay) capital and labor to produce an output. Output (=income) is either consumed or saved by households:
 
-2.  **Constant Returns to Scale**: Doubling the inputs (capital and labor) doubles the output.
+    $$ Y_t = C_t + I_t $$
 
-3.  **Diminishing Returns**: Increasing one input, holding the other constant, leads to smaller and smaller increases in output.
+2.  **Production Function**: a representative firm produces output using a Cobb-Douglas production function: $$ Y_t = F(K_t, A_tL_t) =  K_t^\alpha (A_tL_t)^{1-\alpha}$$ where $Y$ is output, $K$ is capital, $L$ is labor and $A$ is technology. where $0 < \alpha < 1$. Using capital comes at rental price $r$ and labor comes at price $w$ (the wage).
 
-4.  **Exogenous Saving Rate**: A fixed fraction $s$ of output is saved and invested.
+3.  **Capital accumulation:** capital accumulates through savings and depreciates geometrically
 
-5.  **Capital Depreciation**: A constant fraction $\delta$ of capital depreciates each period.
+    $$ K_{t+1} = I_t + (1-\delta) K_t$$
 
-6.  **Population Growth**: The labor force grows at a constant rate $n$.
+<!-- -->
 
-7.  **Technological Progress**: Technology improves at an exogenous rate $g$, increasing productivity over time.
+1.  **Saving rate:** investment is a constant fraction of output
 
-8.  **Steady State**: In the long run, the economy reaches a steady state where capital per worker ($k$) and output per worker ($y$) are constant.
+    $$ I_{t} = sF(K_t,A_tL_t)$$
 
-## Exercises
+![](img/solow_model.png){fig-align="center" width="50%"}
+
+## Definitions
+
+1.  **Steady state:** trajectory where all variables are constant
+2.  **Balanced growth path:** trajectory such that per capita variables grow at a constant rate (not necessarily the same) and the capital to output ratio is constant
+
+## Exercise
 
 ### 1. Warm-up: Return to scale
 
@@ -47,57 +54,52 @@ Let $\lambda > 1$, if $F(\lambda X, \lambda Y) < \lambda F(X,Y)$, the function h
 1.  $y_1 = 10x^2y^2$
 2.  $y_2 = \frac{1}{2}x^{1/3}y^{1/2}$
 3.  $y_3 = x + 2y$
-4.  $y_4 = \sqrt{x} + \log(y)$
+4.  $y_4 = \ln(xy)$
 
-### 2. Solve the maximization problem
+### 2. Solve the firm's maximization problem
 
-Consider the function above ($Y_t = K_t^{\alpha} L_t^{1-\alpha}$).
+Consider the function above ($Y_t =  K_t^{\alpha} (A_tL_t)^{1-\alpha}$).
 
 1.  Show that if $K=0$ and/or $L=0$ production does not occur
-2.  Show that marginal productivity is positive for capital and labour
-3.  Show that marginal productivity is decreasing for capital and labour
-4.  Write the down the profit maximization program
-5.  Solve the program
+2.  Show that the production function has constant return to scale
+3.  Show that marginal productivity is positive for capital and labour
+4.  Show that marginal productivity is decreasing for capital and labour
+5.  Write the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions
+6.  Show that all output is needed to pay capital and labor
 
-### 3. Per worker term
+### 3. Constant population and technology
 
-Denote $y=Y/L$, the per-worker production, and $k=K/L$ the per-worker capital.
+For now, we consider that technology and labor (=population) are constant ($A_t = A$, $L_t = L$): no population growth, no technological progress.
 
-1.  Show that $y=Ak^\alpha$
+1.  Using the capital accumulation equation, show that the ratio $\frac{K_{t+1}}{K_t}$ goes to $\infty$ as $K_t$ goes to 0 and is lower than 1 when $K_t$ goes to $\infty$
+2.  Show that there is a unique steady state level of capital $k^*$ and solve for it
+3.  How does the $k^*$ vary with $s$, $\delta$, $A$, $L$ ? Interpret
 
-### 4. Capital accumulation
+### 4. Population and technology growth
 
-Capital accumulation is given by $\dot K=sY-\delta K$. Note also that the growth rate of population $n$ can be expressed as $n = \dot L / L$.
+We now assume that population grows at constant rate $n$, and technology at rate $g$:
 
-1.  Interpret this equation
-2.  Show that $\frac{\dot K}{K} = s\frac{y}{k}-\delta$
-3.  Show that $\dot k = sAk^\alpha - (\delta - n)k$
-4.  What happen if $sAk^\alpha > (\delta - n)k$? Interpret
+$$L_{t+1} = (1+n) L_t$$
 
-### 5. Steady state
+$$A_{t+1} = (1+g) A_t$$
 
-A steady-state is a capital stock per capita $k^\star$ where, when reached, $\dot k = 0$.
+We respectively denote $y_t=Y_t/L_t$ and $k_t=K_t/L_t$, the per-worker production and capital
 
-1.  What is the steady-state level of output per capita $y^\star$ ?
-2.  Interpret
+We further define $\hat{y_t}=\frac{Y_t}{A_t L_t}$ and $\hat{k_t}=\frac{K_t}{A_tL_t}$ the production and capital per ***effective unit***
 
-### 6. Comparative statics
+1.  Dividing the capital accumulation equation by $A_tL_t$, show that
 
-Comparative statics exercises are thought experiment in which we change the value of a parameter and compare the past and new equilibrium. Consider a new saving rate $s'>s$.
+    $$\hat{k_{t+1}} (1+n)(1+g)= (1-\delta)\hat{k_t} + s F(\frac{K_t}{A_tL_t},1)$$
 
-1.  How does capital accumulation change?
-2.  How does change the steady-state level of capital per capita?
-3.  How does change the steady-state level of output per capita?
+2.  Show that there is a steady state level of capital per effective unit $\hat{k^*}$ equal to:
 
-### 7. Balanced growth path \[Bonus\]
+$$
+\hat{k^*} = \left(\frac{s}{(1+n)(1+g)-1+\delta}\right)^{\frac{1}{1-\alpha}}
+$$
 
-The balanced growth path is a situation during which capital per worker and output per worker grow at a constant (but potentially different) rates. The steady state is a BGP with zero growth rate. Denote $g_y$ and $g_k$ the capital and output per worker growth rates .
+3.  Show that per capita outcomes $y$ and $k$ are on a balanced growth path. What is their respective growth rates?
 
-1.  Show that $g_y \propto g_k$
+### 5. Discussion
 
-### 8. Introducing technological progress \[Bonus\]
-
-Let assume now that $A$ grows at rate $\dot A / A = g > 0$.
-
-1.  What is the new law of capital accumulation?
-2.  What is the steady-state level of output per capita $\tilde{y}^\star$?
+1.  What makes this model a simplification of reality?
+2.  Why cannot it explain all differences in output growth and per capita level across economies?
