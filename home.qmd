@@ -30,7 +30,7 @@ The course has 3 main objectives:
     -   Presentation of the class objectives
     -   First hands on R
     -   First hands on LaTeX
--   [**Tutorial 2**](https://aurel-melard.github.io/2026_eco1s002/tutorial2.html) **(18/02)**
+-   [**Tutorial 2**](https://aurel-melard.github.io/2026_eco1s002/tutorial2.html) **(18/02) - [Solutions](https://aurel-melard.github.io/2026_eco1s002/tutorial2_sol.html)**
     -   Baseline Solow model derivations
     -   Solow model extensions
 -   **Tutorial 3** **(25/02 - computer session)**
