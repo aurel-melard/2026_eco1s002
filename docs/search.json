@@ -160,93 +160,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "home.qmd"
-  },
-  {
-    "objectID": "home.html",
-    "href": "home.html",
-    "title": "Welcome to this class!",
-    "section": "",
-    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "home.html#class-outline",
-    "href": "home.html#class-outline",
-    "title": "Welcome to this class!",
-    "section": "Class outline",
-    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02)\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nReplication of Mankiw et al. (1997)\nFirst hands on the OLS estimator\nEstimating the baseline and augmented Solow models\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "home.html#about-this-site",
-    "href": "home.html#about-this-site",
-    "title": "Welcome to this class!",
-    "section": "About this site",
-    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html",
-    "href": "tutorial2.html",
-    "title": "Tutorial 2: the Solow model",
-    "section": "",
-    "text": "We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#quick-model-summary",
-    "href": "tutorial2.html#quick-model-summary",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Quick model summary",
-    "text": "Quick model summary\n\nStructure of the economy: firms and consumers (no state). Firms use (and pay) capital and labor to produce an output. Output (=income) is either consumed or saved by households:\n\\[ Y_t = C_t + I_t \\]\nProduction Function: a representative firm produces output using a Cobb-Douglas production function: \\[ Y_t = F(K_t, A_tL_t) =  K_t^\\alpha (A_tL_t)^{1-\\alpha}\\] where \\(Y\\) is output, \\(K\\) is capital, \\(L\\) is labor and \\(A\\) is technology. where \\(0 &lt; \\alpha &lt; 1\\). Using capital comes at rental price \\(r\\) and labor comes at price \\(w\\) (the wage).\nCapital accumulation: capital accumulates through savings and depreciates geometrically\n\\[ K_{t+1} = I_t + (1-\\delta) K_t\\]\n\n\n\nSaving rate: investment is a constant fraction of output\n\\[ I_{t} = sF(K_t,A_tL_t)\\]",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#exercises",
-    "href": "tutorial2.html#exercises",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Exercises",
-    "text": "Exercises\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\sqrt{x} + \\log(y)\\)\n\n\n\n2. Solve the maximization problem\nConsider the function above (\\(Y_t = K_t^{\\alpha} L_t^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program\nSolve the program\n\n\n\n3. Per worker term\nDenote \\(y=Y/L\\), the per-worker production, and \\(k=K/L\\) the per-worker capital.\n\nShow that \\(y=Ak^\\alpha\\)\n\n\n\n4. Capital accumulation\nCapital accumulation is given by \\(\\dot K=sY-\\delta K\\). Note also that the growth rate of population \\(n\\) can be expressed as \\(n = \\dot L / L\\).\n\nInterpret this equation\nShow that \\(\\frac{\\dot K}{K} = s\\frac{y}{k}-\\delta\\)\nShow that \\(\\dot k = sAk^\\alpha - (\\delta - n)k\\)\nWhat happen if \\(sAk^\\alpha &gt; (\\delta - n)k\\)? Interpret\n\n\n\n5. Steady state\nA steady-state is a capital stock per capita \\(k^\\star\\) where, when reached, \\(\\dot k = 0\\).\n\nWhat is the steady-state level of output per capita \\(y^\\star\\) ?\nInterpret\n\n\n\n6. Comparative statics\nComparative statics exercises are thought experiment in which we change the value of a parameter and compare the past and new equilibrium. Consider a new saving rate \\(s'&gt;s\\).\n\nHow does capital accumulation change?\nHow does change the steady-state level of capital per capita?\nHow does change the steady-state level of output per capita?\n\n\n\n7. Balanced growth path [Bonus]\nThe balanced growth path is a situation during which capital per worker and output per worker grow at a constant (but potentially different) rates. The steady state is a BGP with zero growth rate. Denote \\(g_y\\) and \\(g_k\\) the capital and output per worker growth rates .\n\nShow that \\(g_y \\propto g_k\\)\n\n\n\n8. Introducing technological progress [Bonus]\nLet assume now that \\(A\\) grows at rate \\(\\dot A / A = g &gt; 0\\).\n\nWhat is the new law of capital accumulation?\nWhat is the steady-state level of output per capita \\(\\tilde{y}^\\star\\)?",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#definitions",
-    "href": "tutorial2.html#definitions",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Definitions",
-    "text": "Definitions\n\nSteady state: trajectory where all variables are constant\nBalanced growth path: trajectory such that per capita variables grow at a constant rate (not necessarily the same) and the capital to output ratio is constant",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial2.html#exercise",
-    "href": "tutorial2.html#exercise",
-    "title": "Tutorial 2: the Solow model",
-    "section": "Exercise",
-    "text": "Exercise\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\ln(xy)\\)\n\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that the production function has constant return to scale\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\nShow that all output is needed to pay capital and labor\n\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?",
-    "crumbs": [
-      "Tutorial 2"
-    ]
-  },
-  {
     "objectID": "tutorial2_sol.html",
     "href": "tutorial2_sol.html",
     "title": "Tutorial 2: the Solow model",
@@ -273,5 +186,82 @@
     "title": "Tutorial 2: the Solow model",
     "section": "Exercise",
     "text": "Exercise\n\n1. Warm-up: Returns to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing returns to scale (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant returns to scale. For the following functions, state if they exhibit positive, constant, or negative returns to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\n\\[\ny_1(\\lambda x, \\lambda y) = \\lambda^4 y_1(x,y) &gt; \\lambda y_1(x,y)  \\text{ , increasing returns to scale}\n\\]\n\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\n\\[\ny_2(\\lambda x, \\lambda y) = \\lambda^{5/6} y_2(x,y) &lt; \\lambda y_2(x,y)  \\text{ , decreasing returns to scale}\n\\]\n\n\\(y_3 = x + 2y\\)\n\n\\[\ny_3(\\lambda x, \\lambda y) = \\lambda y_3(x,y) = \\lambda y_2(x,y)  \\text{ , constant returns to scale}\n\\]\n\n\\(y_4 = \\ln(xy), x&gt;1,y&gt;1\\)\n\n\\[\ny_4(\\lambda x, \\lambda y) = 2\\ln(\\lambda) + y_4(x,y)\n\\]\nDepends on initial level. Fix \\(\\lambda = e\\) so that \\(2\\ln(\\lambda) =2\\))\nFor \\(xy = e\\), \\(y_4(\\lambda x, \\lambda y) = 3 &gt; \\lambda y_4(x,y)\\)\nFor \\(xy = e^3\\), \\(y_4(\\lambda x, \\lambda y) = 5 &lt; \\lambda y_4(x,y)\\)\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\n\nImmediate\n\nShow that the production function has constant returns to scale\n\n\\[\nF(\\lambda K_t, \\lambda L_t) = \\lambda K_t^{\\alpha} (A_tL_t)^{1-\\alpha} = F(K,L)\n\\]\n\nShow that marginal productivity is positive for capital and labour\n\n\\[\nF_K(K_t,L_t) = \\alpha  K_t^{\\alpha-1} (A_tL_t)^{1-\\alpha} &gt;0\n\\]\n\\[\nF_L(K_t,L_t) = (1-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha} &gt;0\n\\]\n\nShow that marginal productivity is decreasing for capital and labour\n\n\\[\nF_{KK}(K_t,L_t) = \\alpha (\\alpha-1) K_t^{\\alpha-2} (A_tL_t)^{1-\\alpha} &lt;0\n\\]\n\\[\nF_{LL}(K_t,L_t) = (1-\\alpha) (-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha-1} &lt;0\n\\]\n\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\n\n\\[\n\\max_{K,L} Y_t - rK_t - wL_t\n\\]\nFOC with respect to K implies: \\(F_K(K_t,L_t) = \\frac{dF}{dK} = r\\)\nFOC with respect to L implies: \\(F_L(K_t,L_t)=\\frac{dF}{dL} = w\\)\n\nShow that all output is needed to pay capital and labor\n\nDifferentiating both sides of the constant return to scale equation with respect to \\(\\lambda\\) yields:\n\\[\nF_{K}(\\lambda K_t,\\lambda L_t)K_t +F_{L}(\\lambda K_t,\\lambda L_t)L_t  = F(K_t,L_t)\n\\]\nEvaluating it at \\(\\lambda = 1\\) (constant returns to scale is true whatever \\(\\lambda\\) and in particular for \\(\\lambda = 1\\)) and and plugging the results of the two FOC of the profit maximization problem yields the result.\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\n\n\\[\ng(K_t) = \\frac{K_{t+1}}{K_t} = s \\left(\\frac{A_tL_t}{K_t}\\right)^{1-\\alpha} + 1-\\delta\n\\]\nIt tends to \\(+\\infty\\) as \\(K_t \\rightarrow 0^+\\), and \\(0^+\\) as \\(K_t \\rightarrow +\\infty\\)\n\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\n\nPlugging \\(K = K_{t+1} = K_t\\) and solving for it in the equation above yields:\n\\[\nk^* = AL \\left(\\frac{s}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\nCapital accumulation is facilitated by a high saving rate \\(s\\) , a low depreciation rate \\(\\delta\\) and by high levels of effective labor \\(AL\\) (additional units of capital are highly productive up to a higher level of \\(K\\) )\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\n\nDividing the capital accumulation by \\(A_tL_t\\) yields:\n\\[\n\\frac{K_{t+1}}{A_tL_t}= (1-\\delta)\\hat{k_t} + s \\frac{F(K_t,A_tL_t)}{A_tL_t}\n\\]\nNoticing that the left hand side is \\(\\frac{K_{t+1}}{A_{t+1}L_{t+1}} (1+n)(1+g)\\) and that \\(\\frac{1}{A_tL_t}F(K_t,A_tL_t) = F(\\frac{K_t}{A_tL_t},1) = F(\\hat{k}_t,1)\\) because of constant returns to scale yields the result.\n\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\nPlugging \\(\\hat{k} = \\hat{k}_{t+1} = \\hat{k}_t\\) and solving for it in the equation above yields the result.\nNoticing that \\(\\hat{y} = \\hat{k}^\\alpha\\) and plugging \\(\\hat{k}^*\\) yields steady state per effective unit output:\n\\[\n\\hat{y^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\\(k_t = A_t \\hat{k}_t\\) and \\(y_t = A_t \\hat{y}_t\\). Plugging steady state levels of \\(\\hat{k}^*\\) and \\(\\hat{y}^*\\), then computing the equilibrium growth rate of capital and output yields:\n\\[\n\\frac{k_{t+1}}{k_t} = \\frac{y_{t+1}}{y_t} = (1+g)\n\\]\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?\n\nFirms:\n\nImperfect competition and appropriated innovation (through patents) yields profits and investment into private R&D\nHeterogeneous firms/sectors need various “qualities” of physical and human capital, and different “vintages” of technology (a technology can get outdated)\n\nHouseholds:\n\nOptimize and decide endogenously upon their labor supply, saving rate, fertility, education level (human capital)\n\nState:\n\naffects available consumption through taxes and transfers\naffects investment into public research and public education (technological progress and human capital)\nprovides institutions that affect firms’ and households’ decisions\n\nTrade (open economy):\n\nAffects net investment in the country, and available output for consumption through imports/exports\n\nLink to Aghion’s seminar on the evolution of growth theory (in French with possible subtitles) Growth theory and policies - Philippe Aghion - Collège de France\nA bit more of a self-promotion of his work, but also interesting: Inaugural lecture of the School of Management & Impact - Philippe Aghion - Sciences Po"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Welcome to this class!",
+    "section": "",
+    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#class-outline",
+    "href": "home.html#class-outline",
+    "title": "Welcome to this class!",
+    "section": "Class outline",
+    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02) - Solutions\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nReplication of Mankiw et al. (1997)\nFirst hands on the OLS estimator\nEstimating the baseline and augmented Solow models\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "home.html#about-this-site",
+    "href": "home.html#about-this-site",
+    "title": "Welcome to this class!",
+    "section": "About this site",
+    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "home.qmd"
+  },
+  {
+    "objectID": "tutorial2.html",
+    "href": "tutorial2.html",
+    "title": "Tutorial 2: the Solow model",
+    "section": "",
+    "text": "We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.s",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#quick-model-summary",
+    "href": "tutorial2.html#quick-model-summary",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Quick model summary",
+    "text": "Quick model summary\n\nStructure of the economy: firms and consumers (no state). Firms use (and pay) capital and labor to produce an output. Output (=income) is either consumed or saved by households:\n\\[ Y_t = C_t + I_t \\]\nProduction Function: a representative firm produces output using a Cobb-Douglas production function: \\[ Y_t = F(K_t, A_tL_t) =  K_t^\\alpha (A_tL_t)^{1-\\alpha}\\] where \\(Y\\) is output, \\(K\\) is capital, \\(L\\) is labor and \\(A\\) is technology. where \\(0 &lt; \\alpha &lt; 1\\). Using capital comes at rental price \\(r\\) and labor comes at price \\(w\\) (the wage).\nCapital accumulation: capital accumulates through savings and depreciates geometrically\n\\[ K_{t+1} = I_t + (1-\\delta) K_t\\]\n\n\n\nSaving rate: investment is a constant fraction of output\n\\[ I_{t} = sF(K_t,A_tL_t)\\]",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#definitions",
+    "href": "tutorial2.html#definitions",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Definitions",
+    "text": "Definitions\n\nSteady state: trajectory where all variables are constant\nBalanced growth path: trajectory such that per capita variables grow at a constant rate (not necessarily the same) and the capital to output ratio is constant",
+    "crumbs": [
+      "Tutorial 2"
+    ]
+  },
+  {
+    "objectID": "tutorial2.html#exercise",
+    "href": "tutorial2.html#exercise",
+    "title": "Tutorial 2: the Solow model",
+    "section": "Exercise",
+    "text": "Exercise\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\ln(xy)\\)\n\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that the production function has constant return to scale\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\nShow that all output is needed to pay capital and labor\n\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?",
+    "crumbs": [
+      "Tutorial 2"
+    ]
   }
 ]
