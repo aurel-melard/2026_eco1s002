@@ -18,7 +18,7 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.
+We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.s
 
 ## Quick model summary
 
