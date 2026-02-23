@@ -202,7 +202,7 @@
     "href": "home.html#class-outline",
     "title": "Welcome to this class!",
     "section": "Class outline",
-    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02) - Solutions\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nReplication of Mankiw et al. (1997)\nFirst hands on the OLS estimator\nEstimating the baseline and augmented Solow models\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
+    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02) - Solutions\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nOLS estimator\nLinear regression in R\nReplication of Mankiw et al. (1997)\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
     "crumbs": [
       "Home"
     ]
@@ -263,5 +263,40 @@
     "crumbs": [
       "Tutorial 2"
     ]
+  },
+  {
+    "objectID": "tutorial3.html#roadmap",
+    "href": "tutorial3.html#roadmap",
+    "title": "Tutorial 3",
+    "section": "Roadmap",
+    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on Ordinary Least Square estimator\nLearn how to run and interpret an OLS estimation in R\nReplicate the key results from Mankiw, Romer & Weil (1994)\n\n\n\n\n\n\n\nNote\n\n\nDisclaimer: the recap on OLS is inspired by Sciences Po’s Introduction to Econometrics with R. Interested students can check the full material here."
+  },
+  {
+    "objectID": "tutorial3.html#linear-regression",
+    "href": "tutorial3.html#linear-regression",
+    "title": "Tutorial 3",
+    "section": "Linear regression",
+    "text": "Linear regression\nWhy?\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools"
+  },
+  {
+    "objectID": "tutorial3.html#recap-on-linear-regression",
+    "href": "tutorial3.html#recap-on-linear-regression",
+    "title": "Tutorial 3",
+    "section": "Recap on linear regression",
+    "text": "Recap on linear regression\nVisual intuition\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools\n\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
+    "href": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
+    "title": "Tutorial 3",
+    "section": "Exercise: Replication of Mankiw, Romer & Weil (1994)",
+    "text": "Exercise: Replication of Mankiw, Romer & Weil (1994)\nThe model\nRecall that the Solow model assumes the following GDP production function: \\[\nY(t) = K(t)^{\\alpha} (L(t)A(t))^{1-\\alpha}, 0&lt;\\alpha&lt;1\n\\]\nIn continuous time, exogenous and constant population and technology growth can be modelled by:\n\\[\nL(t) = L(0)e^{nt}\n\\]\n\\[\nL(t) = L(0)e^{gt}\n\\]\nMankiw et al. (1994) asks: is the Solow model compatible with the data?"
+  },
+  {
+    "objectID": "tutorial3.html#example-of-ols-regression-in-r",
+    "href": "tutorial3.html#example-of-ols-regression-in-r",
+    "title": "Tutorial 3",
+    "section": "Example of OLS regression in R",
+    "text": "Example of OLS regression in R\nlm function\nThe main R function for OLS regression is lm. For linear model, the syntax is lm(y ~ x). It yields\n\nsummary(lm(cars$dist ~ cars$speed))\n\n\nCall:\nlm(formula = cars$dist ~ cars$speed)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-29.069  -9.525  -2.272   9.215  43.201 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -17.5791     6.7584  -2.601   0.0123 *  \ncars$speed    3.9324     0.4155   9.464 1.49e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 15.38 on 48 degrees of freedom\nMultiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 \nF-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12\n\n\n\nSummary statistics on the residuals\nEstimated parameters, their standard errors and t-value\nR-squared"
   }
 ]
