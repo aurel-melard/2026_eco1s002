@@ -188,6 +188,13 @@
     "text": "Exercise\n\n1. Warm-up: Returns to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing returns to scale (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant returns to scale. For the following functions, state if they exhibit positive, constant, or negative returns to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\n\\[\ny_1(\\lambda x, \\lambda y) = \\lambda^4 y_1(x,y) &gt; \\lambda y_1(x,y)  \\text{ , increasing returns to scale}\n\\]\n\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\n\\[\ny_2(\\lambda x, \\lambda y) = \\lambda^{5/6} y_2(x,y) &lt; \\lambda y_2(x,y)  \\text{ , decreasing returns to scale}\n\\]\n\n\\(y_3 = x + 2y\\)\n\n\\[\ny_3(\\lambda x, \\lambda y) = \\lambda y_3(x,y) = \\lambda y_2(x,y)  \\text{ , constant returns to scale}\n\\]\n\n\\(y_4 = \\ln(xy), x&gt;1,y&gt;1\\)\n\n\\[\ny_4(\\lambda x, \\lambda y) = 2\\ln(\\lambda) + y_4(x,y)\n\\]\nDepends on initial level. Fix \\(\\lambda = e\\) so that \\(2\\ln(\\lambda) =2\\))\nFor \\(xy = e\\), \\(y_4(\\lambda x, \\lambda y) = 3 &gt; \\lambda y_4(x,y)\\)\nFor \\(xy = e^3\\), \\(y_4(\\lambda x, \\lambda y) = 5 &lt; \\lambda y_4(x,y)\\)\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\n\nImmediate\n\nShow that the production function has constant returns to scale\n\n\\[\nF(\\lambda K_t, \\lambda L_t) = \\lambda K_t^{\\alpha} (A_tL_t)^{1-\\alpha} = F(K,L)\n\\]\n\nShow that marginal productivity is positive for capital and labour\n\n\\[\nF_K(K_t,L_t) = \\alpha  K_t^{\\alpha-1} (A_tL_t)^{1-\\alpha} &gt;0\n\\]\n\\[\nF_L(K_t,L_t) = (1-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha} &gt;0\n\\]\n\nShow that marginal productivity is decreasing for capital and labour\n\n\\[\nF_{KK}(K_t,L_t) = \\alpha (\\alpha-1) K_t^{\\alpha-2} (A_tL_t)^{1-\\alpha} &lt;0\n\\]\n\\[\nF_{LL}(K_t,L_t) = (1-\\alpha) (-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha-1} &lt;0\n\\]\n\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\n\n\\[\n\\max_{K,L} Y_t - rK_t - wL_t\n\\]\nFOC with respect to K implies: \\(F_K(K_t,L_t) = \\frac{dF}{dK} = r\\)\nFOC with respect to L implies: \\(F_L(K_t,L_t)=\\frac{dF}{dL} = w\\)\n\nShow that all output is needed to pay capital and labor\n\nDifferentiating both sides of the constant return to scale equation with respect to \\(\\lambda\\) yields:\n\\[\nF_{K}(\\lambda K_t,\\lambda L_t)K_t +F_{L}(\\lambda K_t,\\lambda L_t)L_t  = F(K_t,L_t)\n\\]\nEvaluating it at \\(\\lambda = 1\\) (constant returns to scale is true whatever \\(\\lambda\\) and in particular for \\(\\lambda = 1\\)) and and plugging the results of the two FOC of the profit maximization problem yields the result.\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\n\n\\[\ng(K_t) = \\frac{K_{t+1}}{K_t} = s \\left(\\frac{A_tL_t}{K_t}\\right)^{1-\\alpha} + 1-\\delta\n\\]\nIt tends to \\(+\\infty\\) as \\(K_t \\rightarrow 0^+\\), and \\(0^+\\) as \\(K_t \\rightarrow +\\infty\\)\n\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\n\nPlugging \\(K = K_{t+1} = K_t\\) and solving for it in the equation above yields:\n\\[\nk^* = AL \\left(\\frac{s}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\nCapital accumulation is facilitated by a high saving rate \\(s\\) , a low depreciation rate \\(\\delta\\) and by high levels of effective labor \\(AL\\) (additional units of capital are highly productive up to a higher level of \\(K\\) )\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\n\nDividing the capital accumulation by \\(A_tL_t\\) yields:\n\\[\n\\frac{K_{t+1}}{A_tL_t}= (1-\\delta)\\hat{k_t} + s \\frac{F(K_t,A_tL_t)}{A_tL_t}\n\\]\nNoticing that the left hand side is \\(\\frac{K_{t+1}}{A_{t+1}L_{t+1}} (1+n)(1+g)\\) and that \\(\\frac{1}{A_tL_t}F(K_t,A_tL_t) = F(\\frac{K_t}{A_tL_t},1) = F(\\hat{k}_t,1)\\) because of constant returns to scale yields the result.\n\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\nPlugging \\(\\hat{k} = \\hat{k}_{t+1} = \\hat{k}_t\\) and solving for it in the equation above yields the result.\nNoticing that \\(\\hat{y} = \\hat{k}^\\alpha\\) and plugging \\(\\hat{k}^*\\) yields steady state per effective unit output:\n\\[\n\\hat{y^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\\(k_t = A_t \\hat{k}_t\\) and \\(y_t = A_t \\hat{y}_t\\). Plugging steady state levels of \\(\\hat{k}^*\\) and \\(\\hat{y}^*\\), then computing the equilibrium growth rate of capital and output yields:\n\\[\n\\frac{k_{t+1}}{k_t} = \\frac{y_{t+1}}{y_t} = (1+g)\n\\]\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?\n\nFirms:\n\nImperfect competition and appropriated innovation (through patents) yields profits and investment into private R&D\nHeterogeneous firms/sectors need various “qualities” of physical and human capital, and different “vintages” of technology (a technology can get outdated)\n\nHouseholds:\n\nOptimize and decide endogenously upon their labor supply, saving rate, fertility, education level (human capital)\n\nState:\n\naffects available consumption through taxes and transfers\naffects investment into public research and public education (technological progress and human capital)\nprovides institutions that affect firms’ and households’ decisions\n\nTrade (open economy):\n\nAffects net investment in the country, and available output for consumption through imports/exports\n\nLink to Aghion’s seminar on the evolution of growth theory (in French with possible subtitles) Growth theory and policies - Philippe Aghion - Collège de France\nA bit more of a self-promotion of his work, but also interesting: Inaugural lecture of the School of Management & Impact - Philippe Aghion - Sciences Po\nNote: A useful (although far from mandatory for this class) handbook for undergraduate macroeconomics is Macroeconomics by N. Gregory Mankiw"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "home.qmd"
+  },
+  {
     "objectID": "home.html",
     "href": "home.html",
     "title": "Welcome to this class!",
@@ -218,18 +225,51 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "home.qmd"
+    "objectID": "tutorial3.html#roadmap",
+    "href": "tutorial3.html#roadmap",
+    "title": "Tutorial 3",
+    "section": "Roadmap",
+    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on Ordinary Least Square estimator\nLearn how to run and interpret an OLS estimation in R\nReplicate the key results from Mankiw, Romer & Weil (1994)\n\n\n\n\n\n\n\nNote\n\n\nDisclaimer: the recap on OLS is inspired by Sciences Po’s Introduction to Econometrics with R. Interested students can check the full material here.",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#recap-on-linear-regression",
+    "href": "tutorial3.html#recap-on-linear-regression",
+    "title": "Tutorial 3",
+    "section": "Recap on linear regression",
+    "text": "Recap on linear regression\nVisual intuition\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools\n\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#example-of-ols-regression-in-r",
+    "href": "tutorial3.html#example-of-ols-regression-in-r",
+    "title": "Tutorial 3",
+    "section": "Example of OLS regression in R",
+    "text": "Example of OLS regression in R\nlm function\nThe main R function for OLS regression is lm. For linear model, the syntax is lm(y ~ x). It yields\n\nsummary(lm(cars$dist ~ cars$speed))\n\n\nCall:\nlm(formula = cars$dist ~ cars$speed)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-29.069  -9.525  -2.272   9.215  43.201 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -17.5791     6.7584  -2.601   0.0123 *  \ncars$speed    3.9324     0.4155   9.464 1.49e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 15.38 on 48 degrees of freedom\nMultiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 \nF-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12\n\n\n\nSummary statistics on the residuals\nEstimated parameters, their standard errors and t-value\nR-squared",
+    "crumbs": [
+      "Tutorial 3"
+    ]
+  },
+  {
+    "objectID": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
+    "href": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
+    "title": "Tutorial 3",
+    "section": "Exercise: Replication of Mankiw, Romer & Weil (1994)",
+    "text": "Exercise: Replication of Mankiw, Romer & Weil (1994)\nThe model\nRecall that the Solow model assumes the following GDP production function: \\[\nY(t) = K(t)^{\\alpha} (L(t)A(t))^{1-\\alpha}, 0&lt;\\alpha&lt;1\n\\]\nIn continuous time, exogenous and constant population and technology growth can be modelled by:\n\\[\nL(t) = L(0)e^{nt}\n\\]\n\\[\nL(t) = L(0)e^{gt}\n\\]\nMankiw et al. (1994) asks: is the Solow model compatible with the data?",
+    "crumbs": [
+      "Tutorial 3"
+    ]
   },
   {
     "objectID": "tutorial2.html",
     "href": "tutorial2.html",
     "title": "Tutorial 2: the Solow model",
     "section": "",
-    "text": "We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.s",
+    "text": "We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.",
     "crumbs": [
       "Tutorial 2"
     ]
@@ -263,40 +303,5 @@
     "crumbs": [
       "Tutorial 2"
     ]
-  },
-  {
-    "objectID": "tutorial3.html#roadmap",
-    "href": "tutorial3.html#roadmap",
-    "title": "Tutorial 3",
-    "section": "Roadmap",
-    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on Ordinary Least Square estimator\nLearn how to run and interpret an OLS estimation in R\nReplicate the key results from Mankiw, Romer & Weil (1994)\n\n\n\n\n\n\n\nNote\n\n\nDisclaimer: the recap on OLS is inspired by Sciences Po’s Introduction to Econometrics with R. Interested students can check the full material here."
-  },
-  {
-    "objectID": "tutorial3.html#linear-regression",
-    "href": "tutorial3.html#linear-regression",
-    "title": "Tutorial 3",
-    "section": "Linear regression",
-    "text": "Linear regression\nWhy?\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools"
-  },
-  {
-    "objectID": "tutorial3.html#recap-on-linear-regression",
-    "href": "tutorial3.html#recap-on-linear-regression",
-    "title": "Tutorial 3",
-    "section": "Recap on linear regression",
-    "text": "Recap on linear regression\nVisual intuition\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools\n\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
-    "href": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
-    "title": "Tutorial 3",
-    "section": "Exercise: Replication of Mankiw, Romer & Weil (1994)",
-    "text": "Exercise: Replication of Mankiw, Romer & Weil (1994)\nThe model\nRecall that the Solow model assumes the following GDP production function: \\[\nY(t) = K(t)^{\\alpha} (L(t)A(t))^{1-\\alpha}, 0&lt;\\alpha&lt;1\n\\]\nIn continuous time, exogenous and constant population and technology growth can be modelled by:\n\\[\nL(t) = L(0)e^{nt}\n\\]\n\\[\nL(t) = L(0)e^{gt}\n\\]\nMankiw et al. (1994) asks: is the Solow model compatible with the data?"
-  },
-  {
-    "objectID": "tutorial3.html#example-of-ols-regression-in-r",
-    "href": "tutorial3.html#example-of-ols-regression-in-r",
-    "title": "Tutorial 3",
-    "section": "Example of OLS regression in R",
-    "text": "Example of OLS regression in R\nlm function\nThe main R function for OLS regression is lm. For linear model, the syntax is lm(y ~ x). It yields\n\nsummary(lm(cars$dist ~ cars$speed))\n\n\nCall:\nlm(formula = cars$dist ~ cars$speed)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-29.069  -9.525  -2.272   9.215  43.201 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -17.5791     6.7584  -2.601   0.0123 *  \ncars$speed    3.9324     0.4155   9.464 1.49e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 15.38 on 48 degrees of freedom\nMultiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 \nF-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12\n\n\n\nSummary statistics on the residuals\nEstimated parameters, their standard errors and t-value\nR-squared"
   }
 ]
