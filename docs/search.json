@@ -239,7 +239,7 @@
     "href": "tutorial3.html#recap-on-linear-regression",
     "title": "Tutorial 3",
     "section": "Recap on linear regression",
-    "text": "Recap on linear regression\nVisual intuition\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools\n\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  xlab(\"Speed\") + ylab(\"Stopping distance\") +\n  ggtitle(\"Car speed vs. stopping distance\") +\n  theme_bw()",
+    "text": "Recap on linear regression\nVisual intuition\n\nAssess the statistical relationship between variables (not necessarily causal)\nIn the toolbox of the social scientist, with many other empirical tools\n\n\nggplot(cars,aes(x=speed,y=dist)) +\n  geom_point(color=\"red\") +\n  labs(x =\"Speed\", y = \"Stopping distance\", title = \"Car speed vs. stopping distance\")+\n  theme_minimal()",
     "crumbs": [
       "Tutorial 3"
     ]
@@ -259,7 +259,7 @@
     "href": "tutorial3.html#exercise-replication-of-mankiw-romer-weil-1994",
     "title": "Tutorial 3",
     "section": "Exercise: Replication of Mankiw, Romer & Weil (1994)",
-    "text": "Exercise: Replication of Mankiw, Romer & Weil (1994)\nThe model\nRecall that the Solow model assumes the following GDP production function: \\[\nY(t) = K(t)^{\\alpha} (L(t)A(t))^{1-\\alpha}, 0&lt;\\alpha&lt;1\n\\]\nIn continuous time, exogenous and constant population and technology growth can be modelled by:\n\\[\nL(t) = L(0)e^{nt}\n\\]\n\\[\nL(t) = L(0)e^{gt}\n\\]\nMankiw et al. (1994) asks: is the Solow model compatible with the data?",
+    "text": "Exercise: Replication of Mankiw, Romer & Weil (1994)\nThe model\nRecall that the Solow model assumes the following GDP production function: \\[\nY(t) = K(t)^{\\alpha} (L(t)A(t))^{1-\\alpha}, 0&lt;\\alpha&lt;1\n\\]\nIn continuous time, exogenous and constant population and technology growth can be modelled by:\n\\[\nL(t) = L(0)e^{nt}\n\\]\n\\[\nA(t) = A(0)e^{gt}\n\\]\nMankiw et al. (1994) asks: is the Solow model compatible with the data?",
     "crumbs": [
       "Tutorial 3"
     ]

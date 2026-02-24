@@ -51,9 +51,8 @@ Disclaimer: the recap on OLS is inspired by Sciences Po's Introduction to Econom
 #| echo: true
 ggplot(cars,aes(x=speed,y=dist)) +
   geom_point(color="red") +
-  xlab("Speed") + ylab("Stopping distance") +
-  ggtitle("Car speed vs. stopping distance") +
-  theme_bw() 
+  labs(x ="Speed", y = "Stopping distance", title = "Car speed vs. stopping distance")+
+  theme_minimal() 
 ```
 
 ---
@@ -65,9 +64,8 @@ It seems that there is a linear relationship between these two variables
 ggplot(cars,aes(x=speed,y=dist)) +
   geom_point(color="red") +
   geom_abline(intercept=10,slope=2.5,color="blue") +
-  xlab("Speed") + ylab("Stopping distance") +
-  ggtitle("Car speed vs. stopping distance") +
-  theme_bw() 
+  labs(x ="Speed", y = "Stopping distance", title = "Car speed vs. stopping distance")+
+  theme_minimal() 
 ```
 
 ---
@@ -85,10 +83,8 @@ ggplot(cars, aes(x = speed, y = dist)) +
                    yend = 5 + 2.5 * speed), 
                arrow = arrow(length = unit(0.1, "inches")), 
                color = "red") +
-  xlab("Speed") + 
-  ylab("Stopping distance") +
-  ggtitle("Car speed vs. stopping distance") +
-  theme_bw()
+  labs(x ="Speed", y = "Stopping distance", title = "Car speed vs. stopping distance")+
+  theme_minimal() 
 ```
 
 ---
@@ -137,32 +133,32 @@ Only Assumptions 1-4 are needed for unbiasedness
 
 ### Failures of assumptions: linearity
 
-Francis Ascombe created four datasets with identical linear statistics: mean, variance, correlation and regression line are identical. Their data generating processes are however very different
+Francis Anscombe created four datasets with identical linear statistics: mean, variance, correlation and regression line are identical. Their data generating processes are however very different
 
 ```{r}
 g1 = ggplot(datasets::anscombe,aes(x=x1,y=y1)) +
   geom_point(color="black") +
   geom_smooth(method = "lm",se=F) +
   coord_cartesian(xlim = c(3,20))+
-  theme_bw() +
+  theme_minimal() +
   xlab("X") + ylab("Y") + ggtitle("Q1")
 g2 = ggplot(datasets::anscombe,aes(x=x2,y=y2)) +
   geom_point(color="black") +
   geom_smooth(method = "lm",se=F) +
   coord_cartesian(xlim = c(3,20))+
-  theme_bw() +
+  theme_minimal() +
   xlab("X") + ylab("Y") + ggtitle("Q2")
 g3 = ggplot(datasets::anscombe,aes(x=x3,y=y3)) +
   geom_point(color="black") +
   geom_smooth(method = "lm",se=F) +
   coord_cartesian(xlim = c(3,20))+
-  theme_bw() +
+  theme_minimal() +
   xlab("X") + ylab("Y") + ggtitle("Q3")
 g4 = ggplot(datasets::anscombe,aes(x=x4,y=y4)) +
   geom_point(color="black") +
   geom_smooth(method = "lm",se=F) +
   coord_cartesian(xlim = c(3,20))+
-  theme_bw() +
+  theme_minimal() +
   xlab("X") + ylab("Y") + ggtitle("Q4")
 
 (g1 | g2) /
@@ -175,7 +171,7 @@ g4 = ggplot(datasets::anscombe,aes(x=x4,y=y4)) +
 
 Assumption **3** might not hold for various reasons: 
 
--   1. Measurement error: We measure $\tilde{x} = x +u$ instead of $x$ Example? 
+-   1. Measurement error: We measure $\tilde{x} = x +u$ instead of $x$. Example? 
 -   2. Omitted variable in the model correlated with $x$. Example?
 -   3. Simultaneity: $x$ and $y$ are determined simulatenously and endogenously. Example?
 
@@ -264,7 +260,7 @@ $$
 -   Unfortunately, we will never know $\sigma^2$, the variance of the error term. Instead we have the empirical estimator of this t-statistic. 
 
 $$
-\frac{\hat{\beta}-\beta}{se(\hat{\beta})} \tilde{} t(N−P)
+\frac{\hat{\beta}-\beta}{se(\hat{\beta})} \tilde{} t(N−k)
 $$
 
 -   It can be showed that this statistic follows a Student law at $N-k$ degrees of freedom, with cumulative distribution $F$, where $N$ is the number of observations and $k$ the number of covariates.
@@ -330,7 +326,7 @@ L(t) = L(0)e^{nt}
 $$
 
 $$
-L(t) = L(0)e^{gt}
+A(t) = A(0)e^{gt}
 $$
 
 Mankiw et al. (1994) asks: is the Solow model compatible with the data?
