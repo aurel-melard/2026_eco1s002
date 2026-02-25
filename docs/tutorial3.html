@@ -1311,7 +1311,7 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 <li>A standard hypothesis to test for the significance of estimated parameters is <span class="math inline">\(H_0: \beta_k = 0\)</span>.</li>
 <li>The summary of the lm function yields the t-stat <span class="math inline">\(t\)</span> assuming <span class="math inline">\(\beta_k =0\)</span>.</li>
 <li>Assuming this value holds, the t-statistics random variable T should follow a Student law at <span class="math inline">\(N-k\)</span> degrees of freedom.</li>
-<li><span class="math inline">\(H_0\)</span> can be rejected with 95% confidence if the estimated parameter is “far enough” from zero, that is if the estimated t stat:</li>
+<li><span class="math inline">\(H_0\)</span> can be rejected with 95% confidence if the estimated parameter is “far enough” from zero, that is if the pvalue of the t stat verifies:</li>
 </ul>
 <p><span class="math display">\[
 p_{value}(\hat{t}) = p((T &lt; -|\hat{t}|)\cup(T &gt; |\hat{t}|))) = 2p(X&gt;|\hat{t}|) &lt; 0.05 \Leftrightarrow 2p(X&gt;|\hat{t}|) &lt; 0.05

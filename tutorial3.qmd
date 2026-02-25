@@ -273,7 +273,7 @@ $$
 -   A standard hypothesis to test for the significance of estimated parameters is $H_0: \beta_k = 0$. 
 -   The summary of the lm function yields the t-stat $t$ assuming $\beta_k =0$. 
 -   Assuming this value holds, the t-statistics random variable T should follow a Student law at $N-k$ degrees of freedom.
--   $H_0$ can be rejected with 95\% confidence if the estimated parameter is "far enough" from zero, that is if the estimated t stat:
+-   $H_0$ can be rejected with 95\% confidence if the estimated parameter is "far enough" from zero, that is if the pvalue of the t stat verifies:
 
 $$
 p_{value}(\hat{t}) = p((T < -|\hat{t}|)\cup(T > |\hat{t}|))) = 2p(X>|\hat{t}|) < 0.05 \Leftrightarrow 2p(X>|\hat{t}|) < 0.05 
