@@ -169,7 +169,7 @@ g4 = ggplot(datasets::anscombe,aes(x=x4,y=y4)) +
 
 ### Failures of assumptions: endogeneity
 
-Assumption **3** might not hold for various reasons: 
+Assumption **4** might not hold for various reasons: 
 
 -   1. Measurement error: We measure $\tilde{x} = x +u$ instead of $x$. Example? 
 -   2. Omitted variable in the model correlated with $x$. Example?
@@ -260,7 +260,7 @@ $$
 -   Unfortunately, we will never know $\sigma^2$, the variance of the error term. Instead we have the empirical estimator of this t-statistic. 
 
 $$
-\frac{\hat{\beta}-\beta}{se(\hat{\beta})} \tilde{} t(N−k)
+\hat{t} = \frac{\hat{\beta}-\beta}{se(\hat{\beta})} \tilde{} t(N−k)
 $$
 
 -   It can be showed that this statistic follows a Student law at $N-k$ degrees of freedom, with cumulative distribution $F$, where $N$ is the number of observations and $k$ the number of covariates.
@@ -272,14 +272,19 @@ $$
 
 -   A standard hypothesis to test for the significance of estimated parameters is $H_0: \beta_k = 0$. 
 -   The summary of the lm function yields the t-stat $t$ assuming $\beta_k =0$. 
--   It can be rejected with 95\% confidence if the estimated parameter is "far enough" from zero ($p(t) < 0.05$), that is: 
+-   Assuming this value holds, the t-statistics random variable T should follow a Student law at $N-k$ degrees of freedom.
+-   $H_0$ can be rejected with 95\% confidence if the estimated parameter is "far enough" from zero, that is if the estimated t stat:
 
 $$
-\left|\frac{\hat{\beta_k}-0}{se(\hat{\beta_k})}\right| > F^{-1}(0.05/2) \approx 1.96
+p_{value}(\hat{t}) = p((T < -|\hat{t}|)\cup(T > |\hat{t}|))) = 2p(X>|\hat{t}|) < 0.05 \Leftrightarrow 2p(X>|\hat{t}|) < 0.05 
+$$
+
+
+$$
+\Leftrightarrow \hat{t} = \left|\frac{\hat{\beta_k}-0}{se(\hat{\beta_k})}\right| > F^{-1}(1- 0.05/2) \approx 1.96
 $$
 
 ![](img/tstat.png){width=40% fig-align="center"}
-
 
 ---
 
