@@ -1,0 +1,178 @@
+---
+title: "Tutorial 4"
+format: 
+  revealjs:
+    theme: theme_mm.scss
+    footer: "[Home](https://aurel-melard.github.io/2026_eco1s002/home.html)"
+    menu:
+      side: left
+    slide-number: c
+    date-format: long
+    embed-resources: true
+toc: false
+visual: true
+toc-title: ""
+toc-location: right
+author:
+  - name: Aurel Mélard
+    email: aurel.melard@polytechnique.edu
+    affiliations: CREST - Institut Polytechnique de Paris - IPP
+    url: https://sites.google.com/view/aurel-melard
+date: last-modified
+execute:
+  cache: true
+---
+
+```{r, echo=F,eval=T,message=F,warning=F}
+invisible(pacman::p_load(ggplot2,read_xl,tidyverse,xtable,patchwork,datasets))
+```
+
+## Roadmap
+
+In this tutorial, we are going to
+
+1.  Do a recap on failures of the Gauss-Markov theorem assumptions
+2.  Learn how to implement an instrumental variable strategy in R
+3.  Replicate the key results from Acemoglu, Johnson & Robinson (2001)
+
+## Recap on OLS failures
+### Gauss-Markov 
+
+Under the following assumptions: 
+
+-   1. Linearity of the "true" model $y = x'\beta + \epsilon$
+-   2. Observed sample $(y_i,x_i)_{i= 1...n}$ is a random sample with the same distribution as $(y,x)$
+-   3. No perfect collinearity between the covariates in the sample (and in the population)
+-   4. Zero conditional mean $E(\epsilon|x) =0$
+-   5. Homoskedasticity $Var(\epsilon|x_1,...,x_n) = \sigma^2$ 
+
+The OLS estimator is BLUE: best linear unbiased estimator
+
+-   Linear estimator: $\hat{\beta}_j = \sum\limits_1^n w_{ij} y_i$, $w_{ij}$ functions of $x_1,...x_n$
+-   Unbiased: $E(\hat{\beta}|x_1,...,x_n) = \beta$
+-   "Best": smallest variance of all linear unbiased estimators, conditional on observed $x_1,...x_n$
+
+---
+
+### Endogeneity: measurement error
+
+-   True model: $y_i = \alpha + \beta x_i + \epsilon_i$
+-   Observed variable: $\tilde{x}_i = x_i + \mu_i$
+-   Estimated model: $y_i = \alpha + \beta \tilde{x}_i + \nu_i, \nu_i = \epsilon_i -\beta \mu_i $
+-   Further assumptions: $E(\mu) = 0$, $Cov(\mu,x) = 0$, $Cov(\mu,\epsilon) = 0$
+-   **Estimated coefficient**: $E(\hat{\beta}|\tilde{x}) = \frac{Cov(\tilde{x},y)}{Var(\tilde{x})} = \frac{Cov(x+\mu,\alpha + \beta x + \epsilon)}{Var(\tilde{x})} = \beta \frac{Var(x)}{Var(\tilde{x})}$
+-   **Key insight**: $\tilde{x}$ and $\nu$ are correlated by construction, so the exogeneity assumption is violated
+-   **Sign of the bias**: attenuation bias, $\hat{\beta}$ is biased towards zero
+
+---
+
+### Endogeneity: reverse causality / simultaneity
+
+-   Demand model of interest: $y_{di} = \alpha_d + \beta_d p_i + \epsilon_i$
+-   Simultaneous supply equation: $y_{si} = \alpha_s + \beta_s p_i + \mu_i$
+-   We observe equilibrium price: $p_i = \frac{\alpha_d - \alpha_s + \epsilon_i - \mu_i}{\beta_s - \beta_d}$ which is a priori correlated with $\epsilon_i$
+-   **Estimated coefficient**: $E(\hat{\beta_d}|P) = \frac{Cov(p,y)}{Var(p)} = \beta_d + \frac{Cov(\frac{ \epsilon - \mu}{\beta_s - \beta_d} , \epsilon)}{Var(p)} $
+-   **Key insight**: An increase in $P$ decreases $Y$ through the demand equation, but an increase in $Y$ increases $P$ through the supply equation
+-   **Sign of the bias**: Typically, $\beta_d <0 < \beta_s$ so the bias is positive in that case
+
+---
+
+### Omitted variable bias
+
+-   True model: $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon$, $E[\epsilon | X_1, X_2] = 0$. 
+-   The estimated model is: $Y = \alpha_0 + \alpha_1 X_1 + u$, where $u = \beta_2 X_2 + \epsilon$ and $X_2$ can be expressed as $X_2 = \gamma_0 + \gamma_1 X_1 + v$ with $E[v | X_1] = 0$
+-   **Estimated coefficient**: $E(\hat{\alpha}_1|X)= \frac{Cov(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon, X_1)}{Var(X_1)} = \beta_1 + \beta_2 \gamma_1$
+-   **Key insight**: $X_1$ is correlated with the error term of the estimated model: $u = \beta_2 \gamma_0 + \beta_2 \gamma_1 X_1 + \beta_2 v + \epsilon$ as long as $\beta_2 \gamma_1 \neq 0$
+-   **Sign of the bias** depends on the sign of $\beta_2 \gamma_1$ 
+
+---
+
+## Instrumental variable in R
+### Recap on the strategy
+
+-   True model: $y_i = \alpha + \beta x_i + \epsilon_i$
+-   OLS estimator is biased because $E(\epsilon|x) \neq 0$
+-   Consider an instrument $z$ such that 
+    -   $E(\epsilon|z) = 0$ (exogeneity)
+    -   $Cov(z,x) \neq 0$ (relevance)
+-  First stage: $x_i = \pi_0 + \pi_1 z_i + v_i$
+-  Predicted values: $\hat{x}_i = \pi_0 + \pi_1 z_i$
+-  Second stage: $y_i = \alpha + \beta x_i + \epsilon_i = \alpha + \beta \hat{x}_i + \epsilon_i + \beta \hat{v}_i  = \alpha + \beta \hat{x}_i + \mu_i $
+-  **Estimated coefficient**: $E(\hat{\beta}|\hat{x}) = \frac{Cov(\hat{x},y)}{Var(\hat{x})} = \beta + \frac{Cov(\hat{x},\mu)}{Var(\hat{x})}$, and $Cov(\hat{x},\mu) = 0$ **by construction**
+
+---
+
+### the ivreg function
+
+The function `ivreg` from the package `AER` allows to estimate an instrumental variable regression in one step. The syntax is as follows:
+```{r} 
+#| eval: false
+#| echo: true
+ivreg(y ~ x1 + x2 | z1 + z2, data = dat)
+```
+
+where `y` is the dependent variable, `x1` and `x2` are the true and (potentially) endogenous regressors, and `z1` and `z2` are the instruments (including exogenous regressors in `x`). 
+
+The function will automatically perform the two stages of the regression and return the estimated coefficients with the **appropriate standard errors**
+
+---
+
+## Replication of Acemoglu et al (2001)
+### Summary of the paper
+
+-   Daron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations
+-   Their key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here
+-   Institutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)
+-   In 2001, they published a very influential paper: "The Colonial Origins of Comparative Development" in the American Economic Review
+-   They show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance
+
+---
+
+### OLS regression
+
+In a first step, the authors study the relationship between economic development (log GDP per capita 1995) and institution strength (expropriation risk in 1985-1995)  using ordinary least square on a set of 64 former colonies.
+$$
+    \log y_i = \mu + \alpha R_i + \mathbf{X}_i'\gamma + \epsilon_i
+$$
+
+-   1. Discuss the Gauss-Markov assumptions in that context
+-   2. Download the dataset \verb|ajrcomment.dta| and describe the data
+-   3. Replication of Figure 2: create a scatter plot of log GDP per capita in 1995 against average expropriation risk in 1985-1995
+-   4. The result of the main OLS sepecification is given in columns 2, 5 and 6 of Table 2. Interpret the results
+-   5. Replicate these three regressions and export the results into a latex table using stargazer
+
+--- 
+
+### IV strategy
+
+To address endogeneity of institution levels, the authors instrument it by the mortality level of settlers at the start of colonization. The full model they have in mind is:
+
+$$log(y_i) = \mu + \alpha R_i + \mathbf{X}_i'\gamma + \epsilon_i$$
+$$R_i = \lambda_R + \beta_R C_i + \mathbf{X}_i'\gamma_R + \nu_{Ri}$$
+
+$$C_i = \lambda_C + \beta_C S_i + \mathbf{X}_i'\gamma_C + \nu_{Ci}$$
+
+$$S_i = \lambda_S + \beta_S \log(M_i) + \mathbf{X}_i'\gamma_S + \nu_{Si}$$
+
+where $y_i$ is the GDP per capita in 1995, $R_i$ is the average expropriation risk in 1985-1995, $C_i$ is a a measure of early institutional development, $S_i$ is a measure of European settlement, and $M_i$ is the mortality rate of settlers. 
+
+-   6. The instrument for $R$ chosen is $\log(M)$. Why not $C$ or $S$?
+-   7. What are the assumptions needed for $\log(M)$ to be a valid instrument? 
+
+---
+
+-   8. Replicate Figure 3. Do you think settler mortality is a valid instrument?
+-   9. Table 4 panel B (column 2) presents more formally this first stage. How do you interpret it?
+
+The result of the full IV is presented in panel A (column 2).
+
+-   10. The authors state: "measurement error is likely to be more important than reverse causality and omitted variable bias". Do you agree with this statement? Why?
+-   11. Interpret the coefficient in terms of causal effect.
+-   12. Replicate the first and second stage regressions using the lm and predict functions
+-   13. Run the full IV regression using ivreg. Compare the results
+
+
+
+
+
+
