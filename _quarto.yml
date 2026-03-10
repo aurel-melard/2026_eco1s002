@@ -17,7 +17,7 @@ website:
       - text: "Tutorial 3"
         href: tutorial3.qmd
       - text: "Tutorial 4"
-        href: tutorial3.qmd
+        href: tutorial4.qmd
   page-footer:
     right: "Built with [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2025, Mateo Moglia"

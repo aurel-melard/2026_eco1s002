@@ -192,28 +192,40 @@
     "href": "tutorial4.html#roadmap",
     "title": "Tutorial 4",
     "section": "Roadmap",
-    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)"
+    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
   },
   {
     "objectID": "tutorial4.html#recap-on-ols-failures",
     "href": "tutorial4.html#recap-on-ols-failures",
     "title": "Tutorial 4",
     "section": "Recap on OLS failures",
-    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)"
+    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
   },
   {
     "objectID": "tutorial4.html#instrumental-variable-in-r",
     "href": "tutorial4.html#instrumental-variable-in-r",
     "title": "Tutorial 4",
     "section": "Instrumental variable in R",
-    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\pi_0 + \\pi_1 z_i\\)\nSecond stage: $y_i = + x_i + _i = + _i + _i + _i = + _i + _i $\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction"
+    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\pi_0 + \\pi_1 z_i\\)\nSecond stage: \\[y_i = \\alpha + \\beta x_i + \\epsilon_i = \\alpha + \\beta \\hat{x}_i + \\epsilon_i + \\beta \\hat{v}_i  = \\alpha + \\beta \\hat{x}_i + \\mu_i \\]\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction",
+    "crumbs": [
+      "Tutorial 4"
+    ]
   },
   {
     "objectID": "tutorial4.html#replication-of-acemoglu-et-al-2001",
     "href": "tutorial4.html#replication-of-acemoglu-et-al-2001",
     "title": "Tutorial 4",
     "section": "Replication of Acemoglu et al (2001)",
-    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance"
+    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance",
+    "crumbs": [
+      "Tutorial 4"
+    ]
   },
   {
     "objectID": "home.html",

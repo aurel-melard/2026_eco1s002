@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Aurel Mélard">
-  <meta name="dcterms.date" content="2026-03-08">
+  <meta name="dcterms.date" content="2026-03-10">
   <title>Petite classe ECO1S002 – Tutorial 4</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1069,7 +1069,7 @@ margin-right: 0; }
     </div>
 </div>
 
-  <p class="date">March 8, 2026</p>
+  <p class="date">March 10, 2026</p>
 </section>
 <section id="roadmap" class="slide level2">
 <h2>Roadmap</h2>
@@ -1114,7 +1114,7 @@ margin-right: 0; }
 <ul>
 <li>True model: <span class="math inline">\(y_i = \alpha + \beta x_i + \epsilon_i\)</span></li>
 <li>Observed variable: <span class="math inline">\(\tilde{x}_i = x_i + \mu_i\)</span></li>
-<li>Estimated model: $y_i = + _i + _i, _i = _i -_i $</li>
+<li>Estimated model: <span class="math inline">\(y_i = \alpha + \beta \tilde{x}_i + \nu_i, \quad \nu_i = \epsilon_i - \beta \mu_i\)</span></li>
 <li>Further assumptions: <span class="math inline">\(E(\mu) = 0\)</span>, <span class="math inline">\(Cov(\mu,x) = 0\)</span>, <span class="math inline">\(Cov(\mu,\epsilon) = 0\)</span></li>
 <li><strong>Estimated coefficient</strong>: <span class="math inline">\(E(\hat{\beta}|\tilde{x}) = \frac{Cov(\tilde{x},y)}{Var(\tilde{x})} = \frac{Cov(x+\mu,\alpha + \beta x + \epsilon)}{Var(\tilde{x})} = \beta \frac{Var(x)}{Var(\tilde{x})}\)</span></li>
 <li><strong>Key insight</strong>: <span class="math inline">\(\tilde{x}\)</span> and <span class="math inline">\(\nu\)</span> are correlated by construction, so the exogeneity assumption is violated</li>
@@ -1128,7 +1128,7 @@ margin-right: 0; }
 <li>Demand model of interest: <span class="math inline">\(y_{di} = \alpha_d + \beta_d p_i + \epsilon_i\)</span></li>
 <li>Simultaneous supply equation: <span class="math inline">\(y_{si} = \alpha_s + \beta_s p_i + \mu_i\)</span></li>
 <li>We observe equilibrium price: <span class="math inline">\(p_i = \frac{\alpha_d - \alpha_s + \epsilon_i - \mu_i}{\beta_s - \beta_d}\)</span> which is a priori correlated with <span class="math inline">\(\epsilon_i\)</span></li>
-<li><strong>Estimated coefficient</strong>: $E(|P) = = _d + $</li>
+<li><strong>Estimated coefficient</strong>: <span class="math display">\[E( \hat{\beta_d} | P) = \frac{Cov(p,y)}{Var(p)} = \beta_d + \frac{Cov( \frac{ \epsilon - \mu}{\beta_s - \beta_d} , \epsilon )}{Var(p)} \]</span></li>
 <li><strong>Key insight</strong>: An increase in <span class="math inline">\(P\)</span> decreases <span class="math inline">\(Y\)</span> through the demand equation, but an increase in <span class="math inline">\(Y\)</span> increases <span class="math inline">\(P\)</span> through the supply equation</li>
 <li><strong>Sign of the bias</strong>: Typically, <span class="math inline">\(\beta_d &lt;0 &lt; \beta_s\)</span> so the bias is positive in that case</li>
 </ul>
@@ -1157,7 +1157,7 @@ margin-right: 0; }
 </ul></li>
 <li>First stage: <span class="math inline">\(x_i = \pi_0 + \pi_1 z_i + v_i\)</span></li>
 <li>Predicted values: <span class="math inline">\(\hat{x}_i = \pi_0 + \pi_1 z_i\)</span></li>
-<li>Second stage: $y_i = + x_i + _i = + _i + _i + _i = + _i + _i $</li>
+<li>Second stage: <span class="math display">\[y_i = \alpha + \beta x_i + \epsilon_i = \alpha + \beta \hat{x}_i + \epsilon_i + \beta \hat{v}_i  = \alpha + \beta \hat{x}_i + \mu_i \]</span></li>
 <li><strong>Estimated coefficient</strong>: <span class="math inline">\(E(\hat{\beta}|\hat{x}) = \frac{Cov(\hat{x},y)}{Var(\hat{x})} = \beta + \frac{Cov(\hat{x},\mu)}{Var(\hat{x})}\)</span>, and <span class="math inline">\(Cov(\hat{x},\mu) = 0\)</span> <strong>by construction</strong></li>
 </ul>
 </section>

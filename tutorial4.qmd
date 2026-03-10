@@ -58,7 +58,7 @@ The OLS estimator is BLUE: best linear unbiased estimator
 
 -   True model: $y_i = \alpha + \beta x_i + \epsilon_i$
 -   Observed variable: $\tilde{x}_i = x_i + \mu_i$
--   Estimated model: $y_i = \alpha + \beta \tilde{x}_i + \nu_i, \nu_i = \epsilon_i -\beta \mu_i $
+-   Estimated model: $y_i = \alpha + \beta \tilde{x}_i + \nu_i, \quad \nu_i = \epsilon_i - \beta \mu_i$
 -   Further assumptions: $E(\mu) = 0$, $Cov(\mu,x) = 0$, $Cov(\mu,\epsilon) = 0$
 -   **Estimated coefficient**: $E(\hat{\beta}|\tilde{x}) = \frac{Cov(\tilde{x},y)}{Var(\tilde{x})} = \frac{Cov(x+\mu,\alpha + \beta x + \epsilon)}{Var(\tilde{x})} = \beta \frac{Var(x)}{Var(\tilde{x})}$
 -   **Key insight**: $\tilde{x}$ and $\nu$ are correlated by construction, so the exogeneity assumption is violated
@@ -71,7 +71,8 @@ The OLS estimator is BLUE: best linear unbiased estimator
 -   Demand model of interest: $y_{di} = \alpha_d + \beta_d p_i + \epsilon_i$
 -   Simultaneous supply equation: $y_{si} = \alpha_s + \beta_s p_i + \mu_i$
 -   We observe equilibrium price: $p_i = \frac{\alpha_d - \alpha_s + \epsilon_i - \mu_i}{\beta_s - \beta_d}$ which is a priori correlated with $\epsilon_i$
--   **Estimated coefficient**: $E(\hat{\beta_d}|P) = \frac{Cov(p,y)}{Var(p)} = \beta_d + \frac{Cov(\frac{ \epsilon - \mu}{\beta_s - \beta_d} , \epsilon)}{Var(p)} $
+-   **Estimated coefficient**:
+$$E( \hat{\beta_d} | P) = \frac{Cov(p,y)}{Var(p)} = \beta_d + \frac{Cov( \frac{ \epsilon - \mu}{\beta_s - \beta_d} , \epsilon )}{Var(p)} $$
 -   **Key insight**: An increase in $P$ decreases $Y$ through the demand equation, but an increase in $Y$ increases $P$ through the supply equation
 -   **Sign of the bias**: Typically, $\beta_d <0 < \beta_s$ so the bias is positive in that case
 
@@ -97,7 +98,8 @@ The OLS estimator is BLUE: best linear unbiased estimator
     -   $Cov(z,x) \neq 0$ (relevance)
 -  First stage: $x_i = \pi_0 + \pi_1 z_i + v_i$
 -  Predicted values: $\hat{x}_i = \pi_0 + \pi_1 z_i$
--  Second stage: $y_i = \alpha + \beta x_i + \epsilon_i = \alpha + \beta \hat{x}_i + \epsilon_i + \beta \hat{v}_i  = \alpha + \beta \hat{x}_i + \mu_i $
+-  Second stage: 
+$$y_i = \alpha + \beta x_i + \epsilon_i = \alpha + \beta \hat{x}_i + \epsilon_i + \beta \hat{v}_i  = \alpha + \beta \hat{x}_i + \mu_i $$
 -  **Estimated coefficient**: $E(\hat{\beta}|\hat{x}) = \frac{Cov(\hat{x},y)}{Var(\hat{x})} = \beta + \frac{Cov(\hat{x},\mu)}{Var(\hat{x})}$, and $Cov(\hat{x},\mu) = 0$ **by construction**
 
 ---
