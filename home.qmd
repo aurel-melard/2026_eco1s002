@@ -37,7 +37,7 @@ The course has 3 main objectives:
     -   OLS estimator
     -   Linear regression in R
     -   Replication of Mankiw et al. (1997)
--   **Tutorial 4** **(11/03 - computer session)**
+-   [**Tutorial 4**](https://aurel-melard.github.io/2026_eco1s002/tutorial4.html) **(11/03 - computer session)**
     -   OLS bias and Instrumental Variables
     -   Replication of Acemoglu et al. (2010)
     -   Export the results
