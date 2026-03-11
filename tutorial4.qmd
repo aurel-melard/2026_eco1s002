@@ -97,7 +97,7 @@ $$E( \hat{\beta_d} | P) = \frac{Cov(p,y)}{Var(p)} = \beta_d + \frac{Cov( \frac{ 
     -   $E(\epsilon|z) = 0$ (exogeneity)
     -   $Cov(z,x) \neq 0$ (relevance)
 -  First stage: $x_i = \pi_0 + \pi_1 z_i + v_i$
--  Predicted values: $\hat{x}_i = \pi_0 + \pi_1 z_i$
+-  Predicted values: $\hat{x}_i = \hat{\pi}_0 + \hat{\pi}_1 z_i$
 -  Second stage: 
 $$y_i = \alpha + \beta x_i + \epsilon_i = \alpha + \beta \hat{x}_i + \epsilon_i + \beta \hat{v}_i  = \alpha + \beta \hat{x}_i + \mu_i $$
 -  **Estimated coefficient**: $E(\hat{\beta}|\hat{x}) = \frac{Cov(\hat{x},y)}{Var(\hat{x})} = \beta + \frac{Cov(\hat{x},\mu)}{Var(\hat{x})}$, and $Cov(\hat{x},\mu) = 0$ **by construction**
@@ -140,7 +140,7 @@ $$
 -   1. Discuss the Gauss-Markov assumptions in that context
 -   2. Download the dataset \verb|ajrcomment.dta| and describe the data
 -   3. Replication of Figure 2: create a scatter plot of log GDP per capita in 1995 against average expropriation risk in 1985-1995
--   4. The result of the main OLS sepecification is given in columns 2, 5 and 6 of Table 2. Interpret the results
+-   4. The result of the main OLS specification is given in columns 2, 5 and 6 of Table 2. Interpret the results
 -   5. Replicate these three regressions and export the results into a latex table using stargazer
 
 --- 

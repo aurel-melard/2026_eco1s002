@@ -276,7 +276,7 @@ $$
 -   $H_0$ can be rejected with 95\% confidence if the estimated parameter is "far enough" from zero, that is if the pvalue of the t stat verifies:
 
 $$
-p_{value}(\hat{t}) = p((T < -|\hat{t}|)\cup(T > |\hat{t}|))) = 2p(X>|\hat{t}|) < 0.05 \Leftrightarrow 2p(X>|\hat{t}|) < 0.05 
+p_{value}(\hat{t}) = p((T < -|\hat{t}|)\cup(T > |\hat{t}|))) = 2p(T>|\hat{t}|) < 0.05 \Leftrightarrow 2p(T>|\hat{t}|) < 0.05 
 $$
 
 
