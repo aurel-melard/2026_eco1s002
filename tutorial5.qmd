@@ -1,0 +1,195 @@
+---
+title: "Tutorial 5"
+format: 
+  revealjs:
+    theme: theme_mm.scss
+    footer: "[Home](https://aurel-melard.github.io/2026_eco1s002/home.html)"
+    menu:
+      side: left
+    slide-number: c
+    date-format: long
+    embed-resources: true
+toc: false
+visual: true
+toc-title: ""
+toc-location: right
+author:
+  - name: Aurel Mélard
+    email: aurel.melard@polytechnique.edu
+    affiliations: CREST - Institut Polytechnique de Paris - IPP
+    url: https://sites.google.com/view/aurel-melard
+date: last-modified
+execute:
+  cache: true
+---
+
+## Roadmap
+
+1.  Present the goal of the research project
+2.  Review the main steps to write a research paper, with some examples
+3.  Useful resources (inspiration for research questions, data sources, etc.)
+4.  Discussion, Q&A
+
+---
+
+## The research project
+### Goals of the project
+
+The goal of the project is to write an original research output. This means that you will need to:
+
+* Identify a **research question in economics** (in whatever field, as long as it regards an economic mechanism)
+* Find **open data sources** to answer it
+* Prepare and justify an empirical strategy and perform a **simple econometric analysis**
+
+---
+
+### Expected output
+
+1.  A 8 to 10 page report (including tables and figures, not include bibliography or appendix). It must be written in `.tex`.
+2.  A slide deck (that you will present at the end of the semester)
+3.  The code to go from the raw data to the output (+ a link to the raw data). I need to be able to replicate all your results using R and only R!
+
+---
+
+## Report structure
+### Introduction (2-3 pages)
+
+The introduction should include the following elements:
+
+1.  A **motivation** (2/3 paragraphs) 
+State why the question you tackle is important, why is it a subject that is relevant for the policy leaders. 
+
+2.  A **research question** (1 paragraph)
+Precisely state what is the research question. 
+
+3.  A **brief summary of the paper** (3 paragraphs)
+Precise: the data you use, the context, the method you used, the key results. 
+
+4.  A **literature review** (2 paragraphs)
+Cite some papers that are close to what you do and state how you compare to them in terms of results and methods.
+
+::: callout-tip
+A reader who wants to know the main message of your paper, the context, and the punchline results needs to read only the introduction.
+:::
+
+---
+
+### Descriptive evidence (2-3 pages)
+
+1.  **Data description**: Data sources (with the appropriate references), the time span, the geographical level of analysis, the countries/contexts. Say some words about the context you are working on (developing/developed countries, political contexts, etc.)
+
+2.  **Summary statistics**: Make a table with the summary statistics (min,Q1,mean,median,Q3,max,nb.observations) of the key variables in your analysis
+
+3.  **Descriptive evidence**: You should make non-causal graphs (scatter or line) and/or maps to support your intuition
+
+---
+
+### Causal evidence (2-3 pages)
+
+1.  **Model specification**: State the econometric model you want to estimate. Describe the threats to identification (simultaneity, OVB, or measurement error...)
+
+2.  **Strategy**: Write your method to address them (IV, DiD, etc.) and the assumptions needed for it to be valid, the specification.
+
+1.  **OLS results**: Export the results with coefficient tables with the relevant information (standard errors, N, R2, proper labelling, etc.). Interpret the results.
+
+2.  **Extensions results**: If you think you can/need to implement an IV or another strategy, you should present and interpret the results.
+
+::: callout-tip
+Check the papers that we saw in class to know how to format the figures and tables. The presentation is standard and you should mimic it.
+:::
+
+---
+
+### Conclusion
+
+The conclusion is short and quikly summarizes the results.
+
+---
+
+## Dissemination
+
+You will need to make slides (7 to 8' presentation) to present your key results. The structure should be the following
+
+1.  Motivation
+2.  Research question + contribution to the literature
+3.  Data description
+4.  Descriptive evidence
+5.  Causal evidence
+6.  Conclusion
+
+---
+
+## Replication package
+
+You will need to provide a replication package in a zip file containing: 
+
+1.  The raw data
+2.  The code to replicate **all the results** (graphs, tables, etc.) present in your paper
+3. A readme file with instructions to run the code and replicate the results.
+
+::: callout-tip
+For the code, you should use several R files to split the tasks. For instance, you can have three scripts: `1_clean_data.R`, `2_descriptive_evidence.R` and `3_reduced_form.R`.
+:::
+
+---
+
+## Useful resources
+### Ideas for research questions
+
+- [American Economic Association classification system](https://www.aeaweb.org/econlit/jelCodes.php): decomposition of economics into fields and subfields. It is used to classify research papers and to find relevant literature 
+- Policy reports/briefs from research and international organizations: 
+    - [IZA World of Labor](https://wol.iza.org): provides summaries of empirical research in labor economics
+    - [CEPII policy briefs](https://www.cepii.fr/cepii/fr/publications/pb.asp): international economics, trade
+    - [IFO policy briefs](https://www.ifo.de/en/econpol/econpol-policy-briefs?size=n_10_n): macroeconomics, public economics, labor economics
+    - [OECD policy briefs](https://www.oecd.org/policy-briefs/): all fields
+    - [VoxEU columns](https://cepr.org/voxeu): all fields 
+    - ...
+- Find related literature: Google Scholar, Research rabbit...
+
+---
+
+### Open data sources: international databases
+
+- [World Bank Open Data](https://data.worldbank.org): GDP, poverty, inequality, education, health, environment
+- [OECD Data](https://data.oecd.org): labor markets, productivity, innovation, education, taxation
+- [IMF Data](https://www.imf.org/en/Data): inflation, public debt, government finance, balance of payments
+- [United Nations Data](https://data.un.org): population, gender, health, development
+- [Our World in Data](https://ourworldindata.org): climate, inequality, health, energy, education
+- [Observatory of Economic Complexity](https://oec.world): international trade, export specialization, product-level trade data
+- [World Values Survey](https://www.worldvaluessurvey.org): values, social attitudes, income, political preferences
+- [Pollution Data](https://sites.wustl.edu/acag/surface-pm2-5/): air pollution data (PM2.5) at the global level
+- [FAO Data](https://www.fao.org/faostat/en/#data): agriculture, food security, land use, fisheries
+- [Climate data](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5): weather and climate data (temperature, precipitation, etc.)
+
+---
+
+### Open data sources: European databases
+- [Eurostat](https://ec.europa.eu/eurostat): employment, prices, regional statistics, migration, environment
+- [European Social Survey](https://www.europeansocialsurvey.org): political attitudes, trust in institutions, inequality perceptions
+- [EU Public Procurement Data](https://data.open-contracting.org/?gad_source=1&gad_campaignid=20014505749&gbraid=0AAAAApT4Vlpp5RfoLRpmtBO4jarFiNPXP): government contracts across Europe
+
+---
+
+### Open data sources: National databases
+
+Mostly French examples, but you can find similar databases for other countries:
+
+- [INSEE](https://catalogue-donnees.insee.fr/fr/catalogue/recherche): income, employment, prices, demographics, firms
+- [French Government Open Data](https://www.data.gouv.fr): housing, transport, public spending, environment
+- [Environmental and Transport Data](https://ecologie.data.gouv.fr/): air pollution, transport, energy
+- [Banque de France Statistics](https://www.banque-france.fr/statistiques): credit, banking, financial markets
+- [US Census data](https://www.census.gov/data/datasets.html): mostly census tract-level data on demographics, income, employment, etc. (for the US)
+
+---
+
+### Data Aggregator Platforms
+
+These platforms combine many datasets.
+
+- [Google Public Data Explorer](https://www.google.com/publicdata)
+- [Dbnomics]()
+
+---
+
+## Q&A
+

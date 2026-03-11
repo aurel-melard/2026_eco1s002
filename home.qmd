@@ -41,7 +41,7 @@ The course has 3 main objectives:
     -   OLS bias and Instrumental Variables
     -   Replication of Acemoglu et al. (2010)
     -   Export the results
--   **Tutorial 5 (18/03)**
+-   [**Tutorial 5**](https://aurel-melard.github.io/2026_eco1s002/tutorial5.html) **(18/03)**
     -   Discussion on the group project
     -   Q&A
 -   **Tutorial 6** **(01/04 - computer session)**
