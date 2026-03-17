@@ -102,7 +102,7 @@ Check the papers that we saw in class to know how to format the figures and tabl
 
 ### Conclusion
 
-The conclusion is short and quikly summarizes the results.
+The conclusion is short and quickly summarizes the results.
 
 ---
 
@@ -187,7 +187,7 @@ Mostly French examples, but you can find similar databases for other countries:
 These platforms combine many datasets.
 
 - [Google Public Data Explorer](https://www.google.com/publicdata)
-- [Dbnomics]()
+- [Dbnomics](https://db.nomics.world/)
 
 ---
 
