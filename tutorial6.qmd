@@ -1,0 +1,95 @@
+---
+title: "Tutorial 6: Autonomous replication of an IV paper"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+---
+
+```{r, echo=F,eval=T,message=F,warning=F}
+packages <- c("ggplot2", "readxl", "dplyr", "tidyr","xtable")
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+
+path = "C:/users/mateomoglia/dropbox/courses/polytechnique/2025_eco1s002/tutorial6"
+```
+
+## Arceo, Hanna, and Oliva (The Economic Journal, 2015)
+
+Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.
+
+::: callout-note
+For this PC, you are asked to upload a `.pdf` file at the end of the day. You can work in group. This is *not* graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: "PC6_GR1_NAME1_NAME2.pdf" or "PC6_GR2_NAME1_NAME2.pdf" (in alphabetical order).
+:::
+
+| Variable                | Description                             |
+|-------------------------|:----------------------------------------|
+| `w_tmp_mean`            | Average temperature                     |
+| `w_precip`              | Precipitation                           |
+| `w_evap`                | Evaporation                             |
+| `w_invterm`             | Thermal inversion                       |
+| `rw_infant_1y`          | Child mortality (aged 1) in Mexico      |
+| `grw_infant_1y`         | Child mortality (aged 1) in Guadalajara |
+| `pm10_max24hr`          | PM10 pollution                          |
+| `co_max8hr`             | Co pollution                            |
+| `so2_mean`              | Sulfure dioxyde pollution               |
+| `o3_mean`               | Ozone pollution                         |
+| `m`                     | Municipal ID                            |
+| `week`, `month`, `year` | Time ID                                 |
+
+: Variables used in the replication {.striped .hover}
+
+## Exercise 1: Estimation strategy
+
+Most answers are in the introduction of the paper.
+
+1.  Why would a simple OLS regression of child mortality on pollution lead to biased estimates?
+2.  A common IV strategy for pollution is to use regulation. Why do the authors argue that it leads to a weak first stage?
+3.  The authors argue that the external validity of the results found in developed countries is low. Why? Would we over- or under-estimate the real effect if we were to extrapolate the coefficients found in developed/less polluted countries to Mexico?
+4.  The first strategy of the authors is presented in equation (2): add municipality and municipality-time fixed effects as covariates. Why would it improve the quality of the estimation?
+5.  The second strategy is an instrumental variable strategy presented in equations (3) and (4). The authors suggest using thermal inversion as an instrument for air pollution. Discuss the exogeneity and the relevance conditions of this instrument.
+
+## Exercise 2: Data cleaning and visual representation
+
+1.  Open the raw data
+2.  Control variables include `w_tmp_mean`, `w_precip`, `w_cloud`, `w_evap`, `w_invterm`. Keep only observations for which those controls are not missing.
+3.  Remove if `w_tmp_impute` is 1 (ie, if the temperature is imputed).
+
+## Exercise 3: Descriptive evidence
+
+1.  Compute the monthly average of thermal inversion (`w_invterm`) and the monthly average temperature (`w_tmp_mean`).
+2.  Replicate **Figure 3** using `ggplot`. The mortality variables are `rw_infant_1y` and `grw_infant_1y`. Export the graph to your `.tex` file.
+
+## Exercise 4: Empirical analysis
+
+1.  Create `dat_reg`, the dataset containing all the variables needed for the IV and fixed effect strategies. Some covariates need to be constructed
+    -   municipality FE
+
+    -   municipality-specific time (week) trend
+
+    -   two month of the year x municipality FE
+
+    -   fourth degree polynomial of average temperature
+
+    -   third degree polynomial min/max temperature
+
+    -   second degree polynomial precipitation and cloud and humidity
+2.  Remove observations of each pollutant when it is part of the top and bottom 1%. Multiply CO, SO2 and O3 measures by 1000 to be consistent with the units of the paper.
+3.  For at least one of the four pollution measures, estimate the first stage of the IV strategy (results in **Table 2**). Export and interpret the results: Does the IV seem valid?
+
+Note 1: observations are weighted by the number of births `births_1y`
+
+Note 2: no need to include the F statistics
+
+4.  Replicate column (2) and (4) of **Table 3** (Fixed effect and IV strategy) for PM10 and CO
+5.  \[Bonus\] Rerun the analysis without dropping the outliers. Interpret.
+6.  Interpretation: Discuss the following statements, about the interpretation of the results as causal effects
+    -   The effect of pollution on mortality is strong among infants, not among newborns (see table 3). It suggests the estimates are not capturing any "harvesting" effect (see p. 273 for a definition)
+
+    -   The decomposition of the effects by cause of death (**table 4**) confirms that we can interpret the coefficients as causal effect of pollution on mortality

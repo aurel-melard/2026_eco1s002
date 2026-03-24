@@ -44,7 +44,7 @@ The course has 3 main objectives:
 -   [**Tutorial 5**](https://aurel-melard.github.io/2026_eco1s002/tutorial5.html) **(18/03)**
     -   Discussion on the group project
     -   Q&A
--   **Tutorial 6** **(01/04 - computer session)**
+-   **[Tutorial 6](https://aurel-melard.github.io/2026_eco1s002/tutorial6.html)** **(01/04 - computer session)**
     -   Autonomous replication of an IV paper (handed in)
 -   **Tutorial 7 (08/04 - computer session)**
     -   Treatment effect

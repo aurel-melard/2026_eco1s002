@@ -188,43 +188,133 @@
     "text": "Exercise\n\n1. Warm-up: Returns to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing returns to scale (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant returns to scale. For the following functions, state if they exhibit positive, constant, or negative returns to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\n\\[\ny_1(\\lambda x, \\lambda y) = \\lambda^4 y_1(x,y) &gt; \\lambda y_1(x,y)  \\text{ , increasing returns to scale}\n\\]\n\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\n\\[\ny_2(\\lambda x, \\lambda y) = \\lambda^{5/6} y_2(x,y) &lt; \\lambda y_2(x,y)  \\text{ , decreasing returns to scale}\n\\]\n\n\\(y_3 = x + 2y\\)\n\n\\[\ny_3(\\lambda x, \\lambda y) = \\lambda y_3(x,y) = \\lambda y_2(x,y)  \\text{ , constant returns to scale}\n\\]\n\n\\(y_4 = \\ln(xy), x&gt;1,y&gt;1\\)\n\n\\[\ny_4(\\lambda x, \\lambda y) = 2\\ln(\\lambda) + y_4(x,y)\n\\]\nDepends on initial level. Fix \\(\\lambda = e\\) so that \\(2\\ln(\\lambda) =2\\))\nFor \\(xy = e\\), \\(y_4(\\lambda x, \\lambda y) = 3 &gt; \\lambda y_4(x,y)\\)\nFor \\(xy = e^3\\), \\(y_4(\\lambda x, \\lambda y) = 5 &lt; \\lambda y_4(x,y)\\)\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\n\nImmediate\n\nShow that the production function has constant returns to scale\n\n\\[\nF(\\lambda K_t, \\lambda L_t) = \\lambda K_t^{\\alpha} (A_tL_t)^{1-\\alpha} = F(K,L)\n\\]\n\nShow that marginal productivity is positive for capital and labour\n\n\\[\nF_K(K_t,L_t) = \\alpha  K_t^{\\alpha-1} (A_tL_t)^{1-\\alpha} &gt;0\n\\]\n\\[\nF_L(K_t,L_t) = (1-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha} &gt;0\n\\]\n\nShow that marginal productivity is decreasing for capital and labour\n\n\\[\nF_{KK}(K_t,L_t) = \\alpha (\\alpha-1) K_t^{\\alpha-2} (A_tL_t)^{1-\\alpha} &lt;0\n\\]\n\\[\nF_{LL}(K_t,L_t) = (1-\\alpha) (-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha-1} &lt;0\n\\]\n\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\n\n\\[\n\\max_{K,L} Y_t - rK_t - wL_t\n\\]\nFOC with respect to K implies: \\(F_K(K_t,L_t) = \\frac{dF}{dK} = r\\)\nFOC with respect to L implies: \\(F_L(K_t,L_t)=\\frac{dF}{dL} = w\\)\n\nShow that all output is needed to pay capital and labor\n\nDifferentiating both sides of the constant return to scale equation with respect to \\(\\lambda\\) yields:\n\\[\nF_{K}(\\lambda K_t,\\lambda L_t)K_t +F_{L}(\\lambda K_t,\\lambda L_t)L_t  = F(K_t,L_t)\n\\]\nEvaluating it at \\(\\lambda = 1\\) (constant returns to scale is true whatever \\(\\lambda\\) and in particular for \\(\\lambda = 1\\)) and and plugging the results of the two FOC of the profit maximization problem yields the result.\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\n\n\\[\ng(K_t) = \\frac{K_{t+1}}{K_t} = s \\left(\\frac{A_tL_t}{K_t}\\right)^{1-\\alpha} + 1-\\delta\n\\]\nIt tends to \\(+\\infty\\) as \\(K_t \\rightarrow 0^+\\), and \\(0^+\\) as \\(K_t \\rightarrow +\\infty\\)\n\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\n\nPlugging \\(K = K_{t+1} = K_t\\) and solving for it in the equation above yields:\n\\[\nk^* = AL \\left(\\frac{s}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\nCapital accumulation is facilitated by a high saving rate \\(s\\) , a low depreciation rate \\(\\delta\\) and by high levels of effective labor \\(AL\\) (additional units of capital are highly productive up to a higher level of \\(K\\) )\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\n\nDividing the capital accumulation by \\(A_tL_t\\) yields:\n\\[\n\\frac{K_{t+1}}{A_tL_t}= (1-\\delta)\\hat{k_t} + s \\frac{F(K_t,A_tL_t)}{A_tL_t}\n\\]\nNoticing that the left hand side is \\(\\frac{K_{t+1}}{A_{t+1}L_{t+1}} (1+n)(1+g)\\) and that \\(\\frac{1}{A_tL_t}F(K_t,A_tL_t) = F(\\frac{K_t}{A_tL_t},1) = F(\\hat{k}_t,1)\\) because of constant returns to scale yields the result.\n\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\nPlugging \\(\\hat{k} = \\hat{k}_{t+1} = \\hat{k}_t\\) and solving for it in the equation above yields the result.\nNoticing that \\(\\hat{y} = \\hat{k}^\\alpha\\) and plugging \\(\\hat{k}^*\\) yields steady state per effective unit output:\n\\[\n\\hat{y^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\\(k_t = A_t \\hat{k}_t\\) and \\(y_t = A_t \\hat{y}_t\\). Plugging steady state levels of \\(\\hat{k}^*\\) and \\(\\hat{y}^*\\), then computing the equilibrium growth rate of capital and output yields:\n\\[\n\\frac{k_{t+1}}{k_t} = \\frac{y_{t+1}}{y_t} = (1+g)\n\\]\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?\n\nFirms:\n\nImperfect competition and appropriated innovation (through patents) yields profits and investment into private R&D\nHeterogeneous firms/sectors need various “qualities” of physical and human capital, and different “vintages” of technology (a technology can get outdated)\n\nHouseholds:\n\nOptimize and decide endogenously upon their labor supply, saving rate, fertility, education level (human capital)\n\nState:\n\naffects available consumption through taxes and transfers\naffects investment into public research and public education (technological progress and human capital)\nprovides institutions that affect firms’ and households’ decisions\n\nTrade (open economy):\n\nAffects net investment in the country, and available output for consumption through imports/exports\n\nLink to Aghion’s seminar on the evolution of growth theory (in French with possible subtitles) Growth theory and policies - Philippe Aghion - Collège de France\nA bit more of a self-promotion of his work, but also interesting: Inaugural lecture of the School of Management & Impact - Philippe Aghion - Sciences Po\nNote: A useful (although far from mandatory for this class) handbook for undergraduate macroeconomics is Macroeconomics by N. Gregory Mankiw"
   },
   {
-    "objectID": "tutorial4.html#roadmap",
-    "href": "tutorial4.html#roadmap",
-    "title": "Tutorial 4",
+    "objectID": "tutorial6.html",
+    "href": "tutorial6.html",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "href": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-1-estimation-strategy",
+    "href": "tutorial6.html#exercise-1-estimation-strategy",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 1: Estimation strategy",
+    "text": "Exercise 1: Estimation strategy\nMost answers are in the introduction of the paper.\n\nWhy would a simple OLS regression of child mortality on pollution lead to biased estimates?\nA common IV strategy for pollution is to use regulation. Why do the authors argue that it leads to a weak first stage?\nThe authors argue that the external validity of the results found in developed countries is low. Why? Would we over- or under-estimate the real effect if we were to extrapolate the coefficients found in developed/less polluted countries to Mexico?\nThe first strategy of the authors is presented in equation (2): add municipality and municipality-time fixed effects as covariates. Why would it improve the quality of the estimation?\nThe second strategy is an instrumental variable strategy presented in equations (3) and (4). The authors suggest using thermal inversion as an instrument for air pollution. Discuss the exogeneity and the relevance conditions of this instrument.",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "href": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 2: Data cleaning and visual representation",
+    "text": "Exercise 2: Data cleaning and visual representation\n\nOpen the raw data\nControl variables include w_tmp_mean, w_precip, w_cloud, w_evap, w_invterm. Keep only observations for which those controls are not missing.\nRemove if w_tmp_impute is 1 (ie, if the temperature is imputed).",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-3-descriptive-evidence",
+    "href": "tutorial6.html#exercise-3-descriptive-evidence",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 3: Descriptive evidence",
+    "text": "Exercise 3: Descriptive evidence\n\nCompute the monthly average of thermal inversion (w_invterm) and the monthly average temperature (w_tmp_mean).\nReplicate Figure 3 using ggplot. The mortality variables are rw_infant_1y and grw_infant_1y. Export the graph to your .tex file.",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-4-empirical-analysis",
+    "href": "tutorial6.html#exercise-4-empirical-analysis",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 4: Empirical analysis",
+    "text": "Exercise 4: Empirical analysis\n\nCreate dat_reg, the dataset containing all the variables needed for the IV and fixed effect strategies. Some covariates need to be constructed\n\nmunicipality FE\nmunicipality-specific time (week) trend\ntwo month of the year x municipality FE\nfourth degree polynomial of average temperature\nthird degree polynomial min/max temperature\nsecond degree polynomial precipitation and cloud and humidity\n\nRemove observations of each pollutant when it is part of the top and bottom 1%. Multiply CO, SO2 and O3 measures by 1000 to be consistent with the units of the paper.\nFor at least one of the four pollution measures, estimate the first stage of the IV strategy (results in Table 2). Export and interpret the results: Does the IV seem valid?\n\nNote 1: observations are weighted by the number of births births_1y\nNote 2: no need to include the F statistics\n\nReplicate column (2) and (4) of Table 3 (Fixed effect and IV strategy) for PM10 and CO\n[Bonus] Rerun the analysis without dropping the outliers. Interpret.\nInterpretation: Discuss the following statements, about the interpretation of the results as causal effects\n\nThe effect of pollution on mortality is strong among infants, not among newborns (see table 3). It suggests the estimates are not capturing any “harvesting” effect (see p. 273 for a definition)\nThe decomposition of the effects by cause of death (table 4) confirms that we can interpret the coefficients as causal effect of pollution on mortality",
+    "crumbs": [
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial5.html#roadmap",
+    "href": "tutorial5.html#roadmap",
+    "title": "Tutorial 5",
     "section": "Roadmap",
-    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)",
+    "text": "Roadmap\n\nPresent the goal of the research project\nReview the main steps to write a research paper, with some examples\nUseful resources (inspiration for research questions, data sources, etc.)\nDiscussion, Q&A",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 5"
     ]
   },
   {
-    "objectID": "tutorial4.html#recap-on-ols-failures",
-    "href": "tutorial4.html#recap-on-ols-failures",
-    "title": "Tutorial 4",
-    "section": "Recap on OLS failures",
-    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)",
+    "objectID": "tutorial5.html#the-research-project",
+    "href": "tutorial5.html#the-research-project",
+    "title": "Tutorial 5",
+    "section": "The research project",
+    "text": "The research project\nGoals of the project\nThe goal of the project is to write an original research output. This means that you will need to:\n\nIdentify a research question in economics (in whatever field, as long as it regards an economic mechanism)\nFind open data sources to answer it\nPrepare and justify an empirical strategy and perform a simple econometric analysis",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 5"
     ]
   },
   {
-    "objectID": "tutorial4.html#instrumental-variable-in-r",
-    "href": "tutorial4.html#instrumental-variable-in-r",
-    "title": "Tutorial 4",
-    "section": "Instrumental variable in R",
-    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\hat{\\pi}_0 + \\hat{\\pi}_1 z_i\\)\nSecond stage: \\[y_i = \\alpha + \\beta x_i + \\epsilon_i = \\alpha + \\beta \\hat{x}_i + \\epsilon_i + \\beta \\hat{v}_i  = \\alpha + \\beta \\hat{x}_i + \\mu_i \\]\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction",
+    "objectID": "tutorial5.html#report-structure",
+    "href": "tutorial5.html#report-structure",
+    "title": "Tutorial 5",
+    "section": "Report structure",
+    "text": "Report structure\nIntroduction (2-3 pages)\nThe introduction should include the following elements:\n\nA motivation (2/3 paragraphs) State why the question you tackle is important, why is it a subject that is relevant for the policy leaders.\nA research question (1 paragraph) Precisely state what is the research question.\nA brief summary of the paper (3 paragraphs) Precise: the data you use, the context, the method you used, the key results.\nA literature review (2 paragraphs) Cite some papers that are close to what you do and state how you compare to them in terms of results and methods.\n\n\n\n\n\n\n\nTip\n\n\nA reader who wants to know the main message of your paper, the context, and the punchline results needs to read only the introduction.",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 5"
     ]
   },
   {
-    "objectID": "tutorial4.html#replication-of-acemoglu-et-al-2001",
-    "href": "tutorial4.html#replication-of-acemoglu-et-al-2001",
-    "title": "Tutorial 4",
-    "section": "Replication of Acemoglu et al (2001)",
-    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance",
+    "objectID": "tutorial5.html#dissemination",
+    "href": "tutorial5.html#dissemination",
+    "title": "Tutorial 5",
+    "section": "Dissemination",
+    "text": "Dissemination\nYou will need to make slides (7 to 8’ presentation) to present your key results. The structure should be the following\n\nMotivation\nResearch question + contribution to the literature\nData description\nDescriptive evidence\nCausal evidence\nConclusion",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 5"
+    ]
+  },
+  {
+    "objectID": "tutorial5.html#replication-package",
+    "href": "tutorial5.html#replication-package",
+    "title": "Tutorial 5",
+    "section": "Replication package",
+    "text": "Replication package\nYou will need to provide a replication package in a zip file containing:\n\nThe raw data\nThe code to replicate all the results (graphs, tables, etc.) present in your paper\nA readme file with instructions to run the code and replicate the results.\n\n\n\n\n\n\n\nTip\n\n\nFor the code, you should use several R files to split the tasks. For instance, you can have three scripts: 1_clean_data.R, 2_descriptive_evidence.R and 3_reduced_form.R.",
+    "crumbs": [
+      "Tutorial 5"
+    ]
+  },
+  {
+    "objectID": "tutorial5.html#useful-resources",
+    "href": "tutorial5.html#useful-resources",
+    "title": "Tutorial 5",
+    "section": "Useful resources",
+    "text": "Useful resources\nIdeas for research questions\n\nAmerican Economic Association classification system: decomposition of economics into fields and subfields. It is used to classify research papers and to find relevant literature\nPolicy reports/briefs from research and international organizations:\n\nIZA World of Labor: provides summaries of empirical research in labor economics\nCEPII policy briefs: international economics, trade\nIFO policy briefs: macroeconomics, public economics, labor economics\nOECD policy briefs: all fields\nVoxEU columns: all fields\n…\n\nFind related literature: Google Scholar, Research rabbit…",
+    "crumbs": [
+      "Tutorial 5"
+    ]
+  },
+  {
+    "objectID": "tutorial5.html#qa",
+    "href": "tutorial5.html#qa",
+    "title": "Tutorial 5",
+    "section": "Q&A",
+    "text": "Q&A",
+    "crumbs": [
+      "Tutorial 5"
     ]
   },
   {
@@ -263,6 +353,46 @@
     "title": "Home",
     "section": "",
     "text": "home.qmd"
+  },
+  {
+    "objectID": "tutorial4.html#roadmap",
+    "href": "tutorial4.html#roadmap",
+    "title": "Tutorial 4",
+    "section": "Roadmap",
+    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#recap-on-ols-failures",
+    "href": "tutorial4.html#recap-on-ols-failures",
+    "title": "Tutorial 4",
+    "section": "Recap on OLS failures",
+    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#instrumental-variable-in-r",
+    "href": "tutorial4.html#instrumental-variable-in-r",
+    "title": "Tutorial 4",
+    "section": "Instrumental variable in R",
+    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\hat{\\pi}_0 + \\hat{\\pi}_1 z_i\\)\nSecond stage: \\[y_i = \\alpha + \\beta x_i + \\epsilon_i = \\alpha + \\beta \\hat{x}_i + \\epsilon_i + \\beta \\hat{v}_i  = \\alpha + \\beta \\hat{x}_i + \\mu_i \\]\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#replication-of-acemoglu-et-al-2001",
+    "href": "tutorial4.html#replication-of-acemoglu-et-al-2001",
+    "title": "Tutorial 4",
+    "section": "Replication of Acemoglu et al (2001)",
+    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance",
+    "crumbs": [
+      "Tutorial 4"
+    ]
   },
   {
     "objectID": "tutorial3.html#roadmap",
@@ -342,86 +472,6 @@
     "text": "Exercise\n\n1. Warm-up: Return to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing return to scales (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\\(y_3 = x + 2y\\)\n\\(y_4 = \\ln(xy)\\)\n\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\nShow that the production function has constant return to scale\nShow that marginal productivity is positive for capital and labour\nShow that marginal productivity is decreasing for capital and labour\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\nShow that all output is needed to pay capital and labor\n\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?",
     "crumbs": [
       "Tutorial 2"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#roadmap",
-    "href": "tutorial5.html#roadmap",
-    "title": "Tutorial 5",
-    "section": "Roadmap",
-    "text": "Roadmap\n\nPresent the goal of the research project\nReview the main steps to write a research paper, with some examples\nUseful resources (inspiration for research questions, data sources, etc.)\nDiscussion, Q&A",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#the-research-project",
-    "href": "tutorial5.html#the-research-project",
-    "title": "Tutorial 5",
-    "section": "The research project",
-    "text": "The research project\nGoals of the project\nThe goal of the project is to write an original research output. This means that you will need to:\n\nIdentify a research question in economics (in whatever field, as long as it regards an economic mechanism)\nFind open data sources to answer it\nPrepare and justify an empirical strategy and perform a simple econometric analysis",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#report-structure",
-    "href": "tutorial5.html#report-structure",
-    "title": "Tutorial 5",
-    "section": "Report structure",
-    "text": "Report structure\nIntroduction (2-3 pages)\nThe introduction should include the following elements:\n\nA motivation (2/3 paragraphs) State why the question you tackle is important, why is it a subject that is relevant for the policy leaders.\nA research question (1 paragraph) Precisely state what is the research question.\nA brief summary of the paper (3 paragraphs) Precise: the data you use, the context, the method you used, the key results.\nA literature review (2 paragraphs) Cite some papers that are close to what you do and state how you compare to them in terms of results and methods.\n\n\n\n\n\n\n\nTip\n\n\nA reader who wants to know the main message of your paper, the context, and the punchline results needs to read only the introduction.",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#dissemination",
-    "href": "tutorial5.html#dissemination",
-    "title": "Tutorial 5",
-    "section": "Dissemination",
-    "text": "Dissemination\nYou will need to make slides (7 to 8’ presentation) to present your key results. The structure should be the following\n\nMotivation\nResearch question + contribution to the literature\nData description\nDescriptive evidence\nCausal evidence\nConclusion",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#replication-package",
-    "href": "tutorial5.html#replication-package",
-    "title": "Tutorial 5",
-    "section": "Replication package",
-    "text": "Replication package\nYou will need to provide a replication package in a zip file containing:\n\nThe raw data\nThe code to replicate all the results (graphs, tables, etc.) present in your paper\nA readme file with instructions to run the code and replicate the results.\n\n\n\n\n\n\n\nTip\n\n\nFor the code, you should use several R files to split the tasks. For instance, you can have three scripts: 1_clean_data.R, 2_descriptive_evidence.R and 3_reduced_form.R.",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#useful-resources",
-    "href": "tutorial5.html#useful-resources",
-    "title": "Tutorial 5",
-    "section": "Useful resources",
-    "text": "Useful resources\nIdeas for research questions\n\nAmerican Economic Association classification system: decomposition of economics into fields and subfields. It is used to classify research papers and to find relevant literature\nPolicy reports/briefs from research and international organizations:\n\nIZA World of Labor: provides summaries of empirical research in labor economics\nCEPII policy briefs: international economics, trade\nIFO policy briefs: macroeconomics, public economics, labor economics\nOECD policy briefs: all fields\nVoxEU columns: all fields\n…\n\nFind related literature: Google Scholar, Research rabbit…",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#data-aggregator-platforms",
-    "href": "tutorial5.html#data-aggregator-platforms",
-    "title": "Tutorial 5",
-    "section": "Data Aggregator Platforms",
-    "text": "Data Aggregator Platforms\nThese platforms combine many datasets.\n\nGoogle Public Data Explorer\nDbnomics",
-    "crumbs": [
-      "Tutorial 5"
-    ]
-  },
-  {
-    "objectID": "tutorial5.html#qa",
-    "href": "tutorial5.html#qa",
-    "title": "Tutorial 5",
-    "section": "Q&A",
-    "text": "Q&A",
-    "crumbs": [
-      "Tutorial 5"
     ]
   }
 ]
