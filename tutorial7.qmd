@@ -1,0 +1,326 @@
+---
+title: "Tutoring Session: Treatment Effects, Causal Identification"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+---
+
+This session covers the Rubin potential outcomes model and treatment effects estimation.
+
+## 1. Causal Inference
+
+**Core question:** does X *cause* Y, or do X and Y just happen together?
+
+Piketty and Valdenaire (2016): Does larger class size improve students' test scores? Or do better student tend to be in larger classes?
+
+-   To know the causal effect, we would need to observe the same student in two parallel worlds.
+
+<!-- -->
+
+-   We can only observe one potential outcome per unit at a time. The other is the *counterfactual* — it never happened and can never be directly observed.
+
+::: callout-note
+**Individual causal effect for unit** $i$:
+
+$$\tau_i = Y_i(1) - Y_i(0)$$
+
+where $Y_i(1)$ is the outcome *if treated* and $Y_i(0)$ is the outcome *if not treated*.
+:::
+
+**Naive estimate:** compare average outcomes between those who received treatment and those who did not:
+
+$$E[Y \mid D=1] - E[Y \mid D=0] = \underbrace{E[Y(1) - Y(0)| D = 1]}_{\text{ATT}} + \underbrace{E[Y(0) \mid D=1] - E[Y(0) \mid D=0]}_{\text{Selection Bias}}$$
+
+The **selection bias** term reflects that treated and untreated units may differ in their baseline outcomes. This is a case of endogeneity: $E[\varepsilon \mid X] \neq 0$.
+
+## 2. The Rubin Potential Outcomes Model
+
+Developed by Donald Rubin (1974), it formalises causality through potential outcomes.
+
+| Symbol | Definition |
+|------------------------------------|------------------------------------|
+| $D_i \in \{0,1\}$ | Treatment indicator: 1 if unit $i$ receives treatment, 0 otherwise |
+| $Y_i(1)$ | Potential outcome for unit $i$ under treatment |
+| $Y_i(0)$ | Potential outcome for unit $i$ under control |
+| $Y_i$ (observed) | $Y_i = D_i \cdot Y_i(1) + (1-D_i) \cdot Y_i(0)$ — the switching equation |
+| $\tau_i$ | Individual treatment effect: $Y_i(1) - Y_i(0)$ |
+
+### Illustrative Example — Surgery vs Chemotherapy
+
+The table below shows hypothetical post-treatment life spans (in years).
+
+| Patient | $Y(1)$ Surgery | $Y(0)$ Chemo | $\tau_i$ | $D$ (actual) |
+|---------|----------------|--------------|----------|--------------|
+| A       | 10             | *8*          | +2       | 1            |
+| B       | *4*            | 6            | −2       | 0            |
+| C       | 9              | *7*          | +2       | 1            |
+| D       | *3*            | 5            | −2       | 0            |
+| E       | 7              | *6*          | +1       | 1            |
+
+## 3. Treatment effects: ATE, ATT, ATU, and LATE
+
+Since individual effects $\tau_i$ are unobservable, we estimate average effects over subpopulations
+
+::: callout-note
+**Average Treatment Effect (ATE)**
+
+$$\text{ATE} = E[Y(1) - Y(0)] = E[\tau_i]$$
+:::
+
+::: callout-note
+**Average Treatment Effect on the Treated (ATT)**
+
+$$\text{ATT} = E[Y(1) - Y(0) \mid D=1]$$
+:::
+
+::: callout-note
+**Average Treatment Effect on the Untreated (ATU)**
+
+$$\text{ATU} = E[Y(1) - Y(0) \mid D=0]$$
+:::
+
+::: callout-note
+**Local Average Treatment Effect (LATE)**
+
+$$\text{LATE} = E[Y(1) - Y(0) \mid \text{complier}] = \frac{E[Y| Z=1] -E[Y| Z=0] }{E[D| Z=1] -E[D| Z=0]}$$
+
+The average treatment effect for the **complier subpopulation**: take up treatment when assigned to it, and do not take it up when not (eg: encouragement treatment).
+
+-   **Always-takers:** participate regardless of assignment.
+-   **Never-takers:** never participate regardless of assignment.
+-   **Defiers:** do the opposite of their assignment (usually ruled out by monotonicity).
+:::
+
+::: callout-important
+-   ATE is a weighted average of ATT and ATU: $$\text{ATE} = P(D=1) \cdot \text{ATT} + P(D=0) \cdot \text{ATU}$$
+
+-   Under **random assignment with full compliance**: treatment is independent of potential outcomes, so ATT = ATU = ATE. There is no selection bias.
+
+-   Under **random assignment with partial compliance** (some assigned units do not comply): the ITT (Intent-to-Treat) estimator still identifies an unbiased effect of *assignment*, but not of *treatment receipt*. Using assignment as an instrument for actual receipt recovers the **LATE** .
+
+-   Under **self-selection**: people who expect to benefit most tend to select into treatment. Typically ATT \> ATE \> ATU.
+:::
+
+## 4. Key Assumption: SUTVA - Stable Unit Treatment Value Assumption
+
+::: callout-note
+**SUTVA has two components:**
+
+1.  **No spillover:** unit $i$'s potential outcome does not depend on the treatment assignment of unit $j$.
+2.  **Only one version of the treatment:** the treatment is well-defined.
+:::
+
+**Examples of SUTVA violations:**
+
+-   **Spillovers / Externalities:** a vaccination campaign protects the vaccinated but also reduces others' infection risk (herd immunity).
+-   **General Equilibrium Effects:** a job training programme raises wages for participants but may also affect wages for non-participants by changing labour supply.
+-   **Multiple versions of treatment:** "attending university" is not one treatment — different universities may have very different effects. The treatment is not homogeneous.
+
+## 5. Research Designs
+
+Each design makes different assumptions to deal with $E[\varepsilon \mid X] \neq 0$ and estimates different treatment effects under these assumptions.
+
+| Design | Core Assumption | What it Controls For | Identifies |
+|------------------|--------------------|------------------|------------------|
+| RCT (full compliance) | Random assignment of D $(Y(1),Y(0)) \perp D$ | All confounders (observed and unobserved) | ATE |
+| RCT (partial compliance) | Random assignment of $Z$, instrument for $D$ | All confounders via instrument | LATE |
+| OLS with controls | Conditional ignorability: $(Y(1),Y(0)) \perp D \mid X$ | Observed confounders $X$ only | ATE |
+| IV / TSLS | Instrument $z$ correlated with $D$ but not $\varepsilon$ | Endogeneity from unobservables | LATE |
+| DiD | Parallel trends: trends identical absent treatment | Time-invariant confounders + common trends | ATT |
+
+## 6. Fixed Effects and DiD
+
+### 6.1 The Within Transformation
+
+Recall from Lecture 5 the panel data model:
+
+$$y_{it} = \alpha + \beta \cdot x_{it} + a_i + \varepsilon_{it}$$
+
+where $a_i$ is the unit-specific fixed effect — a permanent, time-invariant characteristic of unit $i$ (geography, ability, culture, etc.). If $\text{Cov}(x_{it}, a_i) \neq 0$, OLS without fixed effects is biased.
+
+The within transformation subtracts unit means:
+
+$$y_{it} - \bar{y}_i = \beta(x_{it} - \bar{x}_i) + (\varepsilon_{it} - \bar{\varepsilon}_i)$$
+
+$a_i$ disappears. Fixed effects estimation is equivalent to including a dummy variable for each unit. The coefficient $\beta$ is identified purely from **within-unit variation over time**.
+
+### 6.2 Interpretation
+
+| Term | What it captures | Example |
+|------------------------|------------------------|------------------------|
+| Unit FE ($\delta_i$) | All time-invariant, unit-specific differences in $y$ not explained by $x$ | Country FE absorbs geography, institutions, culture — anything constant about a country over time |
+| Time FE ($\delta_t$) | Common shocks to all units in period $t$ | Year FE absorbs the effect of events affecting all countries simultaneously (global oil price spikes, recessions) |
+| Interaction dummy ($D \times \text{Post}$) | Additional level shift for treated group after treatment — this is the DiD coefficient | Treatment country after policy adoption shows extra change vs control countries' trend |
+| Control dummy | Difference in average $y$ between groups, conditional on other covariates — a level shift | Eg. continent dummy (if not enough identifying variation left after country FE) |
+
+### 6.3 Parallel Trends — The Critical DiD Assumption
+
+::: callout-note
+**Assumption:** in the absence of treatment, the average outcome of the treated group would have evolved in the same way as the average outcome of the control group.
+
+**How to (indirectly) check it**
+
+1.  **Pre-trend test:** run the DiD specification only in pre-treatment periods. Coefficients on time × treatment interactions should be near zero and insignificant.
+2.  **Event study plot:** plot $\sigma_\tau$ coefficients for each period around the treatment date (like Greenstone & Hanna 2014). Before the treatment, the series should be flat.
+3.  **Covariate balance:** check that pre-treatment characteristics (like the GoBifo balance table, Lecture 4 slide 37) are similar across treatment and control.
+:::
+
+## 7. Exercises
+
+### Exercise 1: Potential Outcomes {.unnumbered}
+
+A firm offers a training programme to five workers. The table below shows hypothetical potential wages (in €/hour):
+
+| Worker | $Y(1)$ (trained) | $Y(0)$ (untrained) | $D$ (actual)  |
+|--------|------------------|--------------------|---------------|
+| Alice  | 20               | 15                 | 1 (trained)   |
+| Bob    | 14               | 16                 | 0 (untrained) |
+| Carla  | 22               | 18                 | 1 (trained)   |
+| David  | 12               | 13                 | 0 (untrained) |
+| Eva    | 18               | 14                 | 1 (trained)   |
+
+: Potential wages exercise {.striped .hover}
+
+1.  Compute each worker's individual treatment effect $\tau_i = Y(1) - Y(0)$.
+2.  Compute the ATE across all five workers, ATT and ATU.
+3.  Now pretend you don't observe the counterfactuals. Compare average observed wages of trained vs untrained workers (the naive estimate). By how much does it differ from the ATT? Explain the source of the bias.
+4.  Why is ATT $\neq$ ATE here? What does this tell you about who selected into training?
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 1
+
+1.  $\tau$: Alice $+5$, Bob $-2$, Carla $+4$, David $-1$, Eva $+4$.
+
+2.  $\text{ATE} = (5 + (-2) + 4 + (-1) + 4) / 5 = 10/5 = +2$.
+
+    $\text{ATT} = (5 + 4 + 4) / 3 = 13/3 \approx +4.33$.
+
+    $\text{ATU} = (-2 + (-1)) / 2 = -3/2 = -1.5$.
+
+3.  Mean(trained observed) $= (20+22+18)/3 = 20$. Mean(untrained observed) $= (16+13)/2 = 14.5$. Naive estimate $= 20 - 14.5 = +5.5$. True ATT $= 4.3$. Bias $= 1.2$. Source: selection bias — workers who selected into training already had higher potential wages Y(0).
+
+4.  ATT \$= +4.33 \> \$ ATE $= 2$. The workers who self-selected into training were precisely those with the highest gains from it — positive selection on returns. Important for policy implications.
+:::
+
+### Exercise 2: SUTVA — Violations in Practice {.unnumbered}
+
+For each scenario below, state whether SUTVA is likely satisfied or violated, and briefly explain why.
+
+1.  **Bednet distribution in Kenya:** A randomised trial gives free insecticide-treated bednets to some villages to reduce malaria. Control villages receive no bednets.
+2.  **Class size reduction:** Some schools randomly receive extra funding to reduce class sizes.
+3.  **College scholarship lottery:** Scholarships are randomly allocated by lottery to individuals in a closed national programme. Winners go to university, losers do not.
+4.  **Minimum wage increase in New Jersey (Card & Krueger):** New Jersey raises its minimum wage. Pennsylvania does not. Employment outcomes are compared across the two states.
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 2
+
+1.  **Likely violated (interference).** Malaria is transmitted by mosquitoes which move between villages. If mosquito density falls in treated villages, nearby control villagers may also face fewer mosquitoes — their potential outcomes depend on who is treated. This is a classic herd-immunity spillover.
+
+2.  **Depends.** Extra teacher resources in one school can reduce resources in another (assuming ). Each school's outcome depends on its own treatment assignment only (no mobility).
+
+3.  **Largely satisfied.** Whether one individual wins a scholarship does not directly affect another individual's outcome. However, if the programme is large enough, general equilibrium effects could emerge — more graduates may lower average graduate wages, affecting even non-recipients.
+
+4.  **Potentially violated.** The minimum wage is a price floor in a labour market. Workers might cross state lines; NJ restaurants might shift supply chains or locate near the border. General equilibrium and spillover effects are a key criticism of DiD estimates in this setting.
+:::
+
+### Exercise 3: DiD — Manual Computation (Card & Krueger) {.unnumbered}
+
+Card and Krueger (1994) studied fast-food employment in New Jersey (NJ) and Pennsylvania (PA) around NJ's minimum wage increase. The data below shows the average number of full-time equivalent (FTE) employees per restaurant:
+
+|              | Before (Feb 1992) | After (Nov 1992) |
+|--------------|-------------------|------------------|
+| NJ (treated) | 20.44             | 21.03            |
+| PA (control) | 23.33             | 21.17            |
+
+1.  Compute the "before-after" estimate for NJ only. What is the problem with this estimator?
+2.  Compute the "treatment-control" cross-sectional estimate using only post-period data. What is the problem with this estimator?
+3.  Compute the DiD estimate. Write down the OLS regression you would estimate to obtain the DiD coefficient. Define each variable.
+4.  What estimand does the DiD recover here — ATE, ATT, or LATE? Explain.
+5.  What assumption is critical for DiD to be valid here? How would you test it (what additional data would you need)?
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 3
+
+1.  Before-after (NJ only) $= 21.03 - 20.44 = +0.59$. Problem: this confounds the treatment effect with any time trend (macroeconomic conditions, seasonal patterns) that would have affected NJ even without the minimum wage increase.
+
+2.  Treatment-control (post only) $= 21.03 - 21.17 = -0.14$. Problem: NJ and PA may have had permanently different employment levels before the minimum wage change. This does not use the pre-period information and cannot distinguish baseline differences from treatment effects.
+
+3.  DiD $= (21.03 - 20.44) - (21.17 - 23.33) = 0.59 - (-2.16) = +2.75$ FTE. Equivalently: $(21.03 - 21.17) - (20.44 - 23.33) = -0.14 - (-2.89) = +2.75$. This is $\alpha_3$ in the regression: it captures the additional change in NJ relative to what PA experienced over the same period.
+
+    Model: $y_{it} = \alpha_0 + \alpha_1 \cdot \text{NJ}_i + \alpha_2 \cdot \text{Post}_t + \alpha_3 \cdot (\text{NJ}_i \times \text{Post}_t) + \varepsilon_{it}$, where $\text{NJ}_i = 1$ if restaurant is in NJ, $\text{Post}_t = 1$ if the observation is from November 1992, and $\alpha_3 = +2.75$ is the DiD estimate.
+
+4.  **ATT.** DiD recovers the effect of the minimum wage on the treated group — NJ restaurants. We are not estimating what would happen if all of the US adopted the same minimum wage (that would be the ATE).
+
+5.  **Parallel trends:** absent the NJ minimum wage hike, employment in NJ and PA would have evolved at the same rate. To test it, you would need pre-treatment data from multiple periods (e.g. 1989–1991) and check that NJ and PA employment trended similarly before 1992. An event study plot would display these pre-period coefficients.
+:::
+
+### Exercise 4: Interpreting an Event Study Graph {.unnumbered}
+
+Refer to the event study graphs in Lecture 5 (Greenstone & Hanna 2014, slides 38–39). Panel A shows the effect of the Supreme Court Action Plan (left) and the catalytic converter mandate (right) on particulate matter (PM). Figure 8 shows the effect of catalytic converters on infant mortality.
+
+1.  In an event study, what does a flat pre-trend (all $\sigma_\tau \approx 0$ for $\tau < 0$) tell you about the validity of the parallel trends assumption?
+2.  For the Supreme Court Action Plan on PM: the pre-trend is not flat (large swings before the red dashed line). What does this suggest about the validity of the DiD estimate for this policy?
+3.  For catalytic converters on infant mortality (Figure 8): the pre-trend is noisy but roughly centred on zero, and post-treatment estimates are negative. What do you conclude about whether catalytic converters reduced infant mortality?
+4.  The regression specification for Greenstone & Hanna includes both city fixed effects ($\gamma_c$) and year fixed effects ($\mu_t$). What two sources of bias do these respectively address?
+5.  Why is it not valid to simply estimate $y_{ct} = \alpha + \beta D_{ct} + \varepsilon_{ct}$ (without fixed effects)? Connect your answer to the potential outcomes framework.
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 4
+
+1.  A flat pre-trend means that before treatment, treated and control cities were evolving at the same rate — consistent with parallel trends holding. It is a necessary but not sufficient condition: it does not prove trends would have continued to be parallel, but it is the best available evidence.
+
+2.  Large swings in PM before the policy suggest that treated cities were already trending differently from control cities before the mandate. This makes the parallel trends assumption implausible and casts doubt on the DiD estimate — consistent with the paper's finding that the Supreme Court Action Plan had no statistically significant effect on PM.
+
+3.  Pre-treatment estimates are close to zero (though noisy), and post-treatment estimates are negative and trending downward. This is consistent with the catalytic converter mandate reducing infant mortality and supports the parallel trends assumption.
+
+4.  City FE ($\gamma_c$) controls for any time-invariant city characteristic affecting pollution — e.g. geographic location, baseline industrial structure, or permanent governance features. Year FE ($\mu_t$) controls for national trends common to all cities — e.g. a national recession that would reduce industrial output and pollution in all cities simultaneously.
+
+5.  Without fixed effects, we assume $E[\varepsilon \mid D] = 0$ — that cities adopting regulations are identical to those that do not in all relevant respects. This is implausible: cities that adopted regulations likely had higher baseline pollution and different governance. In potential outcomes terms, $D_{ct}$ is correlated with the unit-level unobservable $a_i$, creating selection bias. The naive estimator would confound the treatment effect with pre-existing differences between treated and control cities.
+:::
+
+### Exercise 5: Connecting IV, RCT, and DiD {.unnumbered}
+
+Consider the GoBifo RCT from Lecture 4. 236 villages were randomly assigned to treatment (receiving the GoBifo programme) or control. The lecture notes that some villages had only partial take-up.
+
+1.  In a setting with full take-up, write down the regression used to estimate the treatment effect. What is the identifying assumption? What does the coefficient estimate — ATE, ATT, or LATE?
+2.  Now suppose some villages assigned to treatment did not participate, and some control villages accessed the programme anyway. Write down the two-stage procedure (TSLS) that would recover a valid treatment effect. What is the instrument?
+3.  The TSLS estimand in this case is the LATE. Who is the LATE estimated for? How does it differ from the ATT?
+4.  The researchers used a Pre-Analysis Plan (PAP) and reported FWER-adjusted p-values. Looking at the results (Lecture 4, slides 39–40): hardware effects (H1–H3) are strongly significant, but software/institutional effects (H4–H12) are not. What would have happened to the software results if the researchers had used naive p-values only?
+5.  If the researchers had instead used a DiD design (without randomisation), comparing treated vs control villages before and after the programme, what would be the key assumption they would need to rely on? Is this more or less credible than the RCT assumption?
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 5
+
+1.  $y_i = \alpha + \beta \cdot T_i + \varepsilon_i$, where $T_i \in \{0,1\}$ is random assignment. Identifying assumption: random assignment ensures $E[\varepsilon_i \mid T_i] = 0$ — no selection bias. With full take-up and random assignment, this identifies the **ATE**.
+
+2.  First stage: $x_i = \pi_1 + \pi_2 \cdot T_i + \eta_i$ (regress actual participation on assignment). Second stage: $y_i = \alpha + \beta \cdot \hat{x}_i + u_i$ (regress outcome on fitted participation). Instrument: $T_i$ (random assignment). It is relevant (assignment predicts take-up) and satisfies the exclusion restriction (assignment only affects outcomes through participation).
+
+3.  LATE is estimated for **compliers** — villages that participate when assigned to treatment and do not when assigned to control. It excludes always-takers (participate regardless) and never-takers (never participate). LATE differs from ATT because ATT includes always-takers (who are treated but whose treatment status is unaffected by the instrument), whereas LATE does not.
+
+4.  With 12 hypotheses tested at 5% each, the familywise error rate $\approx 1 - (0.95)^{12} \approx 46\%$. Looking at naive p-values, H10 appears significant at $p = 0.045$ — but the FWER-adjusted p-value is $0.315$, which is not significant. Without the PAP and multiple testing correction, one could cherry-pick H10 and report a misleading positive result.
+
+5.  DiD assumption: absent GoBifo, treated and control villages would have evolved at the same rate (parallel trends). This is much less credible than the RCT assumption. The RCT guarantees comparability by design. DiD only assumes comparability in *trends*, which is untestable in the post-period and could fail if, for example, treated villages received other external aid simultaneously.
+:::
+
+### Exercise 6: Fixed Effects — True or False {.unnumbered}
+
+State whether each claim is True or False and briefly explain.
+
+1.  Including country fixed effects in a panel regression controls for time-varying shocks that affect all countries equally.
+2.  A unit fixed effect absorbs any time-invariant confounders, so OLS with fixed effects is always unbiased.
+3.  In a regression with a post-treatment dummy, a group dummy, and their interaction, the interaction coefficient equals the DiD estimate.
+4.  If temperature is constant over time within each country, adding country fixed effects makes it impossible to identify the effect of temperature on GDP using within-country variation.
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 6
+
+1.  **FALSE.** Country fixed effects control for permanent, time-invariant country characteristics. It is **year (time) fixed effects** that control for common shocks affecting all countries equally in a given period.
+
+2.  **FALSE.** Fixed effects only absorb time-invariant unobservables. If there are time-varying confounders (e.g. a country simultaneously adopts a policy and benefits from an oil boom), OLS with FE remains biased.
+
+3.  **TRUE.** In $y_{it} = \alpha_0 + \alpha_1 \cdot \text{Treated}_i + \alpha_2 \cdot \text{Post}_t + \alpha_3 \cdot (\text{Treated}_i \times \text{Post}_t) + \varepsilon_{it}$, $\alpha_3$ is the difference-in-differences estimator.
+
+4.  **TRUE.** A time-invariant variable is perfectly collinear with the unit fixed effects — after the within transformation, it drops out and cannot be estimated. This is a fundamental limitation of FE: you cannot identify the effect of variables that do not vary within units over time.
+:::

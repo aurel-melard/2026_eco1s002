@@ -22,6 +22,8 @@ website:
         href: tutorial5.qmd
       - text: "Tutorial 6"
         href: tutorial6.qmd
+      - text: "Tutorial 7"
+        href: tutorial7.qmd
   page-footer:
     right: "Built with [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2026, Aurel Mélard"

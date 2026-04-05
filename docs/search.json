@@ -188,63 +188,160 @@
     "text": "Exercise\n\n1. Warm-up: Returns to scale\nLet \\(\\lambda &gt; 1\\), if \\(F(\\lambda X, \\lambda Y) &lt; \\lambda F(X,Y)\\), the function has decreasing returns to scale (and increasing for \\(&gt;\\)). If \\(F(\\lambda X, \\lambda Y) = \\lambda F(X,Y)\\), the function has constant returns to scale. For the following functions, state if they exhibit positive, constant, or negative returns to scale.\n\n\\(y_1 = 10x^2y^2\\)\n\n\\[\ny_1(\\lambda x, \\lambda y) = \\lambda^4 y_1(x,y) &gt; \\lambda y_1(x,y)  \\text{ , increasing returns to scale}\n\\]\n\n\\(y_2 = \\frac{1}{2}x^{1/3}y^{1/2}\\)\n\n\\[\ny_2(\\lambda x, \\lambda y) = \\lambda^{5/6} y_2(x,y) &lt; \\lambda y_2(x,y)  \\text{ , decreasing returns to scale}\n\\]\n\n\\(y_3 = x + 2y\\)\n\n\\[\ny_3(\\lambda x, \\lambda y) = \\lambda y_3(x,y) = \\lambda y_2(x,y)  \\text{ , constant returns to scale}\n\\]\n\n\\(y_4 = \\ln(xy), x&gt;1,y&gt;1\\)\n\n\\[\ny_4(\\lambda x, \\lambda y) = 2\\ln(\\lambda) + y_4(x,y)\n\\]\nDepends on initial level. Fix \\(\\lambda = e\\) so that \\(2\\ln(\\lambda) =2\\))\nFor \\(xy = e\\), \\(y_4(\\lambda x, \\lambda y) = 3 &gt; \\lambda y_4(x,y)\\)\nFor \\(xy = e^3\\), \\(y_4(\\lambda x, \\lambda y) = 5 &lt; \\lambda y_4(x,y)\\)\n\n\n2. Solve the firm’s maximization problem\nConsider the function above (\\(Y_t =  K_t^{\\alpha} (A_tL_t)^{1-\\alpha}\\)).\n\nShow that if \\(K=0\\) and/or \\(L=0\\) production does not occur\n\nImmediate\n\nShow that the production function has constant returns to scale\n\n\\[\nF(\\lambda K_t, \\lambda L_t) = \\lambda K_t^{\\alpha} (A_tL_t)^{1-\\alpha} = F(K,L)\n\\]\n\nShow that marginal productivity is positive for capital and labour\n\n\\[\nF_K(K_t,L_t) = \\alpha  K_t^{\\alpha-1} (A_tL_t)^{1-\\alpha} &gt;0\n\\]\n\\[\nF_L(K_t,L_t) = (1-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha} &gt;0\n\\]\n\nShow that marginal productivity is decreasing for capital and labour\n\n\\[\nF_{KK}(K_t,L_t) = \\alpha (\\alpha-1) K_t^{\\alpha-2} (A_tL_t)^{1-\\alpha} &lt;0\n\\]\n\\[\nF_{LL}(K_t,L_t) = (1-\\alpha) (-\\alpha)  K_t^{\\alpha} (A_t)^{1-\\alpha} L_t^{-\\alpha-1} &lt;0\n\\]\n\nWrite the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions\n\n\\[\n\\max_{K,L} Y_t - rK_t - wL_t\n\\]\nFOC with respect to K implies: \\(F_K(K_t,L_t) = \\frac{dF}{dK} = r\\)\nFOC with respect to L implies: \\(F_L(K_t,L_t)=\\frac{dF}{dL} = w\\)\n\nShow that all output is needed to pay capital and labor\n\nDifferentiating both sides of the constant return to scale equation with respect to \\(\\lambda\\) yields:\n\\[\nF_{K}(\\lambda K_t,\\lambda L_t)K_t +F_{L}(\\lambda K_t,\\lambda L_t)L_t  = F(K_t,L_t)\n\\]\nEvaluating it at \\(\\lambda = 1\\) (constant returns to scale is true whatever \\(\\lambda\\) and in particular for \\(\\lambda = 1\\)) and and plugging the results of the two FOC of the profit maximization problem yields the result.\n\n\n3. Constant population and technology\nFor now, we consider that technology and labor (=population) are constant (\\(A_t = A\\), \\(L_t = L\\)): no population growth, no technological progress.\n\nUsing the capital accumulation equation, show that the ratio \\(\\frac{K_{t+1}}{K_t}\\) goes to \\(\\infty\\) as \\(K_t\\) goes to 0 and is lower than 1 when \\(K_t\\) goes to \\(\\infty\\)\n\n\\[\ng(K_t) = \\frac{K_{t+1}}{K_t} = s \\left(\\frac{A_tL_t}{K_t}\\right)^{1-\\alpha} + 1-\\delta\n\\]\nIt tends to \\(+\\infty\\) as \\(K_t \\rightarrow 0^+\\), and \\(0^+\\) as \\(K_t \\rightarrow +\\infty\\)\n\nShow that there is a unique steady state level of capital \\(k^*\\) and solve for it\n\nPlugging \\(K = K_{t+1} = K_t\\) and solving for it in the equation above yields:\n\\[\nk^* = AL \\left(\\frac{s}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\n\nHow does the \\(k^*\\) vary with \\(s\\), \\(\\delta\\), \\(A\\), \\(L\\) ? Interpret\n\nCapital accumulation is facilitated by a high saving rate \\(s\\) , a low depreciation rate \\(\\delta\\) and by high levels of effective labor \\(AL\\) (additional units of capital are highly productive up to a higher level of \\(K\\) )\n\n\n4. Population and technology growth\nWe now assume that population grows at constant rate \\(n\\), and technology at rate \\(g\\):\n\\[L_{t+1} = (1+n) L_t\\]\n\\[A_{t+1} = (1+g) A_t\\]\nWe respectively denote \\(y_t=Y_t/L_t\\) and \\(k_t=K_t/L_t\\), the per-worker production and capital\nWe further define \\(\\hat{y_t}=\\frac{Y_t}{A_t L_t}\\) and \\(\\hat{k_t}=\\frac{K_t}{A_tL_t}\\) the production and capital per effective unit\n\nDividing the capital accumulation equation by \\(A_tL_t\\), show that\n\\[\\hat{k_{t+1}} (1+n)(1+g)= (1-\\delta)\\hat{k_t} + s F(\\frac{K_t}{A_tL_t},1)\\]\n\nDividing the capital accumulation by \\(A_tL_t\\) yields:\n\\[\n\\frac{K_{t+1}}{A_tL_t}= (1-\\delta)\\hat{k_t} + s \\frac{F(K_t,A_tL_t)}{A_tL_t}\n\\]\nNoticing that the left hand side is \\(\\frac{K_{t+1}}{A_{t+1}L_{t+1}} (1+n)(1+g)\\) and that \\(\\frac{1}{A_tL_t}F(K_t,A_tL_t) = F(\\frac{K_t}{A_tL_t},1) = F(\\hat{k}_t,1)\\) because of constant returns to scale yields the result.\n\nShow that there is a steady state level of capital per effective unit \\(\\hat{k^*}\\) equal to:\n\n\\[\n\\hat{k^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{1}{1-\\alpha}}\n\\]\nPlugging \\(\\hat{k} = \\hat{k}_{t+1} = \\hat{k}_t\\) and solving for it in the equation above yields the result.\nNoticing that \\(\\hat{y} = \\hat{k}^\\alpha\\) and plugging \\(\\hat{k}^*\\) yields steady state per effective unit output:\n\\[\n\\hat{y^*} = \\left(\\frac{s}{(1+n)(1+g)-1+\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}\n\\]\n\nShow that per capita outcomes \\(y\\) and \\(k\\) are on a balanced growth path. What is their respective growth rates?\n\n\\(k_t = A_t \\hat{k}_t\\) and \\(y_t = A_t \\hat{y}_t\\). Plugging steady state levels of \\(\\hat{k}^*\\) and \\(\\hat{y}^*\\), then computing the equilibrium growth rate of capital and output yields:\n\\[\n\\frac{k_{t+1}}{k_t} = \\frac{y_{t+1}}{y_t} = (1+g)\n\\]\n\n\n5. Discussion\n\nWhat makes this model a simplification of reality?\nWhy cannot it explain all differences in output growth and per capita level across economies?\n\nFirms:\n\nImperfect competition and appropriated innovation (through patents) yields profits and investment into private R&D\nHeterogeneous firms/sectors need various “qualities” of physical and human capital, and different “vintages” of technology (a technology can get outdated)\n\nHouseholds:\n\nOptimize and decide endogenously upon their labor supply, saving rate, fertility, education level (human capital)\n\nState:\n\naffects available consumption through taxes and transfers\naffects investment into public research and public education (technological progress and human capital)\nprovides institutions that affect firms’ and households’ decisions\n\nTrade (open economy):\n\nAffects net investment in the country, and available output for consumption through imports/exports\n\nLink to Aghion’s seminar on the evolution of growth theory (in French with possible subtitles) Growth theory and policies - Philippe Aghion - Collège de France\nA bit more of a self-promotion of his work, but also interesting: Inaugural lecture of the School of Management & Impact - Philippe Aghion - Sciences Po\nNote: A useful (although far from mandatory for this class) handbook for undergraduate macroeconomics is Macroeconomics by N. Gregory Mankiw"
   },
   {
-    "objectID": "tutorial6.html",
-    "href": "tutorial6.html",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "objectID": "tutorial7.html",
+    "href": "tutorial7.html",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
     "section": "",
-    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "text": "This session covers the Rubin potential outcomes model and treatment effects estimation.",
     "crumbs": [
-      "Tutorial 6"
+      "Tutorial 7"
     ]
   },
   {
-    "objectID": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
-    "href": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "objectID": "tutorial7.html#causal-inference",
+    "href": "tutorial7.html#causal-inference",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "1. Causal Inference",
+    "text": "1. Causal Inference\nCore question: does X cause Y, or do X and Y just happen together?\nPiketty and Valdenaire (2016): Does larger class size improve students’ test scores? Or do better student tend to be in larger classes?\n\nTo know the causal effect, we would need to observe the same student in two parallel worlds.\n\n\n\nWe can only observe one potential outcome per unit at a time. The other is the counterfactual — it never happened and can never be directly observed.\n\n\n\n\n\n\n\nNote\n\n\n\nIndividual causal effect for unit \\(i\\):\n\\[\\tau_i = Y_i(1) - Y_i(0)\\]\nwhere \\(Y_i(1)\\) is the outcome if treated and \\(Y_i(0)\\) is the outcome if not treated.\n\n\nNaive estimate: compare average outcomes between those who received treatment and those who did not:\n\\[E[Y \\mid D=1] - E[Y \\mid D=0] = \\underbrace{E[Y(1) - Y(0)| D = 1]}_{\\text{ATT}} + \\underbrace{E[Y(0) \\mid D=1] - E[Y(0) \\mid D=0]}_{\\text{Selection Bias}}\\]\nThe selection bias term reflects that treated and untreated units may differ in their baseline outcomes. This is a case of endogeneity: \\(E[\\varepsilon \\mid X] \\neq 0\\).",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#the-rubin-potential-outcomes-model",
+    "href": "tutorial7.html#the-rubin-potential-outcomes-model",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "2. The Rubin Potential Outcomes Model",
+    "text": "2. The Rubin Potential Outcomes Model\nDeveloped by Donald Rubin (1974), it formalises causality through potential outcomes.\n\n\n\n\n\n\n\nSymbol\nDefinition\n\n\n\n\n\\(D_i \\in \\{0,1\\}\\)\nTreatment indicator: 1 if unit \\(i\\) receives treatment, 0 otherwise\n\n\n\\(Y_i(1)\\)\nPotential outcome for unit \\(i\\) under treatment\n\n\n\\(Y_i(0)\\)\nPotential outcome for unit \\(i\\) under control\n\n\n\\(Y_i\\) (observed)\n\\(Y_i = D_i \\cdot Y_i(1) + (1-D_i) \\cdot Y_i(0)\\) — the switching equation\n\n\n\\(\\tau_i\\)\nIndividual treatment effect: \\(Y_i(1) - Y_i(0)\\)\n\n\n\n\nIllustrative Example — Surgery vs Chemotherapy\nThe table below shows hypothetical post-treatment life spans (in years).\n\n\n\nPatient\n\\(Y(1)\\) Surgery\n\\(Y(0)\\) Chemo\n\\(\\tau_i\\)\n\\(D\\) (actual)\n\n\n\n\nA\n10\n8\n+2\n1\n\n\nB\n4\n6\n−2\n0\n\n\nC\n9\n7\n+2\n1\n\n\nD\n3\n5\n−2\n0\n\n\nE\n7\n6\n+1\n1",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#treatment-effects-ate-att-atu-and-late",
+    "href": "tutorial7.html#treatment-effects-ate-att-atu-and-late",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "3. Treatment effects: ATE, ATT, ATU, and LATE",
+    "text": "3. Treatment effects: ATE, ATT, ATU, and LATE\nSince individual effects \\(\\tau_i\\) are unobservable, we estimate average effects over subpopulations\n\n\n\n\n\n\nNote\n\n\n\nAverage Treatment Effect (ATE)\n\\[\\text{ATE} = E[Y(1) - Y(0)] = E[\\tau_i]\\]\n\n\n\n\n\n\n\n\nNote\n\n\n\nAverage Treatment Effect on the Treated (ATT)\n\\[\\text{ATT} = E[Y(1) - Y(0) \\mid D=1]\\]\n\n\n\n\n\n\n\n\nNote\n\n\n\nAverage Treatment Effect on the Untreated (ATU)\n\\[\\text{ATU} = E[Y(1) - Y(0) \\mid D=0]\\]\n\n\n\n\n\n\n\n\nNote\n\n\n\nLocal Average Treatment Effect (LATE)\n\\[\\text{LATE} = E[Y(1) - Y(0) \\mid \\text{complier}] = \\frac{E[Y| Z=1] -E[Y| Z=0] }{E[D| Z=1] -E[D| Z=0]}\\]\nThe average treatment effect for the complier subpopulation: take up treatment when assigned to it, and do not take it up when not (eg: encouragement treatment).\n\nAlways-takers: participate regardless of assignment.\nNever-takers: never participate regardless of assignment.\nDefiers: do the opposite of their assignment (usually ruled out by monotonicity).\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nATE is a weighted average of ATT and ATU: \\[\\text{ATE} = P(D=1) \\cdot \\text{ATT} + P(D=0) \\cdot \\text{ATU}\\]\nUnder random assignment with full compliance: treatment is independent of potential outcomes, so ATT = ATU = ATE. There is no selection bias.\nUnder random assignment with partial compliance (some assigned units do not comply): the ITT (Intent-to-Treat) estimator still identifies an unbiased effect of assignment, but not of treatment receipt. Using assignment as an instrument for actual receipt recovers the LATE .\nUnder self-selection: people who expect to benefit most tend to select into treatment. Typically ATT &gt; ATE &gt; ATU.",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#key-assumption-sutva---stable-unit-treatment-value-assumption",
+    "href": "tutorial7.html#key-assumption-sutva---stable-unit-treatment-value-assumption",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "4. Key Assumption: SUTVA - Stable Unit Treatment Value Assumption",
+    "text": "4. Key Assumption: SUTVA - Stable Unit Treatment Value Assumption\n\n\n\n\n\n\nNote\n\n\n\nSUTVA has two components:\n\nNo spillover: unit \\(i\\)’s potential outcome does not depend on the treatment assignment of unit \\(j\\).\nOnly one version of the treatment: the treatment is well-defined.\n\n\n\nExamples of SUTVA violations:\n\nSpillovers / Externalities: a vaccination campaign protects the vaccinated but also reduces others’ infection risk (herd immunity).\nGeneral Equilibrium Effects: a job training programme raises wages for participants but may also affect wages for non-participants by changing labour supply.\nMultiple versions of treatment: “attending university” is not one treatment — different universities may have very different effects. The treatment is not homogeneous.",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#research-designs",
+    "href": "tutorial7.html#research-designs",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "5. Research Designs",
+    "text": "5. Research Designs\nEach design makes different assumptions to deal with \\(E[\\varepsilon \\mid X] \\neq 0\\) and estimates different treatment effects under these assumptions.\n\n\n\n\n\n\n\n\n\nDesign\nCore Assumption\nWhat it Controls For\nIdentifies\n\n\n\n\nRCT (full compliance)\nRandom assignment of D \\((Y(1),Y(0)) \\perp D\\)\nAll confounders (observed and unobserved)\nATE\n\n\nRCT (partial compliance)\nRandom assignment of \\(Z\\), instrument for \\(D\\)\nAll confounders via instrument\nLATE\n\n\nOLS with controls\nConditional ignorability: \\((Y(1),Y(0)) \\perp D \\mid X\\)\nObserved confounders \\(X\\) only\nATE\n\n\nIV / TSLS\nInstrument \\(z\\) correlated with \\(D\\) but not \\(\\varepsilon\\)\nEndogeneity from unobservables\nLATE\n\n\nDiD\nParallel trends: trends identical absent treatment\nTime-invariant confounders + common trends\nATT",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#fixed-effects-and-did",
+    "href": "tutorial7.html#fixed-effects-and-did",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "6. Fixed Effects and DiD",
+    "text": "6. Fixed Effects and DiD\n\n6.1 The Within Transformation\nRecall from Lecture 5 the panel data model:\n\\[y_{it} = \\alpha + \\beta \\cdot x_{it} + a_i + \\varepsilon_{it}\\]\nwhere \\(a_i\\) is the unit-specific fixed effect — a permanent, time-invariant characteristic of unit \\(i\\) (geography, ability, culture, etc.). If \\(\\text{Cov}(x_{it}, a_i) \\neq 0\\), OLS without fixed effects is biased.\nThe within transformation subtracts unit means:\n\\[y_{it} - \\bar{y}_i = \\beta(x_{it} - \\bar{x}_i) + (\\varepsilon_{it} - \\bar{\\varepsilon}_i)\\]\n\\(a_i\\) disappears. Fixed effects estimation is equivalent to including a dummy variable for each unit. The coefficient \\(\\beta\\) is identified purely from within-unit variation over time.\n\n\n6.2 Interpretation\n\n\n\n\n\n\n\n\nTerm\nWhat it captures\nExample\n\n\n\n\nUnit FE (\\(\\delta_i\\))\nAll time-invariant, unit-specific differences in \\(y\\) not explained by \\(x\\)\nCountry FE absorbs geography, institutions, culture — anything constant about a country over time\n\n\nTime FE (\\(\\delta_t\\))\nCommon shocks to all units in period \\(t\\)\nYear FE absorbs the effect of events affecting all countries simultaneously (global oil price spikes, recessions)\n\n\nInteraction dummy (\\(D \\times \\text{Post}\\))\nAdditional level shift for treated group after treatment — this is the DiD coefficient\nTreatment country after policy adoption shows extra change vs control countries’ trend\n\n\nControl dummy\nDifference in average \\(y\\) between groups, conditional on other covariates — a level shift\nEg. continent dummy (if not enough identifying variation left after country FE)\n\n\n\n\n\n6.3 Parallel Trends — The Critical DiD Assumption\n\n\n\n\n\n\nNote\n\n\n\nAssumption: in the absence of treatment, the average outcome of the treated group would have evolved in the same way as the average outcome of the control group.\nHow to (indirectly) check it\n\nPre-trend test: run the DiD specification only in pre-treatment periods. Coefficients on time × treatment interactions should be near zero and insignificant.\nEvent study plot: plot \\(\\sigma_\\tau\\) coefficients for each period around the treatment date (like Greenstone & Hanna 2014). Before the treatment, the series should be flat.\nCovariate balance: check that pre-treatment characteristics (like the GoBifo balance table, Lecture 4 slide 37) are similar across treatment and control.",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial7.html#exercises",
+    "href": "tutorial7.html#exercises",
+    "title": "Tutoring Session: Treatment Effects, Causal Identification",
+    "section": "7. Exercises",
+    "text": "7. Exercises\n\nExercise 1: Potential Outcomes\nA firm offers a training programme to five workers. The table below shows hypothetical potential wages (in €/hour):\n\nPotential wages exercise\n\n\nWorker\n\\(Y(1)\\) (trained)\n\\(Y(0)\\) (untrained)\n\\(D\\) (actual)\n\n\n\n\nAlice\n20\n15\n1 (trained)\n\n\nBob\n14\n16\n0 (untrained)\n\n\nCarla\n22\n18\n1 (trained)\n\n\nDavid\n12\n13\n0 (untrained)\n\n\nEva\n18\n14\n1 (trained)\n\n\n\n\nCompute each worker’s individual treatment effect \\(\\tau_i = Y(1) - Y(0)\\).\nCompute the ATE across all five workers, ATT and ATU.\nNow pretend you don’t observe the counterfactuals. Compare average observed wages of trained vs untrained workers (the naive estimate). By how much does it differ from the ATT? Explain the source of the bias.\nWhy is ATT \\(\\neq\\) ATE here? What does this tell you about who selected into training?\n\n\n\n\n\n\n\nCautionAnswers — Exercise 1\n\n\n\n\n\n\n\\(\\tau\\): Alice \\(+5\\), Bob \\(-2\\), Carla \\(+4\\), David \\(-1\\), Eva \\(+4\\).\n\\(\\text{ATE} = (5 + (-2) + 4 + (-1) + 4) / 5 = 10/5 = +2\\).\n\\(\\text{ATT} = (5 + 4 + 4) / 3 = 13/3 \\approx +4.33\\).\n\\(\\text{ATU} = (-2 + (-1)) / 2 = -3/2 = -1.5\\).\nMean(trained observed) \\(= (20+22+18)/3 = 20\\). Mean(untrained observed) \\(= (16+13)/2 = 14.5\\). Naive estimate \\(= 20 - 14.5 = +5.5\\). True ATT \\(= 4.3\\). Bias \\(= 1.2\\). Source: selection bias — workers who selected into training already had higher potential wages Y(0).\nATT $= +4.33 &gt; $ ATE \\(= 2\\). The workers who self-selected into training were precisely those with the highest gains from it — positive selection on returns. Important for policy implications.\n\n\n\n\n\n\nExercise 2: SUTVA — Violations in Practice\nFor each scenario below, state whether SUTVA is likely satisfied or violated, and briefly explain why.\n\nBednet distribution in Kenya: A randomised trial gives free insecticide-treated bednets to some villages to reduce malaria. Control villages receive no bednets.\nClass size reduction: Some schools randomly receive extra funding to reduce class sizes.\nCollege scholarship lottery: Scholarships are randomly allocated by lottery to individuals in a closed national programme. Winners go to university, losers do not.\nMinimum wage increase in New Jersey (Card & Krueger): New Jersey raises its minimum wage. Pennsylvania does not. Employment outcomes are compared across the two states.\n\n\n\n\n\n\n\nCautionAnswers — Exercise 2\n\n\n\n\n\n\nLikely violated (interference). Malaria is transmitted by mosquitoes which move between villages. If mosquito density falls in treated villages, nearby control villagers may also face fewer mosquitoes — their potential outcomes depend on who is treated. This is a classic herd-immunity spillover.\nDepends. Extra teacher resources in one school can reduce resources in another (assuming ). Each school’s outcome depends on its own treatment assignment only (no mobility).\nLargely satisfied. Whether one individual wins a scholarship does not directly affect another individual’s outcome. However, if the programme is large enough, general equilibrium effects could emerge — more graduates may lower average graduate wages, affecting even non-recipients.\nPotentially violated. The minimum wage is a price floor in a labour market. Workers might cross state lines; NJ restaurants might shift supply chains or locate near the border. General equilibrium and spillover effects are a key criticism of DiD estimates in this setting.\n\n\n\n\n\n\nExercise 3: DiD — Manual Computation (Card & Krueger)\nCard and Krueger (1994) studied fast-food employment in New Jersey (NJ) and Pennsylvania (PA) around NJ’s minimum wage increase. The data below shows the average number of full-time equivalent (FTE) employees per restaurant:\n\n\n\n\nBefore (Feb 1992)\nAfter (Nov 1992)\n\n\n\n\nNJ (treated)\n20.44\n21.03\n\n\nPA (control)\n23.33\n21.17\n\n\n\n\nCompute the “before-after” estimate for NJ only. What is the problem with this estimator?\nCompute the “treatment-control” cross-sectional estimate using only post-period data. What is the problem with this estimator?\nCompute the DiD estimate. Write down the OLS regression you would estimate to obtain the DiD coefficient. Define each variable.\nWhat estimand does the DiD recover here — ATE, ATT, or LATE? Explain.\nWhat assumption is critical for DiD to be valid here? How would you test it (what additional data would you need)?\n\n\n\n\n\n\n\nCautionAnswers — Exercise 3\n\n\n\n\n\n\nBefore-after (NJ only) \\(= 21.03 - 20.44 = +0.59\\). Problem: this confounds the treatment effect with any time trend (macroeconomic conditions, seasonal patterns) that would have affected NJ even without the minimum wage increase.\nTreatment-control (post only) \\(= 21.03 - 21.17 = -0.14\\). Problem: NJ and PA may have had permanently different employment levels before the minimum wage change. This does not use the pre-period information and cannot distinguish baseline differences from treatment effects.\nDiD \\(= (21.03 - 20.44) - (21.17 - 23.33) = 0.59 - (-2.16) = +2.75\\) FTE. Equivalently: \\((21.03 - 21.17) - (20.44 - 23.33) = -0.14 - (-2.89) = +2.75\\). This is \\(\\alpha_3\\) in the regression: it captures the additional change in NJ relative to what PA experienced over the same period.\nModel: \\(y_{it} = \\alpha_0 + \\alpha_1 \\cdot \\text{NJ}_i + \\alpha_2 \\cdot \\text{Post}_t + \\alpha_3 \\cdot (\\text{NJ}_i \\times \\text{Post}_t) + \\varepsilon_{it}\\), where \\(\\text{NJ}_i = 1\\) if restaurant is in NJ, \\(\\text{Post}_t = 1\\) if the observation is from November 1992, and \\(\\alpha_3 = +2.75\\) is the DiD estimate.\nATT. DiD recovers the effect of the minimum wage on the treated group — NJ restaurants. We are not estimating what would happen if all of the US adopted the same minimum wage (that would be the ATE).\nParallel trends: absent the NJ minimum wage hike, employment in NJ and PA would have evolved at the same rate. To test it, you would need pre-treatment data from multiple periods (e.g. 1989–1991) and check that NJ and PA employment trended similarly before 1992. An event study plot would display these pre-period coefficients.\n\n\n\n\n\n\nExercise 4: Interpreting an Event Study Graph\nRefer to the event study graphs in Lecture 5 (Greenstone & Hanna 2014, slides 38–39). Panel A shows the effect of the Supreme Court Action Plan (left) and the catalytic converter mandate (right) on particulate matter (PM). Figure 8 shows the effect of catalytic converters on infant mortality.\n\nIn an event study, what does a flat pre-trend (all \\(\\sigma_\\tau \\approx 0\\) for \\(\\tau &lt; 0\\)) tell you about the validity of the parallel trends assumption?\nFor the Supreme Court Action Plan on PM: the pre-trend is not flat (large swings before the red dashed line). What does this suggest about the validity of the DiD estimate for this policy?\nFor catalytic converters on infant mortality (Figure 8): the pre-trend is noisy but roughly centred on zero, and post-treatment estimates are negative. What do you conclude about whether catalytic converters reduced infant mortality?\nThe regression specification for Greenstone & Hanna includes both city fixed effects (\\(\\gamma_c\\)) and year fixed effects (\\(\\mu_t\\)). What two sources of bias do these respectively address?\nWhy is it not valid to simply estimate \\(y_{ct} = \\alpha + \\beta D_{ct} + \\varepsilon_{ct}\\) (without fixed effects)? Connect your answer to the potential outcomes framework.\n\n\n\n\n\n\n\nCautionAnswers — Exercise 4\n\n\n\n\n\n\nA flat pre-trend means that before treatment, treated and control cities were evolving at the same rate — consistent with parallel trends holding. It is a necessary but not sufficient condition: it does not prove trends would have continued to be parallel, but it is the best available evidence.\nLarge swings in PM before the policy suggest that treated cities were already trending differently from control cities before the mandate. This makes the parallel trends assumption implausible and casts doubt on the DiD estimate — consistent with the paper’s finding that the Supreme Court Action Plan had no statistically significant effect on PM.\nPre-treatment estimates are close to zero (though noisy), and post-treatment estimates are negative and trending downward. This is consistent with the catalytic converter mandate reducing infant mortality and supports the parallel trends assumption.\nCity FE (\\(\\gamma_c\\)) controls for any time-invariant city characteristic affecting pollution — e.g. geographic location, baseline industrial structure, or permanent governance features. Year FE (\\(\\mu_t\\)) controls for national trends common to all cities — e.g. a national recession that would reduce industrial output and pollution in all cities simultaneously.\nWithout fixed effects, we assume \\(E[\\varepsilon \\mid D] = 0\\) — that cities adopting regulations are identical to those that do not in all relevant respects. This is implausible: cities that adopted regulations likely had higher baseline pollution and different governance. In potential outcomes terms, \\(D_{ct}\\) is correlated with the unit-level unobservable \\(a_i\\), creating selection bias. The naive estimator would confound the treatment effect with pre-existing differences between treated and control cities.\n\n\n\n\n\n\nExercise 5: Connecting IV, RCT, and DiD\nConsider the GoBifo RCT from Lecture 4. 236 villages were randomly assigned to treatment (receiving the GoBifo programme) or control. The lecture notes that some villages had only partial take-up.\n\nIn a setting with full take-up, write down the regression used to estimate the treatment effect. What is the identifying assumption? What does the coefficient estimate — ATE, ATT, or LATE?\nNow suppose some villages assigned to treatment did not participate, and some control villages accessed the programme anyway. Write down the two-stage procedure (TSLS) that would recover a valid treatment effect. What is the instrument?\nThe TSLS estimand in this case is the LATE. Who is the LATE estimated for? How does it differ from the ATT?\nThe researchers used a Pre-Analysis Plan (PAP) and reported FWER-adjusted p-values. Looking at the results (Lecture 4, slides 39–40): hardware effects (H1–H3) are strongly significant, but software/institutional effects (H4–H12) are not. What would have happened to the software results if the researchers had used naive p-values only?\nIf the researchers had instead used a DiD design (without randomisation), comparing treated vs control villages before and after the programme, what would be the key assumption they would need to rely on? Is this more or less credible than the RCT assumption?\n\n\n\n\n\n\n\nCautionAnswers — Exercise 5\n\n\n\n\n\n\n\\(y_i = \\alpha + \\beta \\cdot T_i + \\varepsilon_i\\), where \\(T_i \\in \\{0,1\\}\\) is random assignment. Identifying assumption: random assignment ensures \\(E[\\varepsilon_i \\mid T_i] = 0\\) — no selection bias. With full take-up and random assignment, this identifies the ATE.\nFirst stage: \\(x_i = \\pi_1 + \\pi_2 \\cdot T_i + \\eta_i\\) (regress actual participation on assignment). Second stage: \\(y_i = \\alpha + \\beta \\cdot \\hat{x}_i + u_i\\) (regress outcome on fitted participation). Instrument: \\(T_i\\) (random assignment). It is relevant (assignment predicts take-up) and satisfies the exclusion restriction (assignment only affects outcomes through participation).\nLATE is estimated for compliers — villages that participate when assigned to treatment and do not when assigned to control. It excludes always-takers (participate regardless) and never-takers (never participate). LATE differs from ATT because ATT includes always-takers (who are treated but whose treatment status is unaffected by the instrument), whereas LATE does not.\nWith 12 hypotheses tested at 5% each, the familywise error rate \\(\\approx 1 - (0.95)^{12} \\approx 46\\%\\). Looking at naive p-values, H10 appears significant at \\(p = 0.045\\) — but the FWER-adjusted p-value is \\(0.315\\), which is not significant. Without the PAP and multiple testing correction, one could cherry-pick H10 and report a misleading positive result.\nDiD assumption: absent GoBifo, treated and control villages would have evolved at the same rate (parallel trends). This is much less credible than the RCT assumption. The RCT guarantees comparability by design. DiD only assumes comparability in trends, which is untestable in the post-period and could fail if, for example, treated villages received other external aid simultaneously.\n\n\n\n\n\n\nExercise 6: Fixed Effects — True or False\nState whether each claim is True or False and briefly explain.\n\nIncluding country fixed effects in a panel regression controls for time-varying shocks that affect all countries equally.\nA unit fixed effect absorbs any time-invariant confounders, so OLS with fixed effects is always unbiased.\nIn a regression with a post-treatment dummy, a group dummy, and their interaction, the interaction coefficient equals the DiD estimate.\nIf temperature is constant over time within each country, adding country fixed effects makes it impossible to identify the effect of temperature on GDP using within-country variation.\n\n\n\n\n\n\n\nCautionAnswers — Exercise 6\n\n\n\n\n\n\nFALSE. Country fixed effects control for permanent, time-invariant country characteristics. It is year (time) fixed effects that control for common shocks affecting all countries equally in a given period.\nFALSE. Fixed effects only absorb time-invariant unobservables. If there are time-varying confounders (e.g. a country simultaneously adopts a policy and benefits from an oil boom), OLS with FE remains biased.\nTRUE. In \\(y_{it} = \\alpha_0 + \\alpha_1 \\cdot \\text{Treated}_i + \\alpha_2 \\cdot \\text{Post}_t + \\alpha_3 \\cdot (\\text{Treated}_i \\times \\text{Post}_t) + \\varepsilon_{it}\\), \\(\\alpha_3\\) is the difference-in-differences estimator.\nTRUE. A time-invariant variable is perfectly collinear with the unit fixed effects — after the within transformation, it drops out and cannot be estimated. This is a fundamental limitation of FE: you cannot identify the effect of variables that do not vary within units over time.",
+    "crumbs": [
+      "Tutorial 7"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#roadmap",
+    "href": "tutorial4.html#roadmap",
+    "title": "Tutorial 4",
+    "section": "Roadmap",
+    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#recap-on-ols-failures",
+    "href": "tutorial4.html#recap-on-ols-failures",
+    "title": "Tutorial 4",
+    "section": "Recap on OLS failures",
+    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#instrumental-variable-in-r",
+    "href": "tutorial4.html#instrumental-variable-in-r",
+    "title": "Tutorial 4",
+    "section": "Instrumental variable in R",
+    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\hat{\\pi}_0 + \\hat{\\pi}_1 z_i\\)\nSecond stage: \\[y_i = \\alpha + \\beta x_i + \\epsilon_i = \\alpha + \\beta \\hat{x}_i + \\epsilon_i + \\beta \\hat{v}_i  = \\alpha + \\beta \\hat{x}_i + \\mu_i \\]\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "tutorial4.html#replication-of-acemoglu-et-al-2001",
+    "href": "tutorial4.html#replication-of-acemoglu-et-al-2001",
+    "title": "Tutorial 4",
+    "section": "Replication of Acemoglu et al (2001)",
+    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance",
+    "crumbs": [
+      "Tutorial 4"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
     "section": "",
-    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
+    "text": "home.qmd"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Welcome to this class!",
+    "section": "",
+    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
     "crumbs": [
-      "Tutorial 6"
+      "Home"
     ]
   },
   {
-    "objectID": "tutorial6.html#exercise-1-estimation-strategy",
-    "href": "tutorial6.html#exercise-1-estimation-strategy",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
-    "section": "Exercise 1: Estimation strategy",
-    "text": "Exercise 1: Estimation strategy\nMost answers are in the introduction of the paper.\n\nWhy would a simple OLS regression of child mortality on pollution lead to biased estimates?\nA common IV strategy for pollution is to use regulation. Why do the authors argue that it leads to a weak first stage?\nThe authors argue that the external validity of the results found in developed countries is low. Why? Would we over- or under-estimate the real effect if we were to extrapolate the coefficients found in developed/less polluted countries to Mexico?\nThe first strategy of the authors is presented in equation (2): add municipality and municipality-time fixed effects as covariates. Why would it improve the quality of the estimation?\nThe second strategy is an instrumental variable strategy presented in equations (3) and (4). The authors suggest using thermal inversion as an instrument for air pollution. Discuss the exogeneity and the relevance conditions of this instrument.",
+    "objectID": "home.html#class-outline",
+    "href": "home.html#class-outline",
+    "title": "Welcome to this class!",
+    "section": "Class outline",
+    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02) - Solutions\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nOLS estimator\nLinear regression in R\nReplication of Mankiw et al. (1997)\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (25/03 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (01/04 - computer session)\n\nSolution to Tutorial 6\nTreatment effects and research design\n\nTutorial 8 (08/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (15/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (22/04 - computer session)\n\nWork in group on the research project\n\nTutorial 11 (06/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (13/05)\n\nMock exam correction\n\nTutorial 13 (20/05)\n\nRestitution of the group projects (graded)\nFinal Q&A\n\nTutorial 14 (27/05)\n\nRestitution of the group projects (graded)\nFinal Q&A",
     "crumbs": [
-      "Tutorial 6"
+      "Home"
     ]
   },
   {
-    "objectID": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
-    "href": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
-    "section": "Exercise 2: Data cleaning and visual representation",
-    "text": "Exercise 2: Data cleaning and visual representation\n\nOpen the raw data\nControl variables include w_tmp_mean, w_precip, w_cloud, w_evap, w_invterm. Keep only observations for which those controls are not missing.\nRemove if w_tmp_impute is 1 (ie, if the temperature is imputed).",
+    "objectID": "home.html#about-this-site",
+    "href": "home.html#about-this-site",
+    "title": "Welcome to this class!",
+    "section": "About this site",
+    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
     "crumbs": [
-      "Tutorial 6"
-    ]
-  },
-  {
-    "objectID": "tutorial6.html#exercise-3-descriptive-evidence",
-    "href": "tutorial6.html#exercise-3-descriptive-evidence",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
-    "section": "Exercise 3: Descriptive evidence",
-    "text": "Exercise 3: Descriptive evidence\n\nCompute the monthly average of thermal inversion (w_invterm) and the monthly average temperature (w_tmp_mean).\nReplicate Figure 3 using ggplot. The mortality variables are rw_infant_1y and grw_infant_1y. Export the graph to your .tex file.",
-    "crumbs": [
-      "Tutorial 6"
-    ]
-  },
-  {
-    "objectID": "tutorial6.html#exercise-4-empirical-analysis",
-    "href": "tutorial6.html#exercise-4-empirical-analysis",
-    "title": "Tutorial 6: Autonomous replication of an IV paper",
-    "section": "Exercise 4: Empirical analysis",
-    "text": "Exercise 4: Empirical analysis\n\nCreate dat_reg, the dataset containing all the variables needed for the IV and fixed effect strategies. Some covariates need to be constructed\n\nmunicipality FE\nmunicipality-specific time (week) trend\ntwo month of the year x municipality FE\nfourth degree polynomial of average temperature\nthird degree polynomial min/max temperature\nsecond degree polynomial precipitation and cloud and humidity\n\nRemove observations of each pollutant when it is part of the top and bottom 1%. Multiply CO, SO2 and O3 measures by 1000 to be consistent with the units of the paper.\nFor at least one of the four pollution measures, estimate the first stage of the IV strategy (results in Table 2). Export and interpret the results: Does the IV seem valid?\n\nNote 1: observations are weighted by the number of births births_1y\nNote 2: no need to include the F statistics\n\nReplicate column (2) and (4) of Table 3 (Fixed effect and IV strategy) for PM10 and CO\n[Bonus] Rerun the analysis without dropping the outliers. Interpret.\nInterpretation: Discuss the following statements, about the interpretation of the results as causal effects\n\nThe effect of pollution on mortality is strong among infants, not among newborns (see table 3). It suggests the estimates are not capturing any “harvesting” effect (see p. 273 for a definition)\nThe decomposition of the effects by cause of death (table 4) confirms that we can interpret the coefficients as causal effect of pollution on mortality",
-    "crumbs": [
-      "Tutorial 6"
+      "Home"
     ]
   },
   {
@@ -318,80 +415,63 @@
     ]
   },
   {
-    "objectID": "home.html",
-    "href": "home.html",
-    "title": "Welcome to this class!",
+    "objectID": "tutorial6.html",
+    "href": "tutorial6.html",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
     "section": "",
-    "text": "This website will walk you through the tutorials for the Topics in Economics (1S002) course of Ecole Polytechnique’s Bachelor program.\nThe course has 3 main objectives:",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
     "crumbs": [
-      "Home"
+      "Tutorial 6"
     ]
   },
   {
-    "objectID": "home.html#class-outline",
-    "href": "home.html#class-outline",
-    "title": "Welcome to this class!",
-    "section": "Class outline",
-    "text": "Class outline\n\nTutorial 1 (11/02 - computer session)\n\nPresentation of the class objectives\nFirst hands on R\nFirst hands on LaTeX\n\nTutorial 2 (18/02) - Solutions\n\nBaseline Solow model derivations\nSolow model extensions\n\nTutorial 3 (25/02 - computer session)\n\nOLS estimator\nLinear regression in R\nReplication of Mankiw et al. (1997)\n\nTutorial 4 (11/03 - computer session)\n\nOLS bias and Instrumental Variables\nReplication of Acemoglu et al. (2010)\nExport the results\n\nTutorial 5 (18/03)\n\nDiscussion on the group project\nQ&A\n\nTutorial 6 (01/04 - computer session)\n\nAutonomous replication of an IV paper (handed in)\n\nTutorial 7 (08/04 - computer session)\n\nTreatment effect\nSolution of Tutorial 6\n\nTutorial 8 (15/04)\n\nRefresher on utility maximization program\nIntertemporal maximization problem\n\nTutorial 9 (22/04 - computer session)\n\nWork-leisure trade-off\nWomen labour force participation\n\nTutorial 10 (06/05 - computer session)\n\nHow to write the research project\n\nTutorial 11 (13/05 - computer session)\n\nDifference-in-differences estimation\nMarriage output matrices\nMeasures of assortative mating\n\nTutorial 12 (20/05)\n\nMock exam correction\n\nTutorial 13 (27/05)\n\nResearch project\nFinal Q&A\n\nTutorial 14 (TBD)\n\nRestitution of the group projects (graded)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "home.html#about-this-site",
-    "href": "home.html#about-this-site",
-    "title": "Welcome to this class!",
-    "section": "About this site",
-    "text": "About this site\nThis site is for teaching purpose. The majority of its material was built by Matéo Moglia, who taught this class in previous years. It is inspired by the following sources:\n\nFlorian Oswald teaching material at Sciences Po\nR Tutorials of the French Ministry of Ecology (in French)\nThe infamous online book Econometrics with R",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
+    "objectID": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "href": "tutorial6.html#arceo-hanna-and-oliva-the-economic-journal-2015",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
     "section": "",
-    "text": "home.qmd"
-  },
-  {
-    "objectID": "tutorial4.html#roadmap",
-    "href": "tutorial4.html#roadmap",
-    "title": "Tutorial 4",
-    "section": "Roadmap",
-    "text": "Roadmap\nIn this tutorial, we are going to\n\nDo a recap on failures of the Gauss-Markov theorem assumptions\nLearn how to implement an instrumental variable strategy in R\nReplicate the key results from Acemoglu, Johnson & Robinson (2001)",
+    "text": "Does air pollution affect child mortality? Is this relationship linear? Most estimates from the literature are from developed countries, with low external validity to developing countries. In this paper, the authors propose a novel estimation of the effect of air pollution on infant and newborn mortality, in a developing context: Mexico.\n\n\n\n\n\n\nNote\n\n\n\nFor this PC, you are asked to upload a .pdf file at the end of the day. You can work in group. This is not graded but the output quality will be taken into account for the participation grade. Please upload the file on Moodle with the following naming convention: “PC6_GR1_NAME1_NAME2.pdf” or “PC6_GR2_NAME1_NAME2.pdf” (in alphabetical order).\n\n\n\nVariables used in the replication\n\n\nVariable\nDescription\n\n\n\n\nw_tmp_mean\nAverage temperature\n\n\nw_precip\nPrecipitation\n\n\nw_evap\nEvaporation\n\n\nw_invterm\nThermal inversion\n\n\nrw_infant_1y\nChild mortality (aged 1) in Mexico\n\n\ngrw_infant_1y\nChild mortality (aged 1) in Guadalajara\n\n\npm10_max24hr\nPM10 pollution\n\n\nco_max8hr\nCo pollution\n\n\nso2_mean\nSulfure dioxyde pollution\n\n\no3_mean\nOzone pollution\n\n\nm\nMunicipal ID\n\n\nweek, month, year\nTime ID",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 6"
     ]
   },
   {
-    "objectID": "tutorial4.html#recap-on-ols-failures",
-    "href": "tutorial4.html#recap-on-ols-failures",
-    "title": "Tutorial 4",
-    "section": "Recap on OLS failures",
-    "text": "Recap on OLS failures\nGauss-Markov\nUnder the following assumptions:\n\n\nLinearity of the “true” model \\(y = x'\\beta + \\epsilon\\)\n\n\nObserved sample \\((y_i,x_i)_{i= 1...n}\\) is a random sample with the same distribution as \\((y,x)\\)\n\n\nNo perfect collinearity between the covariates in the sample (and in the population)\n\n\nZero conditional mean \\(E(\\epsilon|x) =0\\)\n\n\nHomoskedasticity \\(Var(\\epsilon|x_1,...,x_n) = \\sigma^2\\)\n\n\nThe OLS estimator is BLUE: best linear unbiased estimator\n\nLinear estimator: \\(\\hat{\\beta}_j = \\sum\\limits_1^n w_{ij} y_i\\), \\(w_{ij}\\) functions of \\(x_1,...x_n\\)\nUnbiased: \\(E(\\hat{\\beta}|x_1,...,x_n) = \\beta\\)\n“Best”: smallest variance of all linear unbiased estimators, conditional on observed \\(x_1,...x_n\\)",
+    "objectID": "tutorial6.html#exercise-1-estimation-strategy",
+    "href": "tutorial6.html#exercise-1-estimation-strategy",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 1: Estimation strategy",
+    "text": "Exercise 1: Estimation strategy\nMost answers are in the introduction of the paper.\n\nWhy would a simple OLS regression of child mortality on pollution lead to biased estimates?\nA common IV strategy for pollution is to use regulation. Why do the authors argue that it leads to a weak first stage?\nThe authors argue that the external validity of the results found in developed countries is low. Why? Would we over- or under-estimate the real effect if we were to extrapolate the coefficients found in developed/less polluted countries to Mexico?\nThe first strategy of the authors is presented in equation (2): add municipality and municipality-time fixed effects as covariates. Why would it improve the quality of the estimation?\nThe second strategy is an instrumental variable strategy presented in equations (3) and (4). The authors suggest using thermal inversion as an instrument for air pollution. Discuss the exogeneity and the relevance conditions of this instrument.",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 6"
     ]
   },
   {
-    "objectID": "tutorial4.html#instrumental-variable-in-r",
-    "href": "tutorial4.html#instrumental-variable-in-r",
-    "title": "Tutorial 4",
-    "section": "Instrumental variable in R",
-    "text": "Instrumental variable in R\nRecap on the strategy\n\nTrue model: \\(y_i = \\alpha + \\beta x_i + \\epsilon_i\\)\nOLS estimator is biased because \\(E(\\epsilon|x) \\neq 0\\)\nConsider an instrument \\(z\\) such that\n\n\\(E(\\epsilon|z) = 0\\) (exogeneity)\n\\(Cov(z,x) \\neq 0\\) (relevance)\n\nFirst stage: \\(x_i = \\pi_0 + \\pi_1 z_i + v_i\\)\nPredicted values: \\(\\hat{x}_i = \\hat{\\pi}_0 + \\hat{\\pi}_1 z_i\\)\nSecond stage: \\[y_i = \\alpha + \\beta x_i + \\epsilon_i = \\alpha + \\beta \\hat{x}_i + \\epsilon_i + \\beta \\hat{v}_i  = \\alpha + \\beta \\hat{x}_i + \\mu_i \\]\nEstimated coefficient: \\(E(\\hat{\\beta}|\\hat{x}) = \\frac{Cov(\\hat{x},y)}{Var(\\hat{x})} = \\beta + \\frac{Cov(\\hat{x},\\mu)}{Var(\\hat{x})}\\), and \\(Cov(\\hat{x},\\mu) = 0\\) by construction",
+    "objectID": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "href": "tutorial6.html#exercise-2-data-cleaning-and-visual-representation",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 2: Data cleaning and visual representation",
+    "text": "Exercise 2: Data cleaning and visual representation\n\nOpen the raw data\nControl variables include w_tmp_mean, w_precip, w_cloud, w_evap, w_invterm. Keep only observations for which those controls are not missing.\nRemove if w_tmp_impute is 1 (ie, if the temperature is imputed).",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 6"
     ]
   },
   {
-    "objectID": "tutorial4.html#replication-of-acemoglu-et-al-2001",
-    "href": "tutorial4.html#replication-of-acemoglu-et-al-2001",
-    "title": "Tutorial 4",
-    "section": "Replication of Acemoglu et al (2001)",
-    "text": "Replication of Acemoglu et al (2001)\nSummary of the paper\n\nDaron Acemoglu, Simon Johnson and James Robinson received the 2024 Nobel Prize for their work on understanding the differences in prosperity between nations\nTheir key contribution is to study the role of institutions in economic development, and to show that good institutions are a key driver of economic growth. You can find their Nobel Prize lecture here\nInstitutions include formal rules (e.g. property rights, rule of law) and informal constraints (e.g. social norms, culture)\nIn 2001, they published a very influential paper: “The Colonial Origins of Comparative Development” in the American Economic Review\nThey show that the heterogeneous way former European colonizers set up institutions in their colonies explains a large share of the observed disparity in their current economic performance",
+    "objectID": "tutorial6.html#exercise-3-descriptive-evidence",
+    "href": "tutorial6.html#exercise-3-descriptive-evidence",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 3: Descriptive evidence",
+    "text": "Exercise 3: Descriptive evidence\n\nCompute the monthly average of thermal inversion (w_invterm) and the monthly average temperature (w_tmp_mean).\nReplicate Figure 3 using ggplot. The mortality variables are rw_infant_1y and grw_infant_1y. Export the graph to your .tex file.",
     "crumbs": [
-      "Tutorial 4"
+      "Tutorial 6"
+    ]
+  },
+  {
+    "objectID": "tutorial6.html#exercise-4-empirical-analysis",
+    "href": "tutorial6.html#exercise-4-empirical-analysis",
+    "title": "Tutorial 6: Autonomous replication of an IV paper",
+    "section": "Exercise 4: Empirical analysis",
+    "text": "Exercise 4: Empirical analysis\n\nCreate dat_reg, the dataset containing all the variables needed for the IV and fixed effect strategies. Some covariates need to be constructed\n\nmunicipality FE\nmunicipality-specific time (week) trend\ntwo month of the year x municipality FE\nfourth degree polynomial of average temperature\nthird degree polynomial min/max temperature\nsecond degree polynomial precipitation and cloud and humidity\n\nRemove observations of each pollutant when it is part of the top and bottom 1%. Multiply CO, SO2 and O3 measures by 1000 to be consistent with the units of the paper.\nFor at least one of the four pollution measures, estimate the first stage of the IV strategy (results in Table 2). Export and interpret the results: Does the IV seem valid?\n\nNote 1: observations are weighted by the number of births births_1y\nNote 2: no need to include the F statistics\n\nReplicate column (2) and (4) of Table 3 (Fixed effect and IV strategy) for PM10 and CO\n[Bonus] Rerun the analysis without dropping the outliers. Interpret.\nInterpretation: Discuss the following statements, about the interpretation of the results as causal effects\n\nThe effect of pollution on mortality is strong among infants, not among newborns (see table 3). It suggests the estimates are not capturing any “harvesting” effect (see p. 273 for a definition)\nThe decomposition of the effects by cause of death (table 4) confirms that we can interpret the coefficients as causal effect of pollution on mortality",
+    "crumbs": [
+      "Tutorial 6"
     ]
   },
   {

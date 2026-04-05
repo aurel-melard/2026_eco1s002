@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Tutoring Session: Treatment Effects, Causal Identification – Petite classe ECO1S002</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-df425011a876eafec65ea127e2c6cff2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial7.html">Tutorial 7</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Petite classe ECO1S002</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./home.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 5</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 6</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Tutorial 7</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+   
+  <ul>
+  <li><a href="#causal-inference" id="toc-causal-inference" class="nav-link active" data-scroll-target="#causal-inference">1. Causal Inference</a></li>
+  <li><a href="#the-rubin-potential-outcomes-model" id="toc-the-rubin-potential-outcomes-model" class="nav-link" data-scroll-target="#the-rubin-potential-outcomes-model">2. The Rubin Potential Outcomes Model</a>
+  <ul class="collapse">
+  <li><a href="#illustrative-example-surgery-vs-chemotherapy" id="toc-illustrative-example-surgery-vs-chemotherapy" class="nav-link" data-scroll-target="#illustrative-example-surgery-vs-chemotherapy">Illustrative Example — Surgery vs Chemotherapy</a></li>
+  </ul></li>
+  <li><a href="#treatment-effects-ate-att-atu-and-late" id="toc-treatment-effects-ate-att-atu-and-late" class="nav-link" data-scroll-target="#treatment-effects-ate-att-atu-and-late">3. Treatment effects: ATE, ATT, ATU, and LATE</a></li>
+  <li><a href="#key-assumption-sutva---stable-unit-treatment-value-assumption" id="toc-key-assumption-sutva---stable-unit-treatment-value-assumption" class="nav-link" data-scroll-target="#key-assumption-sutva---stable-unit-treatment-value-assumption">4. Key Assumption: SUTVA - Stable Unit Treatment Value Assumption</a></li>
+  <li><a href="#research-designs" id="toc-research-designs" class="nav-link" data-scroll-target="#research-designs">5. Research Designs</a></li>
+  <li><a href="#fixed-effects-and-did" id="toc-fixed-effects-and-did" class="nav-link" data-scroll-target="#fixed-effects-and-did">6. Fixed Effects and DiD</a>
+  <ul class="collapse">
+  <li><a href="#the-within-transformation" id="toc-the-within-transformation" class="nav-link" data-scroll-target="#the-within-transformation">6.1 The Within Transformation</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">6.2 Interpretation</a></li>
+  <li><a href="#parallel-trends-the-critical-did-assumption" id="toc-parallel-trends-the-critical-did-assumption" class="nav-link" data-scroll-target="#parallel-trends-the-critical-did-assumption">6.3 Parallel Trends — The Critical DiD Assumption</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">7. Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-potential-outcomes" id="toc-exercise-1-potential-outcomes" class="nav-link" data-scroll-target="#exercise-1-potential-outcomes">Exercise 1: Potential Outcomes</a></li>
+  <li><a href="#exercise-2-sutva-violations-in-practice" id="toc-exercise-2-sutva-violations-in-practice" class="nav-link" data-scroll-target="#exercise-2-sutva-violations-in-practice">Exercise 2: SUTVA — Violations in Practice</a></li>
+  <li><a href="#exercise-3-did-manual-computation-card-krueger" id="toc-exercise-3-did-manual-computation-card-krueger" class="nav-link" data-scroll-target="#exercise-3-did-manual-computation-card-krueger">Exercise 3: DiD — Manual Computation (Card &amp; Krueger)</a></li>
+  <li><a href="#exercise-4-interpreting-an-event-study-graph" id="toc-exercise-4-interpreting-an-event-study-graph" class="nav-link" data-scroll-target="#exercise-4-interpreting-an-event-study-graph">Exercise 4: Interpreting an Event Study Graph</a></li>
+  <li><a href="#exercise-5-connecting-iv-rct-and-did" id="toc-exercise-5-connecting-iv-rct-and-did" class="nav-link" data-scroll-target="#exercise-5-connecting-iv-rct-and-did">Exercise 5: Connecting IV, RCT, and DiD</a></li>
+  <li><a href="#exercise-6-fixed-effects-true-or-false" id="toc-exercise-6-fixed-effects-true-or-false" class="nav-link" data-scroll-target="#exercise-6-fixed-effects-true-or-false">Exercise 6: Fixed Effects — True or False</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tutoring Session: Treatment Effects, Causal Identification</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This session covers the Rubin potential outcomes model and treatment effects estimation.</p>
+<section id="causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="causal-inference">1. Causal Inference</h2>
+<p><strong>Core question:</strong> does X <em>cause</em> Y, or do X and Y just happen together?</p>
+<p>Piketty and Valdenaire (2016): Does larger class size improve students’ test scores? Or do better student tend to be in larger classes?</p>
+<ul>
+<li>To know the causal effect, we would need to observe the same student in two parallel worlds.</li>
+</ul>
+<!-- -->
+<ul>
+<li>We can only observe one potential outcome per unit at a time. The other is the <em>counterfactual</em> — it never happened and can never be directly observed.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Individual causal effect for unit</strong> <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[\tau_i = Y_i(1) - Y_i(0)\]</span></p>
+<p>where <span class="math inline">\(Y_i(1)\)</span> is the outcome <em>if treated</em> and <span class="math inline">\(Y_i(0)\)</span> is the outcome <em>if not treated</em>.</p>
+</div>
+</div>
+<p><strong>Naive estimate:</strong> compare average outcomes between those who received treatment and those who did not:</p>
+<p><span class="math display">\[E[Y \mid D=1] - E[Y \mid D=0] = \underbrace{E[Y(1) - Y(0)| D = 1]}_{\text{ATT}} + \underbrace{E[Y(0) \mid D=1] - E[Y(0) \mid D=0]}_{\text{Selection Bias}}\]</span></p>
+<p>The <strong>selection bias</strong> term reflects that treated and untreated units may differ in their baseline outcomes. This is a case of endogeneity: <span class="math inline">\(E[\varepsilon \mid X] \neq 0\)</span>.</p>
+</section>
+<section id="the-rubin-potential-outcomes-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-rubin-potential-outcomes-model">2. The Rubin Potential Outcomes Model</h2>
+<p>Developed by Donald Rubin (1974), it formalises causality through potential outcomes.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(D_i \in \{0,1\}\)</span></td>
+<td>Treatment indicator: 1 if unit <span class="math inline">\(i\)</span> receives treatment, 0 otherwise</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Y_i(1)\)</span></td>
+<td>Potential outcome for unit <span class="math inline">\(i\)</span> under treatment</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Y_i(0)\)</span></td>
+<td>Potential outcome for unit <span class="math inline">\(i\)</span> under control</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Y_i\)</span> (observed)</td>
+<td><span class="math inline">\(Y_i = D_i \cdot Y_i(1) + (1-D_i) \cdot Y_i(0)\)</span> — the switching equation</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tau_i\)</span></td>
+<td>Individual treatment effect: <span class="math inline">\(Y_i(1) - Y_i(0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<section id="illustrative-example-surgery-vs-chemotherapy" class="level3">
+<h3 class="anchored" data-anchor-id="illustrative-example-surgery-vs-chemotherapy">Illustrative Example — Surgery vs Chemotherapy</h3>
+<p>The table below shows hypothetical post-treatment life spans (in years).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Patient</th>
+<th><span class="math inline">\(Y(1)\)</span> Surgery</th>
+<th><span class="math inline">\(Y(0)\)</span> Chemo</th>
+<th><span class="math inline">\(\tau_i\)</span></th>
+<th><span class="math inline">\(D\)</span> (actual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+<td><em>8</em></td>
+<td>+2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td><em>4</em></td>
+<td>6</td>
+<td>−2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>9</td>
+<td><em>7</em></td>
+<td>+2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td><em>3</em></td>
+<td>5</td>
+<td>−2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>7</td>
+<td><em>6</em></td>
+<td>+1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="treatment-effects-ate-att-atu-and-late" class="level2">
+<h2 class="anchored" data-anchor-id="treatment-effects-ate-att-atu-and-late">3. Treatment effects: ATE, ATT, ATU, and LATE</h2>
+<p>Since individual effects <span class="math inline">\(\tau_i\)</span> are unobservable, we estimate average effects over subpopulations</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Average Treatment Effect (ATE)</strong></p>
+<p><span class="math display">\[\text{ATE} = E[Y(1) - Y(0)] = E[\tau_i]\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Average Treatment Effect on the Treated (ATT)</strong></p>
+<p><span class="math display">\[\text{ATT} = E[Y(1) - Y(0) \mid D=1]\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Average Treatment Effect on the Untreated (ATU)</strong></p>
+<p><span class="math display">\[\text{ATU} = E[Y(1) - Y(0) \mid D=0]\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Local Average Treatment Effect (LATE)</strong></p>
+<p><span class="math display">\[\text{LATE} = E[Y(1) - Y(0) \mid \text{complier}] = \frac{E[Y| Z=1] -E[Y| Z=0] }{E[D| Z=1] -E[D| Z=0]}\]</span></p>
+<p>The average treatment effect for the <strong>complier subpopulation</strong>: take up treatment when assigned to it, and do not take it up when not (eg: encouragement treatment).</p>
+<ul>
+<li><strong>Always-takers:</strong> participate regardless of assignment.</li>
+<li><strong>Never-takers:</strong> never participate regardless of assignment.</li>
+<li><strong>Defiers:</strong> do the opposite of their assignment (usually ruled out by monotonicity).</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>ATE is a weighted average of ATT and ATU: <span class="math display">\[\text{ATE} = P(D=1) \cdot \text{ATT} + P(D=0) \cdot \text{ATU}\]</span></p></li>
+<li><p>Under <strong>random assignment with full compliance</strong>: treatment is independent of potential outcomes, so ATT = ATU = ATE. There is no selection bias.</p></li>
+<li><p>Under <strong>random assignment with partial compliance</strong> (some assigned units do not comply): the ITT (Intent-to-Treat) estimator still identifies an unbiased effect of <em>assignment</em>, but not of <em>treatment receipt</em>. Using assignment as an instrument for actual receipt recovers the <strong>LATE</strong> .</p></li>
+<li><p>Under <strong>self-selection</strong>: people who expect to benefit most tend to select into treatment. Typically ATT &gt; ATE &gt; ATU.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="key-assumption-sutva---stable-unit-treatment-value-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="key-assumption-sutva---stable-unit-treatment-value-assumption">4. Key Assumption: SUTVA - Stable Unit Treatment Value Assumption</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>SUTVA has two components:</strong></p>
+<ol type="1">
+<li><strong>No spillover:</strong> unit <span class="math inline">\(i\)</span>’s potential outcome does not depend on the treatment assignment of unit <span class="math inline">\(j\)</span>.</li>
+<li><strong>Only one version of the treatment:</strong> the treatment is well-defined.</li>
+</ol>
+</div>
+</div>
+<p><strong>Examples of SUTVA violations:</strong></p>
+<ul>
+<li><strong>Spillovers / Externalities:</strong> a vaccination campaign protects the vaccinated but also reduces others’ infection risk (herd immunity).</li>
+<li><strong>General Equilibrium Effects:</strong> a job training programme raises wages for participants but may also affect wages for non-participants by changing labour supply.</li>
+<li><strong>Multiple versions of treatment:</strong> “attending university” is not one treatment — different universities may have very different effects. The treatment is not homogeneous.</li>
+</ul>
+</section>
+<section id="research-designs" class="level2">
+<h2 class="anchored" data-anchor-id="research-designs">5. Research Designs</h2>
+<p>Each design makes different assumptions to deal with <span class="math inline">\(E[\varepsilon \mid X] \neq 0\)</span> and estimates different treatment effects under these assumptions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design</th>
+<th>Core Assumption</th>
+<th>What it Controls For</th>
+<th>Identifies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RCT (full compliance)</td>
+<td>Random assignment of D <span class="math inline">\((Y(1),Y(0)) \perp D\)</span></td>
+<td>All confounders (observed and unobserved)</td>
+<td>ATE</td>
+</tr>
+<tr class="even">
+<td>RCT (partial compliance)</td>
+<td>Random assignment of <span class="math inline">\(Z\)</span>, instrument for <span class="math inline">\(D\)</span></td>
+<td>All confounders via instrument</td>
+<td>LATE</td>
+</tr>
+<tr class="odd">
+<td>OLS with controls</td>
+<td>Conditional ignorability: <span class="math inline">\((Y(1),Y(0)) \perp D \mid X\)</span></td>
+<td>Observed confounders <span class="math inline">\(X\)</span> only</td>
+<td>ATE</td>
+</tr>
+<tr class="even">
+<td>IV / TSLS</td>
+<td>Instrument <span class="math inline">\(z\)</span> correlated with <span class="math inline">\(D\)</span> but not <span class="math inline">\(\varepsilon\)</span></td>
+<td>Endogeneity from unobservables</td>
+<td>LATE</td>
+</tr>
+<tr class="odd">
+<td>DiD</td>
+<td>Parallel trends: trends identical absent treatment</td>
+<td>Time-invariant confounders + common trends</td>
+<td>ATT</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fixed-effects-and-did" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-and-did">6. Fixed Effects and DiD</h2>
+<section id="the-within-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="the-within-transformation">6.1 The Within Transformation</h3>
+<p>Recall from Lecture 5 the panel data model:</p>
+<p><span class="math display">\[y_{it} = \alpha + \beta \cdot x_{it} + a_i + \varepsilon_{it}\]</span></p>
+<p>where <span class="math inline">\(a_i\)</span> is the unit-specific fixed effect — a permanent, time-invariant characteristic of unit <span class="math inline">\(i\)</span> (geography, ability, culture, etc.). If <span class="math inline">\(\text{Cov}(x_{it}, a_i) \neq 0\)</span>, OLS without fixed effects is biased.</p>
+<p>The within transformation subtracts unit means:</p>
+<p><span class="math display">\[y_{it} - \bar{y}_i = \beta(x_{it} - \bar{x}_i) + (\varepsilon_{it} - \bar{\varepsilon}_i)\]</span></p>
+<p><span class="math inline">\(a_i\)</span> disappears. Fixed effects estimation is equivalent to including a dummy variable for each unit. The coefficient <span class="math inline">\(\beta\)</span> is identified purely from <strong>within-unit variation over time</strong>.</p>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">6.2 Interpretation</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>What it captures</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unit FE (<span class="math inline">\(\delta_i\)</span>)</td>
+<td>All time-invariant, unit-specific differences in <span class="math inline">\(y\)</span> not explained by <span class="math inline">\(x\)</span></td>
+<td>Country FE absorbs geography, institutions, culture — anything constant about a country over time</td>
+</tr>
+<tr class="even">
+<td>Time FE (<span class="math inline">\(\delta_t\)</span>)</td>
+<td>Common shocks to all units in period <span class="math inline">\(t\)</span></td>
+<td>Year FE absorbs the effect of events affecting all countries simultaneously (global oil price spikes, recessions)</td>
+</tr>
+<tr class="odd">
+<td>Interaction dummy (<span class="math inline">\(D \times \text{Post}\)</span>)</td>
+<td>Additional level shift for treated group after treatment — this is the DiD coefficient</td>
+<td>Treatment country after policy adoption shows extra change vs control countries’ trend</td>
+</tr>
+<tr class="even">
+<td>Control dummy</td>
+<td>Difference in average <span class="math inline">\(y\)</span> between groups, conditional on other covariates — a level shift</td>
+<td>Eg. continent dummy (if not enough identifying variation left after country FE)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parallel-trends-the-critical-did-assumption" class="level3">
+<h3 class="anchored" data-anchor-id="parallel-trends-the-critical-did-assumption">6.3 Parallel Trends — The Critical DiD Assumption</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Assumption:</strong> in the absence of treatment, the average outcome of the treated group would have evolved in the same way as the average outcome of the control group.</p>
+<p><strong>How to (indirectly) check it</strong></p>
+<ol type="1">
+<li><strong>Pre-trend test:</strong> run the DiD specification only in pre-treatment periods. Coefficients on time × treatment interactions should be near zero and insignificant.</li>
+<li><strong>Event study plot:</strong> plot <span class="math inline">\(\sigma_\tau\)</span> coefficients for each period around the treatment date (like Greenstone &amp; Hanna 2014). Before the treatment, the series should be flat.</li>
+<li><strong>Covariate balance:</strong> check that pre-treatment characteristics (like the GoBifo balance table, Lecture 4 slide 37) are similar across treatment and control.</li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">7. Exercises</h2>
+<section id="exercise-1-potential-outcomes" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-1-potential-outcomes">Exercise 1: Potential Outcomes</h3>
+<p>A firm offers a training programme to five workers. The table below shows hypothetical potential wages (in €/hour):</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Potential wages exercise</caption>
+<thead>
+<tr class="header">
+<th>Worker</th>
+<th><span class="math inline">\(Y(1)\)</span> (trained)</th>
+<th><span class="math inline">\(Y(0)\)</span> (untrained)</th>
+<th><span class="math inline">\(D\)</span> (actual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>20</td>
+<td>15</td>
+<td>1 (trained)</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>14</td>
+<td>16</td>
+<td>0 (untrained)</td>
+</tr>
+<tr class="odd">
+<td>Carla</td>
+<td>22</td>
+<td>18</td>
+<td>1 (trained)</td>
+</tr>
+<tr class="even">
+<td>David</td>
+<td>12</td>
+<td>13</td>
+<td>0 (untrained)</td>
+</tr>
+<tr class="odd">
+<td>Eva</td>
+<td>18</td>
+<td>14</td>
+<td>1 (trained)</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Compute each worker’s individual treatment effect <span class="math inline">\(\tau_i = Y(1) - Y(0)\)</span>.</li>
+<li>Compute the ATE across all five workers, ATT and ATU.</li>
+<li>Now pretend you don’t observe the counterfactuals. Compare average observed wages of trained vs untrained workers (the naive estimate). By how much does it differ from the ATT? Explain the source of the bias.</li>
+<li>Why is ATT <span class="math inline">\(\neq\)</span> ATE here? What does this tell you about who selected into training?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><span class="math inline">\(\tau\)</span>: Alice <span class="math inline">\(+5\)</span>, Bob <span class="math inline">\(-2\)</span>, Carla <span class="math inline">\(+4\)</span>, David <span class="math inline">\(-1\)</span>, Eva <span class="math inline">\(+4\)</span>.</p></li>
+<li><p><span class="math inline">\(\text{ATE} = (5 + (-2) + 4 + (-1) + 4) / 5 = 10/5 = +2\)</span>.</p>
+<p><span class="math inline">\(\text{ATT} = (5 + 4 + 4) / 3 = 13/3 \approx +4.33\)</span>.</p>
+<p><span class="math inline">\(\text{ATU} = (-2 + (-1)) / 2 = -3/2 = -1.5\)</span>.</p></li>
+<li><p>Mean(trained observed) <span class="math inline">\(= (20+22+18)/3 = 20\)</span>. Mean(untrained observed) <span class="math inline">\(= (16+13)/2 = 14.5\)</span>. Naive estimate <span class="math inline">\(= 20 - 14.5 = +5.5\)</span>. True ATT <span class="math inline">\(= 4.3\)</span>. Bias <span class="math inline">\(= 1.2\)</span>. Source: selection bias — workers who selected into training already had higher potential wages Y(0).</p></li>
+<li><p>ATT $= +4.33 &gt; $ ATE <span class="math inline">\(= 2\)</span>. The workers who self-selected into training were precisely those with the highest gains from it — positive selection on returns. Important for policy implications.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2-sutva-violations-in-practice" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-2-sutva-violations-in-practice">Exercise 2: SUTVA — Violations in Practice</h3>
+<p>For each scenario below, state whether SUTVA is likely satisfied or violated, and briefly explain why.</p>
+<ol type="1">
+<li><strong>Bednet distribution in Kenya:</strong> A randomised trial gives free insecticide-treated bednets to some villages to reduce malaria. Control villages receive no bednets.</li>
+<li><strong>Class size reduction:</strong> Some schools randomly receive extra funding to reduce class sizes.</li>
+<li><strong>College scholarship lottery:</strong> Scholarships are randomly allocated by lottery to individuals in a closed national programme. Winners go to university, losers do not.</li>
+<li><strong>Minimum wage increase in New Jersey (Card &amp; Krueger):</strong> New Jersey raises its minimum wage. Pennsylvania does not. Employment outcomes are compared across the two states.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Likely violated (interference).</strong> Malaria is transmitted by mosquitoes which move between villages. If mosquito density falls in treated villages, nearby control villagers may also face fewer mosquitoes — their potential outcomes depend on who is treated. This is a classic herd-immunity spillover.</p></li>
+<li><p><strong>Depends.</strong> Extra teacher resources in one school can reduce resources in another (assuming ). Each school’s outcome depends on its own treatment assignment only (no mobility).</p></li>
+<li><p><strong>Largely satisfied.</strong> Whether one individual wins a scholarship does not directly affect another individual’s outcome. However, if the programme is large enough, general equilibrium effects could emerge — more graduates may lower average graduate wages, affecting even non-recipients.</p></li>
+<li><p><strong>Potentially violated.</strong> The minimum wage is a price floor in a labour market. Workers might cross state lines; NJ restaurants might shift supply chains or locate near the border. General equilibrium and spillover effects are a key criticism of DiD estimates in this setting.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3-did-manual-computation-card-krueger" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-3-did-manual-computation-card-krueger">Exercise 3: DiD — Manual Computation (Card &amp; Krueger)</h3>
+<p>Card and Krueger (1994) studied fast-food employment in New Jersey (NJ) and Pennsylvania (PA) around NJ’s minimum wage increase. The data below shows the average number of full-time equivalent (FTE) employees per restaurant:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Before (Feb 1992)</th>
+<th>After (Nov 1992)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NJ (treated)</td>
+<td>20.44</td>
+<td>21.03</td>
+</tr>
+<tr class="even">
+<td>PA (control)</td>
+<td>23.33</td>
+<td>21.17</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Compute the “before-after” estimate for NJ only. What is the problem with this estimator?</li>
+<li>Compute the “treatment-control” cross-sectional estimate using only post-period data. What is the problem with this estimator?</li>
+<li>Compute the DiD estimate. Write down the OLS regression you would estimate to obtain the DiD coefficient. Define each variable.</li>
+<li>What estimand does the DiD recover here — ATE, ATT, or LATE? Explain.</li>
+<li>What assumption is critical for DiD to be valid here? How would you test it (what additional data would you need)?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Before-after (NJ only) <span class="math inline">\(= 21.03 - 20.44 = +0.59\)</span>. Problem: this confounds the treatment effect with any time trend (macroeconomic conditions, seasonal patterns) that would have affected NJ even without the minimum wage increase.</p></li>
+<li><p>Treatment-control (post only) <span class="math inline">\(= 21.03 - 21.17 = -0.14\)</span>. Problem: NJ and PA may have had permanently different employment levels before the minimum wage change. This does not use the pre-period information and cannot distinguish baseline differences from treatment effects.</p></li>
+<li><p>DiD <span class="math inline">\(= (21.03 - 20.44) - (21.17 - 23.33) = 0.59 - (-2.16) = +2.75\)</span> FTE. Equivalently: <span class="math inline">\((21.03 - 21.17) - (20.44 - 23.33) = -0.14 - (-2.89) = +2.75\)</span>. This is <span class="math inline">\(\alpha_3\)</span> in the regression: it captures the additional change in NJ relative to what PA experienced over the same period.</p>
+<p>Model: <span class="math inline">\(y_{it} = \alpha_0 + \alpha_1 \cdot \text{NJ}_i + \alpha_2 \cdot \text{Post}_t + \alpha_3 \cdot (\text{NJ}_i \times \text{Post}_t) + \varepsilon_{it}\)</span>, where <span class="math inline">\(\text{NJ}_i = 1\)</span> if restaurant is in NJ, <span class="math inline">\(\text{Post}_t = 1\)</span> if the observation is from November 1992, and <span class="math inline">\(\alpha_3 = +2.75\)</span> is the DiD estimate.</p></li>
+<li><p><strong>ATT.</strong> DiD recovers the effect of the minimum wage on the treated group — NJ restaurants. We are not estimating what would happen if all of the US adopted the same minimum wage (that would be the ATE).</p></li>
+<li><p><strong>Parallel trends:</strong> absent the NJ minimum wage hike, employment in NJ and PA would have evolved at the same rate. To test it, you would need pre-treatment data from multiple periods (e.g.&nbsp;1989–1991) and check that NJ and PA employment trended similarly before 1992. An event study plot would display these pre-period coefficients.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-4-interpreting-an-event-study-graph" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-4-interpreting-an-event-study-graph">Exercise 4: Interpreting an Event Study Graph</h3>
+<p>Refer to the event study graphs in Lecture 5 (Greenstone &amp; Hanna 2014, slides 38–39). Panel A shows the effect of the Supreme Court Action Plan (left) and the catalytic converter mandate (right) on particulate matter (PM). Figure 8 shows the effect of catalytic converters on infant mortality.</p>
+<ol type="1">
+<li>In an event study, what does a flat pre-trend (all <span class="math inline">\(\sigma_\tau \approx 0\)</span> for <span class="math inline">\(\tau &lt; 0\)</span>) tell you about the validity of the parallel trends assumption?</li>
+<li>For the Supreme Court Action Plan on PM: the pre-trend is not flat (large swings before the red dashed line). What does this suggest about the validity of the DiD estimate for this policy?</li>
+<li>For catalytic converters on infant mortality (Figure 8): the pre-trend is noisy but roughly centred on zero, and post-treatment estimates are negative. What do you conclude about whether catalytic converters reduced infant mortality?</li>
+<li>The regression specification for Greenstone &amp; Hanna includes both city fixed effects (<span class="math inline">\(\gamma_c\)</span>) and year fixed effects (<span class="math inline">\(\mu_t\)</span>). What two sources of bias do these respectively address?</li>
+<li>Why is it not valid to simply estimate <span class="math inline">\(y_{ct} = \alpha + \beta D_{ct} + \varepsilon_{ct}\)</span> (without fixed effects)? Connect your answer to the potential outcomes framework.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A flat pre-trend means that before treatment, treated and control cities were evolving at the same rate — consistent with parallel trends holding. It is a necessary but not sufficient condition: it does not prove trends would have continued to be parallel, but it is the best available evidence.</p></li>
+<li><p>Large swings in PM before the policy suggest that treated cities were already trending differently from control cities before the mandate. This makes the parallel trends assumption implausible and casts doubt on the DiD estimate — consistent with the paper’s finding that the Supreme Court Action Plan had no statistically significant effect on PM.</p></li>
+<li><p>Pre-treatment estimates are close to zero (though noisy), and post-treatment estimates are negative and trending downward. This is consistent with the catalytic converter mandate reducing infant mortality and supports the parallel trends assumption.</p></li>
+<li><p>City FE (<span class="math inline">\(\gamma_c\)</span>) controls for any time-invariant city characteristic affecting pollution — e.g.&nbsp;geographic location, baseline industrial structure, or permanent governance features. Year FE (<span class="math inline">\(\mu_t\)</span>) controls for national trends common to all cities — e.g.&nbsp;a national recession that would reduce industrial output and pollution in all cities simultaneously.</p></li>
+<li><p>Without fixed effects, we assume <span class="math inline">\(E[\varepsilon \mid D] = 0\)</span> — that cities adopting regulations are identical to those that do not in all relevant respects. This is implausible: cities that adopted regulations likely had higher baseline pollution and different governance. In potential outcomes terms, <span class="math inline">\(D_{ct}\)</span> is correlated with the unit-level unobservable <span class="math inline">\(a_i\)</span>, creating selection bias. The naive estimator would confound the treatment effect with pre-existing differences between treated and control cities.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-5-connecting-iv-rct-and-did" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-5-connecting-iv-rct-and-did">Exercise 5: Connecting IV, RCT, and DiD</h3>
+<p>Consider the GoBifo RCT from Lecture 4. 236 villages were randomly assigned to treatment (receiving the GoBifo programme) or control. The lecture notes that some villages had only partial take-up.</p>
+<ol type="1">
+<li>In a setting with full take-up, write down the regression used to estimate the treatment effect. What is the identifying assumption? What does the coefficient estimate — ATE, ATT, or LATE?</li>
+<li>Now suppose some villages assigned to treatment did not participate, and some control villages accessed the programme anyway. Write down the two-stage procedure (TSLS) that would recover a valid treatment effect. What is the instrument?</li>
+<li>The TSLS estimand in this case is the LATE. Who is the LATE estimated for? How does it differ from the ATT?</li>
+<li>The researchers used a Pre-Analysis Plan (PAP) and reported FWER-adjusted p-values. Looking at the results (Lecture 4, slides 39–40): hardware effects (H1–H3) are strongly significant, but software/institutional effects (H4–H12) are not. What would have happened to the software results if the researchers had used naive p-values only?</li>
+<li>If the researchers had instead used a DiD design (without randomisation), comparing treated vs control villages before and after the programme, what would be the key assumption they would need to rely on? Is this more or less credible than the RCT assumption?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><span class="math inline">\(y_i = \alpha + \beta \cdot T_i + \varepsilon_i\)</span>, where <span class="math inline">\(T_i \in \{0,1\}\)</span> is random assignment. Identifying assumption: random assignment ensures <span class="math inline">\(E[\varepsilon_i \mid T_i] = 0\)</span> — no selection bias. With full take-up and random assignment, this identifies the <strong>ATE</strong>.</p></li>
+<li><p>First stage: <span class="math inline">\(x_i = \pi_1 + \pi_2 \cdot T_i + \eta_i\)</span> (regress actual participation on assignment). Second stage: <span class="math inline">\(y_i = \alpha + \beta \cdot \hat{x}_i + u_i\)</span> (regress outcome on fitted participation). Instrument: <span class="math inline">\(T_i\)</span> (random assignment). It is relevant (assignment predicts take-up) and satisfies the exclusion restriction (assignment only affects outcomes through participation).</p></li>
+<li><p>LATE is estimated for <strong>compliers</strong> — villages that participate when assigned to treatment and do not when assigned to control. It excludes always-takers (participate regardless) and never-takers (never participate). LATE differs from ATT because ATT includes always-takers (who are treated but whose treatment status is unaffected by the instrument), whereas LATE does not.</p></li>
+<li><p>With 12 hypotheses tested at 5% each, the familywise error rate <span class="math inline">\(\approx 1 - (0.95)^{12} \approx 46\%\)</span>. Looking at naive p-values, H10 appears significant at <span class="math inline">\(p = 0.045\)</span> — but the FWER-adjusted p-value is <span class="math inline">\(0.315\)</span>, which is not significant. Without the PAP and multiple testing correction, one could cherry-pick H10 and report a misleading positive result.</p></li>
+<li><p>DiD assumption: absent GoBifo, treated and control villages would have evolved at the same rate (parallel trends). This is much less credible than the RCT assumption. The RCT guarantees comparability by design. DiD only assumes comparability in <em>trends</em>, which is untestable in the post-period and could fail if, for example, treated villages received other external aid simultaneously.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-6-fixed-effects-true-or-false" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exercise-6-fixed-effects-true-or-false">Exercise 6: Fixed Effects — True or False</h3>
+<p>State whether each claim is True or False and briefly explain.</p>
+<ol type="1">
+<li>Including country fixed effects in a panel regression controls for time-varying shocks that affect all countries equally.</li>
+<li>A unit fixed effect absorbs any time-invariant confounders, so OLS with fixed effects is always unbiased.</li>
+<li>In a regression with a post-treatment dummy, a group dummy, and their interaction, the interaction coefficient equals the DiD estimate.</li>
+<li>If temperature is constant over time within each country, adding country fixed effects makes it impossible to identify the effect of temperature on GDP using within-country variation.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Answers — Exercise 6
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>FALSE.</strong> Country fixed effects control for permanent, time-invariant country characteristics. It is <strong>year (time) fixed effects</strong> that control for common shocks affecting all countries equally in a given period.</p></li>
+<li><p><strong>FALSE.</strong> Fixed effects only absorb time-invariant unobservables. If there are time-varying confounders (e.g.&nbsp;a country simultaneously adopts a policy and benefits from an oil boom), OLS with FE remains biased.</p></li>
+<li><p><strong>TRUE.</strong> In <span class="math inline">\(y_{it} = \alpha_0 + \alpha_1 \cdot \text{Treated}_i + \alpha_2 \cdot \text{Post}_t + \alpha_3 \cdot (\text{Treated}_i \times \text{Post}_t) + \varepsilon_{it}\)</span>, <span class="math inline">\(\alpha_3\)</span> is the difference-in-differences estimator.</p></li>
+<li><p><strong>TRUE.</strong> A time-invariant variable is perfectly collinear with the unit fixed effects — after the within transformation, it drops out and cannot be estimated. This is a fundamental limitation of FE: you cannot identify the effect of variables that do not vary within units over time.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2026, Aurel Mélard</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
