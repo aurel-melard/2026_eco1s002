@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Petite classe ECO1S002</title>
+<title>Tutorial 8: Maximization program – Petite classe ECO1S002</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +69,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,9 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Petite classe ECO1S002
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial8.html">Tutorial 8</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -150,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial8.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial8.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorial 8</span></a>
   </div>
 </li>
@@ -159,13 +186,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+   
+  <ul>
+  <li><a href="#standard-utility-maximization-program" id="toc-standard-utility-maximization-program" class="nav-link active" data-scroll-target="#standard-utility-maximization-program">Standard utility maximization program</a></li>
+  <li><a href="#social-multiplier" id="toc-social-multiplier" class="nav-link" data-scroll-target="#social-multiplier">Social multiplier</a></li>
+  <li><a href="#fads-and-fashions" id="toc-fads-and-fashions" class="nav-link" data-scroll-target="#fads-and-fashions">Fads and fashions</a></li>
+  <li><a href="#intertemporal-consumption-and-the-social-multiplier-on-savings" id="toc-intertemporal-consumption-and-the-social-multiplier-on-savings" class="nav-link" data-scroll-target="#intertemporal-consumption-and-the-social-multiplier-on-savings">Intertemporal consumption and the social multiplier on savings</a>
+  <ul class="collapse">
+  <li><a href="#part-a-two-period-consumption" id="toc-part-a-two-period-consumption" class="nav-link" data-scroll-target="#part-a-two-period-consumption">Part A — Two-period consumption</a></li>
+  <li><a href="#part-b-a-social-multiplier-on-savings" id="toc-part-b-a-social-multiplier-on-savings" class="nav-link" data-scroll-target="#part-b-a-social-multiplier-on-savings">Part B — A social multiplier on savings</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Tutorial 8: Maximization program</h1>
 </div>
 
 
@@ -182,9 +223,114 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>home.qmd</p>
+<style>
+.math {
+  font-size: small;
+}
+
+details {
+  background-color: #f0f4ff;
+  border-left: 4px solid #4a6fa5;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin-top: 0.8em;
+}
+
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #4a6fa5;
+}
+</style>
+<p>In this exercise, we are going to:</p>
+<ol type="1">
+<li>Review how to maximize the utility of an agent under a budget constraint.</li>
+<li>Augment the standard model with the social multiplier.</li>
+<li>Study the fads and fashions model and its unconventional pricing implications.</li>
+<li>Augment the standard model by adding dynamics, and ask whether a social multiplier on savings can amplify interest-rate shocks.</li>
+</ol>
+<section id="standard-utility-maximization-program" class="level2">
+<h2 class="anchored" data-anchor-id="standard-utility-maximization-program">Standard utility maximization program</h2>
+<p>A representative agent derives utility from consuming two goods, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Each good comes at price <span class="math inline">\(p_x\)</span> and <span class="math inline">\(p_y\)</span>, respectively. The agent is also endowed with an income <span class="math inline">\(I\)</span> to spend on each good.</p>
+<p>The utility function is Cobb-Douglas and writes: <span class="math display">\[
+U(x,y) = x^\alpha y^\beta
+\]</span></p>
+<p>with <span class="math inline">\(\alpha,\beta&gt;0\)</span>.</p>
+<ol type="1">
+<li>Write the budget constraint.</li>
+<li>Write the utility maximization program.</li>
+</ol>
+<p>To solve the utility maximization program, we can set up a Lagrangian. The function <span class="math inline">\(\mathcal{L}(.)\)</span> is defined as the objective function minus the product between the budget constraint and a scalar <span class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p>
+<ol start="3" type="1">
+<li>Write the Lagrangian and set the first order conditions (partial derivative with respect to <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(\lambda\)</span> equal to zero) as a system.</li>
+<li>Solve the system for <span class="math inline">\(x^\star\)</span> and <span class="math inline">\(y^\star\)</span> and express them as a function of income and prices.</li>
+<li>Compute the indirect utility function <span class="math inline">\(V = U(x^\star,y^\star)\)</span>.</li>
+<li>Show that <span class="math inline">\(\lambda^\star = \partial V/\partial I\)</span>. Interpret.</li>
+<li>Compute the elasticity of demand of <span class="math inline">\(x\)</span> with respect to <span class="math inline">\(p_x\)</span>, <span class="math inline">\(p_y\)</span> and <span class="math inline">\(I\)</span>.</li>
+</ol>
+<p>The second order condition to reach a local maximum is: <span class="math inline">\(2p_x p_y U_{xy} - U_{xx}p_y^2 - U_{yy} p_x^2 &gt; 0\)</span> (where <span class="math inline">\(U_{xx}\)</span> is the second derivative of <span class="math inline">\(U\)</span> with respect to <span class="math inline">\(x\)</span>).</p>
+<ol start="8" type="1">
+<li>For <span class="math inline">\(p_x = 2\)</span>, <span class="math inline">\(p_y = 1\)</span>, <span class="math inline">\(I=10\)</span>, <span class="math inline">\(\alpha=\beta=0.5\)</span>, did we reach a (local) maximum?</li>
+</ol>
+<hr>
+</section>
+<section id="social-multiplier" class="level2">
+<h2 class="anchored" data-anchor-id="social-multiplier">Social multiplier</h2>
+<p>We augment the agent’s program. Utility can also depend on the behavior of others: for example, if you enjoy playing tennis, you may derive additional utility from the fact that many people around you also play tennis. We now assume that <span class="math inline">\(p_y = 1\)</span>. Utility now writes <span class="math inline">\(U = U(x, y, S)\)</span>, where <span class="math inline">\(S\)</span> is a measure of social capital (e.g., the average number of hours peers spend playing tennis), which each individual takes as <strong>given</strong>.</p>
+<ol type="1">
+<li>Solve the new program. Explain why including social capital <span class="math inline">\(S\)</span> does not change the form of the equilibrium condition.</li>
+<li>Show that <span class="math inline">\(\partial x^\star / \partial S &gt; 0 \iff U_{xS} &gt; p_x U_{yS}\)</span>. Interpret. <em>Hint: Differentiate the equilibrium condition and the budget constraint totally with respect to</em> <span class="math inline">\(S\)</span>. Use the second-order condition for a local maximum. Reminder — the Schwarz theorem states: <span class="math inline">\(f_{xy} = f_{yx}\)</span>.</li>
+</ol>
+<hr>
+</section>
+<section id="fads-and-fashions" class="level2">
+<h2 class="anchored" data-anchor-id="fads-and-fashions">Fads and fashions</h2>
+<p>Recall from the lecture the Becker (1991) model of fads. Aggregate demand for a good is <span class="math inline">\(Q = D(p, Z, Q)\)</span>, where <span class="math inline">\(p\)</span> is the price, <span class="math inline">\(Z\)</span> is a vector of exogenous demand shifters, and <span class="math inline">\(Q\)</span> also appears on the right-hand side because popularity itself raises demand (<span class="math inline">\(D_Q &gt; 0\)</span>). At equilibrium, quantity demanded must equal quantity supplied — so <span class="math inline">\(Q\)</span> is determined jointly by price and the self-referential popularity effect.</p>
+<p>The supply curve is <span class="math inline">\(Q = S(p)\)</span> with <span class="math inline">\(S'(p) &gt; 0\)</span> as usual. Denote by <span class="math inline">\(m = D_Q \in [0,1)\)</span> the social multiplier (we focus on the stable case for now).</p>
+<ol type="1">
+<li><p>The implicit equation <span class="math inline">\(Q = D(p, Z, Q)\)</span> defines <span class="math inline">\(Q\)</span> as a function of <span class="math inline">\(p\)</span> (and <span class="math inline">\(Z\)</span>). Using total differentiation, derive <span class="math inline">\(\frac{dQ}{dp}\)</span> and show that it equals <span class="math inline">\(\frac{D_p}{1-m}\)</span>. What is the sign of <span class="math inline">\(\frac{dQ}{dp}\)</span>, and under what condition is demand more elastic than it would be without social interactions?</p></li>
+<li><p>Explain intuitively why the social multiplier makes the demand curve steeper when <span class="math inline">\(m\)</span> is close to 1-.</p></li>
+<li><p>Now suppose <span class="math inline">\(m &gt; 1\)</span> locally (around some popularity threshold <span class="math inline">\(Q^\star\)</span>). Show that <span class="math inline">\(\frac{dQ}{dp} &gt; 0\)</span> in this region, i.e.&nbsp;the demand curve is <strong>upward-sloping</strong>. Give an intuition for why this is not as paradoxical as it sounds.</p></li>
+<li><p>A producer faces upward-sloping demand in the range <span class="math inline">\(Q &lt; Q^\star\)</span> and is currently at a low-popularity equilibrium <span class="math inline">\(Q_\ell &lt; Q^\star\)</span>. She is considering two strategies:</p>
+<ul>
+<li><strong>Strategy A</strong>: raise price to <span class="math inline">\(p^\star\)</span>, accept excess demand, and ration sales at <span class="math inline">\(Q^\star\)</span>.</li>
+<li><strong>Strategy B</strong>: lower price to attract more buyers and push <span class="math inline">\(Q\)</span> past <span class="math inline">\(Q^\star\)</span>, after which demand slopes normally.</li>
+</ul>
+<p>Under what conditions would Strategy A dominate Strategy B? What real-world pricing practices does this help explain?</p></li>
+<li><p>[Bonus] The lecture mentions the Groucho Marx quote: <em>“I don’t care to belong to any club that will have me as a member.”</em> This is sometimes called the <strong>snob effect</strong> — a preference for <em>exclusivity</em> rather than popularity. How would you modify the aggregate demand function <span class="math inline">\(Q = D(p, Z, Q)\)</span> to capture snob preferences? What does it imply for the shape of the demand curve and the stability of equilibria?</p></li>
+</ol>
+<hr>
+</section>
+<section id="intertemporal-consumption-and-the-social-multiplier-on-savings" class="level2">
+<h2 class="anchored" data-anchor-id="intertemporal-consumption-and-the-social-multiplier-on-savings">Intertemporal consumption and the social multiplier on savings</h2>
+<p>So far, we have studied how social interactions affect the <em>composition</em> of spending (Exercise 2) and the <em>level and stability</em> of demand for a single good (Exercise 3). This exercise asks whether the same logic applies to the **intertemporal* allocation of income — i.e., to saving.</p>
+<p>Empirically, savings rates are strongly correlated within peer groups and neighborhoods, even after controlling for income. Is this because similar people sort into similar places, or because people genuinely imitate each other’s saving behavior? The framework below lets you think through this question formally.</p>
+<section id="part-a-two-period-consumption" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-two-period-consumption">Part A — Two-period consumption</h3>
+<p>An agent lives for two periods. She earns income <span class="math inline">\(I_1\)</span> in period 1 and <span class="math inline">\(I_2 = 0\)</span> in period 2 (retirement), so she must save in period 1 to fund retirement consumption. The interest rate is <span class="math inline">\(r\)</span> and the discount factor is <span class="math inline">\(0 &lt; \beta &lt; 1\)</span>. Prices equal unity in both periods.</p>
+<p>Her utility is: <span class="math display">\[V = \log c_1 + \beta \log c_2\]</span></p>
+<ol type="1">
+<li><p>Write the period-1 and period-2 budget constraints, then derive the <strong>intertemporal budget constraint</strong>.</p></li>
+<li><p>Solve the program using the Lagrange method. Derive the <strong>Euler equation</strong> and express optimal <span class="math inline">\(c_1^\star\)</span>, <span class="math inline">\(c_2^\star\)</span>, and savings <span class="math inline">\(s^\star = I_1 - c_1^\star\)</span> as functions of <span class="math inline">\(I_1\)</span>, <span class="math inline">\(\beta\)</span>, and <span class="math inline">\(r\)</span>.</p></li>
+<li><p>How does <span class="math inline">\(s^\star\)</span> respond to an increase in <span class="math inline">\(r\)</span>? Decompose your answer into a <strong>substitution effect</strong> and an <strong>income effect</strong>, and explain why, with <span class="math inline">\(I_2 = 0\)</span> and log utility, only one of them survives.</p></li>
+<li><p>How does <span class="math inline">\(s^\star\)</span> respond to an increase in <span class="math inline">\(\beta\)</span>? Give the economic intuition.</p></li>
+</ol>
+<hr>
+</section>
+<section id="part-b-a-social-multiplier-on-savings" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-a-social-multiplier-on-savings">Part B — A social multiplier on savings</h3>
+<p>Now suppose the agent’s utility also depends on the <strong>average savings rate</strong> of her peer group, <span class="math inline">\(\bar{s}\)</span>. Specifically, saving more when peers save a lot is intrinsically rewarding — perhaps because thrift is a local norm, or because savings decisions are made jointly (e.g., peer pressure from family). The utility function becomes:</p>
+<p><span class="math display">\[V = \log c_1 + \beta \log c_2 + \gamma \cdot s/ \bar{s}\]</span></p>
+<p>where $ -\beta &lt;\gamma &lt; 0$ and <span class="math inline">\(s = I_1 - c_1\)</span> is own savings. Each agent takes <span class="math inline">\(\bar{s}\)</span> as given when optimizing.</p>
+<ol start="5" type="1">
+<li><p>Derive the new optimal savings <span class="math inline">\(s^\star(\bar{s})\)</span> as a function of <span class="math inline">\(\bar{s}\)</span> (and the parameters <span class="math inline">\(I_1\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(\gamma\)</span>). Show that <span class="math inline">\(\partial s^\star / \partial \bar{s} &gt; 0\)</span>: savings are strategic complements.</p></li>
+<li><p>In a symmetric equilibrium all agents are identical, so <span class="math inline">\(s^\star = \bar{s} \equiv S\)</span>. Find the equilibrium savings level <span class="math inline">\(S^\star\)</span>.</p></li>
+</ol>
+<hr>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

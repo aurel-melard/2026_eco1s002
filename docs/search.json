@@ -308,11 +308,54 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
+    "objectID": "tutorial8.html",
+    "href": "tutorial8.html",
+    "title": "Tutorial 8: Maximization program",
     "section": "",
-    "text": "home.qmd"
+    "text": "In this exercise, we are going to:",
+    "crumbs": [
+      "Tutorial 8"
+    ]
+  },
+  {
+    "objectID": "tutorial8.html#standard-utility-maximization-program",
+    "href": "tutorial8.html#standard-utility-maximization-program",
+    "title": "Tutorial 8: Maximization program",
+    "section": "Standard utility maximization program",
+    "text": "Standard utility maximization program\nA representative agent derives utility from consuming two goods, \\(x\\) and \\(y\\). Each good comes at price \\(p_x\\) and \\(p_y\\), respectively. The agent is also endowed with an income \\(I\\) to spend on each good.\nThe utility function is Cobb-Douglas and writes: \\[\nU(x,y) = x^\\alpha y^\\beta\n\\]\nwith \\(\\alpha,\\beta&gt;0\\).\n\nWrite the budget constraint.\nWrite the utility maximization program.\n\nTo solve the utility maximization program, we can set up a Lagrangian. The function \\(\\mathcal{L}(.)\\) is defined as the objective function minus the product between the budget constraint and a scalar \\(\\lambda \\in \\mathbb{R}\\).\n\nWrite the Lagrangian and set the first order conditions (partial derivative with respect to \\(x\\), \\(y\\) and \\(\\lambda\\) equal to zero) as a system.\nSolve the system for \\(x^\\star\\) and \\(y^\\star\\) and express them as a function of income and prices.\nCompute the indirect utility function \\(V = U(x^\\star,y^\\star)\\).\nShow that \\(\\lambda^\\star = \\partial V/\\partial I\\). Interpret.\nCompute the elasticity of demand of \\(x\\) with respect to \\(p_x\\), \\(p_y\\) and \\(I\\).\n\nThe second order condition to reach a local maximum is: \\(2p_x p_y U_{xy} - U_{xx}p_y^2 - U_{yy} p_x^2 &gt; 0\\) (where \\(U_{xx}\\) is the second derivative of \\(U\\) with respect to \\(x\\)).\n\nFor \\(p_x = 2\\), \\(p_y = 1\\), \\(I=10\\), \\(\\alpha=\\beta=0.5\\), did we reach a (local) maximum?",
+    "crumbs": [
+      "Tutorial 8"
+    ]
+  },
+  {
+    "objectID": "tutorial8.html#social-multiplier",
+    "href": "tutorial8.html#social-multiplier",
+    "title": "Tutorial 8: Maximization program",
+    "section": "Social multiplier",
+    "text": "Social multiplier\nWe augment the agent’s program. Utility can also depend on the behavior of others: for example, if you enjoy playing tennis, you may derive additional utility from the fact that many people around you also play tennis. We now assume that \\(p_y = 1\\). Utility now writes \\(U = U(x, y, S)\\), where \\(S\\) is a measure of social capital (e.g., the average number of hours peers spend playing tennis), which each individual takes as given.\n\nSolve the new program. Explain why including social capital \\(S\\) does not change the form of the equilibrium condition.\nShow that \\(\\partial x^\\star / \\partial S &gt; 0 \\iff U_{xS} &gt; p_x U_{yS}\\). Interpret. Hint: Differentiate the equilibrium condition and the budget constraint totally with respect to \\(S\\). Use the second-order condition for a local maximum. Reminder — the Schwarz theorem states: \\(f_{xy} = f_{yx}\\).",
+    "crumbs": [
+      "Tutorial 8"
+    ]
+  },
+  {
+    "objectID": "tutorial8.html#fads-and-fashions",
+    "href": "tutorial8.html#fads-and-fashions",
+    "title": "Tutorial 8: Maximization program",
+    "section": "Fads and fashions",
+    "text": "Fads and fashions\nRecall from the lecture the Becker (1991) model of fads. Aggregate demand for a good is \\(Q = D(p, Z, Q)\\), where \\(p\\) is the price, \\(Z\\) is a vector of exogenous demand shifters, and \\(Q\\) also appears on the right-hand side because popularity itself raises demand (\\(D_Q &gt; 0\\)). At equilibrium, quantity demanded must equal quantity supplied — so \\(Q\\) is determined jointly by price and the self-referential popularity effect.\nThe supply curve is \\(Q = S(p)\\) with \\(S'(p) &gt; 0\\) as usual. Denote by \\(m = D_Q \\in [0,1)\\) the social multiplier (we focus on the stable case for now).\n\nThe implicit equation \\(Q = D(p, Z, Q)\\) defines \\(Q\\) as a function of \\(p\\) (and \\(Z\\)). Using total differentiation, derive \\(\\frac{dQ}{dp}\\) and show that it equals \\(\\frac{D_p}{1-m}\\). What is the sign of \\(\\frac{dQ}{dp}\\), and under what condition is demand more elastic than it would be without social interactions?\nExplain intuitively why the social multiplier makes the demand curve steeper when \\(m\\) is close to 1-.\nNow suppose \\(m &gt; 1\\) locally (around some popularity threshold \\(Q^\\star\\)). Show that \\(\\frac{dQ}{dp} &gt; 0\\) in this region, i.e. the demand curve is upward-sloping. Give an intuition for why this is not as paradoxical as it sounds.\nA producer faces upward-sloping demand in the range \\(Q &lt; Q^\\star\\) and is currently at a low-popularity equilibrium \\(Q_\\ell &lt; Q^\\star\\). She is considering two strategies:\n\nStrategy A: raise price to \\(p^\\star\\), accept excess demand, and ration sales at \\(Q^\\star\\).\nStrategy B: lower price to attract more buyers and push \\(Q\\) past \\(Q^\\star\\), after which demand slopes normally.\n\nUnder what conditions would Strategy A dominate Strategy B? What real-world pricing practices does this help explain?\n[Bonus] The lecture mentions the Groucho Marx quote: “I don’t care to belong to any club that will have me as a member.” This is sometimes called the snob effect — a preference for exclusivity rather than popularity. How would you modify the aggregate demand function \\(Q = D(p, Z, Q)\\) to capture snob preferences? What does it imply for the shape of the demand curve and the stability of equilibria?",
+    "crumbs": [
+      "Tutorial 8"
+    ]
+  },
+  {
+    "objectID": "tutorial8.html#intertemporal-consumption-and-the-social-multiplier-on-savings",
+    "href": "tutorial8.html#intertemporal-consumption-and-the-social-multiplier-on-savings",
+    "title": "Tutorial 8: Maximization program",
+    "section": "Intertemporal consumption and the social multiplier on savings",
+    "text": "Intertemporal consumption and the social multiplier on savings\nSo far, we have studied how social interactions affect the composition of spending (Exercise 2) and the level and stability of demand for a single good (Exercise 3). This exercise asks whether the same logic applies to the **intertemporal* allocation of income — i.e., to saving.\nEmpirically, savings rates are strongly correlated within peer groups and neighborhoods, even after controlling for income. Is this because similar people sort into similar places, or because people genuinely imitate each other’s saving behavior? The framework below lets you think through this question formally.\n\nPart A — Two-period consumption\nAn agent lives for two periods. She earns income \\(I_1\\) in period 1 and \\(I_2 = 0\\) in period 2 (retirement), so she must save in period 1 to fund retirement consumption. The interest rate is \\(r\\) and the discount factor is \\(0 &lt; \\beta &lt; 1\\). Prices equal unity in both periods.\nHer utility is: \\[V = \\log c_1 + \\beta \\log c_2\\]\n\nWrite the period-1 and period-2 budget constraints, then derive the intertemporal budget constraint.\nSolve the program using the Lagrange method. Derive the Euler equation and express optimal \\(c_1^\\star\\), \\(c_2^\\star\\), and savings \\(s^\\star = I_1 - c_1^\\star\\) as functions of \\(I_1\\), \\(\\beta\\), and \\(r\\).\nHow does \\(s^\\star\\) respond to an increase in \\(r\\)? Decompose your answer into a substitution effect and an income effect, and explain why, with \\(I_2 = 0\\) and log utility, only one of them survives.\nHow does \\(s^\\star\\) respond to an increase in \\(\\beta\\)? Give the economic intuition.\n\n\n\n\nPart B — A social multiplier on savings\nNow suppose the agent’s utility also depends on the average savings rate of her peer group, \\(\\bar{s}\\). Specifically, saving more when peers save a lot is intrinsically rewarding — perhaps because thrift is a local norm, or because savings decisions are made jointly (e.g., peer pressure from family). The utility function becomes:\n\\[V = \\log c_1 + \\beta \\log c_2 + \\gamma \\cdot s/ \\bar{s}\\]\nwhere $ -\\beta &lt;\\gamma &lt; 0$ and \\(s = I_1 - c_1\\) is own savings. Each agent takes \\(\\bar{s}\\) as given when optimizing.\n\nDerive the new optimal savings \\(s^\\star(\\bar{s})\\) as a function of \\(\\bar{s}\\) (and the parameters \\(I_1\\), \\(\\beta\\), \\(r\\), \\(\\gamma\\)). Show that \\(\\partial s^\\star / \\partial \\bar{s} &gt; 0\\): savings are strategic complements.\nIn a symmetric equilibrium all agents are identical, so \\(s^\\star = \\bar{s} \\equiv S\\). Find the equilibrium savings level \\(S^\\star\\).",
+    "crumbs": [
+      "Tutorial 8"
+    ]
   },
   {
     "objectID": "home.html",
@@ -343,6 +386,13 @@
     "crumbs": [
       "Home"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "home.qmd"
   },
   {
     "objectID": "tutorial5.html#roadmap",
