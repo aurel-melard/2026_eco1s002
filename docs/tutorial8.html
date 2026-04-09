@@ -273,6 +273,43 @@ U(x,y) = x^\alpha y^\beta
 <li>For <span class="math inline">\(p_x = 2\)</span>, <span class="math inline">\(p_y = 1\)</span>, <span class="math inline">\(I=10\)</span>, <span class="math inline">\(\alpha=\beta=0.5\)</span>, did we reach a (local) maximum?</li>
 </ol>
 <hr>
+<details>
+<summary>
+Solution
+</summary>
+<p><strong>Q1.</strong></p>
+<p>The agent spends her entire income <span class="math inline">\(I\)</span> on goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>: <span class="math display">\[p_x x + p_y y = I\]</span></p>
+<p><strong>Q2.</strong> <span class="math display">\[\max_{x,y} \; x^\alpha y^\beta \quad \text{subject to} \quad p_x x + p_y y = I, \quad x,y \geq 0\]</span></p>
+<p><strong>Q3.</strong></p>
+<p>The Lagrangian is: <span class="math display">\[\mathcal{L}(x, y, \lambda) = x^\alpha y^\beta - \lambda(p_x x + p_y y - I)\]</span></p>
+<p>Setting partial derivatives to zero: <span class="math display">\[\frac{\partial \mathcal{L}}{\partial x} = \alpha x^{\alpha-1} y^\beta - \lambda p_x = 0\]</span> <span class="math display">\[\frac{\partial \mathcal{L}}{\partial y} = \beta x^\alpha y^{\beta-1} - \lambda p_y = 0\]</span> <span class="math display">\[\frac{\partial \mathcal{L}}{\partial \lambda} = -(p_x x + p_y y - I) = 0\]</span></p>
+<p><strong>Q4.</strong></p>
+<p>Dividing the first FOC by the second: <span class="math display">\[\frac{\alpha y}{\beta x} = \frac{p_x}{p_y} \implies p_y y = \frac{\beta}{\alpha} p_x x\]</span></p>
+<p>Substituting into the budget constraint: <span class="math display">\[p_x x + \frac{\beta}{\alpha} p_x x = I \implies p_x x \cdot \frac{\alpha + \beta}{\alpha} = I\]</span></p>
+<p><span class="math display">\[\boxed{x^\star = \frac{\alpha}{\alpha+\beta} \cdot \frac{I}{p_x}, \qquad y^\star = \frac{\beta}{\alpha+\beta} \cdot \frac{I}{p_y}}\]</span></p>
+<p>The agent spends fixed shares <span class="math inline">\(\frac{\alpha}{\alpha+\beta}\)</span> and <span class="math inline">\(\frac{\beta}{\alpha+\beta}\)</span> of income on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> respectively — a hallmark of Cobb-Douglas preferences.</p>
+<p><strong>Q5.</strong></p>
+<p><span class="math display">\[V = (x^\star)^\alpha (y^\star)^\beta = \left(\frac{\alpha}{\alpha+\beta}\right)^\alpha \left(\frac{\beta}{\alpha+\beta}\right)^\beta \cdot \frac{I^{\alpha+\beta}}{p_x^\alpha p_y^\beta}\]</span></p>
+<p><strong>Q6.</strong></p>
+<p>From the FOCs: <span class="math inline">\(\lambda = \frac{\alpha x^{\alpha-1}y^\beta}{p_x}\)</span>. Substituting <span class="math inline">\(x^\star\)</span> and <span class="math inline">\(y^\star\)</span>:</p>
+<p><span class="math display">\[\lambda^\star = \frac{\alpha+\beta}{I} \cdot V\]</span></p>
+<p>Taking <span class="math inline">\(\partial V / \partial I\)</span> from the expression in Q5 gives the same result. This confirms that <span class="math inline">\(\lambda^\star\)</span> is the <strong>marginal utility of income</strong>: it measures how much utility rises if the budget increases by one unit.</p>
+<p><strong>Q7.</strong></p>
+<p>From <span class="math inline">\(x^\star = \frac{\alpha}{\alpha+\beta} \cdot \frac{I}{p_x}\)</span>:</p>
+<ul>
+<li>Own-price elasticity: <span class="math inline">\(\varepsilon_{x,p_x} = \frac{\partial x^\star}{\partial p_x}\frac{p_x}{x^\star} = -1\)</span></li>
+<li>Cross-price elasticity: <span class="math inline">\(\varepsilon_{x,p_y} = 0\)</span> (demand for <span class="math inline">\(x\)</span> does not depend on <span class="math inline">\(p_y\)</span> with Cobb-Douglas)</li>
+<li>Income elasticity: <span class="math inline">\(\varepsilon_{x,I} = 1\)</span></li>
+</ul>
+<p><span class="math inline">\(x\)</span> is a <strong>unit-elastic</strong> good: demand falls one-for-one with its own price, is independent of the other good’s price, and rises proportionally with income.</p>
+<p><strong>Q8.</strong></p>
+<p>Compute the second derivatives at <span class="math inline">\(\alpha = \beta = 0.5\)</span>, so <span class="math inline">\(U = x^{0.5} y^{0.5}\)</span>:</p>
+<p><span class="math display">\[U_{xx} = -0.25 x^{-1.5} y^{0.5}, \quad U_{yy} = -0.25 x^{0.5} y^{-1.5}, \quad U_{xy} = 0.25 x^{-0.5} y^{-0.5}\]</span></p>
+<p>With <span class="math inline">\(p_x=2\)</span>, <span class="math inline">\(p_y=1\)</span>: <span class="math inline">\(x^\star = I/(2(\alpha+\beta)) = 2.5\)</span>, <span class="math inline">\(y^\star = I/(\alpha+\beta) \cdot 0.5 = 5\)</span>.</p>
+<p><span class="math display">\[2 p_x p_y U_{xy} - U_{xx} p_y^2 - U_{yy} p_x^2\]</span> <span class="math display">\[= 2(2)(1)(0.25)(2.5)^{-0.5}(5)^{-0.5} - (-0.25)(2.5)^{-1.5}(5)^{0.5}(1)^2 - (-0.25)(2.5)^{0.5}(5)^{-1.5}(4)\]</span></p>
+<p>All three terms are positive (the first directly, the other two because of the negatives in <span class="math inline">\(U_{xx}\)</span> and <span class="math inline">\(U_{yy}\)</span>), so the SOC is satisfied: <strong>we are at a local maximum</strong>.</p>
+</details>
+<hr>
 </section>
 <section id="social-multiplier" class="level2">
 <h2 class="anchored" data-anchor-id="social-multiplier">Social multiplier</h2>
@@ -281,6 +318,26 @@ U(x,y) = x^\alpha y^\beta
 <li>Solve the new program. Explain why including social capital <span class="math inline">\(S\)</span> does not change the form of the equilibrium condition.</li>
 <li>Show that <span class="math inline">\(\partial x^\star / \partial S &gt; 0 \iff U_{xS} &gt; p_x U_{yS}\)</span>. Interpret. <em>Hint: Differentiate the equilibrium condition and the budget constraint totally with respect to</em> <span class="math inline">\(S\)</span>. Use the second-order condition for a local maximum. Reminder — the Schwarz theorem states: <span class="math inline">\(f_{xy} = f_{yx}\)</span>.</li>
 </ol>
+<hr>
+<details>
+<summary>
+Solution
+</summary>
+<p><strong>Q1.</strong></p>
+<p>The Lagrangian is: <span class="math display">\[\mathcal{L}(x, y, \lambda) = U(x, y, S) - \lambda(p_x x + y - I)\]</span></p>
+<p>Since <span class="math inline">\(S\)</span> is taken as <strong>given</strong> by each individual (it is the group average, which no single agent can influence), the FOCs are: <span class="math display">\[U_x(x, y, S) = \lambda p_x\]</span> <span class="math display">\[U_y(x, y, S) = \lambda\]</span></p>
+<p>Dividing: <span class="math inline">\(U_x = p_x U_y\)</span>, the <strong>same equilibrium condition</strong> as before. Social capital does not change the optimality condition because it enters utility additively from the individual’s perspective: <span class="math inline">\(S\)</span> shifts the level of utility but agents cannot adjust <span class="math inline">\(S\)</span> themselves, so it plays no role in the trade-off between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> at the margin. The budget constraint is also unchanged.</p>
+<p><strong>Q2.</strong></p>
+<p>By definition of optimality, the condition <span class="math inline">\(U_x(x^\star, y^\star, S) = p_x U_y(x^\star, y^\star, S)\)</span> holds as an <strong>identity</strong> in <span class="math inline">\(S\)</span>. Total differentiation with respect to <span class="math inline">\(S\)</span> gives:</p>
+<p><span class="math display">\[U_{xx}\frac{\partial x^\star}{\partial S} + U_{xy}\frac{\partial y^\star}{\partial S} + U_{xS} = p_x\left(U_{yx}\frac{\partial x^\star}{\partial S} + U_{yy}\frac{\partial y^\star}{\partial S} + U_{yS}\right)\]</span></p>
+<p>The budget constraint <span class="math inline">\(p_x x^\star + y^\star = I\)</span> is also an identity, so differentiating: <span class="math display">\[p_x \frac{\partial x^\star}{\partial S} + \frac{\partial y^\star}{\partial S} = 0 \implies \frac{\partial y^\star}{\partial S} = -p_x \frac{\partial x^\star}{\partial S}\]</span></p>
+<p>Substituting and using the Schwarz theorem (<span class="math inline">\(U_{xy} = U_{yx}\)</span>):</p>
+<p><span class="math display">\[\frac{\partial x^\star}{\partial S}\left(U_{xx} - p_x U_{yx} - p_x U_{xy} + p_x^2 U_{yy}\right) = p_x U_{yS} - U_{xS}\]</span></p>
+<p><span class="math display">\[\frac{\partial x^\star}{\partial S}\left(U_{xx} - 2p_x U_{xy} + p_x^2 U_{yy}\right) = p_x U_{yS} - U_{xS}\]</span></p>
+<p>The second-order condition tells us that <span class="math inline">\(2p_x p_y U_{xy} - U_{xx}p_y^2 - U_{yy}p_x^2 &gt; 0\)</span> with <span class="math inline">\(p_y = 1\)</span>, which rearranges to <span class="math inline">\(-(U_{xx} - 2p_x U_{xy} + p_x^2 U_{yy}) &gt; 0\)</span>, i.e.&nbsp;the bracket on the left is <strong>negative</strong>. Therefore:</p>
+<p><span class="math display">\[\frac{\partial x^\star}{\partial S} &gt; 0 \iff p_x U_{yS} - U_{xS} &lt; 0 \iff U_{xS} &gt; p_x U_{yS}\]</span></p>
+<p><strong>Interpretation:</strong> Social capital raises demand for <span class="math inline">\(x\)</span> if and only if it raises the <em>marginal utility of</em> <span class="math inline">\(x\)</span> more than <span class="math inline">\(p_x\)</span> times it raises the <em>marginal utility of income</em> (the numeraire <span class="math inline">\(y\)</span>). In other words, <span class="math inline">\(S\)</span> must increase the attractiveness of <span class="math inline">\(x\)</span> relative to <span class="math inline">\(y\)</span>. If <span class="math inline">\(S\)</span> raises the utility of both goods equally (at the margin), it has no effect on the composition of spending. Note that this does not require <span class="math inline">\(S\)</span> to raise utility overall (<span class="math inline">\(U_S &gt; 0\)</span> is not assumed): even if being surrounded by drug users is unpleasant overall, it can still increase one’s own drug consumption if it makes drugs more appealing relative to other goods.</p>
+</details>
 <hr>
 </section>
 <section id="fads-and-fashions" class="level2">
@@ -291,14 +348,29 @@ U(x,y) = x^\alpha y^\beta
 <li><p>The implicit equation <span class="math inline">\(Q = D(p, Z, Q)\)</span> defines <span class="math inline">\(Q\)</span> as a function of <span class="math inline">\(p\)</span> (and <span class="math inline">\(Z\)</span>). Using total differentiation, derive <span class="math inline">\(\frac{dQ}{dp}\)</span> and show that it equals <span class="math inline">\(\frac{D_p}{1-m}\)</span>. What is the sign of <span class="math inline">\(\frac{dQ}{dp}\)</span>, and under what condition is demand more elastic than it would be without social interactions?</p></li>
 <li><p>Explain intuitively why the social multiplier makes the demand curve steeper when <span class="math inline">\(m\)</span> is close to 1-.</p></li>
 <li><p>Now suppose <span class="math inline">\(m &gt; 1\)</span> locally (around some popularity threshold <span class="math inline">\(Q^\star\)</span>). Show that <span class="math inline">\(\frac{dQ}{dp} &gt; 0\)</span> in this region, i.e.&nbsp;the demand curve is <strong>upward-sloping</strong>. Give an intuition for why this is not as paradoxical as it sounds.</p></li>
-<li><p>A producer faces upward-sloping demand in the range <span class="math inline">\(Q &lt; Q^\star\)</span> and is currently at a low-popularity equilibrium <span class="math inline">\(Q_\ell &lt; Q^\star\)</span>. She is considering two strategies:</p>
-<ul>
-<li><strong>Strategy A</strong>: raise price to <span class="math inline">\(p^\star\)</span>, accept excess demand, and ration sales at <span class="math inline">\(Q^\star\)</span>.</li>
-<li><strong>Strategy B</strong>: lower price to attract more buyers and push <span class="math inline">\(Q\)</span> past <span class="math inline">\(Q^\star\)</span>, after which demand slopes normally.</li>
-</ul>
-<p>Under what conditions would Strategy A dominate Strategy B? What real-world pricing practices does this help explain?</p></li>
-<li><p>[Bonus] The lecture mentions the Groucho Marx quote: <em>“I don’t care to belong to any club that will have me as a member.”</em> This is sometimes called the <strong>snob effect</strong> — a preference for <em>exclusivity</em> rather than popularity. How would you modify the aggregate demand function <span class="math inline">\(Q = D(p, Z, Q)\)</span> to capture snob preferences? What does it imply for the shape of the demand curve and the stability of equilibria?</p></li>
+<li><p>A producer faces upward-sloping demand in the range <span class="math inline">\(Q &lt; Q^\star\)</span> and is currently at a low-popularity equilibrium <span class="math inline">\(Q_\ell &lt; Q^\star\)</span>. Explain why she could be interested in lowering her price?</p></li>
 </ol>
+<hr>
+<details>
+<summary>
+Solution
+</summary>
+<p><strong>Q1.</strong></p>
+<p>At equilibrium, <span class="math inline">\(Q = D(p, Z, Q)\)</span> holds as an identity in <span class="math inline">\(p\)</span>. Total differentiation with respect to <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[\frac{dQ}{dp} = D_p + D_Q \cdot \frac{dQ}{dp} = D_p + m \cdot \frac{dQ}{dp}\]</span></p>
+<p>Solving:</p>
+<p><span class="math display">\[\frac{dQ}{dp}(1 - m) = D_p \implies \boxed{\frac{dQ}{dp} = \frac{D_p}{1-m}}\]</span></p>
+<p>Since <span class="math inline">\(D_p &lt; 0\)</span> (demand falls with price) and <span class="math inline">\(1 - m &gt; 0\)</span> (in the stable case), we have <span class="math inline">\(dQ/dp &lt; 0\)</span>: demand is downward-sloping as usual. However, <span class="math inline">\(|dQ/dp| = |D_p|/(1-m) &gt; |D_p|\)</span> — demand is <strong>more elastic</strong> than it would be without social interactions (<span class="math inline">\(m = 0\)</span>). A price increase triggers a direct reduction in quantity (<span class="math inline">\(D_p\)</span>), which then reduces popularity, which reduces demand further, amplifying the initial effect. The closer <span class="math inline">\(m\)</span> is to 1, the larger this amplification.</p>
+<p><strong>Q2.</strong></p>
+<p>In the <span class="math inline">\((Q, p)\)</span> space (with <span class="math inline">\(Q\)</span> on the horizontal axis), the demand curve being “steeper” means a given change in <span class="math inline">\(Q\)</span> is associated with a large change in <span class="math inline">\(p\)</span> — equivalently, the quantity response to a price change is small. This might seem to contradict Q1, but the two statements are consistent: more elastic demand in the <span class="math inline">\((p, Q)\)</span> sense means a given price cut triggers a large quantity increase — which when drawn with <span class="math inline">\(Q\)</span> on the x-axis corresponds to a <em>flatter</em> curve, not a steeper one.</p>
+<p>Let us restate carefully: when <span class="math inline">\(m \to 1^-\)</span>, <span class="math inline">\(dQ/dp \to -\infty\)</span>: a tiny price increase causes a catastrophic collapse in demand. In the standard <span class="math inline">\((Q,p)\)</span> diagram, this manifests as a demand curve that is nearly <strong>horizontal</strong> (infinitely elastic) around the equilibrium. The intuition: raise price slightly → fewer buyers → good becomes less popular → even fewer buyers → … the cascade is almost self-sustaining near <span class="math inline">\(m = 1\)</span>.</p>
+<p><strong>Q3.</strong></p>
+<p>When <span class="math inline">\(m &gt; 1\)</span> locally, the denominator <span class="math inline">\(1 - m &lt; 0\)</span>, so:</p>
+<p><span class="math display">\[\frac{dQ}{dp} = \frac{D_p}{1-m} = \frac{(-)}{(-)} &gt; 0\]</span></p>
+<p>Demand is upward-sloping: a higher price is associated with <em>higher</em> quantity demanded. This is not paradoxical once we understand the mechanism: in this range, the social feedback is so strong that it overwhelms the direct price effect. A small price <em>increase</em> causes a small direct drop in buyers; but if somehow quantity stays high (e.g.&nbsp;due to rationing), popularity remains high, which pulls demand up. The upward-sloping segment is therefore <strong>unstable</strong>: no equilibrium can persist there, because any perturbation sends demand cascading either up (toward the high-popularity stable equilibrium <span class="math inline">\(Q_h\)</span>) or down (toward the low-popularity stable equilibrium <span class="math inline">\(Q_\ell\)</span>).</p>
+<p><strong>Q4.</strong></p>
+<p>This strategy is a way to push demand towards the upward-sloping part, where price increases increase demand. If it can sustain this short-run, decrease in profitability, it is a way to reach the <span class="math inline">\(Q_h\)</span> equilibrium.</p>
+</details>
 <hr>
 </section>
 <section id="intertemporal-consumption-and-the-social-multiplier-on-savings" class="level2">
@@ -316,17 +388,66 @@ U(x,y) = x^\alpha y^\beta
 <li><p>How does <span class="math inline">\(s^\star\)</span> respond to an increase in <span class="math inline">\(\beta\)</span>? Give the economic intuition.</p></li>
 </ol>
 <hr>
+<details>
+<summary>
+Solution — Part A
+</summary>
+<p><strong>Q1.</strong></p>
+<p>Period 1: <span class="math inline">\(c_1 + s = I_1\)</span>, so <span class="math inline">\(s = I_1 - c_1\)</span>.</p>
+<p>Period 2: <span class="math inline">\(c_2 = (1+r)s = (1+r)(I_1 - c_1)\)</span>.</p>
+<p>Combining (eliminating <span class="math inline">\(s\)</span>): <span class="math display">\[c_1 + \frac{c_2}{1+r} = I_1\]</span></p>
+<p>Since <span class="math inline">\(I_2 = 0\)</span>, lifetime wealth is simply <span class="math inline">\(W = I_1\)</span>.</p>
+<p><strong>Q2.</strong></p>
+<p><span class="math display">\[\mathcal{L} = \log c_1 + \beta \log c_2 - \lambda\left(c_1 + \frac{c_2}{1+r} - I_1\right)\]</span></p>
+<p>FOCs: <span class="math display">\[\frac{1}{c_1} = \lambda, \qquad \frac{\beta}{c_2} = \frac{\lambda}{1+r}\]</span></p>
+<p>Combining: <span class="math inline">\(\boxed{c_2 = \beta(1+r)c_1}\)</span> — the <strong>Euler equation</strong>. It equates the marginal utility of consuming today to the discounted marginal utility of consuming tomorrow, scaled by the gross return on savings.</p>
+<p>Substituting into the intertemporal constraint: <span class="math display">\[c_1 + \beta c_1 = I_1 \implies c_1^\star = \frac{I_1}{1+\beta}\]</span> <span class="math display">\[c_2^\star = \frac{\beta(1+r)I_1}{1+\beta}, \qquad s^\star = I_1 - c_1^\star = \frac{\beta I_1}{1+\beta}\]</span></p>
+<p><strong>Q3.</strong></p>
+<p><span class="math display">\[\frac{\partial s^\star}{\partial r} = 0\]</span></p>
+<p>Savings are <strong>independent of</strong> <span class="math inline">\(r\)</span> when <span class="math inline">\(I_2 = 0\)</span> and utility is logarithmic. Here is why the two effects exactly cancel:</p>
+<ul>
+<li><strong>Substitution effect</strong>: A higher <span class="math inline">\(r\)</span> makes future consumption cheaper → agent wants to save more → <span class="math inline">\(s^\star \uparrow\)</span>.</li>
+<li><strong>Income effect</strong>: A higher <span class="math inline">\(r\)</span> makes each dollar saved more productive → to reach the same <span class="math inline">\(c_2\)</span>, the agent needs to save <em>less</em> → <span class="math inline">\(s^\star \downarrow\)</span>.</li>
+</ul>
+<p>With log utility and <span class="math inline">\(I_2 = 0\)</span>, lifetime wealth <span class="math inline">\(W = I_1\)</span> is fixed (it does not depend on <span class="math inline">\(r\)</span>), so the income effect arises only through the productivity of savings. These two forces exactly offset: the optimal savings share <span class="math inline">\(\beta/(1+\beta)\)</span> of income is invariant to <span class="math inline">\(r\)</span>. This is a property of log utility — the elasticity of intertemporal substitution equals 1, which makes the two effects cancel out.</p>
+<p><strong>Q4.</strong></p>
+<p><span class="math display">\[\frac{\partial s^\star}{\partial \beta} = \frac{I_1}{(1+\beta)^2} &gt; 0\]</span></p>
+<p>A more patient agent (higher <span class="math inline">\(\beta\)</span>) saves more. Intuitively, <span class="math inline">\(\beta\)</span> is the weight placed on future utility: as <span class="math inline">\(\beta \to 1\)</span>, the agent treats the future almost like the present and saves a large fraction of income; as <span class="math inline">\(\beta \to 0\)</span>, she spends everything today.</p>
+</details>
+<hr>
 </section>
 <section id="part-b-a-social-multiplier-on-savings" class="level3">
 <h3 class="anchored" data-anchor-id="part-b-a-social-multiplier-on-savings">Part B — A social multiplier on savings</h3>
 <p>Now suppose the agent’s utility also depends on the <strong>average savings rate</strong> of her peer group, <span class="math inline">\(\bar{s}\)</span>. Specifically, saving more when peers save a lot is intrinsically rewarding — perhaps because thrift is a local norm, or because savings decisions are made jointly (e.g., peer pressure from family). The utility function becomes:</p>
-<p><span class="math display">\[V = \log c_1 + \beta \log c_2 + \gamma \cdot s/ \bar{s}\]</span></p>
-<p>where $ -\beta &lt;\gamma &lt; 0$ and <span class="math inline">\(s = I_1 - c_1\)</span> is own savings. Each agent takes <span class="math inline">\(\bar{s}\)</span> as given when optimizing.</p>
+<p><span class="math display">\[U = \log c_1 + \beta \log c_2 + \gamma \cdot s/ \bar{s}\]</span></p>
+<p>where <span class="math inline">\(-\beta &lt;\gamma &lt; 0\)</span> and <span class="math inline">\(s = I_1 - c_1\)</span> is own savings. Each agent takes <span class="math inline">\(\bar{s}\)</span> as given when optimizing.</p>
 <ol start="5" type="1">
 <li><p>Derive the new optimal savings <span class="math inline">\(s^\star(\bar{s})\)</span> as a function of <span class="math inline">\(\bar{s}\)</span> (and the parameters <span class="math inline">\(I_1\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(\gamma\)</span>). Show that <span class="math inline">\(\partial s^\star / \partial \bar{s} &gt; 0\)</span>: savings are strategic complements.</p></li>
 <li><p>In a symmetric equilibrium all agents are identical, so <span class="math inline">\(s^\star = \bar{s} \equiv S\)</span>. Find the equilibrium savings level <span class="math inline">\(S^\star\)</span>.</p></li>
 </ol>
 <hr>
+<details>
+<summary>
+Solution — Part B
+</summary>
+<p><strong>Q5.</strong></p>
+<p>Rewrite utility in terms of <span class="math inline">\(c_1\)</span> (since <span class="math inline">\(s = I_1 - c_1\)</span> and <span class="math inline">\(c_2 = (1+r)(I_1-c_1)\)</span>):</p>
+<p><span class="math display">\[U = \log c_1 + \beta \log[(1+r)(I_1 - c_1)] + \gamma(I_1 - c_1)/\bar{s}\]</span></p>
+<p>Taking the FOC with respect to <span class="math inline">\(c_1\)</span>:</p>
+<p><span class="math display">\[\frac{1}{c_1} - \frac{\beta}{I_1 - c_1} - \gamma / \bar{s} = 0\]</span></p>
+<p>Let <span class="math inline">\(s = I_1 - c_1\)</span>, so <span class="math inline">\(c_1 = I_1 - s\)</span>:</p>
+<p><span class="math display">\[\frac{1}{I_1 - s} - \frac{\beta}{s} = \frac{\gamma}{ \bar{s}}\]</span></p>
+<p>This implicitly defines <span class="math inline">\(s^\star(\bar{s})\)</span>. To find <span class="math inline">\(\partial s^\star/\partial \bar{s}\)</span>, differentiate implicitly:</p>
+<p><span class="math display">\[\left(\frac{1}{(I_1-s)^2} + \frac{\beta}{s^2}\right)\frac{\partial s^\star}{\partial \bar{s}} = -\frac{\gamma}{\bar{s}^2}\]</span></p>
+<p>The bracket on the left and the right hand side of the equality are strictly positive, so:</p>
+<p><span class="math display">\[\frac{\partial s^\star}{\partial \bar{s}} &gt; 0\]</span></p>
+<p>Savings are <strong>strategic complements</strong>: when peers save more, each individual also saves more. This is the direct analogue of the social multiplier on consumption from Exercise 2.</p>
+<p><strong>Q6.</strong></p>
+<p>In a symmetric equilibrium, <span class="math inline">\(s^\star = \bar{s} = S^\star\)</span>. The FOC at equilibrium becomes:</p>
+<p><span class="math display">\[\frac{1}{I_1 - S^\star} - \frac{\beta}{S^\star} = \frac{\gamma}{ S^\star}\]</span></p>
+<p>which implies</p>
+<p><span class="math inline">\(S^\star = \frac{\gamma + \beta}{1+ \gamma + \beta} I_1 &gt;0\)</span>, an increasing function of <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span></p>
+</details>
 
 
 </section>
