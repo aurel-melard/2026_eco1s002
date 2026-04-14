@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tutorial 2: the Solow model – Petite classe ECO1S002</title>
+<title>Tutorial 9: (Women) labour force participation – Petite classe ECO1S002</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,9 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial2.html">Tutorial 2</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Petite classe ECO1S002
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -141,7 +143,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tutorial2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorial 2</span></a>
   </div>
 </li>
@@ -196,16 +198,8 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
    
   <ul>
-  <li><a href="#quick-model-summary" id="toc-quick-model-summary" class="nav-link active" data-scroll-target="#quick-model-summary">Quick model summary</a></li>
-  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
-  <ul class="collapse">
-  <li><a href="#warm-up-return-to-scale" id="toc-warm-up-return-to-scale" class="nav-link" data-scroll-target="#warm-up-return-to-scale">1. Warm-up: Return to scale</a></li>
-  <li><a href="#solve-the-firms-maximization-problem" id="toc-solve-the-firms-maximization-problem" class="nav-link" data-scroll-target="#solve-the-firms-maximization-problem">2. Solve the firm’s maximization problem</a></li>
-  <li><a href="#constant-population-and-technology" id="toc-constant-population-and-technology" class="nav-link" data-scroll-target="#constant-population-and-technology">3. Constant population and technology</a></li>
-  <li><a href="#population-and-technology-growth" id="toc-population-and-technology-growth" class="nav-link" data-scroll-target="#population-and-technology-growth">4. Population and technology growth</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">5. Discussion</a></li>
-  </ul></li>
+  <li><a href="#theoretical-approach-of-labour-supply" id="toc-theoretical-approach-of-labour-supply" class="nav-link active" data-scroll-target="#theoretical-approach-of-labour-supply">Theoretical approach of labour supply</a></li>
+  <li><a href="#empirical-approach" id="toc-empirical-approach" class="nav-link" data-scroll-target="#empirical-approach">Empirical approach</a></li>
   </ul>
 </nav>
     </div>
@@ -214,7 +208,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tutorial 2: the Solow model</h1>
+<h1 class="title">Tutorial 9: (Women) labour force participation</h1>
 </div>
 
 
@@ -231,95 +225,221 @@ window.Quarto = {
 </header>
 
 
-<p>We are going to dig into into the seminal model of growth theory in macroeconomics: the Solow model.</p>
-<section id="quick-model-summary" class="level2">
-<h2 class="anchored" data-anchor-id="quick-model-summary">Quick model summary</h2>
+<style>
+.math {
+  font-size: small;
+}
+
+details {
+  background-color: #f0f4ff;
+  border-left: 4px solid #4a6fa5;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin-top: 0.8em;
+}
+
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #4a6fa5;
+}
+</style>
+<p>In this exercise, we are going to learn:</p>
 <ol type="1">
-<li><p><strong>Structure of the economy</strong>: firms and consumers (no state). Firms use (and pay) capital and labor to produce an output. Output (=income) is either consumed or saved by households:</p>
-<p><span class="math display">\[ Y_t = C_t + I_t \]</span></p></li>
-<li><p><strong>Production Function</strong>: a representative firm produces output using a Cobb-Douglas production function: <span class="math display">\[ Y_t = F(K_t, A_tL_t) =  K_t^\alpha (A_tL_t)^{1-\alpha}\]</span> where <span class="math inline">\(Y\)</span> is output, <span class="math inline">\(K\)</span> is capital, <span class="math inline">\(L\)</span> is labor and <span class="math inline">\(A\)</span> is technology. where <span class="math inline">\(0 &lt; \alpha &lt; 1\)</span>. Using capital comes at rental price <span class="math inline">\(r\)</span> and labor comes at price <span class="math inline">\(w\)</span> (the wage).</p></li>
-<li><p><strong>Capital accumulation:</strong> capital accumulates through savings and depreciates geometrically</p>
-<p><span class="math display">\[ K_{t+1} = I_t + (1-\delta) K_t\]</span></p></li>
+<li>How households decide on their labour supply</li>
+<li>How the family size affect the latter</li>
+<li>Estimate the effects of having children on women labour participation</li>
 </ol>
-<!-- -->
-<ol type="1">
-<li><p><strong>Saving rate:</strong> investment is a constant fraction of output</p>
-<p><span class="math display">\[ I_{t} = sF(K_t,A_tL_t)\]</span></p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/solow_model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="definitions" class="level2">
-<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
-<ol type="1">
-<li><strong>Steady state:</strong> trajectory where all variables are constant</li>
-<li><strong>Balanced growth path:</strong> trajectory such that per capita variables grow at a constant rate (not necessarily the same) and the capital to output ratio is constant</li>
-</ol>
-</section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<section id="warm-up-return-to-scale" class="level3">
-<h3 class="anchored" data-anchor-id="warm-up-return-to-scale">1. Warm-up: Return to scale</h3>
-<p>Let <span class="math inline">\(\lambda &gt; 1\)</span>, if <span class="math inline">\(F(\lambda X, \lambda Y) &lt; \lambda F(X,Y)\)</span>, the function has decreasing return to scales (and increasing for <span class="math inline">\(&gt;\)</span>). If <span class="math inline">\(F(\lambda X, \lambda Y) = \lambda F(X,Y)\)</span>, the function has constant return to scale. For the following functions, state if they exhibit positive, constant, or negative return to scale.</p>
-<ol type="1">
-<li><span class="math inline">\(y_1 = 10x^2y^2\)</span></li>
-<li><span class="math inline">\(y_2 = \frac{1}{2}x^{1/3}y^{1/2}\)</span></li>
-<li><span class="math inline">\(y_3 = x + 2y\)</span></li>
-<li><span class="math inline">\(y_4 = \ln(xy)\)</span></li>
-</ol>
-</section>
-<section id="solve-the-firms-maximization-problem" class="level3">
-<h3 class="anchored" data-anchor-id="solve-the-firms-maximization-problem">2. Solve the firm’s maximization problem</h3>
-<p>Consider the function above (<span class="math inline">\(Y_t =  K_t^{\alpha} (A_tL_t)^{1-\alpha}\)</span>).</p>
-<ol type="1">
-<li>Show that if <span class="math inline">\(K=0\)</span> and/or <span class="math inline">\(L=0\)</span> production does not occur</li>
-<li>Show that the production function has constant return to scale</li>
-<li>Show that marginal productivity is positive for capital and labour</li>
-<li>Show that marginal productivity is decreasing for capital and labour</li>
-<li>Write the down the profit maximization program (maximizing profit with respect to K and L) and derive its first order conditions</li>
-<li>Show that all output is needed to pay capital and labor</li>
-</ol>
-</section>
-<section id="constant-population-and-technology" class="level3">
-<h3 class="anchored" data-anchor-id="constant-population-and-technology">3. Constant population and technology</h3>
-<p>For now, we consider that technology and labor (=population) are constant (<span class="math inline">\(A_t = A\)</span>, <span class="math inline">\(L_t = L\)</span>): no population growth, no technological progress.</p>
-<ol type="1">
-<li>Using the capital accumulation equation, show that the ratio <span class="math inline">\(\frac{K_{t+1}}{K_t}\)</span> goes to <span class="math inline">\(\infty\)</span> as <span class="math inline">\(K_t\)</span> goes to 0 and is lower than 1 when <span class="math inline">\(K_t\)</span> goes to <span class="math inline">\(\infty\)</span></li>
-<li>Show that there is a unique steady state level of capital <span class="math inline">\(k^*\)</span> and solve for it</li>
-<li>How does the <span class="math inline">\(k^*\)</span> vary with <span class="math inline">\(s\)</span>, <span class="math inline">\(\delta\)</span>, <span class="math inline">\(A\)</span>, <span class="math inline">\(L\)</span> ? Interpret</li>
-</ol>
-</section>
-<section id="population-and-technology-growth" class="level3">
-<h3 class="anchored" data-anchor-id="population-and-technology-growth">4. Population and technology growth</h3>
-<p>We now assume that population grows at constant rate <span class="math inline">\(n\)</span>, and technology at rate <span class="math inline">\(g\)</span>:</p>
-<p><span class="math display">\[L_{t+1} = (1+n) L_t\]</span></p>
-<p><span class="math display">\[A_{t+1} = (1+g) A_t\]</span></p>
-<p>We respectively denote <span class="math inline">\(y_t=Y_t/L_t\)</span> and <span class="math inline">\(k_t=K_t/L_t\)</span>, the per-worker production and capital</p>
-<p>We further define <span class="math inline">\(\hat{y_t}=\frac{Y_t}{A_t L_t}\)</span> and <span class="math inline">\(\hat{k_t}=\frac{K_t}{A_tL_t}\)</span> the production and capital per <strong><em>effective unit</em></strong></p>
-<ol type="1">
-<li><p>Dividing the capital accumulation equation by <span class="math inline">\(A_tL_t\)</span>, show that</p>
-<p><span class="math display">\[\hat{k_{t+1}} (1+n)(1+g)= (1-\delta)\hat{k_t} + s F(\frac{K_t}{A_tL_t},1)\]</span></p></li>
-<li><p>Show that there is a steady state level of capital per effective unit <span class="math inline">\(\hat{k^*}\)</span> equal to:</p></li>
-</ol>
+<section id="theoretical-approach-of-labour-supply" class="level2">
+<h2 class="anchored" data-anchor-id="theoretical-approach-of-labour-supply">Theoretical approach of labour supply</h2>
+<p>Consider an individual who derives her utility from consuming a good <span class="math inline">\(c\)</span> and leisure <span class="math inline">\(l\)</span>. The good comes at price <span class="math inline">\(p=1\)</span>, it is the <em>numéraire</em>. Utility function is:</p>
 <p><span class="math display">\[
-\hat{k^*} = \left(\frac{s}{(1+n)(1+g)-1+\delta}\right)^{\frac{1}{1-\alpha}}
+U(c,l) = c^\alpha \times l^{1-\alpha}
 \]</span></p>
-<ol start="3" type="1">
-<li>Show that per capita outcomes <span class="math inline">\(y\)</span> and <span class="math inline">\(k\)</span> are on a balanced growth path. What is their respective growth rates?</li>
-</ol>
-</section>
-<section id="discussion" class="level3">
-<h3 class="anchored" data-anchor-id="discussion">5. Discussion</h3>
+<p>The individual earns a labour wage <span class="math inline">\(w\)</span>. The number of hours worked is denoted <span class="math inline">\(h\)</span>, hence the labour income is <span class="math inline">\(wh\)</span>. She also obtains a lump-sum benefit from the government <span class="math inline">\(y\)</span>. Hence, her total income is <span class="math inline">\(wh + y\)</span>. There is a fixed number of hours <span class="math inline">\(T\)</span> in each day, such that <span class="math inline">\(T = l+h\)</span>.</p>
 <ol type="1">
-<li>What makes this model a simplification of reality?</li>
-<li>Why cannot it explain all differences in output growth and per capita level across economies?</li>
+<li>What are the two constraints? Can you express the budget constraint as a function of leisure <span class="math inline">\(l\)</span>, consumption, and total amount of time <span class="math inline">\(T\)</span> only?</li>
+<li>Write down the maximization problem and the associated Lagrangian.</li>
+<li>Solve the maximization program to find <span class="math inline">\(c^\star\)</span> and <span class="math inline">\(h^\star\)</span>.</li>
 </ol>
-
-
+<p>We are now going to proceed to some comparative statics, i.e.&nbsp;we are going to twist some parameters to understand the partial equilibrium effects.</p>
+<ol start="4" type="1">
+<li>How does <span class="math inline">\(h^\star\)</span> evolve with wage? With the lump-sum benefit?</li>
+</ol>
+<p>Now, we are going to assume that the individual has a positive number of children <span class="math inline">\(n&gt;0 \in \mathbb{N}\)</span>. Then, she must allocate a fixed number of hours to take care of their children. Each child requires <span class="math inline">\(K\)</span> hours of childcare, hence the total number of hours is <span class="math inline">\(nK\)</span>. In practice, it reduces the number of hours available to leisure and work.</p>
+<ol start="5" type="1">
+<li>How does it affect labour supply? Is there a threshold upon which the mother stops providing labour?</li>
+</ol>
+<hr>
+<details>
+<summary>
+Solution
+</summary>
+<p><strong>Q1.</strong></p>
+<p>The individual faces two constraints:</p>
+<ol type="1">
+<li><strong>Budget constraint:</strong> consumption equals total income: <span class="math inline">\(c = wh + y\)</span>.</li>
+<li><strong>Time constraint:</strong> total time is split between work and leisure: <span class="math inline">\(h + l = T\)</span>, so <span class="math inline">\(h = T - l\)</span>.</li>
+</ol>
+<p>Substituting the time constraint into the budget constraint eliminates <span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[c + wl = wT + y\]</span></p>
+<p>This is the <strong>full-income budget constraint</strong>: the price of leisure is the opportunity cost of not working, i.e.&nbsp;the wage <span class="math inline">\(w\)</span>, and total “full income” is <span class="math inline">\(wT + y\)</span>.</p>
+<p><strong>Q2.</strong></p>
+<p><span class="math display">\[\max_{c,\, l} \; c^\alpha l^{1-\alpha} \quad \text{subject to} \quad c + wl = wT + y, \quad c, l \geq 0\]</span></p>
+<p>The Lagrangian is:</p>
+<p><span class="math display">\[\mathcal{L}(c, l, \lambda) = c^\alpha l^{1-\alpha} - \lambda\bigl(c + wl - wT - y\bigr)\]</span></p>
+<p><strong>Q3.</strong></p>
+<p>Setting the partial derivatives to zero:</p>
+<p><span class="math display">\[\frac{\partial \mathcal{L}}{\partial c} = \alpha c^{\alpha-1} l^{1-\alpha} - \lambda = 0\]</span> <span class="math display">\[\frac{\partial \mathcal{L}}{\partial l} = (1-\alpha) c^\alpha l^{-\alpha} - \lambda w = 0\]</span> <span class="math display">\[\frac{\partial \mathcal{L}}{\partial \lambda} = -(c + wl - wT - y) = 0\]</span></p>
+<p>Dividing the first FOC by the second:</p>
+<p><span class="math display">\[\frac{\alpha l}{(1-\alpha) c} = \frac{1}{w} \implies c = \frac{\alpha w l}{1-\alpha}\]</span></p>
+<p>Substituting into the budget constraint:</p>
+<p><span class="math display">\[\frac{\alpha w l}{1-\alpha} + wl = wT + y \implies wl \cdot \frac{1}{1-\alpha} = wT + y\]</span></p>
+<p><span class="math display">\[\boxed{l^\star = (1-\alpha)\!\left(T + \frac{y}{w}\right), \qquad c^\star = \alpha(wT + y)}\]</span></p>
+<p>Since <span class="math inline">\(h^\star = T - l^\star\)</span>:</p>
+<p><span class="math display">\[\boxed{h^\star = \alpha T - (1-\alpha)\frac{y}{w}}\]</span></p>
+<p>The individual allocates fraction <span class="math inline">\(\alpha\)</span> of her “full income” to consumption and fraction <span class="math inline">\(1-\alpha\)</span> to leisure — a hallmark of Cobb-Douglas preferences.</p>
+<p><strong>Q4.</strong></p>
+<p><span class="math display">\[\frac{\partial h^\star}{\partial w} = \frac{(1-\alpha)\, y}{w^2} \geq 0\]</span></p>
+<p>Higher wages increase labour supply (or leave it unchanged when <span class="math inline">\(y = 0\)</span>, because the income and substitution effects cancel each other).</p>
+<p><span class="math display">\[\frac{\partial h^\star}{\partial y} = -\frac{1-\alpha}{w} &lt; 0\]</span></p>
+<p>A higher lump-sum benefit reduces labour supply: with more unearned income, the individual can afford more leisure (pure income effect — there is no change in the relative price of leisure).</p>
+<p><strong>Q5.</strong></p>
+<p>With <span class="math inline">\(n\)</span> children each requiring <span class="math inline">\(K\)</span> hours of childcare, the time constraint becomes:</p>
+<p><span class="math display">\[h + l + nK = T \implies h + l = T - nK\]</span></p>
+<p>The analysis is identical to before, with <span class="math inline">\(T\)</span> replaced by <span class="math inline">\(T - nK\)</span>:</p>
+<p><span class="math display">\[h^\star = \alpha(T - nK) - (1-\alpha)\frac{y}{w}\]</span></p>
+<p>Labour supply decreases by <span class="math inline">\(\alpha K\)</span> for each additional child.</p>
+<p>The mother exits the labour market when <span class="math inline">\(h^\star \leq 0\)</span>:</p>
+<p><span class="math display">\[\alpha(T - nK) \leq (1-\alpha)\frac{y}{w} \implies n \geq n^\star \equiv \frac{\alpha w T - (1-\alpha)y}{\alpha w K}\]</span></p>
+<p>The threshold <span class="math inline">\(n^\star\)</span> is lower when the wage is lower (working is less attractive), when unearned income <span class="math inline">\(y\)</span> is higher (the income effect makes labour less necessary), and when childcare cost <span class="math inline">\(K\)</span> is higher.</p>
+</details>
+<hr>
 </section>
+<section id="empirical-approach" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-approach">Empirical approach</h2>
+<p>The theoretical prediction is that mothers might drop out the labour force because they have children. We are going to estimate this effect.</p>
+<ol type="1">
+<li>Open the dataset <code>lfs_women.csv</code>.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>idmen</code></td>
+<td>Household ID</td>
+</tr>
+<tr class="even">
+<td><code>obs</code></td>
+<td>Household member position in the HH</td>
+</tr>
+<tr class="odd">
+<td><code>mne1</code></td>
+<td>Number of children</td>
+</tr>
+<tr class="even">
+<td><code>nag</code></td>
+<td>Age</td>
+</tr>
+<tr class="odd">
+<td><code>nsexe</code></td>
+<td>1 if male</td>
+</tr>
+<tr class="even">
+<td><code>same_sexe</code></td>
+<td>1 if first two children have the same gender</td>
+</tr>
+<tr class="odd">
+<td><code>hh_twin_after</code></td>
+<td>1 if second born are twins</td>
+</tr>
+<tr class="even">
+<td><code>ndiplo</code></td>
+<td>Scale from 1 to 9, high skilled from 5 to 9</td>
+</tr>
+<tr class="odd">
+<td><code>ntravail</code></td>
+<td>1 if the individual is working</td>
+</tr>
+<tr class="even">
+<td><code>ntpp</code></td>
+<td>2 if the individual is working full time</td>
+</tr>
+</tbody>
+</table>
+<p>For the sake of time, the dataset has been already cleaned. We can directly move to the estimation.</p>
+<ol start="2" type="1">
+<li>Write a model with the labor force participation on the left hand side: we want to identify the effect of being the mother (of a large family) on labor force participation.</li>
+<li>Create the relevant variables.</li>
+<li>Run this model. Interpret the sign and magnitude of coefficients.</li>
+<li>Is there endogeneity? Which variables would you include to tackle it?</li>
+<li>Add household fixed effects. Why part of endogeneity do they tackle?</li>
+<li>Is there any endogeneity left?</li>
+<li>A first potential instrument for large families is the presence of twins among the second born children. Why? Discuss the validity of this instrument.</li>
+<li>Run the corresponding IV regression. Interpret the type of treatment effect obtained and the results.</li>
+<li>An alternative instrument is to have two first children of the same gender. Why? Discuss the validity of this instrument.</li>
+<li>Run the corresponding IV regression. Interpret the type of treatment effect obtained and the results</li>
+</ol>
+<hr>
+<details>
+<summary>
+Solution
+</summary>
+<p><strong>Q2.</strong></p>
+<p>The model is a linear probability model (LPM) estimated on the <strong>full sample</strong> (men and women):</p>
+<p><span class="math display">\[\text{LFP}_i = \beta_0 + \beta_1 \,\text{woman}_i + \beta_2\, \text{child}_i + \beta_3\,(\text{woman}_i \times \text{child}_i) + \beta_4\, \text{large}_i + \beta_5\,(\text{woman}_i \times \text{large}_i) + \varepsilon_i\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\text{woman}_i = \mathbf{1}[\text{nsexe}_i = 2]\)</span></li>
+<li><span class="math inline">\(\text{child}_i = \mathbf{1}[\text{mne1}_i \geq 1]\)</span> (applies to both spouses)</li>
+<li><span class="math inline">\(\text{large}_i = \mathbf{1}[\text{mne1}_i &gt; 2]\)</span> (applies to both spouses)</li>
+<li><span class="math inline">\(\text{woman}_i \times \text{child}_i\)</span>: the individual is a <strong>mother</strong></li>
+<li><span class="math inline">\(\text{woman}_i \times \text{large}_i\)</span>: the individual is a mother in a <strong>large</strong> family</li>
+</ul>
+<p><strong>Q3.</strong> See R code.</p>
+<p><strong>Q4.</strong></p>
+<ul>
+<li><span class="math inline">\(\beta_1 &lt; 0\)</span>: women have lower LFP than men even without children (baseline gender gap).</li>
+<li><span class="math inline">\(\beta_2 &gt; 0\)</span>: having a child increases LFP for men — fathers work more to provide.</li>
+<li><span class="math inline">\(\beta_3 \approx 0\)</span>: having 1–2 children imposes no additional penalty on women <em>relative to fathers</em>, once the baseline gender gap and fatherhood effect are accounted for.</li>
+<li><span class="math inline">\(\beta_4 &lt; 0\)</span>: a large family slightly reduces LFP for fathers too.</li>
+<li><span class="math inline">\(\beta_5 &lt; 0\)</span>: mothers in large families face a large additional penalty — this is the main channel through which children reduce women’s LFP.</li>
+</ul>
+<p><strong>Q5.</strong></p>
+<p>Yes, there is likely omitted variable bias (OVB). Individuals in larger families may differ systematically in ways that also affect LFP:</p>
+<ul>
+<li><strong>Age</strong> (<code>nag</code>): older individuals may have both more children and different LFP patterns.</li>
+<li><strong>Education</strong> (<code>ndiplo</code>): more educated women tend to have fewer children and higher LFP.</li>
+</ul>
+<p>Including <code>nag</code> and <code>ndiplo</code> as controls reduces OVB from observable confounders.</p>
+<p><strong>Q6.</strong></p>
+<p>Household fixed effects absorb all time-invariant, household-level unobservables — the couple’s preferences, local labour market conditions, cultural norms, the partner’s income, etc. Within a household, <code>child</code> and <code>large</code> are the same for both spouses and are therefore absorbed by the FE. However, <code>woman</code>, <code>woman × child</code>, and <code>woman × large</code> <em>do</em> vary within the household (wife vs.&nbsp;husband). The HH FE estimator identifies these coefficients by comparing the wife’s and husband’s LFP <em>within the same household</em>, netting out all shared household-level confounders.</p>
+<p><strong>Q7.</strong></p>
+<p>Yes. Both <code>child</code> and <code>large</code> are endogenous: fertility is a choice jointly determined with labour supply. This means <code>woman × child</code> and <code>woman × large</code> are endogenous too, since they embed the endogenous fertility variables. OLS — even with household FE — will produce biased estimates because unobserved preferences for work vs.&nbsp;family are correlated with both fertility decisions and LFP.</p>
+<p><strong>Q8.</strong></p>
+<p>Twins are a valid instrument for having a large family because:</p>
+<ul>
+<li><strong>Relevance:</strong> a twin birth mechanically increases family size by one, raising the probability of having more than 2 children.</li>
+<li><strong>Exclusion restriction:</strong> the occurrence of a twin birth is essentially random (at least conditional on IVF usage and mother’s age) and does not directly affect labour supply other than through the increased family size.</li>
+</ul>
+<p>However, <code>large</code> and <code>woman × large</code> are <em>both</em> endogenous — two instruments are needed. The standard solution (Angrist &amp; Evans 1998) is to <strong>restrict the sample to households with at least 2 children</strong>: in this sub-sample <code>child = 1</code> for everyone, so it drops out as a constant and is no longer endogenous. Two endogenous variables remain: <code>large</code> and <code>woman × large</code>. Interacting the instrument with <code>woman</code> (<code>woman × twin</code>) provides the second instrument — giving a just-identified system.</p>
+<p><strong>Q9.</strong> See R code. The LATE recovered is the effect of a large family on individuals in households that had a twin second birth. A first-stage F well above 10 for both endogenous variables confirms instrument relevance.</p>
+<p><strong>Q10.</strong></p>
+<p>When the first two children are of the same gender, parents are more likely to want a third child (preference for at least one child of each gender is widespread). Thus <code>same_sexe</code> predicts having more than 2 children.</p>
+<ul>
+<li><strong>Relevance:</strong> same-gender sibship raises the probability of a third child.</li>
+<li><strong>Exclusion restriction:</strong> the gender composition of children is determined at conception and is independent of the mother’s labour supply intentions. Conditional on having at least 2 children, the composition of their genders is exogenous. Note however that same-gender children may reduce housing costs (families with mixed-gender children are more likely to seek an extra bedroom), which could be an additional channel — a potential violation of the exclusion restriction.</li>
+</ul>
+<p>As for the twin instrument, <code>same_sexe</code> is interacted with <code>woman</code> to provide the second instrument for <code>woman × large</code>.</p>
+<p><strong>Q11.</strong> See R code. Estimates from the same-gender instrument identify a different LATE (compliers are parents who had a third child because of same-gender preference). Comparing the two IV estimates provides a robustness check on instrument validity.</p>
+</details>
+
+
 </section>
 
 </main> <!-- /main -->

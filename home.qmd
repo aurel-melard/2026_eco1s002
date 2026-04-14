@@ -52,7 +52,7 @@ The course has 3 main objectives:
 -   **[Tutorial 8](https://aurel-melard.github.io/2026_eco1s002/tutorial8.html)** **(08/04)**
     -   Refresher on utility maximization program
     -   Intertemporal maximization problem
--   **Tutorial 9** **(15/04 - computer session)**
+-   **[Tutorial 9](https://aurel-melard.github.io/2026_eco1s002/tutorial9.html)** **(15/04 - computer session)**
     -   Work-leisure trade-off
     -   Women labour force participation
 -   **Tutorial 10** **(22/04 - computer session)**

@@ -123,7 +123,7 @@ The average treatment effect for the **complier subpopulation**: take up treatme
 Each design makes different assumptions to deal with $E[\varepsilon \mid X] \neq 0$ and estimates different treatment effects under these assumptions.
 
 | Design | Core Assumption | What it Controls For | Identifies |
-|------------------|--------------------|------------------|------------------|
+|------------------|-------------------|------------------|------------------|
 | RCT (full compliance) | Random assignment of D $(Y(1),Y(0)) \perp D$ | All confounders (observed and unobserved) | ATE |
 | RCT (partial compliance) | Random assignment of $Z$, instrument for $D$ | All confounders via instrument | LATE |
 | OLS with controls | Conditional ignorability: $(Y(1),Y(0)) \perp D \mid X$ | Observed confounders $X$ only | ATE |
