@@ -21,9 +21,7 @@ input  <- "/Users/aurelmelard/Dropbox/cours/Topics/2026_eco1s002/data"
 output <- "/Users/aurelmelard/Dropbox/cours/Topics/tuto_solutions/output"
 
 pacman::p_load(tidyverse,
-               fixest, miceadds, stargazer,
-               wesanderson,
-               estimatr)
+               fixest)
 
 
 ## 2. Load data ----

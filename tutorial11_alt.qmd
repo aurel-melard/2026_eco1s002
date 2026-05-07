@@ -1,0 +1,483 @@
+---
+title: "Tutorial 11: Marriage Markets and Assortative Matching"
+format: html
+editor: visual
+toc: true
+toc-title: ""
+toc-location: right
+---
+
+This session applies difference-in-differences to assortative matching in marriage markets, studying the effect of World War I on marital sorting in France.
+
+------------------------------------------------------------------------
+
+## 1. Difference-in-Differences reminder
+
+### 1.1 Assumptions
+
+::: callout-note
+**Assumption 1 — Parallel Trends**
+
+In the absence of treatment, the average outcome of the treated group would have evolved at the same rate as the average outcome of the control group: $$E[Y_{it}(0) \mid D_i = 1, \text{Post}_t = 1] - E[Y_{it}(0) \mid D_i = 1, \text{Post}_t = 0] = E[Y_{it}(0) \mid D_i = 0, \text{Post}_t = 1] - E[Y_{it}(0) \mid D_i = 0, \text{Post}_t = 0]$$
+
+Cannot be directly tested. It can only be *indirectly* assessed via pre-trend tests.
+
+**How to check:**
+
+1.  **Pre-trend test / event-study plot**: run the DiD specification over multiple pre-treatment periods. Interaction coefficients $\sigma_\tau$ (for $\tau < 0$) should be statistically insignificant and near zero.
+2.  **Covariate balance**: check that treated and control groups had similar pre-treatment characteristics.
+:::
+
+::: callout-note
+**Assumption 2 — SUTVA (Stable Unit Treatment Value Assumption)**
+
+(a) **No spillovers**: the potential outcome of unit $i$ does not depend on the treatment status of unit $j$.\
+(b) **Single version of treatment**: the treatment is well-defined and homogeneous across units.
+:::
+
+::: callout-note
+**Assumption 3 — Exogeneity of Treatment Timing**
+
+The treatment occurs at a pre-determined time not endogenously chosen in response to the outcome. This ensures the "Post" dummy is exogenous.
+:::
+
+### 1.2 Estimation Strategy
+
+**Two-period, two-group case.** The standard DiD regression is:
+
+$$Y_{it} = \alpha_0 + \alpha_1 \text{Treated}_i + \alpha_2 \text{Post}_t + \alpha_3 (\text{Treated}_i \times \text{Post}_t) + \varepsilon_{it}$$
+
+where:
+
+-   $\text{Treated}_i = 1$ if unit $i$ belongs to the treatment group
+-   $\text{Post}_t = 1$ if the observation is from the post-treatment period
+-   $\alpha_3$ is the **DiD estimator**. The coefficient captures the extra change of the treated group relative to the control group's change: $$\hat{\alpha}_3 = \underbrace{(\bar{Y}_{T,1} - \bar{Y}_{T,0})}_{\text{change in treated}} - \underbrace{(\bar{Y}_{C,1} - \bar{Y}_{C,0})}_{\text{change in control}}$$
+
+**Panel with multiple periods and units.** With unit fixed effects $\delta_i$ (absorbing time-invariant unit heterogeneity) and time fixed effects $\lambda_t$ (absorbing common shocks):
+
+$$Y_{it} = \delta_i + \lambda_t + \alpha \cdot (\text{Treated}_i \times \text{Post}_t) + \varepsilon_{it}$$
+
+------------------------------------------------------------------------
+
+## 2. Competitive Bidding, Efficiency, and Assortative Matching
+
+### 2.1 Why Competitive Bidding Ensures Efficiency
+
+We consider the heterosexual marriage market where men $M \in \{M_1, \ldots, M_k\}$ and women $W \in \{W_1, \ldots, W_n\}$ produce joint marital output $Z(M_i, W_j)$, which is fully divisible: $Z(M_i, W_j) = I_i^m + I_j^w$.
+
+::: callout-note
+**Competitive bidding setup**
+
+-   Women post prices $p(W)$: the income transfer they receive, regardless of which man they match with.
+-   Men choose $W = \arg\max_W \{Z(M, W) - p(W)\}$ (maximise their own marital income).
+-   A **competitive equilibrium** is a price vector $\{p(W)\}_{W \in \mathcal{W}}$ and a matching function $f(\cdot)$ such that (i) every man's match is individually optimal, and (ii) every woman is matched at most once.
+:::
+
+**Exercise.** Prove that competitive bidding ensures efficiency: the equilibrium matching $f(\cdot)$ maximises aggregate marital output $\sum_M Z(M, f(M))$ over all possible matchings. *Hint: start from individual optimality and sum over all matched pairs.*
+
+::: {.callout-caution collapse="true"}
+## Proof of efficiency
+
+Let $f(\cdot)$ be the competitive equilibrium matching and $\tilde{f}(\cdot)$ any alternative matching.
+
+1.  Individual optimality implies: for every $M$, $$Z(M, f(M)) - p(f(M)) \geq Z(M, \tilde{f}(M)) - p(\tilde{f}(M))$$
+2.  Summing over all men: $$\sum_M Z(M, f(M)) - \sum_M p(f(M)) \geq \sum_M Z(M, \tilde{f}(M)) - \sum_M p(\tilde{f}(M))$$
+3.  Since every woman is matched exactly once in both $f$ and $\tilde{f}$: $\sum_M p(f(M)) = \sum_W p(W) = \sum_M p(\tilde{f}(M))$.
+4.  The price sums cancel: $\sum_M Z(M, f(M)) \geq \sum_M Z(M, \tilde{f}(M))$ for any $\tilde{f}$. $\square$
+
+The competitive equilibrium therefore maximises aggregate marital output, i.e., it is efficient.
+:::
+
+### 2.2 Supermodularity and Positive/Negative Assortative Matching
+
+::: callout-note
+**Supermodularity (increasing differences)**
+
+$Z$ is **supermodular** in $(M, W)$ if for all $M > M'$ and $W > W'$: $$Z(M, W) + Z(M', W') \geq Z(M, W') + Z(M', W)$$ When $Z$ is twice differentiable, this is equivalent to $\frac{\partial^2 Z}{\partial M \partial W} > 0$.
+
+$Z$ is **submodular** if the inequality is reversed.
+:::
+
+::: callout-note
+**Main result (Becker 1973)**
+
+-   **Positive Assortative Matching (PAM)** prevails at the competitive equilibrium if and only if $Z$ is supermodular: high-quality men match with high-quality women.
+-   **Negative Assortative Matching (NAM)** prevails if and only if $Z$ is submodular: high-quality men match with low-quality women.
+-   If $\frac{\partial^2 Z}{\partial M \partial W} = 0$ (separable output), all matchings yield the same total output; the competitive equilibrium is not uniquely determined.
+:::
+
+**Fixed income shares vs. competitive bidding.** If income is divided by a predetermined rule $I^m = \varphi Z(M,W)$ and $I^w = (1-\varphi) Z(M,W)$ (rather than by competitive bidding), the situation is different:
+
+-   Every agent maximises $\varphi \cdot Z(M, f(M))$ (men) or $(1-\varphi) \cdot Z(g(W), W)$ (women), so they choose the partner that maximises their share of joint output.
+-   As long as $Z_M > 0$ and $Z_W > 0$ (output is increasing in both types), **every agent prefers the highest-quality available partner**. **PAM always prevails** (given monotonicity).
+
+------------------------------------------------------------------------
+
+## 3. Assortative Matching — Abramitzky, Delavande, and Vasconcelos (2011)
+
+### 3.1 Paper Summary
+
+Abramitzky, Delavande, and Vasconcelos (AEJ: Applied Economics, 2011) study how male scarcity induced by World War I changed assortative matching by social class in France.
+
+**Setting and identification.** WWI killed approximately 1.4 million French men (10% of the male workforce), with large variation across *départements* (local administrative units). The sex ratio fell from 1,087 men per 1,000 women in 1911 to 992 per 1,000 women in 1921. Crucially, soldiers were drawn from all social classes roughly uniformly, so the shock affected the *quantity* of men but not the *distribution* of their quality across classes. This cross-sectional variation in military mortality, combined with the before/after structure of the war, enables a difference-in-differences design.
+
+**Data.** The authors use marriage certificate records from the TRA dataset (a representative sample of French marriages), pre- and post-war censuses, and département-level military mortality data.
+
+**Was matching positive or negative before the war?** Matching was strongly **positive assortative** (PAM) by social class before WWI. 44% of men married women of exactly their own social class, and 69% married a woman within one class rank of their own. This strongly rejects random matching and is consistent with the Becker model's prediction under supermodular household production + competitive bidding.
+
+**Question.** Based on the Becker (1973) competitive bidding model:
+
+1.  What is the theoretical mechanism linking the WWI shock (reduction in the number of men) to a change in men's matching outcomes? Describe it step by step.
+2.  What does the model predict more broadly about the scarcer sex in a marriage market? List all the predictions you can derive.
+
+::: {.callout-caution collapse="true"}
+## Answers
+
+**1. Mechanism**
+
+In Becker's frictionless competitive bidding model:
+
+-   Women post income transfers $p(W)$ ; men choose the woman maximising $Z(M,W) - p(W)$.
+-   When men become scarcer (fewer men relative to women), *women compete more intensively* for the reduced supply of men — they offer lower prices $p(W)$, all other things equal.
+-   As a result, men of a given social class can now attract women of a *higher* class who were previously "too expensive". The equilibrium matching shifts: men trade up.
+
+2.  **Predictions**
+
+When men become scarcer:
+
+1.  Men's "price" (income transfer they command) rises → men appropriate more surplus.
+2.  Men match with higher-quality (higher-class) women → the class gap between spouses shifts in men's favour.
+3.  More men marry (each man is in greater demand; the probability of being matched increases).
+4.  Fewer women marry (supply of men falls; some women go unmatched).
+
+The paper thus provides strong empirical support for the competitive bidding model of marriage markets.
+
+Note: the pre-war matching was PAM, consistent with supermodular production of household output (e.g., complementarity of spousal human capital in child quality). The war did not change the *shape* of $Z$ — it changed the *supply* of men, shifting the income distribution within matches.
+:::
+
+### 3.2 Empirical Specification
+
+The DiD regression estimated by Abramitzky et al. is:
+
+$$Y_{idt} = \delta_d + \lambda \cdot \text{PW}_t + \alpha \cdot M_d \times \text{PW}_t + \gamma Z_{idt} + \varepsilon_{idt}$$
+
+where:
+
+-   $i$ = marriage, $d$ = département, $t$ = year of wedding
+-   $Y_{idt}$: outcome measure of assortative matching (e.g., bride class minus groom class; dummy for "groom married down"; dummy for "bride is low-class")
+-   $\delta_d$: département fixed effects — absorb time-invariant local characteristics (traditions, class composition)
+-   $\text{PW}_t$: postwar dummy (= 1 if marriage after WWI)
+-   $M_d$: military mortality rate in département $d$ (the "treatment intensity")
+-   $M_d \times \text{PW}_t$: the DiD interaction — variation across départements in mortality rate, before vs. after the war
+-   $Z_{idt}$: individual controls (groom class dummies, age, rural dummy)
+
+### 3.3 Exercise — Interpreting the Estimated Treatment Effect
+
+The table below reproduces the main result (Table 3, columns 1–2 of Abramitzky et al. 2011). The dependent variables are: (1) the class difference (bride class − groom class; lower = man married up more), and (2) a dummy for "groom married a bride of lower class" (1 = married down).
+
+|                              | Class difference | Married down |
+|------------------------------|:----------------:|:------------:|
+| \% soldiers killed × postwar |     −0.020\*     |  −0.010\*\*  |
+|                              |     (0.010)      |   (0.004)    |
+| Postwar                      |      0.196       |    0.092     |
+|                              |     (0.146)      |   (0.065)    |
+| Département FE               |        ✓         |      ✓       |
+| Individual controls          |        ✓         |      ✓       |
+
+*Standard errors (clustered at the département level) in parentheses. \* p \< 0.10, \*\* p \< 0.05.*
+
+*Pre-war averages: class difference ≈ 0 (PAM); share of men married down ≈ 36.1%.*
+
+1.  Provide an interpretation of the coefficient −0.020 on "% soldiers killed × postwar". What does it imply for a département with 20% military mortality compared to one with 10% mortality?
+2.  What sign would you expect on this coefficient based on the Becker model? Is it consistent with the data?
+3.  What treatment effect (ATE, ATT, or LATE) does $\hat{\alpha}$ identify here? Explain.
+4.  What is the identification assumption for $\hat{\alpha}$ to be a valid causal estimate? How might you test it?
+
+::: {.callout-caution collapse="true"}
+## Answers — Exercise 3.3
+
+**1. Interpretation of −0.020.**
+
+A 1 percentage point increase in military mortality in a département is associated with a 0.020 unit decrease in the bride-minus-groom class difference in the postwar period, relative to the prewar period. Since the variable is (bride class − groom class), where class 1 is the highest and class 7 the lowest, a *lower* value means the bride has a *higher* class relative to the groom.
+
+A département with 20% mortality vs. one with 10% mortality (a 10 percentage point difference): $\hat{\alpha} \times 10 = −0.020 \times 10 = −0.20$ unit decrease in the class difference. For the "married down" coefficient: $−0.010 \times 10 = −0.10$ percentage points — relative to a prewar average of 36.1%, a 10pp increase in mortality is associated with roughly 0.28% fewer men marrying down.
+
+**2. Expected sign from theory.**
+
+The Becker model predicts that when men become scarcer, their "price" rises, allowing them to marry better (higher-class) women:
+
+-   Class difference (bride − groom) should *decrease* (negative sign)
+-   Probability of marrying down should *decrease* (negative sign)
+
+**3. Treatment effect identified — ATT.**
+
+$\hat{\alpha}$ identifies the **ATT** (Average Treatment Effect on the Treated): the effect of being in a high-mortality département after WWI on men's assortative matching behaviour. We are estimating the effect on *those actually affected* (men in high-mortality departments), not the ATE (what would happen if all departments had high mortality).
+
+**4. Identifying assumption and testing.**
+
+The identifying assumption is parallel trends: absent WWI, the class difference in high-mortality and low-mortality départements would have evolved at the same rate. To test it:
+
+-   **Pre-trend test**: using data from multiple pre-war years, check whether $M_d \times \text{year}_t$ coefficients are near zero before 1914.
+-   **Covariate balance**: verify that pre-war social class distributions, urbanisation, and economic conditions are similar across high- and low-mortality departments.
+-   The authors argue the assumption is plausible because soldiers were drawn uniformly from all social classes and regions.
+:::
+
+------------------------------------------------------------------------
+
+## 4. Marriage Matrices — Solving for the Equilibrium
+
+**Setup.** Consider a heterosexual marriage market with three men, $M \in \{1, 3, 5\}$, and three women, $W \in \{2, 4, 6\}$ (indices represent "quality"). Couples produce joint output $Z(M, W)$ given by the following tables (men in columns, women in rows):
+
+::: {#tbl-panel layout-ncol="3"}
+|       |  1  |  3  |  5  |
+|:-----:|:---:|:---:|:---:|
+| **2** |  2  |  6  | 10  |
+| **4** |  4  | 12  | 20  |
+| **6** |  6  | 18  | 30  |
+
+: Matrix 1 {#tbl-first}
+
+|       |  1  |  3  |  5  |
+|:-----:|:---:|:---:|:---:|
+| **2** |  9  | 15  | 21  |
+| **4** | 15  | 21  | 27  |
+| **6** | 21  | 27  | 33  |
+
+: Matrix 2 {#tbl-second}
+
+|       |  1  |  3  |  5  |
+|:-----:|:---:|:---:|:---:|
+| **2** | 19  | 29  | 39  |
+| **4** | 31  | 37  | 43  |
+| **6** | 43  | 45  | 47  |
+
+: Matrix 3 {#tbl-third}
+
+Output matrices
+:::
+
+**Questions:**
+
+1.  Identify the functional form $Z(M, W)$ for each matrix. Verify that output is increasing in both arguments.
+2.  Recall the condition under which a positive assortative matching equilibrium obtains under competitive bidding.
+3.  Assume output is shared via competitive bidding. For each matrix, find the equilibrium matching and explain the logic. Is the matching positive, negative, or indeterminate?
+4.  Assume output is split according to a fixed sharing rule $I^m = \varphi Z(M, W)$, $I^w = (1-\varphi) Z(M, W)$. For each matrix, find the equilibrium matching. Does it differ from (3)?
+
+::: {.callout-caution collapse="true"}
+## Solutions — Matrix Exercises
+
+### Matrix 1: $Z(M, W) = M \times W$
+
+**1. Functional form and monotonicity.**
+
+$Z(M,W)=M\times W$.
+
+$\frac{\partial Z}{\partial M} = W > 0$ and $\frac{\partial Z}{\partial W} = M > 0$ for all $M, W > 0$.
+
+**2. PAM condition.** PAM under competitive bidding if and only if $Z$ is **supermodular**: $\frac{\partial^2 Z}{\partial M \partial W} > 0$, or equivalently $Z(M,W) + Z(M',W') \geq Z(M,W') + Z(M',W)$ for all $M > M'$, $W > W'$.
+
+**3. Competitive bidding.**
+
+$\frac{\partial^2 Z}{\partial M \partial W} = 1 > 0$ → **supermodular** → PAM maximises total output.
+
+*Verify:*
+
+| Matching                     |      Total output       |
+|------------------------------|:-----------------------:|
+| PAM: (M5,W6)+(M3,W4)+(M1,W2) | $30+12+2 = \mathbf{44}$ |
+| (M5,W4)+(M3,W6)+(M1,W2)      |     $20+18+2 = 40$      |
+| NAM: (M5,W2)+(M3,W4)+(M1,W6) |     $10+12+6 = 28$      |
+
+Equilibrium: $\boxed{(M_5, W_6),\ (M_3, W_4),\ (M_1, W_2)}$ — **Positive Assortative Matching.**
+
+*Intuition:* M5 and W6 are complements ($\partial^2 Z / \partial M \partial W > 0$): the marginal product of quality increases with the partner's quality. Any deviation from PAM destroys joint output.
+
+**4. Fixed sharing rule.**
+
+With $\varphi = 0.5$: M5 earns $0.5 \times Z(5, W)$: W=6→15, W=4→10, W=2→5 → M5 prefers W6. W6 earns $0.5 \times Z(M, 6)$: M=5→15, M=3→9, M=1→3 → W6 prefers M5. PAM prevails, same as competitive bidding.
+
+------------------------------------------------------------------------
+
+### Matrix 2: $Z(M, W) = 3(M + W)$
+
+**1. Functional form and monotonicity.**
+
+$\frac{\partial Z}{\partial M} = 3 > 0$ and $\frac{\partial Z}{\partial W} = 3 > 0$
+
+**2 & 3. Competitive bidding.**
+
+$\frac{\partial^2 Z}{\partial M \partial W} = 0$ → neither supermodular nor submodular (output is additively separable).
+
+All matchings yield identical total output:
+
+| Matching                     | Total output  |
+|------------------------------|:-------------:|
+| PAM: (M5,W6)+(M3,W4)+(M1,W2) | $33+21+9=63$  |
+| NAM: (M5,W2)+(M3,W4)+(M1,W6) | $21+21+21=63$ |
+| (M5,W4)+(M3,W2)+(M1,W6)      | $27+21+21=63$ |
+
+$\boxed{\text{Any matching is an equilibrium — indeterminate.}}$
+
+*Intuition:* When output is separable, M and W are neither complements nor substitutes. A high-quality man contributes the same amount regardless of the woman's quality. There is no sorting force.
+
+**4. Fixed sharing rule.**
+
+M5 maximises $0.5\times 3\times(5+W) = 7.5+1.5W$, which is *increasing in* $W$. M5 prefers W6; similarly every agent prefers the highest-quality partner → PAM prevails under fixed shares, even though the competitive equilibrium is indeterminate.
+
+------------------------------------------------------------------------
+
+### Matrix 3: $Z(M, W) = 7(M + W) - M \cdot W$
+
+**1. Functional form and monotonicity.**
+
+$\frac{\partial Z}{\partial M} = 7 - W$: equals 5, 3, 1 for $W = 2, 4, 6$ respectively. All positive.
+
+$\frac{\partial Z}{\partial W} = 7 - M$: equals 6, 4, 2 for $M = 1, 3, 5$ respectively. All positive.
+
+Output is strictly increasing in both arguments.
+
+**2 & 3. Competitive bidding.**
+
+$\frac{\partial^2 Z}{\partial M \partial W} = -1 < 0$ → submodular → NAM maximises total output.
+
+*Verify by full enumeration:*
+
+| Matching                         |       Total output        |
+|----------------------------------|:-------------------------:|
+| PAM: (M5,W6)+(M3,W4)+(M1,W2)     |     $47+37+19 = 103$      |
+| (M5,W6)+(M3,W2)+(M1,W4)          |     $47+29+31 = 107$      |
+| (M5,W4)+(M3,W6)+(M1,W2)          |     $43+45+19 = 107$      |
+| (M5,W4)+(M3,W2)+(M1,W6)          |     $43+29+43 = 115$      |
+| (M5,W2)+(M3,W6)+(M1,W4)          |     $39+45+31 = 115$      |
+| **NAM: (M5,W2)+(M3,W4)+(M1,W6)** | $\mathbf{39+37+43 = 119}$ |
+
+Equilibrium: $\boxed{(M_5, W_2),\ (M_3, W_4),\ (M_1, W_6)}$ — **Negative Assortative Matching.**
+
+*Intuition:* Under submodularity, high-type men and women are *substitutes*: each gains more from pairing with a low-type partner. The marginal product of $M$ is *lower* when paired with a high-$W$ woman ($\partial^2 Z / \partial M \partial W = -1 < 0$): the additional output M5 brings to a match decreases as the woman's quality rises. This is the classic specialisation story — if both high-type men and women excel at market work, they gain more from pairing with a partner who specialises in home production.
+
+**4. Fixed sharing rule.**
+
+With $\varphi = 0.5$: M5 evaluates $0.5 \times Z(5,W)$: W=2→19.5, W=4→21.5, W=6→23.5 → M5 prefers W6. W6 evaluates $0.5 \times Z(M,6)$: M=1→21.5, M=3→22.5, M=5→23.5 → W6 prefers M5.
+
+The match (M5, W6) is mutually preferred. By the same logic, (M3,W4) and (M1,W2) follow. **PAM** prevails under fixed shares — *opposite* to the competitive bidding outcome.
+:::
+
+------------------------------------------------------------------------
+
+## 5. R Exercise: Assortative Matching by Education and City Type
+
+### 5.1 Data
+
+The dataset `data_couples.dta` comes from the French Labour Force Survey (*Enquête Emploi*) for four years: 1996, 2002, 2006, 2013. Each observation is a heterosexual couple living together. Key variables:
+
+| Variable | Description |
+|----------------|--------------------------------------------------------|
+| `education_r` | Respondent's years of education (5–16.5) |
+| `education_p` | Partner's years of education |
+| `active_r` | Respondent in labour force (0/1) |
+| `active_p` | Partner in labour force (0/1) |
+| `city_size` | City-type code: 0=Rural, 1=\<5k, 4=5–20k, 6=20–200k, 8=\>200k |
+| `age_r` | Respondent's age |
+| `year` | Survey year |
+| `weight` | Survey weight |
+
+### 5.2 Exercises
+
+**Load and explore the data.**
+
+``` r
+library(haven)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+d <- read_dta("data/data_couples.dta") |>
+  mutate(city_type = factor(city_size, levels = c(0,1,4,6,8),
+                            labels = c("Rural","<5k","5-20k","20-200k",">200k")))
+```
+
+**Q0.** What is the research question this exercise is trying to address? Is it causal? Formulate a hypothesis that can be tested with this data.
+
+**Q1.** Run a simple regression of `education_p` on `education_r` (with survey weights). Interpret the slope coefficient. What dimension of assortative matching does it capture? What are its limitations as a measure?
+
+**Q2.** Run the following baseline specification with survey weights: $$\texttt{education\_p}_i = \beta_0 + \beta_1 \texttt{education\_r}_i + \beta_2 \texttt{city\_size}_i + \beta_3 \texttt{age\_r}_i + \beta_4 \texttt{active\_r}_i + e_i$$ What are your priors on the signs of each $\beta$? Interpret $\hat{\beta}_1$.
+
+**Q3.** We want to test whether assortative matching is stronger in larger cities. Modify the specification: $$\texttt{education\_p}_i = \beta_0 + \beta_1 \texttt{education\_r}_i + \sum_c \gamma_c \mathbf{1}[\texttt{city\_type}=c] + \sum_c \delta_c \left(\texttt{education\_r}_i \times \mathbf{1}[\texttt{city\_type}=c]\right) + \text{controls} + e_i$$ Run this model. Interpret the interaction terms $\delta_c$.
+
+**Q4.** Add year fixed effects. Does the estimated matching gradient change? What does year FE control for in this context?
+
+**Q5.** Plot the matching gradient $\hat{\beta}_1^{(c)}$ (coefficient on own education) for each city type, with 95% confidence intervals. What pattern do you observe? Is it consistent with your hypothesis from Q0?
+
+**Q6. (Bonus)** Rerun the specification with `active_p` (partner's labour force status) as the dependent variable instead of `education_p`. Interpret the coefficient on `education_r`. What additional dimension of assortative matching does this capture?
+
+::: {.callout-caution collapse="true"}
+## Solutions — R Exercises
+
+**Q0. Research question and hypothesis.**
+
+The exercise asks whether larger cities produce *better* (more assortative) marriage markets. This is purely **descriptive** — not causal. Education, city type, and partner's education are jointly determined by self-selection; we cannot identify a causal effect of city size on matching.
+
+The relevant hypothesis is the **thick market hypothesis**: in denser urban areas, a larger pool of potential partners makes it easier to find a close match in terms of education, yielding matching closer to the competitive equilibrium (positive assortative matching). The testable implication is that the education matching gradient (slope of partner's education on own education) is steeper in larger cities.
+
+**Sign priors (Q2):**
+
+-   $\beta_1 > 0$: positive assortative matching — more educated individuals partner with more educated individuals.
+-   $\beta_2 > 0$: urban areas attract more educated workers; partners in cities have higher average education regardless of the respondent's own.
+-   $\beta_3 < 0$: older individuals come from cohorts with lower average education (cohort effect); their partners are also older and less educated on average.
+-   $\beta_4 > 0$: labour force participation is positively correlated with education; active respondents tend to have active (and more educated) partners.
+
+**Interpretation of** $\hat{\beta}_1$ **(Q1 and Q2):** A one-year increase in own education is associated with a $\hat{\beta}_1$-year increase in the partner's education, on average. This is a measure of the *matching gradient*. $\hat{\beta}_1 = 1$ would mean perfect PAM on education; $\hat{\beta}_1 = 0$ would mean random matching. Limitation (Q1): the simple regression conflates the matching gradient with city-size sorting, cohort effects, and labour market selection.
+
+**Interpretation of** $\delta_c$ **(Q3):** The interaction $\delta_c$ measures *how much steeper* the education-partner-education slope is in city type $c$ relative to the reference category (Rural). A positive and increasing $\delta_c$ as city size grows supports the thick market hypothesis.
+
+**Year FE (Q4):** Year fixed effects absorb macro-level trends common to all couples in a given year — increases in average educational attainment over time, business cycle effects on labour force participation, or changes in survey sampling. They prevent year-specific trends from being mistaken for city-type effects.
+
+``` r
+# Q1: Simple matching gradient
+m0 <- lm(education_p ~ education_r, data = d, weights = weight)
+summary(m0)
+
+# Q2: Baseline specification
+m1 <- lm(education_p ~ education_r + city_size + age_r + active_r,
+          data = d, weights = weight)
+summary(m1)
+
+# Q3: Interaction with city type dummies
+m2 <- lm(education_p ~ education_r * city_type + age_r + active_r,
+          data = d, weights = weight)
+summary(m2)
+
+# Test joint significance of interaction terms
+library(car)
+linearHypothesis(m2, grep("education_r:city_type", names(coef(m2)), value = TRUE))
+
+# Q4: Add year FE
+m3 <- lm(education_p ~ education_r * city_type + age_r + active_r + factor(year),
+          data = d, weights = weight)
+summary(m3)
+
+# Q5: Plot matching gradient by city type (by-group regressions)
+grad_by_city <- d |>
+  group_by(city_type) |>
+  group_modify(~ {
+    fit <- lm(education_p ~ education_r + age_r + active_r + factor(year),
+              data = .x, weights = .x$weight)
+    tidy(fit, conf.int = TRUE) |> filter(term == "education_r")
+  })
+
+ggplot(grad_by_city, aes(x = city_type, y = estimate,
+                          ymin = conf.low, ymax = conf.high)) +
+  geom_point(size = 3) +
+  geom_errorbar(width = 0.2) +
+  labs(x = "City type",
+       y = "Matching gradient (β on own education)",
+       title = "Assortative matching gradient by city type",
+       subtitle = "Coefficient on education_r; controls: age, active, year FE") +
+  theme_bw()
+
+# Q6: Bonus — partner's labour force status
+m_bonus <- lm(active_p ~ education_r * city_type + age_r + active_r + factor(year),
+               data = d, weights = weight)
+summary(m_bonus)
+```
+:::
