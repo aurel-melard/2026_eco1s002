@@ -371,7 +371,7 @@ The match (M5, W6) is mutually preferred. By the same logic, (M3,W4) and (M1,W2)
 The dataset `data_couples.dta` comes from the French Labour Force Survey (*Enquête Emploi*) for four years: 1996, 2002, 2006, 2013. Each observation is a heterosexual couple living together. Key variables:
 
 | Variable | Description |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | `education_r` | Respondent's years of education (5–16.5) |
 | `education_p` | Partner's years of education |
 | `active_r` | Respondent in labour force (0/1) |
