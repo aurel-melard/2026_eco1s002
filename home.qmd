@@ -61,8 +61,8 @@ The course has 3 main objectives:
     -   Difference-in-differences estimation
     -   Marriage output matrices
     -   Measures of assortative mating
--   **Tutorial 12 (13/05)**
-    -   Mock exam correction
+-   [**Tutorial 12**](https://aurel-melard.github.io/2026_eco1s002/quiz.html) **(13/05)**
+    -   Quiz correction
 -   **Tutorial 13 (20/05)**
     -   Restitution of the group projects *(graded)*
     -   Final Q&A

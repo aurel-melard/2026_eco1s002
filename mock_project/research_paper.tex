@@ -1,0 +1,335 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{lmodern}
+
+\geometry{margin=2.5cm}
+\onehalfspacing
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% --- Title ---
+\title{\textbf{Does Public Education Expenditure Reduce Income Inequality?\\
+Cross-Country Evidence from the World Bank}}
+
+\author{
+  Jane Doe\thanks{École Polytechnique -- Institut Polytechnique de Paris.
+  Email: \texttt{jane.doe@polytechnique.edu}} \and
+  John Smith\thanks{École Polytechnique -- Institut Polytechnique de Paris.
+  Email: \texttt{john.smith@polytechnique.edu}}
+}
+
+\date{May 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \noindent
+  We study the relationship between government expenditure on education and income
+  inequality across a panel of 10 countries over the period 2015--2019, using data from
+  the World Bank World Development Indicators. Exploiting within-country variation in
+  education spending and controlling for GDP per capita, secondary school enrollment,
+  and urbanization, we find a negative and statistically significant association between
+  education expenditure and the Gini index: a one percentage-point increase in education
+  spending as a share of GDP is associated with a reduction of approximately 1.5 Gini
+  points. Country fixed-effects estimates confirm this pattern, though the effect is
+  attenuated when year fixed effects are included. These results are consistent with
+  the hypothesis that public education investment mitigates inequality by expanding
+  access to human capital accumulation.\\[4pt]
+  \textbf{JEL Codes:} I24, D63, H52\\
+  \textbf{Keywords:} income inequality, education expenditure, human capital, Gini index
+\end{abstract}
+
+\newpage
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+% =============================================================================
+
+\subsection*{Motivation}
+
+Income inequality has increased substantially in many advanced and developing economies
+over the past four decades \citep{piketty2014capital, atkinson2015inequality}. High
+levels of inequality carry significant consequences for economic growth, social mobility,
+and political stability. Understanding the determinants of inequality---and identifying
+effective policy levers to address it---has therefore become a central question in
+economics and public policy. Among the many instruments available to governments,
+education policy occupies a special place: it can both directly redistribute income
+(by improving the earning capacity of lower-income households) and indirectly reduce
+inequality through its effects on social mobility and the skill composition of the labour
+force \citep{goldin2008race}.
+
+Despite its centrality in policy discussions, the empirical evidence on the effect of
+\textit{public} education expenditure on income inequality remains mixed. Cross-country
+comparisons are complicated by differences in the composition of spending (primary vs.
+tertiary), institutional quality, and the level of development. In addition, reverse
+causality is a genuine concern: governments facing high inequality may have greater
+incentives to invest in education, creating upward bias in naïve OLS estimates.
+
+\subsection*{Research Question}
+
+This paper asks: \textit{Does higher government expenditure on education reduce income
+inequality?} We study this question using a cross-country panel from the World Bank
+World Development Indicators, focusing on 10 heterogeneous countries over 2015--2019.
+
+\subsection*{Brief Summary}
+
+We use annual data on the Gini index, government education expenditure as a share of
+GDP, GDP per capita, secondary school enrollment, and urbanization for 10 countries
+spanning different income levels and regions. Our identification strategy exploits
+within-country variation in education spending over time, relying on country fixed
+effects to absorb time-invariant confounders such as historical institutions and
+culture. Baseline OLS estimates suggest a strong negative correlation between education
+spending and the Gini index; this finding is robust to the inclusion of country fixed
+effects, although attenuated in magnitude. We interpret these results as consistent
+with the human capital channel: education expenditure expands access to schooling among
+lower-income households, compressing the skill and wage distribution.
+
+\subsection*{Literature Review}
+
+Our paper relates to two strands of the literature. First, a body of work studies the
+role of education in shaping long-run inequality. \citet{goldin2008race} argue that
+the US inequality surge of the 1980s reflects a ``race between education and technology''
+in which technological change outpaced the supply of skilled workers; their framework
+implies that policies expanding educational attainment should reduce inequality when
+labour supply responds sufficiently. \citet{checchi2003education} provides cross-country
+evidence that education affects income distribution through both wage compression and
+intergenerational mobility, though the direction depends on how education is financed
+and distributed across the income spectrum.
+
+Second, we contribute to the fiscal policy and inequality literature. \citet{clements2012}
+and \citet{imf2014fiscal} document that social spending---including education---tends to
+reduce market income inequality in OECD countries, while the effect is weaker in
+developing economies, partly because spending often disproportionately benefits the
+middle class rather than the poor. Our results corroborate these findings but highlight
+the importance of controlling for GDP per capita and urbanization when comparing
+countries at different development stages.
+
+% =============================================================================
+\section{Descriptive Evidence}
+\label{sec:data}
+% =============================================================================
+
+\subsection{Data Description}
+
+Our dataset is constructed from the \textbf{World Bank World Development Indicators}
+(WDI), one of the most widely used sources of international development data. The WDI
+compiles data from officially recognised international sources and covers over 200
+countries and territories. We use five indicators for the period 2015--2019:
+\begin{itemize}
+  \item \textbf{Gini index} (\texttt{SI.POV.GINI}): a measure of income distribution
+        ranging from 0 (perfect equality) to 100 (maximum inequality).
+  \item \textbf{Government education expenditure} (\texttt{SE.XPD.TOTL.GD.ZS}):
+        total public spending on education as a percentage of GDP.
+  \item \textbf{GDP per capita} (\texttt{NY.GDP.PCAP.CD}): expressed in current USD
+        and entered in logs.
+  \item \textbf{Secondary school enrollment} (\texttt{SE.SEC.ENRR}): gross enrollment
+        ratio in secondary education.
+  \item \textbf{Urban population share} (\texttt{SP.URB.TOTL.IN.ZS}): share of the
+        population living in urban areas.
+\end{itemize}
+
+We restrict the sample to 10 countries selected to represent a range of income levels and
+regions: France, Germany, Sweden, and the United Kingdom (high-income Europe); the
+United States and Japan (high-income non-Europe); Brazil, Mexico, India, and South Africa
+(middle-income). This yields a balanced panel of $N = 50$ country-year observations.
+The unit of analysis is the country-year.
+
+The Gini index varies widely across our sample, from about 27 (Sweden) to 63 (South
+Africa), reflecting substantial cross-country heterogeneity. Education spending ranges
+from 3.2\% of GDP (Japan) to 6.8\% (Sweden). The negative raw correlation visible in
+Figure~\ref{fig:scatter} is consistent with the hypothesis under study.
+
+\subsection{Summary Statistics}
+
+Table~\ref{tab:summary_stats} reports summary statistics for the key variables in our
+analysis. The mean Gini coefficient across country-years is approximately 39, with
+a standard deviation of about 10 points. Education expenditure averages 5.2\% of GDP.
+The log GDP per capita varies substantially, from 7.5 (India) to 11.0 (Sweden), which
+motivates controlling for development level in regressions.
+
+\begin{table}[H]
+  \centering
+  \caption{Summary statistics, 10 countries, 2015--2019}
+  \label{tab:summary_stats}
+  \input{output/table1_summary_stats.tex}
+\end{table}
+
+\subsection{Descriptive Evidence}
+
+Figure~\ref{fig:scatter} shows a scatter plot of education expenditure against the Gini
+index, pooling all country-years. Each point represents a country-year observation;
+the dashed line is a linear fit. There is a strong negative unconditional correlation
+between the two variables ($r \approx -0.72$): countries that spend more on education
+tend to have lower inequality. The pattern is driven partly by the contrast between
+high-inequality developing economies (Brazil, South Africa) with low-to-moderate
+education spending and low-inequality Scandinavian countries (Sweden) with high
+spending. As we show in the regression analysis, this relationship is robust to
+controlling for development level.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{output/figure1_scatter_edu_gini.pdf}
+  \caption{Education spending and income inequality.
+    Notes: Each point is a country-year observation, 2015--2019.
+    The dashed line is a linear fit. Data: World Bank WDI.}
+  \label{fig:scatter}
+\end{figure}
+
+Figure~\ref{fig:trends} plots Gini coefficients over time for each country. Within-country
+variation in the Gini is modest over this short period---most countries display
+near-flat trends---which underscores that the bulk of the identifying variation in our
+fixed-effects specifications comes from changes in education spending rather than
+structural shifts in inequality.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{output/figure2_gini_trends.pdf}
+  \caption{Gini coefficient trends by country, 2015--2019.
+    Data: World Bank WDI.}
+  \label{fig:trends}
+\end{figure}
+
+% =============================================================================
+\section{Causal Evidence}
+\label{sec:empirics}
+% =============================================================================
+
+\subsection{Model Specification}
+
+We estimate the following linear model:
+\begin{equation}
+  \text{Gini}_{it} = \alpha + \beta \cdot \text{EduExp}_{it} + \boldsymbol{X}_{it}'\boldsymbol{\gamma}
+    + \mu_i + \lambda_t + \varepsilon_{it},
+  \label{eq:main}
+\end{equation}
+where $\text{Gini}_{it}$ is the Gini index for country $i$ in year $t$,
+$\text{EduExp}_{it}$ is government education expenditure as a share of GDP,
+$\boldsymbol{X}_{it}$ is a vector of controls (log GDP per capita, secondary enrollment,
+urban population share), $\mu_i$ are country fixed effects, $\lambda_t$ are year fixed
+effects, and $\varepsilon_{it}$ is an idiosyncratic error term. Standard errors are
+clustered at the country level.
+
+The parameter of interest is $\beta$, which captures the within-country association
+between education spending and inequality. \textit{Ceteris paribus}, we expect
+$\beta < 0$.
+
+\paragraph{Threats to identification.} The main threats to interpreting $\hat{\beta}$ as
+a causal effect are: (i) \textit{omitted variable bias} from time-varying country
+characteristics correlated with both spending and inequality; (ii) \textit{simultaneity},
+since governments may increase education budgets in response to rising inequality; and
+(iii) \textit{measurement error} in the Gini index, which is known to depend on survey
+methodology and coverage.
+
+\subsection{Strategy}
+
+Country fixed effects ($\mu_i$) absorb all time-invariant confounders---including
+historical institutions, cultural attitudes toward redistribution, and the structure of
+the tax system---that could drive both education spending and inequality. Year fixed
+effects ($\lambda_t$) absorb global shocks common to all countries in a given year
+(e.g.\ global recessions, commodity price cycles). Conditional on these fixed effects
+and the observed time-varying controls, the identifying assumption is that changes in
+education expenditure within a country are not systematically driven by anticipation of
+future changes in inequality. Given the institutional rigidities in education budgets,
+we consider this assumption plausible, while acknowledging that IV strategies (e.g.\
+using electoral cycles or budget rules as instruments) would provide stronger
+identification.
+
+\subsection{OLS Results}
+
+Table~\ref{tab:ols} reports pooled OLS estimates of equation~\eqref{eq:main} without
+fixed effects, progressively adding controls. Column~(1) shows the baseline bivariate
+regression. The coefficient on education expenditure is negative and statistically
+significant at the 1\% level: a one percentage-point increase in education spending
+is associated with a reduction of approximately 4.5 Gini points. This large coefficient
+reflects the cross-sectional variation dominated by the contrast between high-spending
+low-inequality countries (Sweden) and low-spending high-inequality ones (South Africa).
+
+In column~(2) we add log GDP per capita, which absorbs part of the cross-country
+variation. The coefficient on education spending falls to $-2.3$, but remains significant.
+Column~(3) adds secondary school enrollment and urban population share; the estimate
+stabilises around $-1.5$, suggesting that the income channel accounts for much of the
+raw correlation.
+
+\begin{table}[H]
+  \centering
+  \caption{OLS estimates: education expenditure and income inequality}
+  \label{tab:ols}
+  \input{output/table2_ols.tex}
+\end{table}
+
+\subsection{Fixed-Effects Results}
+
+Table~\ref{tab:fe} reports country fixed-effects estimates. By exploiting only
+within-country variation, we remove the concern that unobserved country-level factors
+drive the cross-sectional pattern. The coefficient on education expenditure remains
+negative across all specifications. Column~(1) (country FE only, no controls) yields
+$\hat{\beta} \approx -1.8$; adding controls in column~(2) gives $\hat{\beta} \approx -1.5$.
+When year fixed effects are also included (column~3), the estimate falls to
+$\hat{\beta} \approx -0.9$ but remains negative, suggesting that global factors partially
+explain the within-country comovement between spending and inequality.
+
+\begin{table}[H]
+  \centering
+  \caption{Fixed-effects estimates: education expenditure and income inequality}
+  \label{tab:fe}
+  \input{output/table3_fe.tex}
+\end{table}
+
+Overall, the results are consistent across specifications: higher public education
+expenditure is negatively associated with income inequality. Magnitudes are moderate
+once country fixed effects are included, which is consistent with the slow-moving nature
+of inequality and the short time horizon of our panel.
+
+% =============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% =============================================================================
+
+This paper has examined whether government expenditure on education is associated with
+lower income inequality using a cross-country panel of 10 countries from 2015 to 2019.
+Pooled OLS estimates reveal a strong negative unconditional correlation between education
+spending and the Gini coefficient. Country fixed-effects estimates confirm a negative
+within-country relationship, with a magnitude of roughly $-1.5$ Gini points per
+percentage-point increase in education expenditure as a share of GDP. The finding
+is consistent with the human capital channel: public education investment can compress
+the wage distribution by raising the stock of skills among lower-income households.
+
+The main limitation of our analysis is the short time series, which limits the
+identifying variation in the fixed-effects regressions and makes it difficult to
+address reverse causality using dynamic methods. Future work could extend the sample
+to a longer panel and exploit policy-induced variation in education budgets---such as
+fiscal consolidation episodes or constitutional spending mandates---to provide sharper
+causal estimates.
+
+% =============================================================================
+\newpage
+\bibliographystyle{apalike}
+\bibliography{references}
+% =============================================================================
+
+\appendix
+
+\section*{Appendix: Data Availability}
+
+The raw data are publicly available from the World Bank World Development Indicators
+portal at \url{https://databank.worldbank.org/source/world-development-indicators}.
+The complete replication package, including the cleaned dataset and all R scripts,
+is described in the accompanying \texttt{README.md} file.
+
+\end{document}
