@@ -1,0 +1,34 @@
+
+\begin{table}[htbp]
+   \caption{\label{tab:fe} Fixed-effects estimates of education expenditure on income inequality}
+   \centering
+   \begin{tabular}{lccc}
+      \tabularnewline \midrule \midrule
+      Country FE & \multicolumn{3}{c}{Yes} \\ 
+      Year FE & \multicolumn{2}{c}{No} & Yes \\ 
+      Model:         & (1)      & (2)      & (3)\\  
+      \midrule
+      \emph{Variables}\\
+      edu\_exp       & 0.0439   & 0.0745   & 0.1008\\   
+                     & (0.5789) & (0.6176) & (0.7281)\\   
+      log\_gdp\_pc   &          & -0.6180  & -0.3645\\   
+                     &          & (0.4056) & (0.5993)\\   
+      sec\_enr       &          &          & 0.0354\\   
+                     &          &          & (0.1684)\\   
+      urban          &          &          & -0.0436\\   
+                     &          &          & (0.3648)\\   
+      \midrule
+      \emph{Fixed-effects}\\
+      country        & Yes      & Yes      & Yes\\  
+      year\_fct      &          &          & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations   & 50       & 50       & 50\\  
+      R$^2$          & 0.99966  & 0.99967  & 0.99968\\  
+      \midrule \midrule
+      \multicolumn{4}{l}{\emph{Clustered (country) standard-errors in parentheses}}\\
+      \multicolumn{4}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

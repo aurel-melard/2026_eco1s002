@@ -66,7 +66,7 @@ The course has 3 main objectives:
 -   **Tutorial 13 (20/05)**
     -   Restitution of the group projects *(graded)*
     -   Final Q&A
--   **Tutorial 14 (27/05)**
+-   [**Tutorial 14**](https://aurel-melard.github.io/2026_eco1s002/exam_correction.html) **(27/05)**
     -   Restitution of the group projects *(graded)*
     -   Final Q&A
 

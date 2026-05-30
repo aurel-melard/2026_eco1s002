@@ -32,6 +32,8 @@ website:
         href: tutorial11_alt.qmd
       - text: "Tutorial 12"
         href: quiz.qmd
+      - text: "Tutorial 14"
+        href: exam_correction.qmd
   page-footer:
     right: "Built with [Quarto](https://quarto.org/)"
     left: "&copy; Copyright 2026, Aurel Mélard"
